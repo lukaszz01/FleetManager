@@ -259,8 +259,8 @@ namespace SBBD
             tile8 = createTile(new Point(340, 360));
             tile9 = createTile(new Point(680, 360));
 
-            Label lbl1 = createTileLabel("jakiś pojazd xD");
-            Label lbl2 = createTileLabel("jakiś inny pojazd xD");
+            Label lbl1 = createTileLabel("jakiś pojazd");
+            Label lbl2 = createTileLabel("jakiś inny pojazd");
 
             vehiclesPanel.Controls.Add(tile1);
             vehiclesPanel.Controls.Add(tile2);
@@ -279,7 +279,6 @@ namespace SBBD
         private void tile_MouseClick(Object sender, MouseEventArgs e)
         {
             MessageBox.Show("test");
-            //komentarz testowy
         }
     }
 }
