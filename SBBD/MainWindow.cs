@@ -279,6 +279,7 @@ namespace SBBD
         private void tile_MouseClick(Object sender, MouseEventArgs e)
         {
             MessageBox.Show("test");
+            //komentarz testowy
         }
     }
 }
