@@ -18,6 +18,7 @@ namespace SBBD
         bool moving;
         int moveX;
         int moveY;
+        Vehicles vehicle1, vehicle2;
 
         int selected;
         public MainWindow()
@@ -257,9 +258,9 @@ namespace SBBD
 
         private void populatePanel()
         {
-            this.Validate();
-            var vehicle1 = context.Vehicles.Where(v => v.vehicle_id == 1).FirstOrDefault<Vehicles>();
-            var vehicle2 = context.Vehicles.Where(v => v.vehicle_id == 2).FirstOrDefault<Vehicles>();
+            var allveh =  context.Vehicles.Select(x => x).ToList();
+            vehicle1 = context.Vehicles.Where(v => v.vehicle_id == 1).FirstOrDefault<Vehicles>();
+            vehicle2 = context.Vehicles.Where(v => v.vehicle_id == 2).FirstOrDefault<Vehicles>();
             PictureBox tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9;
             tile1 = createTile(new Point(0, 0));
             tile2 = createTile(new Point(340, 0));
@@ -270,8 +271,9 @@ namespace SBBD
             tile7 = createTile(new Point(0, 360));
             tile8 = createTile(new Point(340, 360));
             tile9 = createTile(new Point(680, 360));
+            
 
-            Label lbl1 = createTileLabel(vehicle1.manufacturer + " " + vehicle1.model);
+            Label lbl1 = createTileLabel(allveh[0].manufacturer + " " + allveh[0].model + " \n" +allveh[0].registration_num);
             Label lbl2 = createTileLabel(vehicle2.manufacturer + " " + vehicle2.model);
 
             vehiclesPanel.Controls.Add(tile1);
@@ -290,7 +292,16 @@ namespace SBBD
 
         private void tile_MouseClick(Object sender, MouseEventArgs e)
         {
-            MessageBox.Show("test");
+            PictureBox pb = (PictureBox)sender;
+            MessageBox.Show(pb.Name);
+            /*if (pb.Location == new Point(0, 0))
+            {
+                MessageBox.Show(vehicle1.color);
+            }
+            else if (pb.Location == new Point(340, 0))
+            {
+                MessageBox.Show(vehicle2.color);
+            }*/
         }
 
         protected override void OnClosing(CancelEventArgs e)
