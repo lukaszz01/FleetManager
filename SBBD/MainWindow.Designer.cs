@@ -29,6 +29,7 @@ namespace SBBD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.addVehicle = new System.Windows.Forms.PictureBox();
             this.allVehicles = new System.Windows.Forms.PictureBox();
@@ -39,6 +40,7 @@ namespace SBBD
             this.mainMinimize = new System.Windows.Forms.PictureBox();
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -47,6 +49,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -160,6 +163,10 @@ namespace SBBD
             this.vehiclesPanel.Size = new System.Drawing.Size(1000, 520);
             this.vehiclesPanel.TabIndex = 8;
             // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,7 +186,6 @@ namespace SBBD
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.Text = "Fleet Manager";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).EndInit();
@@ -188,6 +194,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -203,5 +210,6 @@ namespace SBBD
         private System.Windows.Forms.PictureBox mainMinimize;
         private System.Windows.Forms.PictureBox mainTitleBar;
         private System.Windows.Forms.Panel vehiclesPanel;
+        private System.Windows.Forms.BindingSource vehiclesBindingSource;
     }
 }

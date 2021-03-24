@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="6b4f0bab200e4a95b675f61093a9fa3d" Name="Diagram1">
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Users" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Vehicle_Service" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Vehicles" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Vehicles_Breakdowns" Width="1.5" PointX="5.25" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Vehicles_Images" Width="1.5" PointX="5.25" PointY="7" IsExpanded="true" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicle_Service_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Breakdowns_Vehicles" ManuallyRouted="false" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Images_Vehicles" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -7,12 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace SBBD
 {
     
     public partial class MainWindow : Form
     {
+        VFEntities context;
         bool moving;
         int moveX;
         int moveY;
@@ -22,15 +24,22 @@ namespace SBBD
         {
             InitializeComponent();
             selected = 1;
-            populatePanel();
+            
         }
 
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
+        protected override void OnLoad(EventArgs e)
+        {           
+            base.OnLoad(e);
+
             Login.ShowLogin();
+            context = new VFEntities();
+            context.Vehicles.Load();
+            this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
+            populatePanel();
+
         }
 
-        private void addVehicle_MouseEnter(object sender, EventArgs e)
+            private void addVehicle_MouseEnter(object sender, EventArgs e)
         {
             if(selected != 0)
                 addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1on;
@@ -248,6 +257,9 @@ namespace SBBD
 
         private void populatePanel()
         {
+            this.Validate();
+            var vehicle1 = context.Vehicles.Where(v => v.vehicle_id == 1).FirstOrDefault<Vehicles>();
+            var vehicle2 = context.Vehicles.Where(v => v.vehicle_id == 2).FirstOrDefault<Vehicles>();
             PictureBox tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9;
             tile1 = createTile(new Point(0, 0));
             tile2 = createTile(new Point(340, 0));
@@ -259,8 +271,8 @@ namespace SBBD
             tile8 = createTile(new Point(340, 360));
             tile9 = createTile(new Point(680, 360));
 
-            Label lbl1 = createTileLabel("jakiś pojazd");
-            Label lbl2 = createTileLabel("jakiś inny pojazd");
+            Label lbl1 = createTileLabel(vehicle1.manufacturer + " " + vehicle1.model);
+            Label lbl2 = createTileLabel(vehicle2.manufacturer + " " + vehicle2.model);
 
             vehiclesPanel.Controls.Add(tile1);
             vehiclesPanel.Controls.Add(tile2);
@@ -279,6 +291,12 @@ namespace SBBD
         private void tile_MouseClick(Object sender, MouseEventArgs e)
         {
             MessageBox.Show("test");
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            this.context.Dispose();
         }
     }
 }

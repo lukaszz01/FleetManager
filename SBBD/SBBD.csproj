@@ -45,6 +45,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -77,6 +79,36 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Users.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles_Breakdowns.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles_Images.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicle_Service.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VFModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VFModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VFModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VFModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VFModel.edmx</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
@@ -97,6 +129,7 @@
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Vehicles.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -106,6 +139,13 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <EntityDeploy Include="VFModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>VFModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="VFModel.edmx.diagram">
+      <DependentUpon>VFModel.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -199,6 +239,21 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\CloseBTN.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="VFModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VFModel.edmx</DependentUpon>
+      <LastGenOutput>VFModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="VFModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>VFModel.edmx</DependentUpon>
+      <LastGenOutput>VFModel.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

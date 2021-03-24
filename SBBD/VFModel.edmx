@@ -1,0 +1,362 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Vehicle_FleetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="15" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="25" Nullable="false" />
+          <Property Name="password" Type="varchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicle_Service">
+          <Key>
+            <PropertyRef Name="vehicle_service_id" />
+          </Key>
+          <Property Name="vehicle_service_id" Type="int" Nullable="false" />
+          <Property Name="technical_inspection" Type="date" Nullable="false" />
+          <Property Name="liability_insurance" Type="date" Nullable="false" />
+          <Property Name="comprehensive_cover" Type="date" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="manufacturer" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="model" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="prod_year" Type="int" Nullable="false" />
+          <Property Name="fuel_type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="mileage" Type="int" Nullable="false" />
+          <Property Name="body_type" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="VIN" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="registration_num" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="engine_capacity" Type="int" Nullable="false" />
+          <Property Name="engine_power" Type="int" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+          <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicles_Breakdowns">
+          <Key>
+            <PropertyRef Name="vehicle_breakdown_id" />
+          </Key>
+          <Property Name="vehicle_breakdown_id" Type="int" Nullable="false" />
+          <Property Name="breakdown_date" Type="date" Nullable="false" />
+          <Property Name="breakdown_info" Type="text" Nullable="false" />
+          <Property Name="breakdown_state" Type="bit" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicles_Images">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="int" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+          <Property Name="vehicle_image" Type="image" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Vehicle_Service_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicle_Service" Type="Self.Vehicle_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicle_Service">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Breakdowns_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicles_Breakdowns" Type="Self.Vehicles_Breakdowns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Breakdowns">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Images_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicles_Images" Type="Self.Vehicles_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Images">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="email" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="user_email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="Vehicle_FleetModelStoreContainer">
+          <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicle_Service" EntityType="Self.Vehicle_Service" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles_Breakdowns" EntityType="Self.Vehicles_Breakdowns" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles_Images" EntityType="Self.Vehicles_Images" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Vehicle_Service_Vehicles" Association="Self.FK_Vehicle_Service_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicle_Service" EntitySet="Vehicle_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Breakdowns_Vehicles" Association="Self.FK_Vehicles_Breakdowns_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicles_Breakdowns" EntitySet="Vehicles_Breakdowns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Images_Vehicles" Association="Self.FK_Vehicles_Images_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicles_Images" EntitySet="Vehicles_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Users" Association="Self.FK_Vehicles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Vehicle_FleetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Users">
+          <Key>
+            <PropertyRef Name="email" />
+          </Key>
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="first_name" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="last_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Users" FromRole="Users" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Vehicle_Service">
+          <Key>
+            <PropertyRef Name="vehicle_service_id" />
+          </Key>
+          <Property Name="vehicle_service_id" Type="Int32" Nullable="false" />
+          <Property Name="technical_inspection" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="liability_insurance" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="comprehensive_cover" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicle_Service_Vehicles" FromRole="Vehicle_Service" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Vehicles">
+          <Key>
+            <PropertyRef Name="vehicle_id" />
+          </Key>
+          <Property Name="manufacturer" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="model" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="prod_year" Type="Int32" Nullable="false" />
+          <Property Name="fuel_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="mileage" Type="Int32" Nullable="false" />
+          <Property Name="body_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="registration_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="engine_capacity" Type="Int32" Nullable="false" />
+          <Property Name="engine_power" Type="Int32" Nullable="false" />
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" />
+          <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Users" Relationship="Self.FK_Vehicles_Users" FromRole="Vehicles" ToRole="Users" />
+          <NavigationProperty Name="Vehicle_Service" Relationship="Self.FK_Vehicle_Service_Vehicles" FromRole="Vehicles" ToRole="Vehicle_Service" />
+          <NavigationProperty Name="Vehicles_Breakdowns" Relationship="Self.FK_Vehicles_Breakdowns_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Breakdowns" />
+          <NavigationProperty Name="Vehicles_Images" Relationship="Self.FK_Vehicles_Images_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Images" />
+        </EntityType>
+        <EntityType Name="Vehicles_Breakdowns">
+          <Key>
+            <PropertyRef Name="vehicle_breakdown_id" />
+          </Key>
+          <Property Name="vehicle_breakdown_id" Type="Int32" Nullable="false" />
+          <Property Name="breakdown_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="breakdown_info" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="breakdown_state" Type="Boolean" Nullable="false" />
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Breakdowns_Vehicles" FromRole="Vehicles_Breakdowns" ToRole="Vehicles" />
+        </EntityType>
+        <EntityType Name="Vehicles_Images">
+          <Key>
+            <PropertyRef Name="image_id" />
+          </Key>
+          <Property Name="image_id" Type="Int32" Nullable="false" />
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" />
+          <Property Name="vehicle_image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Images_Vehicles" FromRole="Vehicles_Images" ToRole="Vehicles" />
+        </EntityType>
+        <Association Name="FK_Vehicles_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="email" />
+            </Principal>
+            <Dependent Role="Vehicles">
+              <PropertyRef Name="user_email" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicle_Service_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicle_Service" Type="Self.Vehicle_Service" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicle_Service">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Breakdowns_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicles_Breakdowns" Type="Self.Vehicles_Breakdowns" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Breakdowns">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Images_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicles_Images" Type="Self.Vehicles_Images" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Images">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="VFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Users" EntityType="Self.Users" />
+          <EntitySet Name="Vehicle_Service" EntityType="Self.Vehicle_Service" />
+          <EntitySet Name="Vehicles" EntityType="Self.Vehicles" />
+          <EntitySet Name="Vehicles_Breakdowns" EntityType="Self.Vehicles_Breakdowns" />
+          <EntitySet Name="Vehicles_Images" EntityType="Self.Vehicles_Images" />
+          <AssociationSet Name="FK_Vehicles_Users" Association="Self.FK_Vehicles_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="Vehicles" EntitySet="Vehicles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicle_Service_Vehicles" Association="Self.FK_Vehicle_Service_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicle_Service" EntitySet="Vehicle_Service" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Breakdowns_Vehicles" Association="Self.FK_Vehicles_Breakdowns_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicles_Breakdowns" EntitySet="Vehicles_Breakdowns" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Images_Vehicles" Association="Self.FK_Vehicles_Images_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicles_Images" EntitySet="Vehicles_Images" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="Vehicle_FleetModelStoreContainer" CdmEntityContainer="VFEntities">
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Users">
+              <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="password" ColumnName="password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicle_Service">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicle_Service">
+              <MappingFragment StoreEntitySet="Vehicle_Service">
+                <ScalarProperty Name="vehicle_service_id" ColumnName="vehicle_service_id" />
+                <ScalarProperty Name="technical_inspection" ColumnName="technical_inspection" />
+                <ScalarProperty Name="liability_insurance" ColumnName="liability_insurance" />
+                <ScalarProperty Name="comprehensive_cover" ColumnName="comprehensive_cover" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicles">
+              <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
+                <ScalarProperty Name="model" ColumnName="model" />
+                <ScalarProperty Name="prod_year" ColumnName="prod_year" />
+                <ScalarProperty Name="fuel_type" ColumnName="fuel_type" />
+                <ScalarProperty Name="color" ColumnName="color" />
+                <ScalarProperty Name="mileage" ColumnName="mileage" />
+                <ScalarProperty Name="body_type" ColumnName="body_type" />
+                <ScalarProperty Name="VIN" ColumnName="VIN" />
+                <ScalarProperty Name="registration_num" ColumnName="registration_num" />
+                <ScalarProperty Name="engine_capacity" ColumnName="engine_capacity" />
+                <ScalarProperty Name="engine_power" ColumnName="engine_power" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+                <ScalarProperty Name="user_email" ColumnName="user_email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles_Breakdowns">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicles_Breakdowns">
+              <MappingFragment StoreEntitySet="Vehicles_Breakdowns">
+                <ScalarProperty Name="vehicle_breakdown_id" ColumnName="vehicle_breakdown_id" />
+                <ScalarProperty Name="breakdown_date" ColumnName="breakdown_date" />
+                <ScalarProperty Name="breakdown_info" ColumnName="breakdown_info" />
+                <ScalarProperty Name="breakdown_state" ColumnName="breakdown_state" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles_Images">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicles_Images">
+              <MappingFragment StoreEntitySet="Vehicles_Images">
+                <ScalarProperty Name="image_id" ColumnName="image_id" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+                <ScalarProperty Name="vehicle_image" ColumnName="vehicle_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
