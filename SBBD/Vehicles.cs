@@ -27,7 +27,6 @@ namespace SBBD
         public int prod_year { get; set; }
         public string fuel_type { get; set; }
         public string color { get; set; }
-        public int mileage { get; set; }
         public string body_type { get; set; }
         public string VIN { get; set; }
         public string registration_num { get; set; }
@@ -35,6 +34,7 @@ namespace SBBD
         public int engine_power { get; set; }
         public int vehicle_id { get; set; }
         public string user_email { get; set; }
+        public bool available { get; set; }
     
         public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

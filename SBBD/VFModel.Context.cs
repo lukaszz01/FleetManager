@@ -30,5 +30,7 @@ namespace SBBD
         public virtual DbSet<Vehicles> Vehicles { get; set; }
         public virtual DbSet<Vehicles_Breakdowns> Vehicles_Breakdowns { get; set; }
         public virtual DbSet<Vehicles_Images> Vehicles_Images { get; set; }
+        public virtual DbSet<Manufacturers> Manufacturers { get; set; }
+        public virtual DbSet<Models> Models { get; set; }
     }
 }

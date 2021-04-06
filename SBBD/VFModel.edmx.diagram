@@ -14,7 +14,10 @@
         <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicle_Service_Vehicles" ManuallyRouted="false" />
         <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Breakdowns_Vehicles" ManuallyRouted="false" />
         <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Images_Vehicles" ManuallyRouted="false" />
-      </Diagram>
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Manufacturers" Width="1.5" PointX="7.375" PointY="1.125" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Models" Width="1.5" PointX="9.625" PointY="0.875" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Models_Manufacturers" />
+        </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
 </edmx:Edmx>

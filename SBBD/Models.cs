@@ -12,15 +12,12 @@ namespace SBBD
     using System;
     using System.Collections.Generic;
     
-    public partial class Vehicle_Service
+    public partial class Models
     {
-        public int vehicle_service_id { get; set; }
-        public System.DateTime technical_inspection { get; set; }
-        public System.DateTime liability_insurance { get; set; }
-        public System.DateTime comprehensive_cover { get; set; }
-        public int vehicle_id { get; set; }
-        public int tech_insp_mileage { get; set; }
+        public int model_id { get; set; }
+        public string model_name { get; set; }
+        public string manufacturer_name { get; set; }
     
-        public virtual Vehicles Vehicles { get; set; }
+        public virtual Manufacturers Manufacturers { get; set; }
     }
 }

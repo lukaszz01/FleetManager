@@ -70,6 +70,12 @@
     <Compile Include="MainWindow.Designer.cs">
       <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Manufacturers.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ObservableListSource.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -129,6 +135,7 @@
       <DependentUpon>Register.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Manufacturers.datasource" />
     <None Include="Properties\DataSources\Vehicles.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

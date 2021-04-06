@@ -4,7 +4,21 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Vehicle_FleetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="Vehicle_FleetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Manufacturers">
+          <Key>
+            <PropertyRef Name="manufacturer_name" />
+          </Key>
+          <Property Name="manufacturer_name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Models">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="int" Nullable="false" />
+          <Property Name="model_name" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="manufacturer_name" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="email" />
@@ -23,6 +37,7 @@
           <Property Name="liability_insurance" Type="date" Nullable="false" />
           <Property Name="comprehensive_cover" Type="date" Nullable="false" />
           <Property Name="vehicle_id" Type="int" Nullable="false" />
+          <Property Name="tech_insp_mileage" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicles">
           <Key>
@@ -33,7 +48,6 @@
           <Property Name="prod_year" Type="int" Nullable="false" />
           <Property Name="fuel_type" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="color" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="mileage" Type="int" Nullable="false" />
           <Property Name="body_type" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="VIN" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="registration_num" Type="varchar" MaxLength="50" Nullable="false" />
@@ -41,6 +55,7 @@
           <Property Name="engine_power" Type="int" Nullable="false" />
           <Property Name="vehicle_id" Type="int" Nullable="false" />
           <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="available" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicles_Breakdowns">
           <Key>
@@ -60,6 +75,18 @@
           <Property Name="vehicle_id" Type="int" Nullable="false" />
           <Property Name="vehicle_image" Type="image" Nullable="false" />
         </EntityType>
+        <Association Name="FK_Models_Manufacturers">
+          <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1" />
+          <End Role="Models" Type="Self.Models" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="manufacturer_name" />
+            </Principal>
+            <Dependent Role="Models">
+              <PropertyRef Name="manufacturer_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Vehicle_Service_Vehicles">
           <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
           <End Role="Vehicle_Service" Type="Self.Vehicle_Service" Multiplicity="*" />
@@ -109,11 +136,17 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Vehicle_FleetModelStoreContainer">
+          <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicle_Service" EntityType="Self.Vehicle_Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicles_Breakdowns" EntityType="Self.Vehicles_Breakdowns" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicles_Images" EntityType="Self.Vehicles_Images" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Models_Manufacturers" Association="Self.FK_Models_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Models" EntitySet="Models" />
+          </AssociationSet>
           <AssociationSet Name="FK_Vehicle_Service_Vehicles" Association="Self.FK_Vehicle_Service_Vehicles">
             <End Role="Vehicles" EntitySet="Vehicles" />
             <End Role="Vehicle_Service" EntitySet="Vehicle_Service" />
@@ -131,8 +164,7 @@
             <End Role="Vehicles" EntitySet="Vehicles" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="Vehicle_FleetModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -156,6 +188,7 @@
           <Property Name="comprehensive_cover" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="vehicle_id" Type="Int32" Nullable="false" />
           <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicle_Service_Vehicles" FromRole="Vehicle_Service" ToRole="Vehicles" />
+          <Property Name="tech_insp_mileage" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicles">
           <Key>
@@ -166,7 +199,6 @@
           <Property Name="prod_year" Type="Int32" Nullable="false" />
           <Property Name="fuel_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="color" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="mileage" Type="Int32" Nullable="false" />
           <Property Name="body_type" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VIN" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="registration_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
@@ -178,6 +210,7 @@
           <NavigationProperty Name="Vehicle_Service" Relationship="Self.FK_Vehicle_Service_Vehicles" FromRole="Vehicles" ToRole="Vehicle_Service" />
           <NavigationProperty Name="Vehicles_Breakdowns" Relationship="Self.FK_Vehicles_Breakdowns_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Breakdowns" />
           <NavigationProperty Name="Vehicles_Images" Relationship="Self.FK_Vehicles_Images_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Images" />
+          <Property Name="available" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicles_Breakdowns">
           <Key>
@@ -269,8 +302,42 @@
             <End Role="Vehicles" EntitySet="Vehicles" />
             <End Role="Vehicles_Images" EntitySet="Vehicles_Images" />
           </AssociationSet>
-        </EntityContainer>
-      </Schema>
+          <EntitySet Name="Manufacturers" EntityType="Vehicle_FleetModel.Manufacturers" />
+          <EntitySet Name="Models" EntityType="Vehicle_FleetModel.Models" />
+          <AssociationSet Name="FK_Models_Manufacturers" Association="Vehicle_FleetModel.FK_Models_Manufacturers">
+            <End Role="Manufacturers" EntitySet="Manufacturers" />
+            <End Role="Models" EntitySet="Models" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="Manufacturers">
+          <Key>
+            <PropertyRef Name="manufacturer_name" />
+          </Key>
+          <Property Name="manufacturer_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Models" Relationship="Vehicle_FleetModel.FK_Models_Manufacturers" FromRole="Manufacturers" ToRole="Models" />
+        </EntityType>
+        <EntityType Name="Models">
+          <Key>
+            <PropertyRef Name="model_id" />
+          </Key>
+          <Property Name="model_id" Type="Int32" Nullable="false" />
+          <Property Name="model_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="manufacturer_name" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Manufacturers" Relationship="Vehicle_FleetModel.FK_Models_Manufacturers" FromRole="Models" ToRole="Manufacturers" />
+        </EntityType>
+        <Association Name="FK_Models_Manufacturers">
+          <End Type="Vehicle_FleetModel.Manufacturers" Role="Manufacturers" Multiplicity="1" />
+          <End Type="Vehicle_FleetModel.Models" Role="Models" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Manufacturers">
+              <PropertyRef Name="manufacturer_name" />
+            </Principal>
+            <Dependent Role="Models">
+              <PropertyRef Name="manufacturer_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -289,6 +356,7 @@
           <EntitySetMapping Name="Vehicle_Service">
             <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicle_Service">
               <MappingFragment StoreEntitySet="Vehicle_Service">
+                <ScalarProperty Name="tech_insp_mileage" ColumnName="tech_insp_mileage" />
                 <ScalarProperty Name="vehicle_service_id" ColumnName="vehicle_service_id" />
                 <ScalarProperty Name="technical_inspection" ColumnName="technical_inspection" />
                 <ScalarProperty Name="liability_insurance" ColumnName="liability_insurance" />
@@ -300,12 +368,12 @@
           <EntitySetMapping Name="Vehicles">
             <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicles">
               <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="available" ColumnName="available" />
                 <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
                 <ScalarProperty Name="model" ColumnName="model" />
                 <ScalarProperty Name="prod_year" ColumnName="prod_year" />
                 <ScalarProperty Name="fuel_type" ColumnName="fuel_type" />
                 <ScalarProperty Name="color" ColumnName="color" />
-                <ScalarProperty Name="mileage" ColumnName="mileage" />
                 <ScalarProperty Name="body_type" ColumnName="body_type" />
                 <ScalarProperty Name="VIN" ColumnName="VIN" />
                 <ScalarProperty Name="registration_num" ColumnName="registration_num" />
@@ -333,6 +401,22 @@
                 <ScalarProperty Name="image_id" ColumnName="image_id" />
                 <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
                 <ScalarProperty Name="vehicle_image" ColumnName="vehicle_image" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Manufacturers">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Manufacturers">
+              <MappingFragment StoreEntitySet="Manufacturers">
+                <ScalarProperty Name="manufacturer_name" ColumnName="manufacturer_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Models">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Models">
+              <MappingFragment StoreEntitySet="Models">
+                <ScalarProperty Name="manufacturer_name" ColumnName="manufacturer_name" />
+                <ScalarProperty Name="model_name" ColumnName="model_name" />
+                <ScalarProperty Name="model_id" ColumnName="model_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

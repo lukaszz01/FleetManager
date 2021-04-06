@@ -19,6 +19,8 @@ namespace SBBD
         int moveX;
         int moveY;
         Vehicles vehicle1, vehicle2;
+        List<Models> allModels;
+        int maxVehicleId;
 
         int selected;
         public MainWindow()
@@ -35,6 +37,7 @@ namespace SBBD
             Login.ShowLogin();
             context = new VFEntities();
             context.Vehicles.Load();
+            context.Manufacturers.Load();
             this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
             populatePanel();
 
@@ -109,6 +112,9 @@ namespace SBBD
                 addVehicle.BackColor = Color.FromArgb(30, 35, 40);
                 addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1off;
                 vehiclesPanel.Visible = false;
+                addVehiclePanel.Visible = true;
+                if(manufacturerComboBox.Items.Count == 0)
+                    addVehicleLoad();
             }
         }
 
@@ -121,6 +127,7 @@ namespace SBBD
                 allVehicles.BackColor = Color.FromArgb(30, 35, 40);
                 allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
                 vehiclesPanel.Visible = true;
+                addVehiclePanel.Visible = false;
             }
         }
 
@@ -259,8 +266,9 @@ namespace SBBD
         private void populatePanel()
         {
             var allveh =  context.Vehicles.Select(x => x).ToList();
+            maxVehicleId = allveh.Count;
             vehicle1 = context.Vehicles.Where(v => v.vehicle_id == 1).FirstOrDefault<Vehicles>();
-            vehicle2 = context.Vehicles.Where(v => v.vehicle_id == 2).FirstOrDefault<Vehicles>();
+            //vehicle2 = context.Vehicles.Where(v => v.vehicle_id == 2).FirstOrDefault<Vehicles>();
             PictureBox tile1, tile2, tile3, tile4, tile5, tile6, tile7, tile8, tile9;
             tile1 = createTile(new Point(0, 0));
             tile2 = createTile(new Point(340, 0));
@@ -274,7 +282,7 @@ namespace SBBD
             
 
             Label lbl1 = createTileLabel(allveh[0].manufacturer + " " + allveh[0].model + " \n" +allveh[0].registration_num);
-            Label lbl2 = createTileLabel(vehicle2.manufacturer + " " + vehicle2.model);
+            //Label lbl2 = createTileLabel(vehicle2.manufacturer + " " + vehicle2.model);
 
             vehiclesPanel.Controls.Add(tile1);
             vehiclesPanel.Controls.Add(tile2);
@@ -287,7 +295,17 @@ namespace SBBD
             vehiclesPanel.Controls.Add(tile9);
 
             tile1.Controls.Add(lbl1);
-            tile2.Controls.Add(lbl2);
+            //tile2.Controls.Add(lbl2);
+        }
+
+        private void addVehicleLoad()
+        {
+            var allManufacturers = context.Manufacturers.Select(x => x).ToList();
+            allModels = context.Models.Select(x => x).ToList();
+            foreach (Manufacturers manufacturers in allManufacturers)
+            {
+                manufacturerComboBox.Items.Add(manufacturers.manufacturer_name);
+            }
         }
 
         private void tile_MouseClick(Object sender, MouseEventArgs e)
@@ -302,6 +320,44 @@ namespace SBBD
             {
                 MessageBox.Show(vehicle2.color);
             }*/
+        }
+
+        private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            modelComboBox.Enabled = true;
+            modelComboBox.Items.Clear();
+            modelComboBox.Text = "";
+            foreach (Models models in allModels)
+            {
+                if(manufacturerComboBox.Text == models.manufacturer_name)
+                {
+                    modelComboBox.Items.Add(models.model_name);
+                }
+            }
+        }
+
+        private void addVehicleBtn_Click(object sender, EventArgs e)
+        {
+            Vehicles vehicle = new Vehicles()
+            {
+                manufacturer = manufacturerComboBox.Text,
+                model = modelComboBox.Text,
+                prod_year = Int32.Parse(prodYear.Text),
+                fuel_type = fuelTypeComboBox.Text,
+                color = vehicleColor.Text,
+                body_type = bodyTypeComboBox.Text,
+                VIN = vinNumber.Text,
+                registration_num = regNumber.Text,
+                engine_capacity = Int32.Parse(engineCapacity.Text),
+                engine_power = Int32.Parse(enginePower.Text),
+                vehicle_id = ++maxVehicleId,
+                user_email = "user@email.com",
+                available = true
+            };
+            context.Vehicles.Add(vehicle);
+            context.SaveChanges();
+            allVehicles_Click(null, null);
         }
 
         protected override void OnClosing(CancelEventArgs e)
