@@ -454,7 +454,7 @@ namespace SBBD
             // 
             // addVehicleBtn
             // 
-            this.addVehicleBtn.Location = new System.Drawing.Point(58, 375);
+            this.addVehicleBtn.Location = new System.Drawing.Point(852, 482);
             this.addVehicleBtn.Name = "addVehicleBtn";
             this.addVehicleBtn.Size = new System.Drawing.Size(113, 23);
             this.addVehicleBtn.TabIndex = 20;
@@ -467,6 +467,7 @@ namespace SBBD
             this.bodyTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
             this.bodyTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bodyTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.bodyTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bodyTypeComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bodyTypeComboBox.ForeColor = System.Drawing.Color.White;
             this.bodyTypeComboBox.FormattingEnabled = true;
@@ -492,6 +493,7 @@ namespace SBBD
             this.fuelTypeComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
             this.fuelTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fuelTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.fuelTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.fuelTypeComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.fuelTypeComboBox.ForeColor = System.Drawing.Color.White;
             this.fuelTypeComboBox.FormattingEnabled = true;
@@ -654,6 +656,7 @@ namespace SBBD
             this.modelComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.modelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modelComboBox.Enabled = false;
+            this.modelComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modelComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.modelComboBox.ForeColor = System.Drawing.Color.White;
             this.modelComboBox.FormattingEnabled = true;
@@ -678,6 +681,7 @@ namespace SBBD
             this.manufacturerComboBox.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
             this.manufacturerComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.manufacturerComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.manufacturerComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.manufacturerComboBox.ForeColor = System.Drawing.Color.White;
             this.manufacturerComboBox.FormattingEnabled = true;
@@ -705,8 +709,8 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);
