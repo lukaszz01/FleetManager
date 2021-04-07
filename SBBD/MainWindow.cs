@@ -567,5 +567,12 @@ namespace SBBD
                 populatePanel();
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (currentPage > 1)
+                currentPage--;
+            populatePanel();
+        }
     }
 }
