@@ -40,6 +40,24 @@ namespace SBBD
             this.mainMinimize = new System.Windows.Forms.PictureBox();
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
+            this.pictureBox22 = new System.Windows.Forms.PictureBox();
+            this.vLabel22 = new System.Windows.Forms.Label();
+            this.pictureBox21 = new System.Windows.Forms.PictureBox();
+            this.vLabel21 = new System.Windows.Forms.Label();
+            this.pictureBox20 = new System.Windows.Forms.PictureBox();
+            this.vLabel20 = new System.Windows.Forms.Label();
+            this.pictureBox12 = new System.Windows.Forms.PictureBox();
+            this.vLabel12 = new System.Windows.Forms.Label();
+            this.pictureBox11 = new System.Windows.Forms.PictureBox();
+            this.vLabel11 = new System.Windows.Forms.Label();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.vLabel10 = new System.Windows.Forms.Label();
+            this.pictureBox02 = new System.Windows.Forms.PictureBox();
+            this.vLabel02 = new System.Windows.Forms.Label();
+            this.pictureBox01 = new System.Windows.Forms.PictureBox();
+            this.vLabel01 = new System.Windows.Forms.Label();
+            this.pictureBox00 = new System.Windows.Forms.PictureBox();
+            this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
             this.addVehicleBtn = new System.Windows.Forms.Button();
             this.bodyTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -72,6 +90,25 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
+            this.vehiclesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
+            this.pictureBox22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).BeginInit();
+            this.pictureBox21.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).BeginInit();
+            this.pictureBox20.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).BeginInit();
+            this.pictureBox12.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
+            this.pictureBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            this.pictureBox10.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox02)).BeginInit();
+            this.pictureBox02.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox01)).BeginInit();
+            this.pictureBox01.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox00)).BeginInit();
+            this.pictureBox00.SuspendLayout();
             this.addVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -182,10 +219,208 @@ namespace SBBD
             // vehiclesPanel
             // 
             this.vehiclesPanel.BackColor = System.Drawing.Color.Transparent;
+            this.vehiclesPanel.Controls.Add(this.pictureBox22);
+            this.vehiclesPanel.Controls.Add(this.pictureBox21);
+            this.vehiclesPanel.Controls.Add(this.pictureBox20);
+            this.vehiclesPanel.Controls.Add(this.pictureBox12);
+            this.vehiclesPanel.Controls.Add(this.pictureBox11);
+            this.vehiclesPanel.Controls.Add(this.pictureBox10);
+            this.vehiclesPanel.Controls.Add(this.pictureBox02);
+            this.vehiclesPanel.Controls.Add(this.pictureBox01);
+            this.vehiclesPanel.Controls.Add(this.pictureBox00);
             this.vehiclesPanel.Location = new System.Drawing.Point(240, 60);
             this.vehiclesPanel.Name = "vehiclesPanel";
             this.vehiclesPanel.Size = new System.Drawing.Size(1000, 520);
             this.vehiclesPanel.TabIndex = 8;
+            // 
+            // pictureBox22
+            // 
+            this.pictureBox22.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox22.Controls.Add(this.vLabel22);
+            this.pictureBox22.Location = new System.Drawing.Point(680, 360);
+            this.pictureBox22.Name = "pictureBox22";
+            this.pictureBox22.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox22.TabIndex = 8;
+            this.pictureBox22.TabStop = false;
+            // 
+            // vLabel22
+            // 
+            this.vLabel22.AutoSize = true;
+            this.vLabel22.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel22.ForeColor = System.Drawing.Color.White;
+            this.vLabel22.Location = new System.Drawing.Point(120, 60);
+            this.vLabel22.Name = "vLabel22";
+            this.vLabel22.Size = new System.Drawing.Size(0, 28);
+            this.vLabel22.TabIndex = 1;
+            // 
+            // pictureBox21
+            // 
+            this.pictureBox21.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox21.Controls.Add(this.vLabel21);
+            this.pictureBox21.Location = new System.Drawing.Point(340, 360);
+            this.pictureBox21.Name = "pictureBox21";
+            this.pictureBox21.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox21.TabIndex = 7;
+            this.pictureBox21.TabStop = false;
+            // 
+            // vLabel21
+            // 
+            this.vLabel21.AutoSize = true;
+            this.vLabel21.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel21.ForeColor = System.Drawing.Color.White;
+            this.vLabel21.Location = new System.Drawing.Point(120, 60);
+            this.vLabel21.Name = "vLabel21";
+            this.vLabel21.Size = new System.Drawing.Size(0, 28);
+            this.vLabel21.TabIndex = 1;
+            // 
+            // pictureBox20
+            // 
+            this.pictureBox20.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox20.Controls.Add(this.vLabel20);
+            this.pictureBox20.Location = new System.Drawing.Point(0, 360);
+            this.pictureBox20.Name = "pictureBox20";
+            this.pictureBox20.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox20.TabIndex = 6;
+            this.pictureBox20.TabStop = false;
+            // 
+            // vLabel20
+            // 
+            this.vLabel20.AutoSize = true;
+            this.vLabel20.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel20.ForeColor = System.Drawing.Color.White;
+            this.vLabel20.Location = new System.Drawing.Point(120, 60);
+            this.vLabel20.Name = "vLabel20";
+            this.vLabel20.Size = new System.Drawing.Size(0, 28);
+            this.vLabel20.TabIndex = 1;
+            // 
+            // pictureBox12
+            // 
+            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.Controls.Add(this.vLabel12);
+            this.pictureBox12.Location = new System.Drawing.Point(680, 180);
+            this.pictureBox12.Name = "pictureBox12";
+            this.pictureBox12.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox12.TabIndex = 5;
+            this.pictureBox12.TabStop = false;
+            // 
+            // vLabel12
+            // 
+            this.vLabel12.AutoSize = true;
+            this.vLabel12.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel12.ForeColor = System.Drawing.Color.White;
+            this.vLabel12.Location = new System.Drawing.Point(120, 60);
+            this.vLabel12.Name = "vLabel12";
+            this.vLabel12.Size = new System.Drawing.Size(0, 28);
+            this.vLabel12.TabIndex = 1;
+            // 
+            // pictureBox11
+            // 
+            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.Controls.Add(this.vLabel11);
+            this.pictureBox11.Location = new System.Drawing.Point(340, 180);
+            this.pictureBox11.Name = "pictureBox11";
+            this.pictureBox11.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox11.TabIndex = 4;
+            this.pictureBox11.TabStop = false;
+            // 
+            // vLabel11
+            // 
+            this.vLabel11.AutoSize = true;
+            this.vLabel11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel11.ForeColor = System.Drawing.Color.White;
+            this.vLabel11.Location = new System.Drawing.Point(120, 60);
+            this.vLabel11.Name = "vLabel11";
+            this.vLabel11.Size = new System.Drawing.Size(0, 28);
+            this.vLabel11.TabIndex = 1;
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.Controls.Add(this.vLabel10);
+            this.pictureBox10.Location = new System.Drawing.Point(0, 180);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 3;
+            this.pictureBox10.TabStop = false;
+            // 
+            // vLabel10
+            // 
+            this.vLabel10.AutoSize = true;
+            this.vLabel10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel10.ForeColor = System.Drawing.Color.White;
+            this.vLabel10.Location = new System.Drawing.Point(120, 60);
+            this.vLabel10.Name = "vLabel10";
+            this.vLabel10.Size = new System.Drawing.Size(0, 28);
+            this.vLabel10.TabIndex = 1;
+            // 
+            // pictureBox02
+            // 
+            this.pictureBox02.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox02.Controls.Add(this.vLabel02);
+            this.pictureBox02.Location = new System.Drawing.Point(680, 0);
+            this.pictureBox02.Name = "pictureBox02";
+            this.pictureBox02.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox02.TabIndex = 2;
+            this.pictureBox02.TabStop = false;
+            // 
+            // vLabel02
+            // 
+            this.vLabel02.AutoSize = true;
+            this.vLabel02.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel02.ForeColor = System.Drawing.Color.White;
+            this.vLabel02.Location = new System.Drawing.Point(120, 60);
+            this.vLabel02.Name = "vLabel02";
+            this.vLabel02.Size = new System.Drawing.Size(0, 28);
+            this.vLabel02.TabIndex = 1;
+            // 
+            // pictureBox01
+            // 
+            this.pictureBox01.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox01.Controls.Add(this.vLabel01);
+            this.pictureBox01.Location = new System.Drawing.Point(340, 0);
+            this.pictureBox01.Name = "pictureBox01";
+            this.pictureBox01.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox01.TabIndex = 1;
+            this.pictureBox01.TabStop = false;
+            // 
+            // vLabel01
+            // 
+            this.vLabel01.AutoSize = true;
+            this.vLabel01.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel01.ForeColor = System.Drawing.Color.White;
+            this.vLabel01.Location = new System.Drawing.Point(120, 60);
+            this.vLabel01.Name = "vLabel01";
+            this.vLabel01.Size = new System.Drawing.Size(0, 28);
+            this.vLabel01.TabIndex = 1;
+            // 
+            // pictureBox00
+            // 
+            this.pictureBox00.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox00.Controls.Add(this.vLabel00);
+            this.pictureBox00.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox00.Name = "pictureBox00";
+            this.pictureBox00.Size = new System.Drawing.Size(320, 160);
+            this.pictureBox00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox00.TabIndex = 0;
+            this.pictureBox00.TabStop = false;
+            // 
+            // vLabel00
+            // 
+            this.vLabel00.AutoSize = true;
+            this.vLabel00.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel00.ForeColor = System.Drawing.Color.White;
+            this.vLabel00.Location = new System.Drawing.Point(120, 60);
+            this.vLabel00.Name = "vLabel00";
+            this.vLabel00.Size = new System.Drawing.Size(0, 28);
+            this.vLabel00.TabIndex = 1;
             // 
             // addVehiclePanel
             // 
@@ -470,8 +705,8 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
+            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);
@@ -492,6 +727,34 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
+            this.vehiclesPanel.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
+            this.pictureBox22.ResumeLayout(false);
+            this.pictureBox22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox21)).EndInit();
+            this.pictureBox21.ResumeLayout(false);
+            this.pictureBox21.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox20)).EndInit();
+            this.pictureBox20.ResumeLayout(false);
+            this.pictureBox20.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox12)).EndInit();
+            this.pictureBox12.ResumeLayout(false);
+            this.pictureBox12.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
+            this.pictureBox11.ResumeLayout(false);
+            this.pictureBox11.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            this.pictureBox10.ResumeLayout(false);
+            this.pictureBox10.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox02)).EndInit();
+            this.pictureBox02.ResumeLayout(false);
+            this.pictureBox02.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox01)).EndInit();
+            this.pictureBox01.ResumeLayout(false);
+            this.pictureBox01.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox00)).EndInit();
+            this.pictureBox00.ResumeLayout(false);
+            this.pictureBox00.PerformLayout();
             this.addVehiclePanel.ResumeLayout(false);
             this.addVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
@@ -534,5 +797,23 @@ namespace SBBD
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addVehicleBtn;
+        private System.Windows.Forms.PictureBox pictureBox00;
+        private System.Windows.Forms.Label vLabel00;
+        private System.Windows.Forms.PictureBox pictureBox01;
+        private System.Windows.Forms.Label vLabel01;
+        private System.Windows.Forms.PictureBox pictureBox02;
+        private System.Windows.Forms.Label vLabel02;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.Label vLabel10;
+        private System.Windows.Forms.PictureBox pictureBox20;
+        private System.Windows.Forms.Label vLabel20;
+        private System.Windows.Forms.PictureBox pictureBox12;
+        private System.Windows.Forms.Label vLabel12;
+        private System.Windows.Forms.PictureBox pictureBox11;
+        private System.Windows.Forms.Label vLabel11;
+        private System.Windows.Forms.PictureBox pictureBox22;
+        private System.Windows.Forms.Label vLabel22;
+        private System.Windows.Forms.PictureBox pictureBox21;
+        private System.Windows.Forms.Label vLabel21;
     }
 }

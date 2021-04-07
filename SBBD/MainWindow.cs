@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace SBBD
 {
@@ -19,15 +20,42 @@ namespace SBBD
         bool moving;
         int moveX;
         int moveY;
-        Vehicles vehicle1, vehicle2;
         List<Models> allModels;
-        int maxVehicleId;
+        int vehicleCount;
+        int vehiclePages;
+        List<PictureBox> tileList;
+        List<Label> vLabelList;
 
         int selected;
         public MainWindow()
         {
             InitializeComponent();
             selected = 1;
+            vehiclePages = 0;
+            tileList = new List<PictureBox>()
+            {
+                pictureBox00,
+                pictureBox01,
+                pictureBox02,
+                pictureBox10,
+                pictureBox11,
+                pictureBox12,
+                pictureBox20,
+                pictureBox21,
+                pictureBox22
+            };
+            vLabelList = new List<Label>()
+            {
+                vLabel00,
+                vLabel01,
+                vLabel02,
+                vLabel10,
+                vLabel11,
+                vLabel12,
+                vLabel20,
+                vLabel21,
+                vLabel22
+            };
             
         }
 
@@ -40,7 +68,9 @@ namespace SBBD
             context.Vehicles.Load();
             context.Manufacturers.Load();
             this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
+            
             populatePanel();
+            
 
         }
 
@@ -240,7 +270,7 @@ namespace SBBD
             }
         }
 
-        private PictureBox createTile(Point location)
+        /*private PictureBox createTile(Point location)
         {
             PictureBox picBox = new PictureBox();
             picBox.Location = location;
@@ -297,6 +327,19 @@ namespace SBBD
 
             tile1.Controls.Add(lbl1);
             //tile2.Controls.Add(lbl2);
+        }*/
+
+        private void populatePanel()
+        {
+            var allVehicles = context.Vehicles.Select(x => x).ToList();
+            vehicleCount = allVehicles.Count;
+            if(vehiclePages == 0)
+                vehiclePages = (vehicleCount / 6) + 1;
+
+            for(int i = 0; i < (vehiclePages==1?(vehicleCount % 9):9); i++)
+            {
+                ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i]);
+            }
         }
 
         private void addVehicleLoad()
@@ -309,10 +352,11 @@ namespace SBBD
             }
         }
 
-        private void tile_MouseClick(Object sender, MouseEventArgs e)
+        /*private void tile_MouseClick(Object sender, MouseEventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
             MessageBox.Show(pb.Name);
+            
             /*if (pb.Location == new Point(0, 0))
             {
                 MessageBox.Show(vehicle1.color);
@@ -320,8 +364,8 @@ namespace SBBD
             else if (pb.Location == new Point(340, 0))
             {
                 MessageBox.Show(vehicle2.color);
-            }*/
-        }
+            }
+        }*/
 
         private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -340,47 +384,103 @@ namespace SBBD
 
         private void addVehicleBtn_Click(object sender, EventArgs e)
         {
-            RegexD(@"^[0-9]+$", prodYear); //Tylko cyfry
-            RegexD(@"^[a-zA-Z]+$", vehicleColor); //Tylko litery
-            RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber); //17 znaków
-            RegexD(@"^[a-zA-Z0-9]+$", regNumber); //Tylko cyfry i litery
-            RegexD(@"^[0-9]+$", engineCapacity); //Tylko cyfry
-            RegexD(@"^[0-9]+$", enginePower); //Tylko cyfry
-
-            // Trzeba wyjątek jak pola są puste, inaczej sie krzaczy xD
-
-            Vehicles vehicle = new Vehicles()
+            if (IsEmpty(manufacturerComboBox) &&
+                IsEmpty(modelComboBox) &&
+                IsEmpty(prodYear) &&
+                IsEmpty(fuelTypeComboBox) &&
+                IsEmpty(vehicleColor) &&
+                IsEmpty(bodyTypeComboBox) &&
+                IsEmpty(vinNumber) &&
+                IsEmpty(regNumber) &&
+                IsEmpty(engineCapacity) &&
+                IsEmpty(enginePower) &&
+                !RegexD(@"\d{4}", prodYear) &&
+                !RegexD(@"^[a-zA-Z]+$", vehicleColor) &&
+                !RegexD(@"[A-HJ-NPR-Z0-9]{17}", vinNumber) &&
+                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) &&
+                !RegexD(@"\d{3,5}", engineCapacity) &&
+                !RegexD(@"\d{2,4}", enginePower)
+                )
             {
-                manufacturer = manufacturerComboBox.Text,
-                model = modelComboBox.Text,
-                prod_year = Int32.Parse(prodYear.Text),
-                fuel_type = fuelTypeComboBox.Text,
-                color = vehicleColor.Text,
-                body_type = bodyTypeComboBox.Text,
-                VIN = vinNumber.Text,
-                registration_num = regNumber.Text,
-                engine_capacity = Int32.Parse(engineCapacity.Text),
-                engine_power = Int32.Parse(enginePower.Text),
-                vehicle_id = ++maxVehicleId,
-                user_email = "user@email.com",
-                available = true
-            };
-            context.Vehicles.Add(vehicle);
-            context.SaveChanges();
-            allVehicles_Click(null, null);
-        }
-
-        public void RegexD(string reg, TextBox textbox)
-        {
-            Regex regex = new Regex(reg);
-            if(regex.IsMatch(textbox.Text))
-            {
-                MessageBox.Show("Dobrze!");
+                MessageBox.Show("Pola nie mogą być puste!");
             }
             else
             {
-                MessageBox.Show("Źle...");
+                //RegexD(@"\d{4}", prodYear); //Tylko cyfry
+                //RegexD(@"^[0-9]+$", prodYear); //Tylko cyfry
+                //RegexD(@"^[a-zA-Z]+$", vehicleColor); //Tylko litery
+                //RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber); //17 znaków
+                //RegexD(@"^[a-zA-Z0-9]+$", regNumber); //Tylko cyfry i litery
+
+                //RegexD(@"\d{3,5}", engineCapacity);
+                //RegexD(@"^[0-9]+$", engineCapacity); //Tylko cyfry
+
+                //RegexD(@"^[0-9]+$", enginePower); //Tylko cyfry
+
+                // Trzeba wyjątek jak pola są puste, inaczej sie krzaczy xD
+
+                Vehicles vehicle = new Vehicles()
+                {
+                    manufacturer = manufacturerComboBox.Text,
+                    model = modelComboBox.Text,
+                    prod_year = Int32.Parse(prodYear.Text),
+                    fuel_type = fuelTypeComboBox.Text,
+                    color = vehicleColor.Text,
+                    body_type = bodyTypeComboBox.Text,
+                    VIN = vinNumber.Text,
+                    registration_num = regNumber.Text,
+                    engine_capacity = Int32.Parse(engineCapacity.Text),
+                    engine_power = Int32.Parse(enginePower.Text),
+                    vehicle_id = ++vehicleCount,
+                    user_email = "user@email.com",
+                    available = true
+                };
+                context.Vehicles.Add(vehicle);
+                context.SaveChanges();
+                allVehicles_Click(null, null);
+                populatePanel();
             }
+        }
+
+        private bool RegexD(string reg, TextBox textbox)
+        {
+            Regex regex = new Regex(reg);
+            if (!regex.IsMatch(textbox.Text))
+            {
+                MessageBox.Show(textbox.Name + " źle");
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+
+        private bool IsEmpty(TextBox textBox)
+        {
+            return textBox.Text == "";
+        }
+        private bool IsEmpty(ComboBox comboBox)
+        {
+            return comboBox.Text == "";
+        }
+
+        private void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle)
+        {
+            //Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+            //Bitmap bm = ByteToImage(vehImage.vehicle_image);
+            //pictureBox.Image = bm;
+            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n" + vehicle.registration_num;
+            
+        }
+
+        private Bitmap ByteToImage(byte[] image)
+        {
+            MemoryStream mStream = new MemoryStream();
+            mStream.Write(image, 0, Convert.ToInt32(image.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
         }
 
         protected override void OnClosing(CancelEventArgs e)
