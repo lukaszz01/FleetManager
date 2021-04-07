@@ -68,17 +68,7 @@ namespace SBBD
             this.vinNumber = new System.Windows.Forms.TextBox();
             this.vehicleColor = new System.Windows.Forms.TextBox();
             this.prodYear = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.modelComboBox = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -425,6 +415,7 @@ namespace SBBD
             // addVehiclePanel
             // 
             this.addVehiclePanel.BackColor = System.Drawing.Color.Transparent;
+            this.addVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo112;
             this.addVehiclePanel.Controls.Add(this.addVehicleBtn);
             this.addVehiclePanel.Controls.Add(this.bodyTypeComboBox);
             this.addVehiclePanel.Controls.Add(this.fuelTypeComboBox);
@@ -434,27 +425,17 @@ namespace SBBD
             this.addVehiclePanel.Controls.Add(this.vinNumber);
             this.addVehiclePanel.Controls.Add(this.vehicleColor);
             this.addVehiclePanel.Controls.Add(this.prodYear);
-            this.addVehiclePanel.Controls.Add(this.label10);
-            this.addVehiclePanel.Controls.Add(this.label9);
-            this.addVehiclePanel.Controls.Add(this.label8);
-            this.addVehiclePanel.Controls.Add(this.label7);
-            this.addVehiclePanel.Controls.Add(this.label6);
-            this.addVehiclePanel.Controls.Add(this.label5);
-            this.addVehiclePanel.Controls.Add(this.label4);
-            this.addVehiclePanel.Controls.Add(this.label3);
-            this.addVehiclePanel.Controls.Add(this.label2);
             this.addVehiclePanel.Controls.Add(this.modelComboBox);
-            this.addVehiclePanel.Controls.Add(this.label1);
             this.addVehiclePanel.Controls.Add(this.manufacturerComboBox);
-            this.addVehiclePanel.Location = new System.Drawing.Point(240, 60);
+            this.addVehiclePanel.Location = new System.Drawing.Point(200, 26);
             this.addVehiclePanel.Name = "addVehiclePanel";
-            this.addVehiclePanel.Size = new System.Drawing.Size(1000, 520);
+            this.addVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
             // 
             // addVehicleBtn
             // 
-            this.addVehicleBtn.Location = new System.Drawing.Point(852, 482);
+            this.addVehicleBtn.Location = new System.Drawing.Point(875, 588);
             this.addVehicleBtn.Name = "addVehicleBtn";
             this.addVehicleBtn.Size = new System.Drawing.Size(113, 23);
             this.addVehicleBtn.TabIndex = 20;
@@ -483,7 +464,7 @@ namespace SBBD
             "Sedan",
             "SUV",
             "VAN"});
-            this.bodyTypeComboBox.Location = new System.Drawing.Point(844, 22);
+            this.bodyTypeComboBox.Location = new System.Drawing.Point(410, 145);
             this.bodyTypeComboBox.Name = "bodyTypeComboBox";
             this.bodyTypeComboBox.Size = new System.Drawing.Size(121, 27);
             this.bodyTypeComboBox.TabIndex = 19;
@@ -504,151 +485,82 @@ namespace SBBD
             "Diesel",
             "Elektryczny",
             "Hybryda"});
-            this.fuelTypeComboBox.Location = new System.Drawing.Point(570, 22);
+            this.fuelTypeComboBox.Location = new System.Drawing.Point(410, 95);
             this.fuelTypeComboBox.Name = "fuelTypeComboBox";
             this.fuelTypeComboBox.Size = new System.Drawing.Size(121, 27);
             this.fuelTypeComboBox.TabIndex = 18;
             // 
             // enginePower
             // 
-            this.enginePower.Location = new System.Drawing.Point(171, 311);
+            this.enginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.enginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.enginePower.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.enginePower.ForeColor = System.Drawing.Color.White;
+            this.enginePower.Location = new System.Drawing.Point(710, 311);
             this.enginePower.Name = "enginePower";
-            this.enginePower.Size = new System.Drawing.Size(121, 20);
+            this.enginePower.Size = new System.Drawing.Size(160, 20);
             this.enginePower.TabIndex = 17;
+            this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // engineCapacity
             // 
-            this.engineCapacity.Location = new System.Drawing.Point(171, 287);
+            this.engineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.engineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.engineCapacity.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.engineCapacity.ForeColor = System.Drawing.Color.White;
+            this.engineCapacity.Location = new System.Drawing.Point(710, 251);
             this.engineCapacity.Name = "engineCapacity";
-            this.engineCapacity.Size = new System.Drawing.Size(121, 20);
+            this.engineCapacity.Size = new System.Drawing.Size(160, 20);
             this.engineCapacity.TabIndex = 16;
+            this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // regNumber
             // 
-            this.regNumber.Location = new System.Drawing.Point(204, 260);
+            this.regNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.regNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.regNumber.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.regNumber.ForeColor = System.Drawing.Color.White;
+            this.regNumber.Location = new System.Drawing.Point(270, 251);
             this.regNumber.Name = "regNumber";
-            this.regNumber.Size = new System.Drawing.Size(121, 20);
+            this.regNumber.Size = new System.Drawing.Size(160, 20);
             this.regNumber.TabIndex = 15;
+            this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // vinNumber
             // 
-            this.vinNumber.Location = new System.Drawing.Point(171, 224);
+            this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vinNumber.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vinNumber.ForeColor = System.Drawing.Color.White;
+            this.vinNumber.Location = new System.Drawing.Point(270, 429);
             this.vinNumber.Name = "vinNumber";
-            this.vinNumber.Size = new System.Drawing.Size(121, 20);
+            this.vinNumber.Size = new System.Drawing.Size(160, 20);
             this.vinNumber.TabIndex = 14;
+            this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // vehicleColor
             // 
-            this.vehicleColor.Location = new System.Drawing.Point(171, 172);
+            this.vehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vehicleColor.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vehicleColor.ForeColor = System.Drawing.Color.White;
+            this.vehicleColor.Location = new System.Drawing.Point(270, 309);
             this.vehicleColor.Name = "vehicleColor";
-            this.vehicleColor.Size = new System.Drawing.Size(121, 20);
+            this.vehicleColor.Size = new System.Drawing.Size(160, 20);
             this.vehicleColor.TabIndex = 13;
+            this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // prodYear
             // 
-            this.prodYear.Location = new System.Drawing.Point(171, 134);
+            this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.prodYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.prodYear.ForeColor = System.Drawing.Color.White;
+            this.prodYear.Location = new System.Drawing.Point(270, 371);
             this.prodYear.Name = "prodYear";
-            this.prodYear.Size = new System.Drawing.Size(121, 20);
+            this.prodYear.Size = new System.Drawing.Size(160, 20);
             this.prodYear.TabIndex = 12;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(38, 318);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(122, 23);
-            this.label10.TabIndex = 11;
-            this.label10.Text = "Moc silnika (KM)";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.ForeColor = System.Drawing.Color.White;
-            this.label9.Location = new System.Drawing.Point(38, 287);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(82, 23);
-            this.label9.TabIndex = 10;
-            this.label9.Text = "Poj. silnika";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.ForeColor = System.Drawing.Color.White;
-            this.label8.Location = new System.Drawing.Point(38, 260);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(150, 23);
-            this.label8.TabIndex = 9;
-            this.label8.Text = "Numer rejestracyjny";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label7.ForeColor = System.Drawing.Color.White;
-            this.label7.Location = new System.Drawing.Point(38, 227);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(83, 23);
-            this.label7.TabIndex = 8;
-            this.label7.Text = "Numer VIN";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(735, 26);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 23);
-            this.label6.TabIndex = 7;
-            this.label6.Text = "Typ nadwozia";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(38, 175);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(45, 23);
-            this.label5.TabIndex = 6;
-            this.label5.Text = "Kolor";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(480, 26);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(84, 23);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "Typ paliwa";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(38, 137);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(102, 23);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Rok produkcji";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(241, 26);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 23);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Model";
+            this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // modelComboBox
             // 
@@ -660,21 +572,10 @@ namespace SBBD
             this.modelComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.modelComboBox.ForeColor = System.Drawing.Color.White;
             this.modelComboBox.FormattingEnabled = true;
-            this.modelComboBox.Location = new System.Drawing.Point(308, 22);
+            this.modelComboBox.Location = new System.Drawing.Point(140, 145);
             this.modelComboBox.Name = "modelComboBox";
             this.modelComboBox.Size = new System.Drawing.Size(121, 27);
             this.modelComboBox.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(15, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 23);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "Marka";
             // 
             // manufacturerComboBox
             // 
@@ -685,7 +586,7 @@ namespace SBBD
             this.manufacturerComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.manufacturerComboBox.ForeColor = System.Drawing.Color.White;
             this.manufacturerComboBox.FormattingEnabled = true;
-            this.manufacturerComboBox.Location = new System.Drawing.Point(75, 22);
+            this.manufacturerComboBox.Location = new System.Drawing.Point(140, 95);
             this.manufacturerComboBox.Name = "manufacturerComboBox";
             this.manufacturerComboBox.Size = new System.Drawing.Size(121, 27);
             this.manufacturerComboBox.TabIndex = 0;
@@ -779,9 +680,7 @@ namespace SBBD
         private System.Windows.Forms.Panel vehiclesPanel;
         private System.Windows.Forms.BindingSource vehiclesBindingSource;
         private System.Windows.Forms.Panel addVehiclePanel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox manufacturerComboBox;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox modelComboBox;
         private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.ComboBox bodyTypeComboBox;
@@ -792,14 +691,6 @@ namespace SBBD
         private System.Windows.Forms.TextBox vinNumber;
         private System.Windows.Forms.TextBox vehicleColor;
         private System.Windows.Forms.TextBox prodYear;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button addVehicleBtn;
         private System.Windows.Forms.PictureBox pictureBox00;
         private System.Windows.Forms.Label vLabel00;

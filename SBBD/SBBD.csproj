@@ -248,6 +248,8 @@
     <None Include="Resources\CloseBTN.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\tlo111.png" />
+    <None Include="Resources\tlo112.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
