@@ -78,7 +78,7 @@ namespace SBBD
 
         }
 
-            private void addVehicle_MouseEnter(object sender, EventArgs e)
+        private void addVehicle_MouseEnter(object sender, EventArgs e)
         {
             if(selected != 0)
                 addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1on;
@@ -464,7 +464,7 @@ namespace SBBD
             Regex regex = new Regex(reg);
             if (!regex.IsMatch(textbox.Text))
             {
-                MessageBox.Show(textbox.Name + " źle");
+                MessageBox.Show(textbox.Name + " wprowadzony źle");
                 return false;
             }
             else
@@ -524,6 +524,12 @@ namespace SBBD
             editModel.Text = selectedVehicle.model;
             editRegNum.Text = selectedVehicle.registration_num;
             editVehicleColor.Text = selectedVehicle.color;
+            editFuelType.Text = selectedVehicle.fuel_type;
+            editBodyType.Text = selectedVehicle.body_type;
+            editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
+            editVinNum.Text = selectedVehicle.VIN;
+            editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
+            editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
             if (selectedVehicle.available == false)
                 editAvailable.Text = "Nie";
             else
@@ -539,14 +545,27 @@ namespace SBBD
 
         private void editConfirm_Click(object sender, EventArgs e)
         {
-            Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
-            selectedVehicle.registration_num = editRegNum.Text;
-            selectedVehicle.color = editVehicleColor.Text;
-            selectedVehicle.available = editAvailable.Text == "Tak" ? true : false;
-            context.SaveChanges();
-            vehiclesPanel.Visible = true;
-            editVehiclePanel.Visible = false;
-            populatePanel();
+            if (IsEmpty(editVehicleColor) ||
+                IsEmpty(editRegNum)
+                )
+            {
+                MessageBox.Show("Pola nie mogą być puste!");
+            }
+            else if (
+                !RegexD(@"^[a-zA-Z]+$", editVehicleColor) ||
+                !RegexD(@"^[a-zA-Z0-9]+$", editRegNum)
+                ) { }
+            else
+            {
+                Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
+                selectedVehicle.registration_num = editRegNum.Text;
+                selectedVehicle.color = editVehicleColor.Text;
+                selectedVehicle.available = editAvailable.Text == "Tak" ? true : false;
+                context.SaveChanges();
+                vehiclesPanel.Visible = true;
+                editVehiclePanel.Visible = false;
+                populatePanel();
+            }
         }
     }
 }

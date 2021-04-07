@@ -59,6 +59,7 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.addVehicleBtn = new System.Windows.Forms.Button();
             this.bodyTypeComboBox = new System.Windows.Forms.ComboBox();
             this.fuelTypeComboBox = new System.Windows.Forms.ComboBox();
@@ -71,8 +72,6 @@ namespace SBBD
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
-            this.button1 = new System.Windows.Forms.Button();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.editVehiclePanel = new System.Windows.Forms.Panel();
             this.editCancel = new System.Windows.Forms.Button();
             this.editModel = new System.Windows.Forms.Label();
@@ -81,9 +80,13 @@ namespace SBBD
             this.editAvailable = new System.Windows.Forms.ComboBox();
             this.editRegNum = new System.Windows.Forms.TextBox();
             this.editVehicleColor = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.editFuelType = new System.Windows.Forms.Label();
+            this.editBodyType = new System.Windows.Forms.Label();
+            this.editProdYear = new System.Windows.Forms.TextBox();
+            this.editVinNum = new System.Windows.Forms.TextBox();
+            this.editEngineCapacity = new System.Windows.Forms.TextBox();
+            this.editEnginePower = new System.Windows.Forms.TextBox();
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -112,8 +115,8 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox00)).BeginInit();
             this.pictureBox00.SuspendLayout();
             this.addVehiclePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -222,6 +225,7 @@ namespace SBBD
             // vehiclesPanel
             // 
             this.vehiclesPanel.BackColor = System.Drawing.Color.Transparent;
+            this.vehiclesPanel.Controls.Add(this.button1);
             this.vehiclesPanel.Controls.Add(this.pictureBox22);
             this.vehiclesPanel.Controls.Add(this.pictureBox21);
             this.vehiclesPanel.Controls.Add(this.pictureBox20);
@@ -233,7 +237,7 @@ namespace SBBD
             this.vehiclesPanel.Controls.Add(this.pictureBox00);
             this.vehiclesPanel.Location = new System.Drawing.Point(240, 60);
             this.vehiclesPanel.Name = "vehiclesPanel";
-            this.vehiclesPanel.Size = new System.Drawing.Size(1000, 520);
+            this.vehiclesPanel.Size = new System.Drawing.Size(1040, 660);
             this.vehiclesPanel.TabIndex = 8;
             // 
             // pictureBox22
@@ -251,12 +255,13 @@ namespace SBBD
             // vLabel22
             // 
             this.vLabel22.AutoSize = true;
-            this.vLabel22.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel22.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel22.ForeColor = System.Drawing.Color.White;
             this.vLabel22.Location = new System.Drawing.Point(120, 60);
             this.vLabel22.Name = "vLabel22";
-            this.vLabel22.Size = new System.Drawing.Size(0, 28);
+            this.vLabel22.Size = new System.Drawing.Size(0, 26);
             this.vLabel22.TabIndex = 1;
+            this.vLabel22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox21
             // 
@@ -273,12 +278,13 @@ namespace SBBD
             // vLabel21
             // 
             this.vLabel21.AutoSize = true;
-            this.vLabel21.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel21.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel21.ForeColor = System.Drawing.Color.White;
             this.vLabel21.Location = new System.Drawing.Point(120, 60);
             this.vLabel21.Name = "vLabel21";
-            this.vLabel21.Size = new System.Drawing.Size(0, 28);
+            this.vLabel21.Size = new System.Drawing.Size(0, 26);
             this.vLabel21.TabIndex = 1;
+            this.vLabel21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox20
             // 
@@ -295,12 +301,13 @@ namespace SBBD
             // vLabel20
             // 
             this.vLabel20.AutoSize = true;
-            this.vLabel20.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel20.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel20.ForeColor = System.Drawing.Color.White;
             this.vLabel20.Location = new System.Drawing.Point(120, 60);
             this.vLabel20.Name = "vLabel20";
-            this.vLabel20.Size = new System.Drawing.Size(0, 28);
+            this.vLabel20.Size = new System.Drawing.Size(0, 26);
             this.vLabel20.TabIndex = 1;
+            this.vLabel20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox12
             // 
@@ -317,12 +324,13 @@ namespace SBBD
             // vLabel12
             // 
             this.vLabel12.AutoSize = true;
-            this.vLabel12.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel12.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel12.ForeColor = System.Drawing.Color.White;
             this.vLabel12.Location = new System.Drawing.Point(120, 60);
             this.vLabel12.Name = "vLabel12";
-            this.vLabel12.Size = new System.Drawing.Size(0, 28);
+            this.vLabel12.Size = new System.Drawing.Size(0, 26);
             this.vLabel12.TabIndex = 1;
+            this.vLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox11
             // 
@@ -339,12 +347,13 @@ namespace SBBD
             // vLabel11
             // 
             this.vLabel11.AutoSize = true;
-            this.vLabel11.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel11.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel11.ForeColor = System.Drawing.Color.White;
             this.vLabel11.Location = new System.Drawing.Point(120, 60);
             this.vLabel11.Name = "vLabel11";
-            this.vLabel11.Size = new System.Drawing.Size(0, 28);
+            this.vLabel11.Size = new System.Drawing.Size(0, 26);
             this.vLabel11.TabIndex = 1;
+            this.vLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox10
             // 
@@ -361,12 +370,13 @@ namespace SBBD
             // vLabel10
             // 
             this.vLabel10.AutoSize = true;
-            this.vLabel10.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel10.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel10.ForeColor = System.Drawing.Color.White;
             this.vLabel10.Location = new System.Drawing.Point(120, 60);
             this.vLabel10.Name = "vLabel10";
-            this.vLabel10.Size = new System.Drawing.Size(0, 28);
+            this.vLabel10.Size = new System.Drawing.Size(0, 26);
             this.vLabel10.TabIndex = 1;
+            this.vLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox02
             // 
@@ -383,12 +393,13 @@ namespace SBBD
             // vLabel02
             // 
             this.vLabel02.AutoSize = true;
-            this.vLabel02.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel02.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel02.ForeColor = System.Drawing.Color.White;
             this.vLabel02.Location = new System.Drawing.Point(120, 60);
             this.vLabel02.Name = "vLabel02";
-            this.vLabel02.Size = new System.Drawing.Size(0, 28);
+            this.vLabel02.Size = new System.Drawing.Size(0, 26);
             this.vLabel02.TabIndex = 1;
+            this.vLabel02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox01
             // 
@@ -405,12 +416,13 @@ namespace SBBD
             // vLabel01
             // 
             this.vLabel01.AutoSize = true;
-            this.vLabel01.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel01.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel01.ForeColor = System.Drawing.Color.White;
             this.vLabel01.Location = new System.Drawing.Point(120, 60);
             this.vLabel01.Name = "vLabel01";
-            this.vLabel01.Size = new System.Drawing.Size(0, 28);
+            this.vLabel01.Size = new System.Drawing.Size(0, 26);
             this.vLabel01.TabIndex = 1;
+            this.vLabel01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // pictureBox00
             // 
@@ -427,12 +439,13 @@ namespace SBBD
             // vLabel00
             // 
             this.vLabel00.AutoSize = true;
-            this.vLabel00.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel00.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel00.ForeColor = System.Drawing.Color.White;
             this.vLabel00.Location = new System.Drawing.Point(120, 60);
             this.vLabel00.Name = "vLabel00";
-            this.vLabel00.Size = new System.Drawing.Size(0, 28);
+            this.vLabel00.Size = new System.Drawing.Size(0, 26);
             this.vLabel00.TabIndex = 1;
+            this.vLabel00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // addVehiclePanel
             // 
@@ -454,6 +467,16 @@ namespace SBBD
             this.addVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(925, 574);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // addVehicleBtn
             // 
@@ -622,23 +645,16 @@ namespace SBBD
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1120, 626);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
-            // 
             // editVehiclePanel
             // 
             this.editVehiclePanel.BackColor = System.Drawing.Color.Transparent;
+            this.editVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo113;
+            this.editVehiclePanel.Controls.Add(this.editEnginePower);
+            this.editVehiclePanel.Controls.Add(this.editEngineCapacity);
+            this.editVehiclePanel.Controls.Add(this.editVinNum);
+            this.editVehiclePanel.Controls.Add(this.editProdYear);
+            this.editVehiclePanel.Controls.Add(this.editBodyType);
+            this.editVehiclePanel.Controls.Add(this.editFuelType);
             this.editVehiclePanel.Controls.Add(this.editCancel);
             this.editVehiclePanel.Controls.Add(this.editModel);
             this.editVehiclePanel.Controls.Add(this.editManufacturer);
@@ -646,18 +662,15 @@ namespace SBBD
             this.editVehiclePanel.Controls.Add(this.editAvailable);
             this.editVehiclePanel.Controls.Add(this.editRegNum);
             this.editVehiclePanel.Controls.Add(this.editVehicleColor);
-            this.editVehiclePanel.Controls.Add(this.label13);
-            this.editVehiclePanel.Controls.Add(this.label15);
-            this.editVehiclePanel.Controls.Add(this.label16);
-            this.editVehiclePanel.Location = new System.Drawing.Point(240, 60);
+            this.editVehiclePanel.Location = new System.Drawing.Point(200, 26);
             this.editVehiclePanel.Name = "editVehiclePanel";
-            this.editVehiclePanel.Size = new System.Drawing.Size(1000, 520);
+            this.editVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.editVehiclePanel.TabIndex = 21;
             this.editVehiclePanel.Visible = false;
             // 
             // editCancel
             // 
-            this.editCancel.Location = new System.Drawing.Point(739, 482);
+            this.editCancel.Location = new System.Drawing.Point(690, 588);
             this.editCancel.Name = "editCancel";
             this.editCancel.Size = new System.Drawing.Size(75, 23);
             this.editCancel.TabIndex = 24;
@@ -670,7 +683,7 @@ namespace SBBD
             this.editModel.AutoSize = true;
             this.editModel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editModel.ForeColor = System.Drawing.Color.White;
-            this.editModel.Location = new System.Drawing.Point(167, 36);
+            this.editModel.Location = new System.Drawing.Point(145, 149);
             this.editModel.Name = "editModel";
             this.editModel.Size = new System.Drawing.Size(51, 23);
             this.editModel.TabIndex = 22;
@@ -681,7 +694,7 @@ namespace SBBD
             this.editManufacturer.AutoSize = true;
             this.editManufacturer.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editManufacturer.ForeColor = System.Drawing.Color.White;
-            this.editManufacturer.Location = new System.Drawing.Point(38, 36);
+            this.editManufacturer.Location = new System.Drawing.Point(145, 99);
             this.editManufacturer.Name = "editManufacturer";
             this.editManufacturer.Size = new System.Drawing.Size(54, 23);
             this.editManufacturer.TabIndex = 21;
@@ -689,7 +702,7 @@ namespace SBBD
             // 
             // editConfirm
             // 
-            this.editConfirm.Location = new System.Drawing.Point(852, 482);
+            this.editConfirm.Location = new System.Drawing.Point(875, 588);
             this.editConfirm.Name = "editConfirm";
             this.editConfirm.Size = new System.Drawing.Size(113, 23);
             this.editConfirm.TabIndex = 20;
@@ -709,57 +722,112 @@ namespace SBBD
             this.editAvailable.Items.AddRange(new object[] {
             "Tak",
             "Nie"});
-            this.editAvailable.Location = new System.Drawing.Point(199, 327);
+            this.editAvailable.Location = new System.Drawing.Point(690, 365);
             this.editAvailable.Name = "editAvailable";
             this.editAvailable.Size = new System.Drawing.Size(121, 27);
             this.editAvailable.TabIndex = 19;
             // 
             // editRegNum
             // 
-            this.editRegNum.Location = new System.Drawing.Point(204, 260);
+            this.editRegNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.editRegNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editRegNum.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editRegNum.ForeColor = System.Drawing.Color.White;
+            this.editRegNum.Location = new System.Drawing.Point(270, 251);
             this.editRegNum.Name = "editRegNum";
-            this.editRegNum.Size = new System.Drawing.Size(121, 20);
+            this.editRegNum.Size = new System.Drawing.Size(160, 20);
             this.editRegNum.TabIndex = 15;
+            this.editRegNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editVehicleColor
             // 
-            this.editVehicleColor.Location = new System.Drawing.Point(171, 172);
+            this.editVehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.editVehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editVehicleColor.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editVehicleColor.ForeColor = System.Drawing.Color.White;
+            this.editVehicleColor.Location = new System.Drawing.Point(270, 309);
             this.editVehicleColor.Name = "editVehicleColor";
-            this.editVehicleColor.Size = new System.Drawing.Size(121, 20);
+            this.editVehicleColor.Size = new System.Drawing.Size(160, 20);
             this.editVehicleColor.TabIndex = 13;
+            this.editVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label13
+            // editFuelType
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(38, 260);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(150, 23);
-            this.label13.TabIndex = 9;
-            this.label13.Text = "Numer rejestracyjny";
+            this.editFuelType.AutoSize = true;
+            this.editFuelType.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editFuelType.ForeColor = System.Drawing.Color.White;
+            this.editFuelType.Location = new System.Drawing.Point(420, 99);
+            this.editFuelType.Name = "editFuelType";
+            this.editFuelType.Size = new System.Drawing.Size(54, 23);
+            this.editFuelType.TabIndex = 25;
+            this.editFuelType.Text = "Paliwo";
             // 
-            // label15
+            // editBodyType
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.Color.White;
-            this.label15.Location = new System.Drawing.Point(37, 334);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(73, 23);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "Dostępny";
+            this.editBodyType.AutoSize = true;
+            this.editBodyType.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editBodyType.ForeColor = System.Drawing.Color.White;
+            this.editBodyType.Location = new System.Drawing.Point(420, 149);
+            this.editBodyType.Name = "editBodyType";
+            this.editBodyType.Size = new System.Drawing.Size(75, 23);
+            this.editBodyType.TabIndex = 26;
+            this.editBodyType.Text = "Nadwozie";
             // 
-            // label16
+            // editProdYear
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label16.ForeColor = System.Drawing.Color.White;
-            this.label16.Location = new System.Drawing.Point(38, 175);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(45, 23);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Kolor";
+            this.editProdYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.editProdYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editProdYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editProdYear.ForeColor = System.Drawing.Color.White;
+            this.editProdYear.Location = new System.Drawing.Point(270, 371);
+            this.editProdYear.Name = "editProdYear";
+            this.editProdYear.ReadOnly = true;
+            this.editProdYear.Size = new System.Drawing.Size(160, 20);
+            this.editProdYear.TabIndex = 27;
+            this.editProdYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // editVinNum
+            // 
+            this.editVinNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.editVinNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editVinNum.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editVinNum.ForeColor = System.Drawing.Color.White;
+            this.editVinNum.Location = new System.Drawing.Point(270, 429);
+            this.editVinNum.Name = "editVinNum";
+            this.editVinNum.ReadOnly = true;
+            this.editVinNum.Size = new System.Drawing.Size(160, 20);
+            this.editVinNum.TabIndex = 28;
+            this.editVinNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // editEngineCapacity
+            // 
+            this.editEngineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.editEngineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editEngineCapacity.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editEngineCapacity.ForeColor = System.Drawing.Color.White;
+            this.editEngineCapacity.Location = new System.Drawing.Point(710, 251);
+            this.editEngineCapacity.Name = "editEngineCapacity";
+            this.editEngineCapacity.ReadOnly = true;
+            this.editEngineCapacity.Size = new System.Drawing.Size(160, 20);
+            this.editEngineCapacity.TabIndex = 29;
+            this.editEngineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // editEnginePower
+            // 
+            this.editEnginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.editEnginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.editEnginePower.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editEnginePower.ForeColor = System.Drawing.Color.White;
+            this.editEnginePower.Location = new System.Drawing.Point(710, 311);
+            this.editEnginePower.Name = "editEnginePower";
+            this.editEnginePower.ReadOnly = true;
+            this.editEnginePower.Size = new System.Drawing.Size(160, 20);
+            this.editEnginePower.TabIndex = 30;
+            this.editEnginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
             // MainWindow
             // 
@@ -767,9 +835,8 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
+            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
@@ -821,9 +888,9 @@ namespace SBBD
             this.pictureBox00.PerformLayout();
             this.addVehiclePanel.ResumeLayout(false);
             this.addVehiclePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -879,9 +946,12 @@ namespace SBBD
         private System.Windows.Forms.ComboBox editAvailable;
         private System.Windows.Forms.TextBox editRegNum;
         private System.Windows.Forms.TextBox editVehicleColor;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Button editCancel;
+        private System.Windows.Forms.Label editBodyType;
+        private System.Windows.Forms.Label editFuelType;
+        private System.Windows.Forms.TextBox editEnginePower;
+        private System.Windows.Forms.TextBox editEngineCapacity;
+        private System.Windows.Forms.TextBox editVinNum;
+        private System.Windows.Forms.TextBox editProdYear;
     }
 }
