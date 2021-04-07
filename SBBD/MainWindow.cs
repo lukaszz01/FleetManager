@@ -23,6 +23,8 @@ namespace SBBD
         List<Models> allModels;
         int vehicleCount;
         int vehiclePages;
+        int currentPage;
+        int editSelecetedId;
         List<PictureBox> tileList;
         List<Label> vLabelList;
 
@@ -31,7 +33,8 @@ namespace SBBD
         {
             InitializeComponent();
             selected = 1;
-            vehiclePages = 0;
+            currentPage = 1;
+
             tileList = new List<PictureBox>()
             {
                 pictureBox00,
@@ -68,7 +71,8 @@ namespace SBBD
             context.Vehicles.Load();
             context.Manufacturers.Load();
             this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
-            
+            vehiclePages = 0;
+
             populatePanel();
             
 
@@ -331,14 +335,22 @@ namespace SBBD
 
         private void populatePanel()
         {
+            foreach(Label l in vLabelList)
+            {
+                l.Text = "";
+            }
+            foreach(PictureBox p in tileList)
+            {
+                p.Image = null;
+            }
             var allVehicles = context.Vehicles.Select(x => x).ToList();
             vehicleCount = allVehicles.Count;
             if(vehiclePages == 0)
-                vehiclePages = (vehicleCount / 6) + 1;
+                vehiclePages = (vehicleCount / 9) + 1;
 
-            for(int i = 0; i < (vehiclePages==1?(vehicleCount % 9):9); i++)
+            for(int i = 0; i < (currentPage==vehiclePages?(vehicleCount % 9):9); i++)
             {
-                ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i]);
+                ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i+((currentPage-1)*9)]);
             }
         }
 
@@ -382,28 +394,33 @@ namespace SBBD
             }
         }
 
+        
+
         private void addVehicleBtn_Click(object sender, EventArgs e)
         {
-            if (IsEmpty(manufacturerComboBox) &&
-                IsEmpty(modelComboBox) &&
-                IsEmpty(prodYear) &&
-                IsEmpty(fuelTypeComboBox) &&
-                IsEmpty(vehicleColor) &&
-                IsEmpty(bodyTypeComboBox) &&
-                IsEmpty(vinNumber) &&
-                IsEmpty(regNumber) &&
-                IsEmpty(engineCapacity) &&
-                IsEmpty(enginePower) &&
-                !RegexD(@"\d{4}", prodYear) &&
-                !RegexD(@"^[a-zA-Z]+$", vehicleColor) &&
-                !RegexD(@"[A-HJ-NPR-Z0-9]{17}", vinNumber) &&
-                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) &&
-                !RegexD(@"\d{3,5}", engineCapacity) &&
-                !RegexD(@"\d{2,4}", enginePower)
+            if (IsEmpty(manufacturerComboBox) ||
+                IsEmpty(modelComboBox) ||
+                IsEmpty(prodYear) ||
+                IsEmpty(fuelTypeComboBox) ||
+                IsEmpty(vehicleColor) ||
+                IsEmpty(bodyTypeComboBox) ||
+                IsEmpty(vinNumber) ||
+                IsEmpty(regNumber) ||
+                IsEmpty(engineCapacity) ||
+                IsEmpty(enginePower)
+
                 )
             {
                 MessageBox.Show("Pola nie mogą być puste!");
             }
+            else if (
+                !RegexD(@"^[0-9]{4}$", prodYear) ||
+                !RegexD(@"^[a-zA-Z]+$", vehicleColor) ||
+                !RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber) ||
+                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
+                !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
+                !RegexD(@"^[0-9]{2,4}$", enginePower)
+                ) { }
             else
             {
                 //RegexD(@"\d{4}", prodYear); //Tylko cyfry
@@ -487,6 +504,49 @@ namespace SBBD
         {
             base.OnClosing(e);
             this.context.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if(currentPage + 1 <= vehiclePages)
+            currentPage++;
+            populatePanel();
+        }
+
+        private void tile_Click(object sender, EventArgs e)
+        {
+            PictureBox pb = (PictureBox)sender;
+            editSelecetedId = (tileList.IndexOf(pb) + 1) + ((currentPage - 1) * 9);
+            vehiclesPanel.Visible = false;
+            editVehiclePanel.Visible = true;
+            Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
+            editManufacturer.Text = selectedVehicle.manufacturer;
+            editModel.Text = selectedVehicle.model;
+            editRegNum.Text = selectedVehicle.registration_num;
+            editVehicleColor.Text = selectedVehicle.color;
+            if (selectedVehicle.available == false)
+                editAvailable.Text = "Nie";
+            else
+                editAvailable.Text = "Tak";
+
+        }
+
+        private void editCancel_Click(object sender, EventArgs e)
+        {
+            vehiclesPanel.Visible = true;
+            editVehiclePanel.Visible = false;
+        }
+
+        private void editConfirm_Click(object sender, EventArgs e)
+        {
+            Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
+            selectedVehicle.registration_num = editRegNum.Text;
+            selectedVehicle.color = editVehicleColor.Text;
+            selectedVehicle.available = editAvailable.Text == "Tak" ? true : false;
+            context.SaveChanges();
+            vehiclesPanel.Visible = true;
+            editVehiclePanel.Visible = false;
+            populatePanel();
         }
     }
 }

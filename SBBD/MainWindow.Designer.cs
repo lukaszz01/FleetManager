@@ -81,7 +81,19 @@ namespace SBBD
             this.label1 = new System.Windows.Forms.Label();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
             this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
+            this.button1 = new System.Windows.Forms.Button();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.editVehiclePanel = new System.Windows.Forms.Panel();
+            this.editCancel = new System.Windows.Forms.Button();
+            this.editModel = new System.Windows.Forms.Label();
+            this.editManufacturer = new System.Windows.Forms.Label();
+            this.editConfirm = new System.Windows.Forms.Button();
+            this.editAvailable = new System.Windows.Forms.ComboBox();
+            this.editRegNum = new System.Windows.Forms.TextBox();
+            this.editVehicleColor = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -111,6 +123,7 @@ namespace SBBD
             this.pictureBox00.SuspendLayout();
             this.addVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
+            this.editVehiclePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -243,6 +256,7 @@ namespace SBBD
             this.pictureBox22.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox22.TabIndex = 8;
             this.pictureBox22.TabStop = false;
+            this.pictureBox22.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel22
             // 
@@ -264,6 +278,7 @@ namespace SBBD
             this.pictureBox21.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox21.TabIndex = 7;
             this.pictureBox21.TabStop = false;
+            this.pictureBox21.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel21
             // 
@@ -285,6 +300,7 @@ namespace SBBD
             this.pictureBox20.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox20.TabIndex = 6;
             this.pictureBox20.TabStop = false;
+            this.pictureBox20.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel20
             // 
@@ -306,6 +322,7 @@ namespace SBBD
             this.pictureBox12.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox12.TabIndex = 5;
             this.pictureBox12.TabStop = false;
+            this.pictureBox12.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel12
             // 
@@ -327,6 +344,7 @@ namespace SBBD
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox11.TabIndex = 4;
             this.pictureBox11.TabStop = false;
+            this.pictureBox11.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel11
             // 
@@ -348,6 +366,7 @@ namespace SBBD
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 3;
             this.pictureBox10.TabStop = false;
+            this.pictureBox10.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel10
             // 
@@ -369,6 +388,7 @@ namespace SBBD
             this.pictureBox02.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox02.TabIndex = 2;
             this.pictureBox02.TabStop = false;
+            this.pictureBox02.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel02
             // 
@@ -390,6 +410,7 @@ namespace SBBD
             this.pictureBox01.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox01.TabIndex = 1;
             this.pictureBox01.TabStop = false;
+            this.pictureBox01.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel01
             // 
@@ -411,6 +432,7 @@ namespace SBBD
             this.pictureBox00.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox00.TabIndex = 0;
             this.pictureBox00.TabStop = false;
+            this.pictureBox00.Click += new System.EventHandler(this.tile_Click);
             // 
             // vLabel00
             // 
@@ -699,9 +721,144 @@ namespace SBBD
             this.entityCommand1.EnablePlanCaching = true;
             this.entityCommand1.Transaction = null;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1120, 626);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
+            // 
+            // editVehiclePanel
+            // 
+            this.editVehiclePanel.BackColor = System.Drawing.Color.Transparent;
+            this.editVehiclePanel.Controls.Add(this.editCancel);
+            this.editVehiclePanel.Controls.Add(this.editModel);
+            this.editVehiclePanel.Controls.Add(this.editManufacturer);
+            this.editVehiclePanel.Controls.Add(this.editConfirm);
+            this.editVehiclePanel.Controls.Add(this.editAvailable);
+            this.editVehiclePanel.Controls.Add(this.editRegNum);
+            this.editVehiclePanel.Controls.Add(this.editVehicleColor);
+            this.editVehiclePanel.Controls.Add(this.label13);
+            this.editVehiclePanel.Controls.Add(this.label15);
+            this.editVehiclePanel.Controls.Add(this.label16);
+            this.editVehiclePanel.Location = new System.Drawing.Point(240, 60);
+            this.editVehiclePanel.Name = "editVehiclePanel";
+            this.editVehiclePanel.Size = new System.Drawing.Size(1000, 520);
+            this.editVehiclePanel.TabIndex = 21;
+            this.editVehiclePanel.Visible = false;
+            // 
+            // editCancel
+            // 
+            this.editCancel.Location = new System.Drawing.Point(739, 482);
+            this.editCancel.Name = "editCancel";
+            this.editCancel.Size = new System.Drawing.Size(75, 23);
+            this.editCancel.TabIndex = 24;
+            this.editCancel.Text = "Anuluj";
+            this.editCancel.UseVisualStyleBackColor = true;
+            this.editCancel.Click += new System.EventHandler(this.editCancel_Click);
+            // 
+            // editModel
+            // 
+            this.editModel.AutoSize = true;
+            this.editModel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editModel.ForeColor = System.Drawing.Color.White;
+            this.editModel.Location = new System.Drawing.Point(167, 36);
+            this.editModel.Name = "editModel";
+            this.editModel.Size = new System.Drawing.Size(51, 23);
+            this.editModel.TabIndex = 22;
+            this.editModel.Text = "Model";
+            // 
+            // editManufacturer
+            // 
+            this.editManufacturer.AutoSize = true;
+            this.editManufacturer.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editManufacturer.ForeColor = System.Drawing.Color.White;
+            this.editManufacturer.Location = new System.Drawing.Point(38, 36);
+            this.editManufacturer.Name = "editManufacturer";
+            this.editManufacturer.Size = new System.Drawing.Size(54, 23);
+            this.editManufacturer.TabIndex = 21;
+            this.editManufacturer.Text = "Marka";
+            // 
+            // editConfirm
+            // 
+            this.editConfirm.Location = new System.Drawing.Point(852, 482);
+            this.editConfirm.Name = "editConfirm";
+            this.editConfirm.Size = new System.Drawing.Size(113, 23);
+            this.editConfirm.TabIndex = 20;
+            this.editConfirm.Text = "Zatwierdź";
+            this.editConfirm.UseVisualStyleBackColor = true;
+            this.editConfirm.Click += new System.EventHandler(this.editConfirm_Click);
+            // 
+            // editAvailable
+            // 
+            this.editAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
+            this.editAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editAvailable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.editAvailable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editAvailable.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editAvailable.ForeColor = System.Drawing.Color.White;
+            this.editAvailable.FormattingEnabled = true;
+            this.editAvailable.Items.AddRange(new object[] {
+            "Tak",
+            "Nie"});
+            this.editAvailable.Location = new System.Drawing.Point(199, 327);
+            this.editAvailable.Name = "editAvailable";
+            this.editAvailable.Size = new System.Drawing.Size(121, 27);
+            this.editAvailable.TabIndex = 19;
+            // 
+            // editRegNum
+            // 
+            this.editRegNum.Location = new System.Drawing.Point(204, 260);
+            this.editRegNum.Name = "editRegNum";
+            this.editRegNum.Size = new System.Drawing.Size(121, 20);
+            this.editRegNum.TabIndex = 15;
+            // 
+            // editVehicleColor
+            // 
+            this.editVehicleColor.Location = new System.Drawing.Point(171, 172);
+            this.editVehicleColor.Name = "editVehicleColor";
+            this.editVehicleColor.Size = new System.Drawing.Size(121, 20);
+            this.editVehicleColor.TabIndex = 13;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.ForeColor = System.Drawing.Color.White;
+            this.label13.Location = new System.Drawing.Point(38, 260);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(150, 23);
+            this.label13.TabIndex = 9;
+            this.label13.Text = "Numer rejestracyjny";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label15.ForeColor = System.Drawing.Color.White;
+            this.label15.Location = new System.Drawing.Point(37, 334);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(73, 23);
+            this.label15.TabIndex = 7;
+            this.label15.Text = "Dostępny";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label16.ForeColor = System.Drawing.Color.White;
+            this.label16.Location = new System.Drawing.Point(38, 175);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(45, 23);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Kolor";
             // 
             // MainWindow
             // 
@@ -709,7 +866,9 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
@@ -762,6 +921,8 @@ namespace SBBD
             this.addVehiclePanel.ResumeLayout(false);
             this.addVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
+            this.editVehiclePanel.ResumeLayout(false);
+            this.editVehiclePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -819,5 +980,17 @@ namespace SBBD
         private System.Windows.Forms.Label vLabel22;
         private System.Windows.Forms.PictureBox pictureBox21;
         private System.Windows.Forms.Label vLabel21;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Panel editVehiclePanel;
+        private System.Windows.Forms.Label editModel;
+        private System.Windows.Forms.Label editManufacturer;
+        private System.Windows.Forms.Button editConfirm;
+        private System.Windows.Forms.ComboBox editAvailable;
+        private System.Windows.Forms.TextBox editRegNum;
+        private System.Windows.Forms.TextBox editVehicleColor;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button editCancel;
     }
 }
