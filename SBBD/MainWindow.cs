@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System.Text.RegularExpressions;
 
 namespace SBBD
 {
@@ -339,6 +340,15 @@ namespace SBBD
 
         private void addVehicleBtn_Click(object sender, EventArgs e)
         {
+            RegexD(@"^[0-9]+$", prodYear); //Tylko cyfry
+            RegexD(@"^[a-zA-Z]+$", vehicleColor); //Tylko litery
+            RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber); //17 znaków
+            RegexD(@"^[a-zA-Z0-9]+$", regNumber); //Tylko cyfry i litery
+            RegexD(@"^[0-9]+$", engineCapacity); //Tylko cyfry
+            RegexD(@"^[0-9]+$", enginePower); //Tylko cyfry
+
+            // Trzeba wyjątek jak pola są puste, inaczej sie krzaczy xD
+
             Vehicles vehicle = new Vehicles()
             {
                 manufacturer = manufacturerComboBox.Text,
@@ -358,6 +368,19 @@ namespace SBBD
             context.Vehicles.Add(vehicle);
             context.SaveChanges();
             allVehicles_Click(null, null);
+        }
+
+        public void RegexD(string reg, TextBox textbox)
+        {
+            Regex regex = new Regex(reg);
+            if(regex.IsMatch(textbox.Text))
+            {
+                MessageBox.Show("Dobrze!");
+            }
+            else
+            {
+                MessageBox.Show("Źle...");
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)
