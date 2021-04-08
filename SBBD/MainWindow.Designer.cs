@@ -61,6 +61,7 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
+            this.infoBox1 = new System.Windows.Forms.PictureBox();
             this.addPhotoBtn = new System.Windows.Forms.PictureBox();
             this.clearVehicleBtn = new System.Windows.Forms.PictureBox();
             this.addVehicleBtn = new System.Windows.Forms.PictureBox();
@@ -96,7 +97,13 @@ namespace SBBD
             this.editRegNum = new System.Windows.Forms.TextBox();
             this.editVehicleColor = new System.Windows.Forms.TextBox();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.infoBox2 = new System.Windows.Forms.PictureBox();
+            this.infoBox3 = new System.Windows.Forms.PictureBox();
+            this.infoBox4 = new System.Windows.Forms.PictureBox();
+            this.infoBox5 = new System.Windows.Forms.PictureBox();
+            this.infoBox6 = new System.Windows.Forms.PictureBox();
             this.selectedImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
@@ -126,11 +133,17 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox00)).BeginInit();
             this.pictureBox00.SuspendLayout();
             this.addVehiclePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPhotoBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -487,6 +500,12 @@ namespace SBBD
             // 
             this.addVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.addVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1151;
+            this.addVehiclePanel.Controls.Add(this.infoBox6);
+            this.addVehiclePanel.Controls.Add(this.infoBox5);
+            this.addVehiclePanel.Controls.Add(this.infoBox4);
+            this.addVehiclePanel.Controls.Add(this.infoBox3);
+            this.addVehiclePanel.Controls.Add(this.infoBox2);
+            this.addVehiclePanel.Controls.Add(this.infoBox1);
             this.addVehiclePanel.Controls.Add(this.selectedImage);
             this.addVehiclePanel.Controls.Add(this.addPhotoBtn);
             this.addVehiclePanel.Controls.Add(this.clearVehicleBtn);
@@ -513,6 +532,15 @@ namespace SBBD
             this.addVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
+            // 
+            // infoBox1
+            // 
+            this.infoBox1.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.infoBox1.Location = new System.Drawing.Point(460, 256);
+            this.infoBox1.Name = "infoBox1";
+            this.infoBox1.Size = new System.Drawing.Size(10, 10);
+            this.infoBox1.TabIndex = 41;
+            this.infoBox1.TabStop = false;
             // 
             // addPhotoBtn
             // 
@@ -995,9 +1023,60 @@ namespace SBBD
             this.warningTimer.Interval = 4000;
             this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
             // 
+            // toolTip
+            // 
+            this.toolTip.BackColor = System.Drawing.Color.White;
+            this.toolTip.ForeColor = System.Drawing.Color.Black;
+            this.toolTip.IsBalloon = true;
+            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
+            // 
+            // infoBox2
+            // 
+            this.infoBox2.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.infoBox2.Location = new System.Drawing.Point(460, 314);
+            this.infoBox2.Name = "infoBox2";
+            this.infoBox2.Size = new System.Drawing.Size(10, 10);
+            this.infoBox2.TabIndex = 42;
+            this.infoBox2.TabStop = false;
+            // 
+            // infoBox3
+            // 
+            this.infoBox3.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.infoBox3.Location = new System.Drawing.Point(460, 376);
+            this.infoBox3.Name = "infoBox3";
+            this.infoBox3.Size = new System.Drawing.Size(10, 10);
+            this.infoBox3.TabIndex = 43;
+            this.infoBox3.TabStop = false;
+            // 
+            // infoBox4
+            // 
+            this.infoBox4.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.infoBox4.Location = new System.Drawing.Point(460, 434);
+            this.infoBox4.Name = "infoBox4";
+            this.infoBox4.Size = new System.Drawing.Size(10, 10);
+            this.infoBox4.TabIndex = 44;
+            this.infoBox4.TabStop = false;
+            // 
+            // infoBox5
+            // 
+            this.infoBox5.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.infoBox5.Location = new System.Drawing.Point(900, 256);
+            this.infoBox5.Name = "infoBox5";
+            this.infoBox5.Size = new System.Drawing.Size(10, 10);
+            this.infoBox5.TabIndex = 45;
+            this.infoBox5.TabStop = false;
+            // 
+            // infoBox6
+            // 
+            this.infoBox6.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.infoBox6.Location = new System.Drawing.Point(900, 314);
+            this.infoBox6.Name = "infoBox6";
+            this.infoBox6.Size = new System.Drawing.Size(10, 10);
+            this.infoBox6.TabIndex = 46;
+            this.infoBox6.TabStop = false;
             // 
             // selectedImage
             // 
@@ -1067,12 +1146,18 @@ namespace SBBD
             this.pictureBox00.PerformLayout();
             this.addVehiclePanel.ResumeLayout(false);
             this.addVehiclePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addPhotoBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).EndInit();
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.selectedImage)).EndInit();
             this.ResumeLayout(false);
 
@@ -1146,6 +1231,13 @@ namespace SBBD
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox addPhotoBtn;
         private System.Windows.Forms.Timer warningTimer;
+        private System.Windows.Forms.PictureBox infoBox1;
+        private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.PictureBox infoBox6;
+        private System.Windows.Forms.PictureBox infoBox5;
+        private System.Windows.Forms.PictureBox infoBox4;
+        private System.Windows.Forms.PictureBox infoBox3;
+        private System.Windows.Forms.PictureBox infoBox2;
         private System.Windows.Forms.PictureBox selectedImage;
     }
 }

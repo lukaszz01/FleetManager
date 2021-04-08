@@ -75,8 +75,13 @@ namespace SBBD
             vehiclePages = 0;
 
             populatePanel();
-            
 
+            toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
+            toolTip.SetToolTip(infoBox2, "Poprawny format A-Z, bez znaków specjalnych i spacji");
+            toolTip.SetToolTip(infoBox3, "Poprawny format 4 znaki (0-9), bez znaków specjalnych i spacji");
+            toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
+            toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9), bez znaków specjalnych i spacji");
+            toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9), bez znaków specjalnych i spacji");
         }
 
         private void addVehicle_MouseEnter(object sender, EventArgs e)

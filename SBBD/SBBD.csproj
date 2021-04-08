@@ -259,6 +259,7 @@
     <None Include="Resources\tlo1151.png" />
     <None Include="Resources\PhotoBTN_active.png" />
     <None Include="Resources\PhotoBTN_inactive.png" />
+    <None Include="Resources\question.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
