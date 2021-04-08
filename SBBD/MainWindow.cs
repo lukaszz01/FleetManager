@@ -29,6 +29,7 @@ namespace SBBD
         List<Label> vLabelList;
         byte[] image;
 
+
         int selected;
         public MainWindow()
         {
@@ -82,6 +83,10 @@ namespace SBBD
             toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9), bez znaków specjalnych i spacji");
+
+            
+            
+
         }
 
         private void addVehicle_MouseEnter(object sender, EventArgs e)
@@ -406,7 +411,13 @@ namespace SBBD
             }
         }
 
-
+        private void SiteCounter()
+        {
+            siteCounter.Parent = siteNavCenter;
+            siteCounter.BackColor = Color.Transparent;
+            siteCounter.ForeColor = Color.White;
+            siteCounter.Text = currentPage.ToString();
+        }
         private void ShowErrorMsg(Label warnLabel)
         {
             warnLabel.Visible = true;
@@ -481,6 +492,8 @@ namespace SBBD
             if(currentPage + 1 <= vehiclePages)
             currentPage++;
             populatePanel();
+            SiteCounter();
+
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -488,31 +501,35 @@ namespace SBBD
             if (currentPage > 1)
                 currentPage--;
             populatePanel();
+            SiteCounter();
         }
 
         private void tile_Click(object sender, EventArgs e)
         {
-            PictureBox pb = (PictureBox)sender;
-            editSelecetedId = tileList.IndexOf(pb);
-            vehiclesPanel.Visible = false;
-            editVehiclePanel.Visible = true;
-            string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
-            Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-            editManufacturer.Text = selectedVehicle.manufacturer;
-            editModel.Text = selectedVehicle.model;
-            editRegNum.Text = selectedVehicle.registration_num;
-            editVehicleColor.Text = selectedVehicle.color;
-            editFuelType.Text = selectedVehicle.fuel_type;
-            editBodyType.Text = selectedVehicle.body_type;
-            editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
-            editVinNum.Text = selectedVehicle.VIN;
-            editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
-            editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
-            if (selectedVehicle.available == false)
-                editAvailable.Text = "Nie";
-            else
-                editAvailable.Text = "Tak";
-
+           
+                PictureBox pb = (PictureBox)sender;
+                editSelecetedId = tileList.IndexOf(pb);
+            if (vLabelList[editSelecetedId].Text != "")
+            {
+                vehiclesPanel.Visible = false;
+                editVehiclePanel.Visible = true;
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+                editManufacturer.Text = selectedVehicle.manufacturer;
+                editModel.Text = selectedVehicle.model;
+                editRegNum.Text = selectedVehicle.registration_num;
+                editVehicleColor.Text = selectedVehicle.color;
+                editFuelType.Text = selectedVehicle.fuel_type;
+                editBodyType.Text = selectedVehicle.body_type;
+                editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
+                editVinNum.Text = selectedVehicle.VIN;
+                editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
+                editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
+                if (selectedVehicle.available == false)
+                    editAvailable.Text = "Nie";
+                else
+                    editAvailable.Text = "Tak";
+            }
         }
 
         private void editCancel_Click(object sender, EventArgs e)

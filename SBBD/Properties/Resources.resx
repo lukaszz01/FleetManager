@@ -244,4 +244,25 @@
   <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NumCircle" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumCircle.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NumCircleLeft_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumCircleLeft_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NumCircleLeft_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumCircleLeft_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NumCircleRight_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumCircleRight_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="NumCircleRight_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumCircleRight_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tlo1152" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tlo1152.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="tlo1153" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tlo1153.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

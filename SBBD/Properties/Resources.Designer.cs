@@ -393,6 +393,56 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap NumCircle {
+            get {
+                object obj = ResourceManager.GetObject("NumCircle", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NumCircleLeft_active {
+            get {
+                object obj = ResourceManager.GetObject("NumCircleLeft_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NumCircleLeft_inactive {
+            get {
+                object obj = ResourceManager.GetObject("NumCircleLeft_inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NumCircleRight_active {
+            get {
+                object obj = ResourceManager.GetObject("NumCircleRight_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap NumCircleRight_inactive {
+            get {
+                object obj = ResourceManager.GetObject("NumCircleRight_inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap PhotoBTN_active {
             get {
                 object obj = ResourceManager.GetObject("PhotoBTN_active", resourceCulture);
@@ -476,6 +526,26 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap tlo1151 {
             get {
                 object obj = ResourceManager.GetObject("tlo1151", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tlo1152 {
+            get {
+                object obj = ResourceManager.GetObject("tlo1152", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap tlo1153 {
+            get {
+                object obj = ResourceManager.GetObject("tlo1153", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

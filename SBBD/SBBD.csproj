@@ -260,6 +260,13 @@
     <None Include="Resources\PhotoBTN_active.png" />
     <None Include="Resources\PhotoBTN_inactive.png" />
     <None Include="Resources\question.png" />
+    <None Include="Resources\tlo1152.png" />
+    <None Include="Resources\tlo1153.png" />
+    <None Include="Resources\NumCircle.png" />
+    <None Include="Resources\NumCircleLeft_active.png" />
+    <None Include="Resources\NumCircleLeft_inactive.png" />
+    <None Include="Resources\NumCircleRight_active.png" />
+    <None Include="Resources\NumCircleRight_inactive.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
