@@ -61,6 +61,7 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
+            this.clearVehicleBtn = new System.Windows.Forms.PictureBox();
             this.addVehicleBtn = new System.Windows.Forms.PictureBox();
             this.warnLabel6 = new System.Windows.Forms.Label();
             this.warnLabel7 = new System.Windows.Forms.Label();
@@ -93,7 +94,6 @@ namespace SBBD
             this.editAvailable = new System.Windows.Forms.ComboBox();
             this.editRegNum = new System.Windows.Forms.TextBox();
             this.editVehicleColor = new System.Windows.Forms.TextBox();
-            this.clearVehicleBtn = new System.Windows.Forms.PictureBox();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
@@ -123,9 +123,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox00)).BeginInit();
             this.pictureBox00.SuspendLayout();
             this.addVehiclePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -481,7 +481,7 @@ namespace SBBD
             // addVehiclePanel
             // 
             this.addVehiclePanel.BackColor = System.Drawing.Color.Transparent;
-            this.addVehiclePanel.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addVehiclePanel.BackgroundImage")));
+            this.addVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1151;
             this.addVehiclePanel.Controls.Add(this.clearVehicleBtn);
             this.addVehiclePanel.Controls.Add(this.addVehicleBtn);
             this.addVehiclePanel.Controls.Add(this.warnLabel6);
@@ -506,6 +506,18 @@ namespace SBBD
             this.addVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
+            // 
+            // clearVehicleBtn
+            // 
+            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.BackgroundImage = global::SBBD.Properties.Resources.ClearBTN_inactive;
+            this.clearVehicleBtn.Location = new System.Drawing.Point(60, 550);
+            this.clearVehicleBtn.Name = "clearVehicleBtn";
+            this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
+            this.clearVehicleBtn.TabIndex = 39;
+            this.clearVehicleBtn.TabStop = false;
+            this.clearVehicleBtn.MouseEnter += new System.EventHandler(this.clearVehicleBtn_MouseEnter);
+            this.clearVehicleBtn.MouseLeave += new System.EventHandler(this.clearVehicleBtn_MouseLeave);
             // 
             // addVehicleBtn
             // 
@@ -767,6 +779,7 @@ namespace SBBD
             // editVehiclePanel
             // 
             this.editVehiclePanel.BackColor = System.Drawing.Color.Transparent;
+            this.editVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo113;
             this.editVehiclePanel.Controls.Add(this.editEnginePower);
             this.editVehiclePanel.Controls.Add(this.editEngineCapacity);
             this.editVehiclePanel.Controls.Add(this.editVinNum);
@@ -943,18 +956,6 @@ namespace SBBD
             this.editVehicleColor.TabIndex = 13;
             this.editVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // clearVehicleBtn
-            // 
-            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.BackgroundImage = global::SBBD.Properties.Resources.ClearBTN_inactive;
-            this.clearVehicleBtn.Location = new System.Drawing.Point(60, 550);
-            this.clearVehicleBtn.Name = "clearVehicleBtn";
-            this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
-            this.clearVehicleBtn.TabIndex = 39;
-            this.clearVehicleBtn.TabStop = false;
-            this.clearVehicleBtn.MouseEnter += new System.EventHandler(this.clearVehicleBtn_MouseEnter);
-            this.clearVehicleBtn.MouseLeave += new System.EventHandler(this.clearVehicleBtn_MouseLeave);
-            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
@@ -1018,10 +1019,10 @@ namespace SBBD
             this.pictureBox00.PerformLayout();
             this.addVehiclePanel.ResumeLayout(false);
             this.addVehiclePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).EndInit();
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.ResumeLayout(false);
 

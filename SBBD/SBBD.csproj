@@ -256,6 +256,7 @@
     <None Include="Resources\AddBTN_active.png" />
     <None Include="Resources\ClearBTN_active.png" />
     <None Include="Resources\ClearBTN_inactive.png" />
+    <None Include="Resources\tlo1151.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
