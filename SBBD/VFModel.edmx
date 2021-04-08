@@ -53,7 +53,7 @@
           <Property Name="registration_num" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="engine_capacity" Type="int" Nullable="false" />
           <Property Name="engine_power" Type="int" Nullable="false" />
-          <Property Name="vehicle_id" Type="int" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="available" Type="bit" Nullable="false" />
         </EntityType>
@@ -71,7 +71,7 @@
           <Key>
             <PropertyRef Name="image_id" />
           </Key>
-          <Property Name="image_id" Type="int" Nullable="false" />
+          <Property Name="image_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
           <Property Name="vehicle_id" Type="int" Nullable="false" />
           <Property Name="vehicle_image" Type="image" Nullable="false" />
         </EntityType>
@@ -204,7 +204,7 @@
           <Property Name="registration_num" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="engine_capacity" Type="Int32" Nullable="false" />
           <Property Name="engine_power" Type="Int32" Nullable="false" />
-          <Property Name="vehicle_id" Type="Int32" Nullable="false" />
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="user_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Users" Relationship="Self.FK_Vehicles_Users" FromRole="Vehicles" ToRole="Users" />
           <NavigationProperty Name="Vehicle_Service" Relationship="Self.FK_Vehicle_Service_Vehicles" FromRole="Vehicles" ToRole="Vehicle_Service" />
@@ -227,7 +227,7 @@
           <Key>
             <PropertyRef Name="image_id" />
           </Key>
-          <Property Name="image_id" Type="Int32" Nullable="false" />
+          <Property Name="image_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="vehicle_id" Type="Int32" Nullable="false" />
           <Property Name="vehicle_image" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
           <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Images_Vehicles" FromRole="Vehicles_Images" ToRole="Vehicles" />

@@ -97,6 +97,7 @@ namespace SBBD
             this.editVehicleColor = new System.Windows.Forms.TextBox();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.selectedImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -130,6 +131,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedImage)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -485,6 +487,7 @@ namespace SBBD
             // 
             this.addVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.addVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1151;
+            this.addVehiclePanel.Controls.Add(this.selectedImage);
             this.addVehiclePanel.Controls.Add(this.addPhotoBtn);
             this.addVehiclePanel.Controls.Add(this.clearVehicleBtn);
             this.addVehiclePanel.Controls.Add(this.addVehicleBtn);
@@ -519,6 +522,7 @@ namespace SBBD
             this.addPhotoBtn.Size = new System.Drawing.Size(140, 30);
             this.addPhotoBtn.TabIndex = 40;
             this.addPhotoBtn.TabStop = false;
+            this.addPhotoBtn.Click += new System.EventHandler(this.addPhotoBtn_Click);
             this.addPhotoBtn.MouseEnter += new System.EventHandler(this.addPhotoBtn_MouseEnter);
             this.addPhotoBtn.MouseLeave += new System.EventHandler(this.addPhotoBtn_MouseLeave);
             // 
@@ -995,6 +999,15 @@ namespace SBBD
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
+            // selectedImage
+            // 
+            this.selectedImage.Location = new System.Drawing.Point(600, 34);
+            this.selectedImage.Name = "selectedImage";
+            this.selectedImage.Size = new System.Drawing.Size(320, 160);
+            this.selectedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.selectedImage.TabIndex = 41;
+            this.selectedImage.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1060,6 +1073,7 @@ namespace SBBD
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.selectedImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1132,5 +1146,6 @@ namespace SBBD
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox addPhotoBtn;
         private System.Windows.Forms.Timer warningTimer;
+        private System.Windows.Forms.PictureBox selectedImage;
     }
 }

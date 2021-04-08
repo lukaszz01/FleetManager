@@ -27,6 +27,7 @@ namespace SBBD
         int editSelecetedId;
         List<PictureBox> tileList;
         List<Label> vLabelList;
+        byte[] image;
 
         int selected;
         public MainWindow()
@@ -330,7 +331,8 @@ namespace SBBD
                 IsEmpty(vinNumber, "17 - znakowy VIN") ||
                 IsEmpty(regNumber, "np. LHR12345") ||
                 IsEmpty(engineCapacity, "np. 3000") ||
-                IsEmpty(enginePower, "np. 240")
+                IsEmpty(enginePower, "np. 240") ||
+                selectedImage.Image == null
                 )
             {
                 //MessageBox.Show("Pola nie mogą być puste!");
@@ -381,11 +383,18 @@ namespace SBBD
                     registration_num = regNumber.Text,
                     engine_capacity = Int32.Parse(engineCapacity.Text),
                     engine_power = Int32.Parse(enginePower.Text),
-                    vehicle_id = ++vehicleCount,
+                    //vehicle_id = ++vehicleCount,
                     user_email = "user@email.com",
                     available = true
                 };
+                Vehicles_Images vehicleImage = new Vehicles_Images()
+                {
+                    vehicle_id = vehicle.vehicle_id,
+                    vehicle_image = image,
+                    //image_id = 1
+                };
                 context.Vehicles.Add(vehicle);
+                context.Vehicles_Images.Add(vehicleImage);
                 context.SaveChanges();
                 allVehicles_Click(null, null);
                 populatePanel();
@@ -428,10 +437,10 @@ namespace SBBD
 
         private void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle)
         {
-            //Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
-            //Bitmap bm = ByteToImage(vehImage.vehicle_image);
-            //pictureBox.Image = bm;
-            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n" + vehicle.registration_num;
+            Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+            Bitmap bm = ByteToImage(vehImage.vehicle_image);
+            pictureBox.Image = bm;
+            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
             
         }
 
@@ -442,6 +451,18 @@ namespace SBBD
             Bitmap bm = new Bitmap(mStream, false);
             mStream.Dispose();
             return bm;
+        }
+
+        private byte[] ImageToByte(string fileName)
+        {
+            Image img = Image.FromFile(@fileName);
+            byte[] image;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                image = ms.ToArray();
+            }
+            return image;
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -467,10 +488,11 @@ namespace SBBD
         private void tile_Click(object sender, EventArgs e)
         {
             PictureBox pb = (PictureBox)sender;
-            editSelecetedId = (tileList.IndexOf(pb) + 1) + ((currentPage - 1) * 9);
+            editSelecetedId = tileList.IndexOf(pb);
             vehiclesPanel.Visible = false;
             editVehiclePanel.Visible = true;
-            Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
+            string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+            Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
             editManufacturer.Text = selectedVehicle.manufacturer;
             editModel.Text = selectedVehicle.model;
             editRegNum.Text = selectedVehicle.registration_num;
@@ -508,7 +530,8 @@ namespace SBBD
             //    ) { }
             else
             {
-                Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
                 selectedVehicle.registration_num = editRegNum.Text;
                 selectedVehicle.color = editVehicleColor.Text;
                 selectedVehicle.available = editAvailable.Text == "Tak" ? true : false;
@@ -689,6 +712,21 @@ namespace SBBD
             modelComboBox.SelectedIndex = -1;
             manufacturerComboBox.SelectedIndex = -1;
             modelComboBox.Enabled = false;
+        }
+
+        private void addPhotoBtn_Click(object sender, EventArgs e)
+        {
+            using(OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Wybierz zdjęcie";
+                openFileDialog.Filter = "Plik JPEG (*.jpg)|*.jpg";
+
+                if(openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    selectedImage.Image = new Bitmap(openFileDialog.FileName);
+                    image = ImageToByte(openFileDialog.FileName);
+                }
+            }
         }
     }
 }
