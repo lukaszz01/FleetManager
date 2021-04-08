@@ -40,6 +40,7 @@ namespace SBBD
             this.mainMinimize = new System.Windows.Forms.PictureBox();
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
             this.vLabel22 = new System.Windows.Forms.Label();
@@ -78,7 +79,6 @@ namespace SBBD
             this.prodYear = new System.Windows.Forms.TextBox();
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
-            this.entityCommand1 = new System.Data.Entity.Core.EntityClient.EntityCommand();
             this.editVehiclePanel = new System.Windows.Forms.Panel();
             this.editEnginePower = new System.Windows.Forms.TextBox();
             this.editEngineCapacity = new System.Windows.Forms.TextBox();
@@ -235,6 +235,7 @@ namespace SBBD
             // vehiclesPanel
             // 
             this.vehiclesPanel.BackColor = System.Drawing.Color.Transparent;
+            this.vehiclesPanel.Controls.Add(this.button2);
             this.vehiclesPanel.Controls.Add(this.button1);
             this.vehiclesPanel.Controls.Add(this.pictureBox22);
             this.vehiclesPanel.Controls.Add(this.pictureBox21);
@@ -250,13 +251,23 @@ namespace SBBD
             this.vehiclesPanel.Size = new System.Drawing.Size(1040, 660);
             this.vehiclesPanel.TabIndex = 8;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(805, 573);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 11;
+            this.button2.Text = "Poprzednia";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(925, 574);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
+            this.button1.Text = "Następna";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -753,14 +764,6 @@ namespace SBBD
             this.manufacturerComboBox.TabIndex = 0;
             this.manufacturerComboBox.SelectedIndexChanged += new System.EventHandler(this.ManufacturerComboBox_SelectedIndexChanged);
             // 
-            // entityCommand1
-            // 
-            this.entityCommand1.CommandTimeout = 0;
-            this.entityCommand1.CommandTree = null;
-            this.entityCommand1.Connection = null;
-            this.entityCommand1.EnablePlanCaching = true;
-            this.entityCommand1.Transaction = null;
-            // 
             // editVehiclePanel
             // 
             this.editVehiclePanel.BackColor = System.Drawing.Color.Transparent;
@@ -1039,7 +1042,6 @@ namespace SBBD
         private System.Windows.Forms.Panel addVehiclePanel;
         private System.Windows.Forms.ComboBox manufacturerComboBox;
         private System.Windows.Forms.ComboBox modelComboBox;
-        private System.Data.Entity.Core.EntityClient.EntityCommand entityCommand1;
         private System.Windows.Forms.ComboBox bodyTypeComboBox;
         private System.Windows.Forms.ComboBox fuelTypeComboBox;
         private System.Windows.Forms.TextBox enginePower;
@@ -1090,5 +1092,6 @@ namespace SBBD
         private System.Windows.Forms.Label warnLabel7;
         private System.Windows.Forms.PictureBox addVehicleBtn;
         private System.Windows.Forms.PictureBox clearVehicleBtn;
+        private System.Windows.Forms.Button button2;
     }
 }
