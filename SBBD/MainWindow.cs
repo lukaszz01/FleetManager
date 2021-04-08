@@ -647,6 +647,16 @@ namespace SBBD
             clearVehicleBtn.BackgroundImage = SBBD.Properties.Resources.ClearBTN_inactive;
         }
 
+        private void addPhotoBtn_MouseEnter(object sender, EventArgs e)
+        {
+            addPhotoBtn.BackgroundImage = SBBD.Properties.Resources.PhotoBTN_active;
+        }
+
+        private void addPhotoBtn_MouseLeave(object sender, EventArgs e)
+        {
+            addPhotoBtn.BackgroundImage = SBBD.Properties.Resources.PhotoBTN_inactive;
+        }
+
         private void warningTimer_Tick(object sender, EventArgs e)
         {
             warningTimer.Stop();
