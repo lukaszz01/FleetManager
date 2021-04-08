@@ -97,7 +97,7 @@ namespace SBBD
             // 
             this.emailLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.emailLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailLogin.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.emailLogin.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.emailLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.emailLogin.Location = new System.Drawing.Point(60, 210);
             this.emailLogin.Name = "emailLogin";
@@ -112,7 +112,7 @@ namespace SBBD
             // 
             this.passwordLogin.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.passwordLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordLogin.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordLogin.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.passwordLogin.Location = new System.Drawing.Point(60, 253);
             this.passwordLogin.Name = "passwordLogin";

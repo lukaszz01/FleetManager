@@ -94,7 +94,7 @@ namespace SBBD
             if (emailLogin.Text == "Login (adres e-mail)")
             {
                 emailLogin.Text = "";
-                emailLogin.ForeColor = Color.FromArgb(165, 166, 167);
+                emailLogin.ForeColor = Color.White;
             }
         }
 
@@ -113,7 +113,7 @@ namespace SBBD
             {
                 passwordLogin.Text = "";
                 passwordLogin.PasswordChar = '*';
-                passwordLogin.ForeColor = Color.FromArgb(165, 166, 167);
+                passwordLogin.ForeColor = Color.White;
             }
         }
 

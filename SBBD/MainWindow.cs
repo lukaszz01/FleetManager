@@ -381,7 +381,6 @@ namespace SBBD
 
         private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             modelComboBox.Enabled = true;
             modelComboBox.Items.Clear();
             modelComboBox.Text = "";
@@ -408,18 +407,18 @@ namespace SBBD
                 IsEmpty(regNumber) ||
                 IsEmpty(engineCapacity) ||
                 IsEmpty(enginePower)
-
                 )
             {
-                MessageBox.Show("Pola nie mogą być puste!");
+                //MessageBox.Show("Pola nie mogą być puste!");
+                warnLabel7.Text = "Uzupełnij wszystkie dostępne pola!";
             }
             else if (
-                !RegexD(@"^[0-9]{4}$", prodYear) ||
-                !RegexD(@"^[a-zA-Z]+$", vehicleColor) ||
-                !RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber) ||
-                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
-                !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
-                !RegexD(@"^[0-9]{2,4}$", enginePower)
+                !RegexD(@"^[0-9]{4}$", prodYear, warnLabel3) ||
+                !RegexD(@"^[a-zA-Z]+$", vehicleColor, warnLabel2) ||
+                !RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber, warnLabel4) ||
+                !RegexD(@"^[a-zA-Z0-9]+$", regNumber, warnLabel1) ||
+                !RegexD(@"^[0-9]{3,5}$", engineCapacity, warnLabel5) ||
+                !RegexD(@"^[0-9]{2,4}$", enginePower, warnLabel6)
                 ) { }
             else
             {
@@ -435,7 +434,7 @@ namespace SBBD
                 //RegexD(@"^[0-9]+$", enginePower); //Tylko cyfry
 
                 // Trzeba wyjątek jak pola są puste, inaczej sie krzaczy xD
-
+                warnLabel7.Text = "";
                 Vehicles vehicle = new Vehicles()
                 {
                     manufacturer = manufacturerComboBox.Text,
@@ -459,16 +458,18 @@ namespace SBBD
             }
         }
 
-        private bool RegexD(string reg, TextBox textbox)
+        private bool RegexD(string reg, TextBox textbox, Label labelTest)
         {
             Regex regex = new Regex(reg);
             if (!regex.IsMatch(textbox.Text))
             {
-                MessageBox.Show(textbox.Name + " wprowadzony źle");
+                labelTest.Text = "Wprowadzone wyrażenie jest niepoprawne!";
+               // MessageBox.Show(textbox.Name + " wprowadzony źle");
                 return false;
             }
             else
             {
+                labelTest.Text = "";
                 return true;
             }
         }
@@ -551,10 +552,10 @@ namespace SBBD
             {
                 MessageBox.Show("Pola nie mogą być puste!");
             }
-            else if (
-                !RegexD(@"^[a-zA-Z]+$", editVehicleColor) ||
-                !RegexD(@"^[a-zA-Z0-9]+$", editRegNum)
-                ) { }
+            //else if (
+            //    !RegexD(@"^[a-zA-Z]+$", editVehicleColor) ||
+            //    !RegexD(@"^[a-zA-Z0-9]+$", editRegNum)
+            //    ) { }
             else
             {
                 Vehicles selectedVehicle = context.Vehicles.Where(v => v.vehicle_id == editSelecetedId).FirstOrDefault<Vehicles>();
@@ -567,5 +568,135 @@ namespace SBBD
                 populatePanel();
             }
         }
+
+        private void regNumber_Enter(object sender, EventArgs e)
+        {
+            if (regNumber.Text == "np. LHR12345")
+            {
+                regNumber.Text = "";
+                regNumber.ForeColor = Color.White;
+            }
+        }
+
+        private void regNumber_Leave(object sender, EventArgs e)
+        {
+            if (regNumber.Text == "")
+            {
+                regNumber.Text = "np. LHR12345";
+                regNumber.ForeColor = Color.FromArgb(77, 77, 77);
+            }
+        }
+
+        private void vehicleColor_Enter(object sender, EventArgs e)
+        {
+            if (vehicleColor.Text == "np. Czarny")
+            {
+                vehicleColor.Text = "";
+                vehicleColor.ForeColor = Color.White;
+            }
+        }
+
+        private void vehicleColor_Leave(object sender, EventArgs e)
+        {
+            if (vehicleColor.Text == "")
+            {
+                vehicleColor.Text = "np. Czarny";
+                vehicleColor.ForeColor = Color.FromArgb(77, 77, 77);
+            }
+        }
+
+        private void prodYear_Enter(object sender, EventArgs e)
+        {
+            if (prodYear.Text == "np. 2021")
+            {
+                prodYear.Text = "";
+                prodYear.ForeColor = Color.White;
+            }
+        }
+
+        private void prodYear_Leave(object sender, EventArgs e)
+        {
+            if (prodYear.Text == "")
+            {
+                prodYear.Text = "np. 2021";
+                prodYear.ForeColor = Color.FromArgb(77, 77, 77);
+            }
+        }
+
+        private void vinNumber_Enter(object sender, EventArgs e)
+        {
+            if (vinNumber.Text == "17 - cyfrowy VIN")
+            {
+                vinNumber.Text = "";
+                vinNumber.ForeColor = Color.White;
+            }
+        }
+
+        private void vinNumber_Leave(object sender, EventArgs e)
+        {
+            if (vinNumber.Text == "")
+            {
+                vinNumber.Text = "17 - cyfrowy VIN";
+                vinNumber.ForeColor = Color.FromArgb(77, 77, 77);
+            }
+        }
+
+        private void engineCapacity_Enter(object sender, EventArgs e)
+        {
+            if (engineCapacity.Text == "np. 3000")
+            {
+                engineCapacity.Text = "";
+                engineCapacity.ForeColor = Color.White;
+            }
+        }
+
+        private void engineCapacity_Leave(object sender, EventArgs e)
+        {
+            if (engineCapacity.Text == "")
+            {
+                engineCapacity.Text = "np. 3000";
+                engineCapacity.ForeColor = Color.FromArgb(77, 77, 77);
+            }
+        }
+
+        private void enginePower_Enter(object sender, EventArgs e)
+        {
+            if (enginePower.Text == "np. 240")
+            {
+                enginePower.Text = "";
+                enginePower.ForeColor = Color.White;
+            }
+        }
+
+        private void enginePower_Leave(object sender, EventArgs e)
+        {
+            if (enginePower.Text == "")
+            {
+                enginePower.Text = "np. 240";
+                enginePower.ForeColor = Color.FromArgb(77, 77, 77);
+            }
+        }
+
+        private void addVehicleBtn_MouseEnter(object sender, EventArgs e)
+        {
+            addVehicleBtn.BackgroundImage = SBBD.Properties.Resources.AddBTN_active;
+        }
+
+        private void addVehicleBtn_MouseLeave(object sender, EventArgs e)
+        {
+            addVehicleBtn.BackgroundImage = SBBD.Properties.Resources.AddBTN_inactive;
+        }
+
+        private void clearVehicleBtn_MouseEnter(object sender, EventArgs e)
+        {
+            clearVehicleBtn.BackgroundImage = SBBD.Properties.Resources.ClearBTN_active;
+        }
+
+        private void clearVehicleBtn_MouseLeave(object sender, EventArgs e)
+        {
+            clearVehicleBtn.BackgroundImage = SBBD.Properties.Resources.ClearBTN_inactive;
+        }
     }
 }
+
+
