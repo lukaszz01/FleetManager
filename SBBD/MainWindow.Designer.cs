@@ -94,6 +94,7 @@ namespace SBBD
             this.editAvailable = new System.Windows.Forms.ComboBox();
             this.editRegNum = new System.Windows.Forms.TextBox();
             this.editVehicleColor = new System.Windows.Forms.TextBox();
+            this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
@@ -551,8 +552,10 @@ namespace SBBD
             this.warnLabel7.ForeColor = System.Drawing.Color.Red;
             this.warnLabel7.Location = new System.Drawing.Point(60, 490);
             this.warnLabel7.Name = "warnLabel7";
-            this.warnLabel7.Size = new System.Drawing.Size(0, 19);
+            this.warnLabel7.Size = new System.Drawing.Size(201, 19);
             this.warnLabel7.TabIndex = 37;
+            this.warnLabel7.Text = "Uzupełnij wszystkie dostępne pola!";
+            this.warnLabel7.Visible = false;
             // 
             // warnLabel5
             // 
@@ -711,7 +714,7 @@ namespace SBBD
             this.vinNumber.Name = "vinNumber";
             this.vinNumber.Size = new System.Drawing.Size(160, 20);
             this.vinNumber.TabIndex = 14;
-            this.vinNumber.Text = "17 - cyfrowy VIN";
+            this.vinNumber.Text = "17 - znakowy VIN";
             this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.vinNumber.Enter += new System.EventHandler(this.vinNumber_Enter);
             this.vinNumber.Leave += new System.EventHandler(this.vinNumber_Leave);
@@ -956,6 +959,11 @@ namespace SBBD
             this.editVehicleColor.TabIndex = 13;
             this.editVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // warningTimer
+            // 
+            this.warningTimer.Interval = 4000;
+            this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
+            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
@@ -1094,5 +1102,6 @@ namespace SBBD
         private System.Windows.Forms.PictureBox addVehicleBtn;
         private System.Windows.Forms.PictureBox clearVehicleBtn;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Timer warningTimer;
     }
 }
