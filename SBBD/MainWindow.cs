@@ -339,13 +339,21 @@ namespace SBBD
                 warnLabel7.Visible = true;
             }
             else if (
-                !RegexD(@"^[0-9]{4}$", prodYear, warnLabel3) ||
-                !RegexD(@"^[a-zA-Z]+$", vehicleColor, warnLabel2) ||
-                !RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber, warnLabel4) ||
-                !RegexD(@"^[a-zA-Z0-9]+$", regNumber, warnLabel1) ||
-                !RegexD(@"^[0-9]{3,5}$", engineCapacity, warnLabel5) ||
-                !RegexD(@"^[0-9]{2,4}$", enginePower, warnLabel6)
-                ) { }
+                !RegexD(@"^[0-9]{4}$", prodYear) ||
+                !RegexD(@"^[a-zA-Z]+$", vehicleColor) ||
+                !RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber) ||
+                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
+                !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
+                !RegexD(@"^[0-9]{2,4}$", enginePower)
+                ) 
+            {
+                if (!RegexD(@"^[0-9]{4}$", prodYear)) ShowErrorMsg(warnLabel3);
+                if (!RegexD(@"^[a-zA-Z]+$", vehicleColor)) ShowErrorMsg(warnLabel2);
+                if (!RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber)) ShowErrorMsg(warnLabel4);
+                if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(warnLabel1);
+                if (!RegexD(@"^[0-9]{3,5}$", engineCapacity)) ShowErrorMsg(warnLabel5);
+                if (!RegexD(@"^[0-9]{2,4}$", enginePower)) ShowErrorMsg(warnLabel6);
+            }
             else
             {
                 //RegexD(@"\d{4}", prodYear); //Tylko cyfry
@@ -384,18 +392,23 @@ namespace SBBD
             }
         }
 
-        private bool RegexD(string reg, TextBox textbox, Label labelTest)
+
+        private void ShowErrorMsg(Label warnLabel)
+        {
+            warnLabel.Visible = true;
+            warningTimer.Start();
+        }
+        private bool RegexD(string reg, TextBox textbox)
         {
             Regex regex = new Regex(reg);
             if (!regex.IsMatch(textbox.Text))
             {
-                labelTest.Text = "Wprowadzone wyrażenie jest niepoprawne!";
+                
                // MessageBox.Show(textbox.Name + " wprowadzony źle");
                 return false;
             }
             else
             {
-                labelTest.Text = "";
                 return true;
             }
         }
@@ -637,7 +650,35 @@ namespace SBBD
         private void warningTimer_Tick(object sender, EventArgs e)
         {
             warningTimer.Stop();
+            warnLabel1.Visible = false;
+            warnLabel2.Visible = false;
+            warnLabel3.Visible = false;
+            warnLabel4.Visible = false;
+            warnLabel5.Visible = false;
+            warnLabel6.Visible = false;
             warnLabel7.Visible = false;
+
+        }
+
+        private void clearVehicleBtn_Click(object sender, EventArgs e)
+        {
+            bodyTypeComboBox.SelectedIndex = -1;
+            fuelTypeComboBox.SelectedIndex = -1;
+            enginePower.Text = "";
+            enginePower_Leave(null, null);
+            engineCapacity.Text = "";
+            engineCapacity_Leave(null, null);
+            regNumber.Text = "";
+            regNumber_Leave(null, null);
+            vinNumber.Text = "";
+            vinNumber_Leave(null, null);
+            vehicleColor.Text = "";
+            vehicleColor_Leave(null, null);
+            prodYear.Text = "";
+            prodYear_Leave(null, null);
+            modelComboBox.SelectedIndex = -1;
+            manufacturerComboBox.SelectedIndex = -1;
+            modelComboBox.Enabled = false;
         }
     }
 }

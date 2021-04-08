@@ -517,6 +517,7 @@ namespace SBBD
             this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
             this.clearVehicleBtn.TabIndex = 39;
             this.clearVehicleBtn.TabStop = false;
+            this.clearVehicleBtn.Click += new System.EventHandler(this.clearVehicleBtn_Click);
             this.clearVehicleBtn.MouseEnter += new System.EventHandler(this.clearVehicleBtn_MouseEnter);
             this.clearVehicleBtn.MouseLeave += new System.EventHandler(this.clearVehicleBtn_MouseLeave);
             // 
@@ -541,8 +542,10 @@ namespace SBBD
             this.warnLabel6.ForeColor = System.Drawing.Color.Red;
             this.warnLabel6.Location = new System.Drawing.Point(700, 336);
             this.warnLabel6.Name = "warnLabel6";
-            this.warnLabel6.Size = new System.Drawing.Size(0, 14);
+            this.warnLabel6.Size = new System.Drawing.Size(105, 14);
             this.warnLabel6.TabIndex = 36;
+            this.warnLabel6.Text = "Moc silnika niepoprawna";
+            this.warnLabel6.Visible = false;
             // 
             // warnLabel7
             // 
@@ -565,8 +568,10 @@ namespace SBBD
             this.warnLabel5.ForeColor = System.Drawing.Color.Red;
             this.warnLabel5.Location = new System.Drawing.Point(700, 277);
             this.warnLabel5.Name = "warnLabel5";
-            this.warnLabel5.Size = new System.Drawing.Size(0, 14);
+            this.warnLabel5.Size = new System.Drawing.Size(132, 14);
             this.warnLabel5.TabIndex = 35;
+            this.warnLabel5.Text = "Pojemność silnika niepoprawna";
+            this.warnLabel5.Visible = false;
             // 
             // warnLabel4
             // 
@@ -576,8 +581,10 @@ namespace SBBD
             this.warnLabel4.ForeColor = System.Drawing.Color.Red;
             this.warnLabel4.Location = new System.Drawing.Point(260, 455);
             this.warnLabel4.Name = "warnLabel4";
-            this.warnLabel4.Size = new System.Drawing.Size(0, 14);
+            this.warnLabel4.Size = new System.Drawing.Size(104, 14);
             this.warnLabel4.TabIndex = 34;
+            this.warnLabel4.Text = "Numer VIN niepoprawny";
+            this.warnLabel4.Visible = false;
             // 
             // warnLabel3
             // 
@@ -587,8 +594,10 @@ namespace SBBD
             this.warnLabel3.ForeColor = System.Drawing.Color.Red;
             this.warnLabel3.Location = new System.Drawing.Point(260, 396);
             this.warnLabel3.Name = "warnLabel3";
-            this.warnLabel3.Size = new System.Drawing.Size(0, 14);
+            this.warnLabel3.Size = new System.Drawing.Size(76, 14);
             this.warnLabel3.TabIndex = 33;
+            this.warnLabel3.Text = "Rok niepoprawny";
+            this.warnLabel3.Visible = false;
             // 
             // warnLabel2
             // 
@@ -598,8 +607,10 @@ namespace SBBD
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
             this.warnLabel2.Location = new System.Drawing.Point(260, 336);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(0, 14);
+            this.warnLabel2.Size = new System.Drawing.Size(82, 14);
             this.warnLabel2.TabIndex = 32;
+            this.warnLabel2.Text = "Kolor niepoprawny";
+            this.warnLabel2.Visible = false;
             // 
             // warnLabel1
             // 
@@ -609,8 +620,10 @@ namespace SBBD
             this.warnLabel1.ForeColor = System.Drawing.Color.Red;
             this.warnLabel1.Location = new System.Drawing.Point(260, 277);
             this.warnLabel1.Name = "warnLabel1";
-            this.warnLabel1.Size = new System.Drawing.Size(0, 14);
+            this.warnLabel1.Size = new System.Drawing.Size(137, 14);
             this.warnLabel1.TabIndex = 31;
+            this.warnLabel1.Text = "Nuer rejestracyjny niepoprawny!";
+            this.warnLabel1.Visible = false;
             // 
             // bodyTypeComboBox
             // 
