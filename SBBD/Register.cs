@@ -7,11 +7,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Data.Entity;
 
 namespace SBBD
 {
     public partial class Register : Form
     {
+        VFEntities context;
         bool moving;
         int moveX;
         int moveY;
@@ -21,6 +23,11 @@ namespace SBBD
         public Register()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            context.Users.Load();
         }
 
         public static DialogResult ShowRegister()
@@ -42,6 +49,22 @@ namespace SBBD
             Login.ShowLogin();
             this.Close();
         }
+
+        private bool emailIsRepeat(string email)
+        {
+            var allUsers = context.Users.Select(x => x).ToList();
+            bool isTrue = false;
+            foreach(Users user in allUsers)
+            {
+                if(email == user.email)
+                {
+                    isTrue = true;
+                    break;
+                }
+            }
+            return isTrue;
+        }
+
 
         private void loginRegister_MouseEnter(object sender, EventArgs e)
         {

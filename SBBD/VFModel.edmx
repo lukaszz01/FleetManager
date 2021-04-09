@@ -27,6 +27,7 @@
           <Property Name="first_name" Type="varchar" MaxLength="15" Nullable="false" />
           <Property Name="last_name" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="password" Type="varchar(max)" Nullable="false" />
+          <Property Name="admin" Type="bit" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicle_Service">
           <Key>
@@ -53,7 +54,7 @@
           <Property Name="registration_num" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="engine_capacity" Type="int" Nullable="false" />
           <Property Name="engine_power" Type="int" Nullable="false" />
-          <Property Name="vehicle_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="vehicle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="available" Type="bit" Nullable="false" />
         </EntityType>
@@ -71,7 +72,7 @@
           <Key>
             <PropertyRef Name="image_id" />
           </Key>
-          <Property Name="image_id" Type="int" Nullable="false" StoreGeneratedPattern="Identity" />
+          <Property Name="image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="vehicle_id" Type="int" Nullable="false" />
           <Property Name="vehicle_image" Type="image" Nullable="false" />
         </EntityType>
@@ -177,6 +178,7 @@
           <Property Name="last_name" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Users" FromRole="Users" ToRole="Vehicles" />
+          <Property Name="admin" Type="Boolean" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicle_Service">
           <Key>
@@ -346,6 +348,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Vehicle_FleetModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="admin" ColumnName="admin" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />
                 <ScalarProperty Name="last_name" ColumnName="last_name" />
