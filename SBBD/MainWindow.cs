@@ -36,6 +36,7 @@ namespace SBBD
             InitializeComponent();
             selected = 1;
             currentPage = 1;
+            siteCounter.Text = currentPage.ToString();
 
             tileList = new List<PictureBox>()
             {
@@ -492,8 +493,8 @@ namespace SBBD
             if(currentPage + 1 <= vehiclePages)
             currentPage++;
             populatePanel();
-            SiteCounter();
-
+            //SiteCounter();
+            siteCounter.Text = currentPage.ToString();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -501,7 +502,8 @@ namespace SBBD
             if (currentPage > 1)
                 currentPage--;
             populatePanel();
-            SiteCounter();
+            //SiteCounter();
+            siteCounter.Text = currentPage.ToString();
         }
 
         private void tile_Click(object sender, EventArgs e)

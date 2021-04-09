@@ -41,6 +41,7 @@ namespace SBBD
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
             this.siteNavCenter = new System.Windows.Forms.PictureBox();
+            this.siteCounter = new System.Windows.Forms.Label();
             this.siteNavLeft = new System.Windows.Forms.PictureBox();
             this.siteNavRight = new System.Windows.Forms.PictureBox();
             this.pictureBox22 = new System.Windows.Forms.PictureBox();
@@ -105,7 +106,6 @@ namespace SBBD
             this.editVehicleColor = new System.Windows.Forms.TextBox();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.siteCounter = new System.Windows.Forms.Label();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
@@ -117,6 +117,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             this.vehiclesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
+            this.siteNavCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavLeft)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavRight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).BeginInit();
@@ -259,7 +260,6 @@ namespace SBBD
             // 
             this.vehiclesPanel.BackColor = System.Drawing.Color.Transparent;
             this.vehiclesPanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
-            this.vehiclesPanel.Controls.Add(this.siteCounter);
             this.vehiclesPanel.Controls.Add(this.siteNavCenter);
             this.vehiclesPanel.Controls.Add(this.siteNavLeft);
             this.vehiclesPanel.Controls.Add(this.siteNavRight);
@@ -280,11 +280,26 @@ namespace SBBD
             // siteNavCenter
             // 
             this.siteNavCenter.BackgroundImage = global::SBBD.Properties.Resources.NumCircle;
+            this.siteNavCenter.Controls.Add(this.siteCounter);
             this.siteNavCenter.Location = new System.Drawing.Point(960, 44);
             this.siteNavCenter.Name = "siteNavCenter";
             this.siteNavCenter.Size = new System.Drawing.Size(25, 25);
             this.siteNavCenter.TabIndex = 14;
             this.siteNavCenter.TabStop = false;
+            // 
+            // siteCounter
+            // 
+            this.siteCounter.AutoSize = true;
+            this.siteCounter.BackColor = System.Drawing.Color.Transparent;
+            this.siteCounter.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.siteCounter.ForeColor = System.Drawing.Color.White;
+            this.siteCounter.Location = new System.Drawing.Point(6, 2);
+            this.siteCounter.Name = "siteCounter";
+            this.siteCounter.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.siteCounter.Size = new System.Drawing.Size(15, 23);
+            this.siteCounter.TabIndex = 15;
+            this.siteCounter.Text = "1";
+            this.siteCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // siteNavLeft
             // 
@@ -1100,20 +1115,6 @@ namespace SBBD
             this.toolTip.ForeColor = System.Drawing.Color.Black;
             this.toolTip.IsBalloon = true;
             // 
-            // siteCounter
-            // 
-            this.siteCounter.AutoSize = true;
-            this.siteCounter.BackColor = System.Drawing.Color.Transparent;
-            this.siteCounter.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.siteCounter.ForeColor = System.Drawing.Color.White;
-            this.siteCounter.Location = new System.Drawing.Point(965, 45);
-            this.siteCounter.Name = "siteCounter";
-            this.siteCounter.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.siteCounter.Size = new System.Drawing.Size(15, 23);
-            this.siteCounter.TabIndex = 15;
-            this.siteCounter.Text = "1";
-            this.siteCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
@@ -1148,8 +1149,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             this.vehiclesPanel.ResumeLayout(false);
-            this.vehiclesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).EndInit();
+            this.siteNavCenter.ResumeLayout(false);
+            this.siteNavCenter.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavLeft)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavRight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox22)).EndInit();
