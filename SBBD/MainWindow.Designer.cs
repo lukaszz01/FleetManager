@@ -107,6 +107,7 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warnLabel8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -532,6 +533,7 @@ namespace SBBD
             // 
             this.addVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.addVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1152;
+            this.addVehiclePanel.Controls.Add(this.warnLabel8);
             this.addVehiclePanel.Controls.Add(this.infoBox6);
             this.addVehiclePanel.Controls.Add(this.infoBox5);
             this.addVehiclePanel.Controls.Add(this.infoBox4);
@@ -1119,14 +1121,27 @@ namespace SBBD
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
+            // warnLabel8
+            // 
+            this.warnLabel8.AutoSize = true;
+            this.warnLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel8.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel8.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel8.Location = new System.Drawing.Point(634, 195);
+            this.warnLabel8.Name = "warnLabel8";
+            this.warnLabel8.Size = new System.Drawing.Size(86, 19);
+            this.warnLabel8.TabIndex = 47;
+            this.warnLabel8.Text = "Dodaj zdjęcie!";
+            this.warnLabel8.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
@@ -1278,5 +1293,6 @@ namespace SBBD
         private System.Windows.Forms.PictureBox siteNavLeft;
         private System.Windows.Forms.PictureBox siteNavRight;
         private System.Windows.Forms.Label siteCounter;
+        private System.Windows.Forms.Label warnLabel8;
     }
 }

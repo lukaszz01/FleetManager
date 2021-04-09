@@ -342,14 +342,18 @@ namespace SBBD
                 IsEmpty(vinNumber, "17 - znakowy VIN") ||
                 IsEmpty(regNumber, "np. LHR12345") ||
                 IsEmpty(engineCapacity, "np. 3000") ||
-                IsEmpty(enginePower, "np. 240") ||
-                selectedImage.Image == null
+                IsEmpty(enginePower, "np. 240")               
                 )
             {
                 //MessageBox.Show("Pola nie mogą być puste!");
                 
                 warningTimer.Start();
                 warnLabel7.Visible = true;
+            }
+            else if(selectedImage.Image == null)
+            {
+                warningTimer.Start();
+                warnLabel8.Visible = true;
             }
             else if (
                 !RegexD(@"^[0-9]{4}$", prodYear) ||
@@ -714,7 +718,7 @@ namespace SBBD
             warnLabel5.Visible = false;
             warnLabel6.Visible = false;
             warnLabel7.Visible = false;
-
+            warnLabel8.Visible = false;
         }
 
         private void clearVehicleBtn_Click(object sender, EventArgs e)
@@ -736,6 +740,7 @@ namespace SBBD
             modelComboBox.SelectedIndex = -1;
             manufacturerComboBox.SelectedIndex = -1;
             modelComboBox.Enabled = false;
+            selectedImage.Image = null;
         }
 
         private void addPhotoBtn_Click(object sender, EventArgs e)
