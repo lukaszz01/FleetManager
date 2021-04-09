@@ -757,6 +757,11 @@ namespace SBBD
                 }
             }
         }
+
+        private void selectedImage_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

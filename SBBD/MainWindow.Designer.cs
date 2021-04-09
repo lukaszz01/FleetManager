@@ -63,6 +63,7 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
+            this.warnLabel8 = new System.Windows.Forms.Label();
             this.infoBox6 = new System.Windows.Forms.PictureBox();
             this.infoBox5 = new System.Windows.Forms.PictureBox();
             this.infoBox4 = new System.Windows.Forms.PictureBox();
@@ -107,7 +108,6 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.warnLabel8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -292,12 +292,12 @@ namespace SBBD
             // 
             this.siteCounter.AutoSize = true;
             this.siteCounter.BackColor = System.Drawing.Color.Transparent;
-            this.siteCounter.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.siteCounter.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.siteCounter.ForeColor = System.Drawing.Color.White;
             this.siteCounter.Location = new System.Drawing.Point(6, 2);
             this.siteCounter.Name = "siteCounter";
             this.siteCounter.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.siteCounter.Size = new System.Drawing.Size(15, 23);
+            this.siteCounter.Size = new System.Drawing.Size(16, 16);
             this.siteCounter.TabIndex = 15;
             this.siteCounter.Text = "1";
             this.siteCounter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -337,11 +337,11 @@ namespace SBBD
             // vLabel22
             // 
             this.vLabel22.AutoSize = true;
-            this.vLabel22.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel22.ForeColor = System.Drawing.Color.White;
             this.vLabel22.Location = new System.Drawing.Point(120, 60);
             this.vLabel22.Name = "vLabel22";
-            this.vLabel22.Size = new System.Drawing.Size(0, 26);
+            this.vLabel22.Size = new System.Drawing.Size(0, 18);
             this.vLabel22.TabIndex = 1;
             this.vLabel22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -360,11 +360,11 @@ namespace SBBD
             // vLabel21
             // 
             this.vLabel21.AutoSize = true;
-            this.vLabel21.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel21.ForeColor = System.Drawing.Color.White;
             this.vLabel21.Location = new System.Drawing.Point(120, 60);
             this.vLabel21.Name = "vLabel21";
-            this.vLabel21.Size = new System.Drawing.Size(0, 26);
+            this.vLabel21.Size = new System.Drawing.Size(0, 18);
             this.vLabel21.TabIndex = 1;
             this.vLabel21.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -383,11 +383,11 @@ namespace SBBD
             // vLabel20
             // 
             this.vLabel20.AutoSize = true;
-            this.vLabel20.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel20.ForeColor = System.Drawing.Color.White;
             this.vLabel20.Location = new System.Drawing.Point(120, 60);
             this.vLabel20.Name = "vLabel20";
-            this.vLabel20.Size = new System.Drawing.Size(0, 26);
+            this.vLabel20.Size = new System.Drawing.Size(0, 18);
             this.vLabel20.TabIndex = 1;
             this.vLabel20.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -406,11 +406,11 @@ namespace SBBD
             // vLabel12
             // 
             this.vLabel12.AutoSize = true;
-            this.vLabel12.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel12.ForeColor = System.Drawing.Color.White;
             this.vLabel12.Location = new System.Drawing.Point(120, 60);
             this.vLabel12.Name = "vLabel12";
-            this.vLabel12.Size = new System.Drawing.Size(0, 26);
+            this.vLabel12.Size = new System.Drawing.Size(0, 18);
             this.vLabel12.TabIndex = 1;
             this.vLabel12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -429,11 +429,11 @@ namespace SBBD
             // vLabel11
             // 
             this.vLabel11.AutoSize = true;
-            this.vLabel11.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel11.ForeColor = System.Drawing.Color.White;
             this.vLabel11.Location = new System.Drawing.Point(120, 60);
             this.vLabel11.Name = "vLabel11";
-            this.vLabel11.Size = new System.Drawing.Size(0, 26);
+            this.vLabel11.Size = new System.Drawing.Size(0, 18);
             this.vLabel11.TabIndex = 1;
             this.vLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -452,11 +452,11 @@ namespace SBBD
             // vLabel10
             // 
             this.vLabel10.AutoSize = true;
-            this.vLabel10.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel10.ForeColor = System.Drawing.Color.White;
             this.vLabel10.Location = new System.Drawing.Point(120, 60);
             this.vLabel10.Name = "vLabel10";
-            this.vLabel10.Size = new System.Drawing.Size(0, 26);
+            this.vLabel10.Size = new System.Drawing.Size(0, 18);
             this.vLabel10.TabIndex = 1;
             this.vLabel10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -475,11 +475,11 @@ namespace SBBD
             // vLabel02
             // 
             this.vLabel02.AutoSize = true;
-            this.vLabel02.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel02.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel02.ForeColor = System.Drawing.Color.White;
             this.vLabel02.Location = new System.Drawing.Point(120, 60);
             this.vLabel02.Name = "vLabel02";
-            this.vLabel02.Size = new System.Drawing.Size(0, 26);
+            this.vLabel02.Size = new System.Drawing.Size(0, 18);
             this.vLabel02.TabIndex = 1;
             this.vLabel02.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -498,11 +498,11 @@ namespace SBBD
             // vLabel01
             // 
             this.vLabel01.AutoSize = true;
-            this.vLabel01.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel01.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel01.ForeColor = System.Drawing.Color.White;
             this.vLabel01.Location = new System.Drawing.Point(120, 60);
             this.vLabel01.Name = "vLabel01";
-            this.vLabel01.Size = new System.Drawing.Size(0, 26);
+            this.vLabel01.Size = new System.Drawing.Size(0, 18);
             this.vLabel01.TabIndex = 1;
             this.vLabel01.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -521,11 +521,11 @@ namespace SBBD
             // vLabel00
             // 
             this.vLabel00.AutoSize = true;
-            this.vLabel00.Font = new System.Drawing.Font("Poppins", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vLabel00.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel00.ForeColor = System.Drawing.Color.White;
             this.vLabel00.Location = new System.Drawing.Point(120, 60);
             this.vLabel00.Name = "vLabel00";
-            this.vLabel00.Size = new System.Drawing.Size(0, 26);
+            this.vLabel00.Size = new System.Drawing.Size(0, 18);
             this.vLabel00.TabIndex = 1;
             this.vLabel00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
@@ -566,6 +566,19 @@ namespace SBBD
             this.addVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
+            // 
+            // warnLabel8
+            // 
+            this.warnLabel8.AutoSize = true;
+            this.warnLabel8.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel8.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel8.Location = new System.Drawing.Point(634, 195);
+            this.warnLabel8.Name = "warnLabel8";
+            this.warnLabel8.Size = new System.Drawing.Size(88, 13);
+            this.warnLabel8.TabIndex = 47;
+            this.warnLabel8.Text = "Dodaj zdjęcie!";
+            this.warnLabel8.Visible = false;
             // 
             // infoBox6
             // 
@@ -629,6 +642,7 @@ namespace SBBD
             this.selectedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.selectedImage.TabIndex = 41;
             this.selectedImage.TabStop = false;
+            this.selectedImage.Click += new System.EventHandler(this.selectedImage_Click);
             // 
             // addPhotoBtn
             // 
@@ -672,11 +686,11 @@ namespace SBBD
             // 
             this.warnLabel6.AutoSize = true;
             this.warnLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel6.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel6.ForeColor = System.Drawing.Color.Red;
             this.warnLabel6.Location = new System.Drawing.Point(700, 336);
             this.warnLabel6.Name = "warnLabel6";
-            this.warnLabel6.Size = new System.Drawing.Size(105, 14);
+            this.warnLabel6.Size = new System.Drawing.Size(112, 9);
             this.warnLabel6.TabIndex = 36;
             this.warnLabel6.Text = "Moc silnika niepoprawna";
             this.warnLabel6.Visible = false;
@@ -685,11 +699,11 @@ namespace SBBD
             // 
             this.warnLabel7.AutoSize = true;
             this.warnLabel7.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel7.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel7.ForeColor = System.Drawing.Color.Red;
             this.warnLabel7.Location = new System.Drawing.Point(60, 490);
             this.warnLabel7.Name = "warnLabel7";
-            this.warnLabel7.Size = new System.Drawing.Size(201, 19);
+            this.warnLabel7.Size = new System.Drawing.Size(207, 13);
             this.warnLabel7.TabIndex = 37;
             this.warnLabel7.Text = "Uzupełnij wszystkie dostępne pola!";
             this.warnLabel7.Visible = false;
@@ -698,11 +712,11 @@ namespace SBBD
             // 
             this.warnLabel5.AutoSize = true;
             this.warnLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel5.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel5.ForeColor = System.Drawing.Color.Red;
             this.warnLabel5.Location = new System.Drawing.Point(700, 277);
             this.warnLabel5.Name = "warnLabel5";
-            this.warnLabel5.Size = new System.Drawing.Size(132, 14);
+            this.warnLabel5.Size = new System.Drawing.Size(141, 9);
             this.warnLabel5.TabIndex = 35;
             this.warnLabel5.Text = "Pojemność silnika niepoprawna";
             this.warnLabel5.Visible = false;
@@ -711,11 +725,11 @@ namespace SBBD
             // 
             this.warnLabel4.AutoSize = true;
             this.warnLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel4.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel4.ForeColor = System.Drawing.Color.Red;
             this.warnLabel4.Location = new System.Drawing.Point(260, 455);
             this.warnLabel4.Name = "warnLabel4";
-            this.warnLabel4.Size = new System.Drawing.Size(104, 14);
+            this.warnLabel4.Size = new System.Drawing.Size(110, 9);
             this.warnLabel4.TabIndex = 34;
             this.warnLabel4.Text = "Numer VIN niepoprawny";
             this.warnLabel4.Visible = false;
@@ -724,11 +738,11 @@ namespace SBBD
             // 
             this.warnLabel3.AutoSize = true;
             this.warnLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel3.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel3.ForeColor = System.Drawing.Color.Red;
             this.warnLabel3.Location = new System.Drawing.Point(260, 396);
             this.warnLabel3.Name = "warnLabel3";
-            this.warnLabel3.Size = new System.Drawing.Size(76, 14);
+            this.warnLabel3.Size = new System.Drawing.Size(79, 9);
             this.warnLabel3.TabIndex = 33;
             this.warnLabel3.Text = "Rok niepoprawny";
             this.warnLabel3.Visible = false;
@@ -737,11 +751,11 @@ namespace SBBD
             // 
             this.warnLabel2.AutoSize = true;
             this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel2.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
             this.warnLabel2.Location = new System.Drawing.Point(260, 336);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(82, 14);
+            this.warnLabel2.Size = new System.Drawing.Size(85, 9);
             this.warnLabel2.TabIndex = 32;
             this.warnLabel2.Text = "Kolor niepoprawny";
             this.warnLabel2.Visible = false;
@@ -750,11 +764,11 @@ namespace SBBD
             // 
             this.warnLabel1.AutoSize = true;
             this.warnLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel1.Font = new System.Drawing.Font("Poppins", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel1.ForeColor = System.Drawing.Color.Red;
             this.warnLabel1.Location = new System.Drawing.Point(260, 277);
             this.warnLabel1.Name = "warnLabel1";
-            this.warnLabel1.Size = new System.Drawing.Size(137, 14);
+            this.warnLabel1.Size = new System.Drawing.Size(146, 9);
             this.warnLabel1.TabIndex = 31;
             this.warnLabel1.Text = "Nuer rejestracyjny niepoprawny!";
             this.warnLabel1.Visible = false;
@@ -765,7 +779,7 @@ namespace SBBD
             this.bodyTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.bodyTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.bodyTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bodyTypeComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.bodyTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.bodyTypeComboBox.ForeColor = System.Drawing.Color.White;
             this.bodyTypeComboBox.FormattingEnabled = true;
             this.bodyTypeComboBox.Items.AddRange(new object[] {
@@ -782,7 +796,7 @@ namespace SBBD
             "VAN"});
             this.bodyTypeComboBox.Location = new System.Drawing.Point(410, 145);
             this.bodyTypeComboBox.Name = "bodyTypeComboBox";
-            this.bodyTypeComboBox.Size = new System.Drawing.Size(121, 27);
+            this.bodyTypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.bodyTypeComboBox.TabIndex = 19;
             // 
             // fuelTypeComboBox
@@ -791,7 +805,7 @@ namespace SBBD
             this.fuelTypeComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.fuelTypeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.fuelTypeComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.fuelTypeComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.fuelTypeComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.fuelTypeComboBox.ForeColor = System.Drawing.Color.White;
             this.fuelTypeComboBox.FormattingEnabled = true;
             this.fuelTypeComboBox.Items.AddRange(new object[] {
@@ -803,18 +817,18 @@ namespace SBBD
             "Hybryda"});
             this.fuelTypeComboBox.Location = new System.Drawing.Point(410, 95);
             this.fuelTypeComboBox.Name = "fuelTypeComboBox";
-            this.fuelTypeComboBox.Size = new System.Drawing.Size(121, 27);
+            this.fuelTypeComboBox.Size = new System.Drawing.Size(121, 21);
             this.fuelTypeComboBox.TabIndex = 18;
             // 
             // enginePower
             // 
             this.enginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.enginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.enginePower.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.enginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.enginePower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.enginePower.Location = new System.Drawing.Point(710, 311);
             this.enginePower.Name = "enginePower";
-            this.enginePower.Size = new System.Drawing.Size(160, 20);
+            this.enginePower.Size = new System.Drawing.Size(160, 15);
             this.enginePower.TabIndex = 17;
             this.enginePower.Text = "np. 240";
             this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -825,11 +839,11 @@ namespace SBBD
             // 
             this.engineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.engineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.engineCapacity.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.engineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.engineCapacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.engineCapacity.Location = new System.Drawing.Point(710, 251);
             this.engineCapacity.Name = "engineCapacity";
-            this.engineCapacity.Size = new System.Drawing.Size(160, 20);
+            this.engineCapacity.Size = new System.Drawing.Size(160, 15);
             this.engineCapacity.TabIndex = 16;
             this.engineCapacity.Text = "np. 3000";
             this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -840,11 +854,11 @@ namespace SBBD
             // 
             this.regNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.regNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.regNumber.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.regNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.regNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.regNumber.Location = new System.Drawing.Point(270, 251);
             this.regNumber.Name = "regNumber";
-            this.regNumber.Size = new System.Drawing.Size(160, 20);
+            this.regNumber.Size = new System.Drawing.Size(160, 15);
             this.regNumber.TabIndex = 15;
             this.regNumber.Text = "np. LHR12345";
             this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -855,11 +869,11 @@ namespace SBBD
             // 
             this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vinNumber.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vinNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.vinNumber.Location = new System.Drawing.Point(270, 429);
             this.vinNumber.Name = "vinNumber";
-            this.vinNumber.Size = new System.Drawing.Size(160, 20);
+            this.vinNumber.Size = new System.Drawing.Size(160, 15);
             this.vinNumber.TabIndex = 14;
             this.vinNumber.Text = "17 - znakowy VIN";
             this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -870,11 +884,11 @@ namespace SBBD
             // 
             this.vehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.vehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vehicleColor.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vehicleColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.vehicleColor.Location = new System.Drawing.Point(270, 309);
             this.vehicleColor.Name = "vehicleColor";
-            this.vehicleColor.Size = new System.Drawing.Size(160, 20);
+            this.vehicleColor.Size = new System.Drawing.Size(160, 15);
             this.vehicleColor.TabIndex = 13;
             this.vehicleColor.Text = "np. Czarny";
             this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -885,11 +899,11 @@ namespace SBBD
             // 
             this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prodYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.prodYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.prodYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.prodYear.Location = new System.Drawing.Point(270, 371);
             this.prodYear.Name = "prodYear";
-            this.prodYear.Size = new System.Drawing.Size(160, 20);
+            this.prodYear.Size = new System.Drawing.Size(160, 15);
             this.prodYear.TabIndex = 12;
             this.prodYear.Text = "np. 2021";
             this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -903,12 +917,12 @@ namespace SBBD
             this.modelComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.modelComboBox.Enabled = false;
             this.modelComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.modelComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.modelComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.modelComboBox.ForeColor = System.Drawing.Color.White;
             this.modelComboBox.FormattingEnabled = true;
             this.modelComboBox.Location = new System.Drawing.Point(140, 145);
             this.modelComboBox.Name = "modelComboBox";
-            this.modelComboBox.Size = new System.Drawing.Size(121, 27);
+            this.modelComboBox.Size = new System.Drawing.Size(121, 21);
             this.modelComboBox.TabIndex = 2;
             // 
             // manufacturerComboBox
@@ -917,12 +931,12 @@ namespace SBBD
             this.manufacturerComboBox.Cursor = System.Windows.Forms.Cursors.Hand;
             this.manufacturerComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.manufacturerComboBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.manufacturerComboBox.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.manufacturerComboBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.manufacturerComboBox.ForeColor = System.Drawing.Color.White;
             this.manufacturerComboBox.FormattingEnabled = true;
             this.manufacturerComboBox.Location = new System.Drawing.Point(140, 95);
             this.manufacturerComboBox.Name = "manufacturerComboBox";
-            this.manufacturerComboBox.Size = new System.Drawing.Size(121, 27);
+            this.manufacturerComboBox.Size = new System.Drawing.Size(121, 21);
             this.manufacturerComboBox.TabIndex = 0;
             this.manufacturerComboBox.SelectedIndexChanged += new System.EventHandler(this.ManufacturerComboBox_SelectedIndexChanged);
             // 
@@ -953,12 +967,12 @@ namespace SBBD
             // 
             this.editEnginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.editEnginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editEnginePower.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editEnginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editEnginePower.ForeColor = System.Drawing.Color.White;
             this.editEnginePower.Location = new System.Drawing.Point(710, 311);
             this.editEnginePower.Name = "editEnginePower";
             this.editEnginePower.ReadOnly = true;
-            this.editEnginePower.Size = new System.Drawing.Size(160, 20);
+            this.editEnginePower.Size = new System.Drawing.Size(160, 15);
             this.editEnginePower.TabIndex = 30;
             this.editEnginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -966,12 +980,12 @@ namespace SBBD
             // 
             this.editEngineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.editEngineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editEngineCapacity.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editEngineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editEngineCapacity.ForeColor = System.Drawing.Color.White;
             this.editEngineCapacity.Location = new System.Drawing.Point(710, 251);
             this.editEngineCapacity.Name = "editEngineCapacity";
             this.editEngineCapacity.ReadOnly = true;
-            this.editEngineCapacity.Size = new System.Drawing.Size(160, 20);
+            this.editEngineCapacity.Size = new System.Drawing.Size(160, 15);
             this.editEngineCapacity.TabIndex = 29;
             this.editEngineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -979,12 +993,12 @@ namespace SBBD
             // 
             this.editVinNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.editVinNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editVinNum.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editVinNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editVinNum.ForeColor = System.Drawing.Color.White;
             this.editVinNum.Location = new System.Drawing.Point(270, 429);
             this.editVinNum.Name = "editVinNum";
             this.editVinNum.ReadOnly = true;
-            this.editVinNum.Size = new System.Drawing.Size(160, 20);
+            this.editVinNum.Size = new System.Drawing.Size(160, 15);
             this.editVinNum.TabIndex = 28;
             this.editVinNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -992,34 +1006,34 @@ namespace SBBD
             // 
             this.editProdYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.editProdYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editProdYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editProdYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editProdYear.ForeColor = System.Drawing.Color.White;
             this.editProdYear.Location = new System.Drawing.Point(270, 371);
             this.editProdYear.Name = "editProdYear";
             this.editProdYear.ReadOnly = true;
-            this.editProdYear.Size = new System.Drawing.Size(160, 20);
+            this.editProdYear.Size = new System.Drawing.Size(160, 15);
             this.editProdYear.TabIndex = 27;
             this.editProdYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editBodyType
             // 
             this.editBodyType.AutoSize = true;
-            this.editBodyType.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editBodyType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editBodyType.ForeColor = System.Drawing.Color.White;
             this.editBodyType.Location = new System.Drawing.Point(420, 149);
             this.editBodyType.Name = "editBodyType";
-            this.editBodyType.Size = new System.Drawing.Size(75, 23);
+            this.editBodyType.Size = new System.Drawing.Size(76, 16);
             this.editBodyType.TabIndex = 26;
             this.editBodyType.Text = "Nadwozie";
             // 
             // editFuelType
             // 
             this.editFuelType.AutoSize = true;
-            this.editFuelType.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editFuelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editFuelType.ForeColor = System.Drawing.Color.White;
             this.editFuelType.Location = new System.Drawing.Point(420, 99);
             this.editFuelType.Name = "editFuelType";
-            this.editFuelType.Size = new System.Drawing.Size(54, 23);
+            this.editFuelType.Size = new System.Drawing.Size(54, 16);
             this.editFuelType.TabIndex = 25;
             this.editFuelType.Text = "Paliwo";
             // 
@@ -1036,22 +1050,22 @@ namespace SBBD
             // editModel
             // 
             this.editModel.AutoSize = true;
-            this.editModel.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editModel.ForeColor = System.Drawing.Color.White;
             this.editModel.Location = new System.Drawing.Point(145, 149);
             this.editModel.Name = "editModel";
-            this.editModel.Size = new System.Drawing.Size(51, 23);
+            this.editModel.Size = new System.Drawing.Size(51, 16);
             this.editModel.TabIndex = 22;
             this.editModel.Text = "Model";
             // 
             // editManufacturer
             // 
             this.editManufacturer.AutoSize = true;
-            this.editManufacturer.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editManufacturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editManufacturer.ForeColor = System.Drawing.Color.White;
             this.editManufacturer.Location = new System.Drawing.Point(145, 99);
             this.editManufacturer.Name = "editManufacturer";
-            this.editManufacturer.Size = new System.Drawing.Size(54, 23);
+            this.editManufacturer.Size = new System.Drawing.Size(51, 16);
             this.editManufacturer.TabIndex = 21;
             this.editManufacturer.Text = "Marka";
             // 
@@ -1071,7 +1085,7 @@ namespace SBBD
             this.editAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editAvailable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.editAvailable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editAvailable.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editAvailable.ForeColor = System.Drawing.Color.White;
             this.editAvailable.FormattingEnabled = true;
             this.editAvailable.Items.AddRange(new object[] {
@@ -1079,18 +1093,18 @@ namespace SBBD
             "Nie"});
             this.editAvailable.Location = new System.Drawing.Point(690, 365);
             this.editAvailable.Name = "editAvailable";
-            this.editAvailable.Size = new System.Drawing.Size(121, 27);
+            this.editAvailable.Size = new System.Drawing.Size(121, 21);
             this.editAvailable.TabIndex = 19;
             // 
             // editRegNum
             // 
             this.editRegNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.editRegNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editRegNum.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editRegNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editRegNum.ForeColor = System.Drawing.Color.White;
             this.editRegNum.Location = new System.Drawing.Point(270, 251);
             this.editRegNum.Name = "editRegNum";
-            this.editRegNum.Size = new System.Drawing.Size(160, 20);
+            this.editRegNum.Size = new System.Drawing.Size(160, 15);
             this.editRegNum.TabIndex = 15;
             this.editRegNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1098,11 +1112,11 @@ namespace SBBD
             // 
             this.editVehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.editVehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.editVehicleColor.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editVehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.editVehicleColor.ForeColor = System.Drawing.Color.White;
             this.editVehicleColor.Location = new System.Drawing.Point(270, 309);
             this.editVehicleColor.Name = "editVehicleColor";
-            this.editVehicleColor.Size = new System.Drawing.Size(160, 20);
+            this.editVehicleColor.Size = new System.Drawing.Size(160, 15);
             this.editVehicleColor.TabIndex = 13;
             this.editVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -1120,19 +1134,6 @@ namespace SBBD
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
-            // 
-            // warnLabel8
-            // 
-            this.warnLabel8.AutoSize = true;
-            this.warnLabel8.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel8.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.warnLabel8.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel8.Location = new System.Drawing.Point(634, 195);
-            this.warnLabel8.Name = "warnLabel8";
-            this.warnLabel8.Size = new System.Drawing.Size(86, 19);
-            this.warnLabel8.TabIndex = 47;
-            this.warnLabel8.Text = "Dodaj zdjęcie!";
-            this.warnLabel8.Visible = false;
             // 
             // MainWindow
             // 

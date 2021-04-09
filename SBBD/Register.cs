@@ -65,6 +65,10 @@ namespace SBBD
             return isTrue;
         }
 
+        private bool IsEmpty(TextBox textBox, string placeholder)
+        {
+            return textBox.Text == "" || textBox.Text == placeholder;
+        } 
 
         private void loginRegister_MouseEnter(object sender, EventArgs e)
         {
