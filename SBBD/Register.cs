@@ -8,12 +8,14 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using System.Net.Mail;
+using System.Security.Cryptography;
 
 namespace SBBD
 {
     public partial class Register : Form
     {
-        VFEntities context;
+        VFEntities user_context;
         bool moving;
         int moveX;
         int moveY;
@@ -27,7 +29,10 @@ namespace SBBD
 
         protected override void OnLoad(EventArgs e)
         {
-            context.Users.Load();
+            base.OnLoad(e);
+            user_context = new VFEntities();
+            user_context.Users.Load();
+            this.vehiclesBindingSource.DataSource = user_context.Vehicles.Local.ToBindingList();
         }
 
         public static DialogResult ShowRegister()
@@ -44,15 +49,72 @@ namespace SBBD
 
         private void registerRegister_Click(object sender, EventArgs e)
         {
-            //register.Close();
-            this.Hide();
-            Login.ShowLogin();
-            this.Close();
+            if (IsEmpty(emailRegister, "Login (adres e-mail)") ||
+                IsEmpty(firstNameRegister, "Imię") ||
+                IsEmpty(lastNameRegister, "Nazwisko") ||
+                IsEmpty(passwordRegister, "Hasło")
+                )
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
+            else if (!IsValid(emailRegister.Text))
+            {
+                MessageBox.Show("Niepoprawny email");
+            }
+            else
+            {
+                Users user = new Users()
+                {
+                    email = emailRegister.Text,
+                    first_name = firstNameRegister.Text,
+                    last_name = lastNameRegister.Text,
+                    password = ComputeSha256Hash(passwordRegister.Text),
+                    admin = false
+
+                };
+                user_context.Users.Add(user);
+                user_context.SaveChanges();
+
+                register.Close();
+                //this.Hide();
+                Login.ShowLogin();
+                //this.Close();
+            }
         }
 
-        private bool emailIsRepeat(string email)
+        private  string ComputeSha256Hash(string rawData)
         {
-            var allUsers = context.Users.Select(x => x).ToList();
+             
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+
+        private bool IsValid(string emailaddress)
+        {
+        try
+        {
+            MailAddress m = new MailAddress(emailaddress);
+            return true;
+        }
+        catch
+        {
+            return false;
+        }
+        }
+
+    private bool emailIsRepeat(string email)
+        {
+            var allUsers = user_context.Users.Select(x => x).ToList();
             bool isTrue = false;
             foreach(Users user in allUsers)
             {
@@ -187,6 +249,12 @@ namespace SBBD
         private void closeRegister_MouseLeave(object sender, EventArgs e)
         {
             closeRegister.BackgroundImage = Properties.Resources.CloseBTN;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            this.user_context.Dispose();
         }
     }
 }

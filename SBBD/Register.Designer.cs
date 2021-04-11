@@ -29,6 +29,7 @@ namespace SBBD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.closeRegister = new System.Windows.Forms.PictureBox();
             this.registerRegister = new System.Windows.Forms.PictureBox();
@@ -38,10 +39,12 @@ namespace SBBD
             this.firstNameRegister = new System.Windows.Forms.TextBox();
             this.lastNameRegister = new System.Windows.Forms.TextBox();
             this.passwordRegister = new System.Windows.Forms.TextBox();
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // closeRegister
@@ -99,11 +102,11 @@ namespace SBBD
             // 
             this.emailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.emailRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailRegister.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.emailRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.emailRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.emailRegister.Location = new System.Drawing.Point(60, 210);
             this.emailRegister.Name = "emailRegister";
-            this.emailRegister.Size = new System.Drawing.Size(300, 17);
+            this.emailRegister.Size = new System.Drawing.Size(300, 13);
             this.emailRegister.TabIndex = 4;
             this.emailRegister.TabStop = false;
             this.emailRegister.Text = "Login (adres e-mail)";
@@ -114,11 +117,11 @@ namespace SBBD
             // 
             this.firstNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.firstNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstNameRegister.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.firstNameRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.firstNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.firstNameRegister.Location = new System.Drawing.Point(60, 253);
             this.firstNameRegister.Name = "firstNameRegister";
-            this.firstNameRegister.Size = new System.Drawing.Size(300, 17);
+            this.firstNameRegister.Size = new System.Drawing.Size(300, 13);
             this.firstNameRegister.TabIndex = 5;
             this.firstNameRegister.TabStop = false;
             this.firstNameRegister.Text = "Imię";
@@ -129,11 +132,11 @@ namespace SBBD
             // 
             this.lastNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.lastNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastNameRegister.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lastNameRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lastNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.lastNameRegister.Location = new System.Drawing.Point(60, 292);
             this.lastNameRegister.Name = "lastNameRegister";
-            this.lastNameRegister.Size = new System.Drawing.Size(300, 17);
+            this.lastNameRegister.Size = new System.Drawing.Size(300, 13);
             this.lastNameRegister.TabIndex = 6;
             this.lastNameRegister.TabStop = false;
             this.lastNameRegister.Text = "Nazwisko";
@@ -144,16 +147,20 @@ namespace SBBD
             // 
             this.passwordRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.passwordRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordRegister.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.passwordRegister.Location = new System.Drawing.Point(60, 333);
             this.passwordRegister.Name = "passwordRegister";
-            this.passwordRegister.Size = new System.Drawing.Size(300, 17);
+            this.passwordRegister.Size = new System.Drawing.Size(300, 13);
             this.passwordRegister.TabIndex = 7;
             this.passwordRegister.TabStop = false;
             this.passwordRegister.Text = "Hasło";
             this.passwordRegister.Enter += new System.EventHandler(this.passwordRegister_Enter);
             this.passwordRegister.Leave += new System.EventHandler(this.passwordRegister_Leave);
+            // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
             // Register
             // 
@@ -178,6 +185,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -193,5 +201,6 @@ namespace SBBD
         private System.Windows.Forms.TextBox firstNameRegister;
         private System.Windows.Forms.TextBox lastNameRegister;
         private System.Windows.Forms.TextBox passwordRegister;
+        private System.Windows.Forms.BindingSource vehiclesBindingSource;
     }
 }
