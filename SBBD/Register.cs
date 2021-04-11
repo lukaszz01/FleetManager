@@ -32,7 +32,7 @@ namespace SBBD
             base.OnLoad(e);
             user_context = new VFEntities();
             user_context.Users.Load();
-            this.vehiclesBindingSource.DataSource = user_context.Vehicles.Local.ToBindingList();
+            
         }
 
         public static DialogResult ShowRegister()
@@ -76,9 +76,9 @@ namespace SBBD
                 user_context.SaveChanges();
 
                 register.Close();
-                //this.Hide();
+                this.Hide();
                 Login.ShowLogin();
-                //this.Close();
+                this.Close();
             }
         }
 
