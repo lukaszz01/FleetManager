@@ -7,21 +7,36 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Security.Cryptography;
+using System.Data.Entity;
 
 namespace SBBD
 {
     public partial class Login : Form
     {
-
+        VFEntities login_context;
         bool moving;
         int moveX;
         int moveY;
+        Users logged_user;
+        public static Users logged_user_value
+        {
+            get;set;
+        }
 
         static Login login;
         static DialogResult dialogResult = DialogResult.No;
         public Login()
         {
             InitializeComponent();
+        }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            base.OnLoad(e);
+            login_context = new VFEntities();
+            login_context.Users.Load();
+
         }
 
         public static DialogResult ShowLogin()
@@ -46,7 +61,66 @@ namespace SBBD
 
         private void loginLogin_Click(object sender, EventArgs e)
         {
-            this.Close();
+            if (IsEmpty(emailLogin, "Login (adres e-mail)") ||
+                IsEmpty(passwordLogin, "Hasło")
+                )
+            {
+                MessageBox.Show("Uzupełnij wszystkie pola");
+            }
+            else
+            {
+                var allUsers = login_context.Users.Select(x => x).ToList();
+                Users user1=new Users();
+                foreach (Users user in allUsers)
+                {
+                    if (emailLogin.Text == user.email)
+                    {
+                        user1 = user;
+                        break;
+                    }
+                }
+                if (user1.email == null)
+                {
+                    MessageBox.Show("Użytkownik nie istnieje");
+                }
+                else
+                {
+                    if (ComputeSha256Hash(passwordLogin.Text) == user1.password)
+                    {
+                        logged_user_value = user1;
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Złe hasło");
+                    }
+                }
+            }
+            
+        }
+
+        
+
+        private bool IsEmpty(TextBox textBox, string placeholder)
+        {
+            return textBox.Text == "" || textBox.Text == placeholder;
+        }
+
+        private string ComputeSha256Hash(string rawData)
+        {
+
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
         }
 
         private void titleBarLogin_MouseDown(object sender, MouseEventArgs e)
@@ -138,6 +212,12 @@ namespace SBBD
         private void closeLogin_MouseLeave(object sender, EventArgs e)
         {
             closeLogin.BackgroundImage = Properties.Resources.CloseBTN;
+        }
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            this.login_context.Dispose();
         }
     }
 }

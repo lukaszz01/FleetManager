@@ -61,6 +61,10 @@ namespace SBBD
             {
                 MessageBox.Show("Niepoprawny email");
             }
+            else if(emailIsRepeat(emailRegister.Text))
+            {
+                MessageBox.Show("Konto istnieje");
+            }
             else
             {
                 Users user = new Users()

@@ -28,7 +28,7 @@ namespace SBBD
         List<PictureBox> tileList;
         List<Label> vLabelList;
         byte[] image;
-
+        Users user;
 
         int selected;
         public MainWindow()
@@ -70,6 +70,7 @@ namespace SBBD
             base.OnLoad(e);
 
             Login.ShowLogin();
+            user = Login.logged_user_value;
             context = new VFEntities();
             context.Vehicles.Load();
             context.Manufacturers.Load();
@@ -187,7 +188,9 @@ namespace SBBD
                 userInfo.BackColor = Color.FromArgb(30, 35, 40);
                 userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
                 vehiclesPanel.Visible = false;
+                MessageBox.Show(user.email);
             }
+
         }
 
         private void settings_Click(object sender, EventArgs e)
