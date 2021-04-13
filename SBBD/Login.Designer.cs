@@ -102,8 +102,7 @@ namespace SBBD
             this.emailLogin.Location = new System.Drawing.Point(60, 210);
             this.emailLogin.Name = "emailLogin";
             this.emailLogin.Size = new System.Drawing.Size(300, 17);
-            this.emailLogin.TabIndex = 0;
-            this.emailLogin.TabStop = false;
+            this.emailLogin.TabIndex = 1;
             this.emailLogin.Text = "Login (adres e-mail)";
             this.emailLogin.Enter += new System.EventHandler(this.emailLogin_Enter);
             this.emailLogin.Leave += new System.EventHandler(this.emailLogin_Leave);
@@ -117,8 +116,7 @@ namespace SBBD
             this.passwordLogin.Location = new System.Drawing.Point(60, 253);
             this.passwordLogin.Name = "passwordLogin";
             this.passwordLogin.Size = new System.Drawing.Size(300, 17);
-            this.passwordLogin.TabIndex = 4;
-            this.passwordLogin.TabStop = false;
+            this.passwordLogin.TabIndex = 2;
             this.passwordLogin.Text = "Hasło";
             this.passwordLogin.Enter += new System.EventHandler(this.passwordLogin_Enter);
             this.passwordLogin.Leave += new System.EventHandler(this.passwordLogin_Leave);

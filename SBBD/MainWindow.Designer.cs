@@ -797,7 +797,7 @@ namespace SBBD
             this.bodyTypeComboBox.Location = new System.Drawing.Point(410, 145);
             this.bodyTypeComboBox.Name = "bodyTypeComboBox";
             this.bodyTypeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.bodyTypeComboBox.TabIndex = 19;
+            this.bodyTypeComboBox.TabIndex = 4;
             // 
             // fuelTypeComboBox
             // 
@@ -818,7 +818,7 @@ namespace SBBD
             this.fuelTypeComboBox.Location = new System.Drawing.Point(410, 95);
             this.fuelTypeComboBox.Name = "fuelTypeComboBox";
             this.fuelTypeComboBox.Size = new System.Drawing.Size(121, 21);
-            this.fuelTypeComboBox.TabIndex = 18;
+            this.fuelTypeComboBox.TabIndex = 3;
             // 
             // enginePower
             // 
@@ -829,7 +829,7 @@ namespace SBBD
             this.enginePower.Location = new System.Drawing.Point(710, 311);
             this.enginePower.Name = "enginePower";
             this.enginePower.Size = new System.Drawing.Size(160, 15);
-            this.enginePower.TabIndex = 17;
+            this.enginePower.TabIndex = 10;
             this.enginePower.Text = "np. 240";
             this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.enginePower.Enter += new System.EventHandler(this.enginePower_Enter);
@@ -844,7 +844,7 @@ namespace SBBD
             this.engineCapacity.Location = new System.Drawing.Point(710, 251);
             this.engineCapacity.Name = "engineCapacity";
             this.engineCapacity.Size = new System.Drawing.Size(160, 15);
-            this.engineCapacity.TabIndex = 16;
+            this.engineCapacity.TabIndex = 9;
             this.engineCapacity.Text = "np. 3000";
             this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.engineCapacity.Enter += new System.EventHandler(this.engineCapacity_Enter);
@@ -859,7 +859,7 @@ namespace SBBD
             this.regNumber.Location = new System.Drawing.Point(270, 251);
             this.regNumber.Name = "regNumber";
             this.regNumber.Size = new System.Drawing.Size(160, 15);
-            this.regNumber.TabIndex = 15;
+            this.regNumber.TabIndex = 5;
             this.regNumber.Text = "np. LHR12345";
             this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.regNumber.Enter += new System.EventHandler(this.regNumber_Enter);
@@ -874,7 +874,7 @@ namespace SBBD
             this.vinNumber.Location = new System.Drawing.Point(270, 429);
             this.vinNumber.Name = "vinNumber";
             this.vinNumber.Size = new System.Drawing.Size(160, 20);
-            this.vinNumber.TabIndex = 14;
+            this.vinNumber.TabIndex = 8;
             this.vinNumber.Text = "17 - znakowy VIN";
             this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.vinNumber.Enter += new System.EventHandler(this.vinNumber_Enter);
@@ -889,7 +889,7 @@ namespace SBBD
             this.vehicleColor.Location = new System.Drawing.Point(270, 309);
             this.vehicleColor.Name = "vehicleColor";
             this.vehicleColor.Size = new System.Drawing.Size(160, 15);
-            this.vehicleColor.TabIndex = 13;
+            this.vehicleColor.TabIndex = 6;
             this.vehicleColor.Text = "np. Czarny";
             this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.vehicleColor.Enter += new System.EventHandler(this.vehicleColor_Enter);
@@ -904,7 +904,7 @@ namespace SBBD
             this.prodYear.Location = new System.Drawing.Point(270, 371);
             this.prodYear.Name = "prodYear";
             this.prodYear.Size = new System.Drawing.Size(160, 20);
-            this.prodYear.TabIndex = 12;
+            this.prodYear.TabIndex = 7;
             this.prodYear.Text = "np. 2021";
             this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.prodYear.Enter += new System.EventHandler(this.prodYear_Enter);
@@ -937,7 +937,7 @@ namespace SBBD
             this.manufacturerComboBox.Location = new System.Drawing.Point(140, 95);
             this.manufacturerComboBox.Name = "manufacturerComboBox";
             this.manufacturerComboBox.Size = new System.Drawing.Size(121, 21);
-            this.manufacturerComboBox.TabIndex = 0;
+            this.manufacturerComboBox.TabIndex = 1;
             this.manufacturerComboBox.SelectedIndexChanged += new System.EventHandler(this.ManufacturerComboBox_SelectedIndexChanged);
             // 
             // editVehiclePanel
@@ -974,6 +974,7 @@ namespace SBBD
             this.editEnginePower.ReadOnly = true;
             this.editEnginePower.Size = new System.Drawing.Size(160, 15);
             this.editEnginePower.TabIndex = 30;
+            this.editEnginePower.TabStop = false;
             this.editEnginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editEngineCapacity
@@ -987,6 +988,7 @@ namespace SBBD
             this.editEngineCapacity.ReadOnly = true;
             this.editEngineCapacity.Size = new System.Drawing.Size(160, 15);
             this.editEngineCapacity.TabIndex = 29;
+            this.editEngineCapacity.TabStop = false;
             this.editEngineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editVinNum
@@ -1000,6 +1002,7 @@ namespace SBBD
             this.editVinNum.ReadOnly = true;
             this.editVinNum.Size = new System.Drawing.Size(160, 15);
             this.editVinNum.TabIndex = 28;
+            this.editVinNum.TabStop = false;
             this.editVinNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editProdYear
@@ -1013,6 +1016,7 @@ namespace SBBD
             this.editProdYear.ReadOnly = true;
             this.editProdYear.Size = new System.Drawing.Size(160, 15);
             this.editProdYear.TabIndex = 27;
+            this.editProdYear.TabStop = false;
             this.editProdYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editBodyType
@@ -1094,7 +1098,7 @@ namespace SBBD
             this.editAvailable.Location = new System.Drawing.Point(690, 365);
             this.editAvailable.Name = "editAvailable";
             this.editAvailable.Size = new System.Drawing.Size(121, 21);
-            this.editAvailable.TabIndex = 19;
+            this.editAvailable.TabIndex = 3;
             // 
             // editRegNum
             // 
@@ -1105,7 +1109,7 @@ namespace SBBD
             this.editRegNum.Location = new System.Drawing.Point(270, 251);
             this.editRegNum.Name = "editRegNum";
             this.editRegNum.Size = new System.Drawing.Size(160, 15);
-            this.editRegNum.TabIndex = 15;
+            this.editRegNum.TabIndex = 1;
             this.editRegNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // editVehicleColor
@@ -1117,7 +1121,7 @@ namespace SBBD
             this.editVehicleColor.Location = new System.Drawing.Point(270, 309);
             this.editVehicleColor.Name = "editVehicleColor";
             this.editVehicleColor.Size = new System.Drawing.Size(160, 15);
-            this.editVehicleColor.TabIndex = 13;
+            this.editVehicleColor.TabIndex = 2;
             this.editVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // warningTimer
@@ -1142,8 +1146,8 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.addVehiclePanel);
-            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.editVehiclePanel);
+            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);
