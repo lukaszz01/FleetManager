@@ -150,7 +150,9 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>VFModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Resources\fontBold.ttf" />
+    <None Include="Resources\fontBold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="VFModel.edmx.diagram">
       <DependentUpon>VFModel.edmx</DependentUpon>
     </None>

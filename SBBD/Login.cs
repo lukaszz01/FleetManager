@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Security.Cryptography;
 using System.Data.Entity;
+using System.Drawing.Text;
 
 namespace SBBD
 {
@@ -36,7 +37,7 @@ namespace SBBD
             base.OnLoad(e);
             login_context = new VFEntities();
             login_context.Users.Load();
-
+            
         }
 
         public static DialogResult ShowLogin()

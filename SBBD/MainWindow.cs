@@ -63,7 +63,9 @@ namespace SBBD
                 vLabel21,
                 vLabel22
             };
+
             
+
         }
 
         protected override void OnLoad(EventArgs e)
@@ -71,6 +73,21 @@ namespace SBBD
             base.OnLoad(e);
 
             Login.ShowLogin();
+
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile(@"Resources\fontBold.ttf");
+            foreach (Control c in this.Controls)
+            {
+                foreach (Control c2 in c.Controls)
+                {
+                    c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
+                    foreach (Control c3 in c2.Controls)
+                    {
+                        c3.Font = new Font(pfc.Families[0], c3.Font.Size, FontStyle.Bold);
+                    }
+                }
+            }
+
             user = Login.logged_user_value;
             context = new VFEntities();
             context.Vehicles.Load();
@@ -80,12 +97,7 @@ namespace SBBD
 
             populatePanel();
 
-            PrivateFontCollection pfc = new PrivateFontCollection();
-            pfc.AddFontFile("fontBold.ttf");
-            foreach (Control c in this.Controls)
-            {
-                c.Font = new Font(pfc.Families[0], 10, FontStyle.Bold);
-            }
+            
 
             toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox2, "Poprawny format A-Z, bez znaków specjalnych i spacji");

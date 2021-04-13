@@ -869,11 +869,11 @@ namespace SBBD
             // 
             this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vinNumber.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vinNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.vinNumber.Location = new System.Drawing.Point(270, 429);
             this.vinNumber.Name = "vinNumber";
-            this.vinNumber.Size = new System.Drawing.Size(160, 15);
+            this.vinNumber.Size = new System.Drawing.Size(160, 20);
             this.vinNumber.TabIndex = 14;
             this.vinNumber.Text = "17 - znakowy VIN";
             this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -899,11 +899,11 @@ namespace SBBD
             // 
             this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prodYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.prodYear.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.prodYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.prodYear.Location = new System.Drawing.Point(270, 371);
             this.prodYear.Name = "prodYear";
-            this.prodYear.Size = new System.Drawing.Size(160, 15);
+            this.prodYear.Size = new System.Drawing.Size(160, 20);
             this.prodYear.TabIndex = 12;
             this.prodYear.Text = "np. 2021";
             this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
