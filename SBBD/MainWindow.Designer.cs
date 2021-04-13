@@ -642,7 +642,6 @@ namespace SBBD
             this.selectedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.selectedImage.TabIndex = 41;
             this.selectedImage.TabStop = false;
-            this.selectedImage.Click += new System.EventHandler(this.selectedImage_Click);
             // 
             // addPhotoBtn
             // 
