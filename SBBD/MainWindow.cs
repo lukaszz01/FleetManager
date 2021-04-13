@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using System.Text.RegularExpressions;
 using System.IO;
+using System.Drawing.Text;
 
 namespace SBBD
 {
@@ -78,6 +79,13 @@ namespace SBBD
             vehiclePages = 0;
 
             populatePanel();
+
+            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc.AddFontFile("fontBold.ttf");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(pfc.Families[0], 10, FontStyle.Bold);
+            }
 
             toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox2, "Poprawny format A-Z, bez znaków specjalnych i spacji");
