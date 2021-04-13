@@ -30,10 +30,14 @@ namespace SBBD
         List<Label> vLabelList;
         byte[] image;
         Users user;
+        PrivateFontCollection pfc;
 
         int selected;
         public MainWindow()
         {
+            
+            
+
             InitializeComponent();
             selected = 1;
             currentPage = 1;
@@ -74,7 +78,7 @@ namespace SBBD
 
             Login.ShowLogin();
 
-            PrivateFontCollection pfc = new PrivateFontCollection();
+            pfc = new PrivateFontCollection();
             pfc.AddFontFile(@"Resources\fontBold.ttf");
             foreach (Control c in this.Controls)
             {
@@ -208,7 +212,6 @@ namespace SBBD
                 userInfo.BackColor = Color.FromArgb(30, 35, 40);
                 userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
                 vehiclesPanel.Visible = false;
-                MessageBox.Show(user.email);
             }
 
         }
@@ -319,14 +322,23 @@ namespace SBBD
             {
                 p.Image = null;
             }
-            var allVehicles = context.Vehicles.Select(x => x).ToList();
-            vehicleCount = allVehicles.Count;
+
+            //var allVehicles = context.Vehicles.Select(x => x).ToList();          //dla admina
+            var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();
+
+            //vehicleCount = allVehicles.Count;      //dla admina
+            vehicleCount = userVehicles.Count;
             if(vehiclePages == 0)
                 vehiclePages = (vehicleCount / 9) + 1;
 
-            for(int i = 0; i < (currentPage==vehiclePages?(vehicleCount % 9):9); i++)
+            /*for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
             {
-                ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i+((currentPage-1)*9)]);
+                ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);          //dla admina
+            }*/
+
+            for (int i = 0; i < (currentPage==vehiclePages?(vehicleCount % 9):9); i++)
+            {
+                ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i+((currentPage-1)*9)]);
             }
         }
 
@@ -421,15 +433,13 @@ namespace SBBD
                     registration_num = regNumber.Text,
                     engine_capacity = Int32.Parse(engineCapacity.Text),
                     engine_power = Int32.Parse(enginePower.Text),
-                    //vehicle_id = ++vehicleCount,
-                    user_email = "user@email.com",
+                    user_email = user.email,
                     available = true
                 };
                 Vehicles_Images vehicleImage = new Vehicles_Images()
                 {
                     vehicle_id = vehicle.vehicle_id,
                     vehicle_image = image,
-                    //image_id = 1
                 };
                 context.Vehicles.Add(vehicle);
                 context.Vehicles_Images.Add(vehicleImage);
@@ -456,8 +466,6 @@ namespace SBBD
             Regex regex = new Regex(reg);
             if (!regex.IsMatch(textbox.Text))
             {
-                
-               // MessageBox.Show(textbox.Name + " wprowadzony źle");
                 return false;
             }
             else
