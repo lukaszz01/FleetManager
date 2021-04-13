@@ -323,23 +323,62 @@ namespace SBBD
                 p.Image = null;
             }
 
-            //var allVehicles = context.Vehicles.Select(x => x).ToList();          //dla admina
-            var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();
+            /*
+            Warunek wykonywany przed adminem 
 
-            //vehicleCount = allVehicles.Count;      //dla admina
+            var userRole = context.Users.Where(x => x.email == user.email).Where(x => x.admin == true);
+            foreach (var item in userRole)
+            {
+                Console.WriteLine($"Id: {item.email}, Płeć: {item.admin}"); //możesz na debugu zobaczyć że jest poprawny efekt
+            }          
+           
+            */
+
+
+            /*
+
+             var allVehicles = context.Vehicles.Select(x => x).ToList();          //dla admina      
+
+             vehicleCount = allVehicles.Count;      //dla admina
+
+             if(vehiclePages == 0)
+                 vehiclePages = (vehicleCount / 9) + 1;
+
+             for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
+             {
+                 ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);          //dla admina
+             } 
+            
+             */
+
+            
+
+
+
+            /*            
+            warunek wykonywany przed userem 
+           
+            var userRole2 = context.Users.Where(x => x.email == user.email).Where(x => x.admin == false);
+            foreach (var item in userRole2)
+            {
+                Console.WriteLine($"Id: {item.email}, Płeć: {item.admin}"); //możesz na debugu zobaczyć że jest poprawny efekt
+            }
+           
+
+            */
+
+
+            var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();           
+
             vehicleCount = userVehicles.Count;
-            if(vehiclePages == 0)
+            if (vehiclePages == 0)
                 vehiclePages = (vehicleCount / 9) + 1;
 
-            /*for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
-            {
-                ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);          //dla admina
-            }*/
 
-            for (int i = 0; i < (currentPage==vehiclePages?(vehicleCount % 9):9); i++)
-            {
-                ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i+((currentPage-1)*9)]);
-            }
+             for (int i = 0; i < (currentPage==vehiclePages?(vehicleCount % 9):9); i++)
+             {
+                 ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i+((currentPage-1)*9)]);
+             }
         }
 
         private void addVehicleLoad()
