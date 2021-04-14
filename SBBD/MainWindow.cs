@@ -174,6 +174,7 @@ namespace SBBD
                 addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1off;
                 vehiclesPanel.Visible = false;
                 addVehiclePanel.Visible = true;
+                editVehiclePanel.Visible = false;
                 if(manufacturerComboBox.Items.Count == 0)
                     addVehicleLoad();
             }
@@ -189,6 +190,7 @@ namespace SBBD
                 allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
                 vehiclesPanel.Visible = true;
                 addVehiclePanel.Visible = false;
+                editVehiclePanel.Visible = false;
             }
         }
 
@@ -592,6 +594,14 @@ namespace SBBD
                 editVinNum.Text = selectedVehicle.VIN;
                 editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
                 editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
+
+                if(user.admin == true)
+                {
+                    userLabel.Text = selectedVehicle.user_email;
+                    userLabel.Visible = true;
+                    userLabel1.Visible = true;
+                }
+
                 if (selectedVehicle.available == false)
                     editAvailable.Text = "Nie";
                 else
