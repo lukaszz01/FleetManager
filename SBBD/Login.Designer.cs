@@ -150,11 +150,11 @@ namespace SBBD
             this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
             this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel2.Location = new System.Drawing.Point(155, 155);
+            this.warnLabel2.Location = new System.Drawing.Point(58, 233);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(109, 9);
+            this.warnLabel2.Size = new System.Drawing.Size(94, 9);
             this.warnLabel2.TabIndex = 37;
-            this.warnLabel2.Text = "Użytkownik nie istnieje!";
+            this.warnLabel2.Text = "E-mail niepoprawny!";
             this.warnLabel2.Visible = false;
             // 
             // warnLabel3

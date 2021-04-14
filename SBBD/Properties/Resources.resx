@@ -268,4 +268,7 @@
   <data name="fontBold" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\fontBold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="Poppins_Bold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Poppins-Bold.ttf;System.Byte[], mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
 </root>

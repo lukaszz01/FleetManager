@@ -67,6 +67,7 @@ namespace SBBD
                 IsEmpty(passwordLogin, "Hasło")
                 )
             {
+                warningTimer.Start();
                 ShowErrorMsg(warnLabel1);
             }
             else
@@ -83,6 +84,7 @@ namespace SBBD
                 }
                 if (user1.email == null)
                 {
+                    warningTimer.Start();
                     ShowErrorMsg(warnLabel2);
                 }
                 else
@@ -94,6 +96,7 @@ namespace SBBD
                     }
                     else
                     {
+                        warningTimer.Start();
                         ShowErrorMsg(warnLabel3);
                     }
                 }
