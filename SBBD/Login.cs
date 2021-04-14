@@ -69,10 +69,12 @@ namespace SBBD
             {
                 warningTimer.Start();
                 ShowErrorMsg(warnLabel1);
+                ShowErrorMsg(warnLabel3);
             }
             else
             {
                 var allUsers = login_context.Users.Select(x => x).ToList();
+                //var User = login_context.Users.Where(x => x.email == emailLogin.Text).FirstOrDefault();
                 Users user1=new Users();
                 foreach (Users user in allUsers)
                 {
