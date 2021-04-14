@@ -101,6 +101,8 @@ namespace SBBD
                 toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
                 toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9), bez znaków specjalnych i spacji");
                 toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9), bez znaków specjalnych i spacji");
+
+                userNameInfo.Text = user.email;
             }
         }
 

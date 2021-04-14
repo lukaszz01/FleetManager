@@ -92,11 +92,13 @@ namespace SBBD
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
             this.editVehiclePanel = new System.Windows.Forms.Panel();
+            this.userLabel = new System.Windows.Forms.Label();
             this.editEnginePower = new System.Windows.Forms.TextBox();
             this.editEngineCapacity = new System.Windows.Forms.TextBox();
             this.editVinNum = new System.Windows.Forms.TextBox();
             this.editProdYear = new System.Windows.Forms.TextBox();
             this.editBodyType = new System.Windows.Forms.Label();
+            this.userLabel1 = new System.Windows.Forms.Label();
             this.editFuelType = new System.Windows.Forms.Label();
             this.editCancel = new System.Windows.Forms.Button();
             this.editModel = new System.Windows.Forms.Label();
@@ -107,8 +109,7 @@ namespace SBBD
             this.editVehicleColor = new System.Windows.Forms.TextBox();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.userLabel1 = new System.Windows.Forms.Label();
-            this.userLabel = new System.Windows.Forms.Label();
+            this.userNameInfo = new System.Windows.Forms.Label();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
@@ -966,6 +967,18 @@ namespace SBBD
             this.editVehiclePanel.TabIndex = 21;
             this.editVehiclePanel.Visible = false;
             // 
+            // userLabel
+            // 
+            this.userLabel.AutoSize = true;
+            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.userLabel.ForeColor = System.Drawing.Color.White;
+            this.userLabel.Location = new System.Drawing.Point(420, 34);
+            this.userLabel.Name = "userLabel";
+            this.userLabel.Size = new System.Drawing.Size(85, 16);
+            this.userLabel.TabIndex = 32;
+            this.userLabel.Text = "Użytkownik";
+            this.userLabel.Visible = false;
+            // 
             // editEnginePower
             // 
             this.editEnginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
@@ -1032,6 +1045,18 @@ namespace SBBD
             this.editBodyType.Size = new System.Drawing.Size(76, 16);
             this.editBodyType.TabIndex = 26;
             this.editBodyType.Text = "Nadwozie";
+            // 
+            // userLabel1
+            // 
+            this.userLabel1.AutoSize = true;
+            this.userLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.userLabel1.ForeColor = System.Drawing.Color.White;
+            this.userLabel1.Location = new System.Drawing.Point(295, 34);
+            this.userLabel1.Name = "userLabel1";
+            this.userLabel1.Size = new System.Drawing.Size(85, 16);
+            this.userLabel1.TabIndex = 31;
+            this.userLabel1.Text = "Użytkownik";
+            this.userLabel1.Visible = false;
             // 
             // editFuelType
             // 
@@ -1138,29 +1163,16 @@ namespace SBBD
             this.toolTip.ForeColor = System.Drawing.Color.Black;
             this.toolTip.IsBalloon = true;
             // 
-            // userLabel1
+            // userNameInfo
             // 
-            this.userLabel1.AutoSize = true;
-            this.userLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.userLabel1.ForeColor = System.Drawing.Color.White;
-            this.userLabel1.Location = new System.Drawing.Point(295, 34);
-            this.userLabel1.Name = "userLabel1";
-            this.userLabel1.Size = new System.Drawing.Size(85, 16);
-            this.userLabel1.TabIndex = 31;
-            this.userLabel1.Text = "Użytkownik";
-            this.userLabel1.Visible = false;
-            // 
-            // userLabel
-            // 
-            this.userLabel.AutoSize = true;
-            this.userLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.userLabel.ForeColor = System.Drawing.Color.White;
-            this.userLabel.Location = new System.Drawing.Point(420, 34);
-            this.userLabel.Name = "userLabel";
-            this.userLabel.Size = new System.Drawing.Size(85, 16);
-            this.userLabel.TabIndex = 32;
-            this.userLabel.Text = "Użytkownik";
-            this.userLabel.Visible = false;
+            this.userNameInfo.BackColor = System.Drawing.Color.Transparent;
+            this.userNameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.userNameInfo.ForeColor = System.Drawing.Color.White;
+            this.userNameInfo.Location = new System.Drawing.Point(970, 6);
+            this.userNameInfo.Name = "userNameInfo";
+            this.userNameInfo.Size = new System.Drawing.Size(170, 14);
+            this.userNameInfo.TabIndex = 23;
+            this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // vehiclesBindingSource
             // 
@@ -1170,8 +1182,9 @@ namespace SBBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
+            this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.userNameInfo);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
@@ -1328,5 +1341,6 @@ namespace SBBD
         private System.Windows.Forms.Label warnLabel8;
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label userLabel1;
+        private System.Windows.Forms.Label userNameInfo;
     }
 }
