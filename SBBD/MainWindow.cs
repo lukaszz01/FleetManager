@@ -524,9 +524,36 @@ namespace SBBD
         private void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle)
         {
             Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
-            Bitmap bm = ByteToImage(vehImage.vehicle_image);
+            Bitmap bm = new Bitmap(310, 174);
+            Bitmap bm2 = ByteToImage(vehImage.vehicle_image);
+            /*Image infoimg = Image.FromFile(@"Resources\info.png");
+            Image editimg = Image.FromFile(@"Resources\edit.png");
+            Image deleteimg = Image.FromFile(@"Resources\delete.png");*/
+
+            
+
+            
+
+            using (Graphics g = Graphics.FromImage(bm))
+            {
+                g.DrawImage(bm2, 0, 0, 310, 174);
+            }
+
+            /*using (Graphics g = Graphics.FromImage(bm))
+            {
+                g.DrawImage(deleteimg, 275, 139, 20, 20);
+                g.DrawImage(infoimg, 240, 139, 20, 20);    // potrzebne
+                g.DrawImage(editimg, 205, 139, 20, 20);
+            }*/
+
+            /*infoimg.Dispose();
+            editimg.Dispose();
+            deleteimg.Dispose();*/
+
             pictureBox.Image = bm;
-            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num; 
+            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
+
+            vehImage = null;
         }
 
         private Bitmap ByteToImage(byte[] image)
@@ -580,33 +607,41 @@ namespace SBBD
                 editSelecetedId = tileList.IndexOf(pb);
             if (vLabelList[editSelecetedId].Text != "")
             {
-                vehiclesPanel.Visible = false;
-                editVehiclePanel.Visible = true;
-                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
-                Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-                editManufacturer.Text = selectedVehicle.manufacturer;
-                editModel.Text = selectedVehicle.model;
-                editRegNum.Text = selectedVehicle.registration_num;
-                editVehicleColor.Text = selectedVehicle.color;
-                editFuelType.Text = selectedVehicle.fuel_type;
-                editBodyType.Text = selectedVehicle.body_type;
-                editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
-                editVinNum.Text = selectedVehicle.VIN;
-                editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
-                editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
-
-                if(user.admin == true)
-                {
-                    userLabel.Text = selectedVehicle.user_email;
-                    userLabel.Visible = true;
-                    userLabel1.Visible = true;
-                }
-
-                if (selectedVehicle.available == false)
-                    editAvailable.Text = "Nie";
-                else
-                    editAvailable.Text = "Tak";
+                //MouseEventArgs mousePos = (MouseEventArgs)e;
+                //Point mouseCoordinates = mousePos.Location;              //potrzebne
+                //if(mouseCoordinates.X >= 205 && mouseCoordinates.X <= 225 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
+                editVehicleFill();
             }
+        }
+
+        private void editVehicleFill()
+        {
+            vehiclesPanel.Visible = false;
+            editVehiclePanel.Visible = true;
+            string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+            Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+            editManufacturer.Text = selectedVehicle.manufacturer;
+            editModel.Text = selectedVehicle.model;
+            editRegNum.Text = selectedVehicle.registration_num;
+            editVehicleColor.Text = selectedVehicle.color;
+            editFuelType.Text = selectedVehicle.fuel_type;
+            editBodyType.Text = selectedVehicle.body_type;
+            editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
+            editVinNum.Text = selectedVehicle.VIN;
+            editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
+            editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
+
+            if (user.admin == true)
+            {
+                userLabel.Text = selectedVehicle.user_email;
+                userLabel.Visible = true;
+                userLabel1.Visible = true;
+            }
+
+            if (selectedVehicle.available == false)
+                editAvailable.Text = "Nie";
+            else
+                editAvailable.Text = "Tak";
         }
 
         private void editCancel_Click(object sender, EventArgs e)

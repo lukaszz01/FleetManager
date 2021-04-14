@@ -1172,8 +1172,8 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
