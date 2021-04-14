@@ -330,16 +330,16 @@ namespace SBBD
 
             if (user.admin == true)
             {
-                var allVehicles = context.Vehicles.Select(x => x).ToList();          //dla admina      
+                var allVehicles = context.Vehicles.Select(x => x).ToList();     
 
-                vehicleCount = allVehicles.Count;      //dla admina
+                vehicleCount = allVehicles.Count;
 
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
 
                 for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
                 {
-                    ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);          //dla admina
+                    ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);
                 }
 
 
@@ -428,7 +428,7 @@ namespace SBBD
             else if (
                 !RegexD(@"^[0-9]{4}$", prodYear) ||
                 !RegexD(@"^[a-zA-Z]+$", vehicleColor) ||
-                !RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber) ||
+                !RegexD(@"^[A-HJ-NPR-Z0-9]{11}[0-9]{6}$", vinNumber) ||
                 !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
                 !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
                 !RegexD(@"^[0-9]{2,4}$", enginePower)
@@ -436,7 +436,8 @@ namespace SBBD
             {
                 if (!RegexD(@"^[0-9]{4}$", prodYear)) ShowErrorMsg(warnLabel3);
                 if (!RegexD(@"^[a-zA-Z]+$", vehicleColor)) ShowErrorMsg(warnLabel2);
-                if (!RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber)) ShowErrorMsg(warnLabel4);
+                if (!RegexD(@"^[A-HJ-NPR-Z0-9]{11}[0-9]{6}$", vinNumber)) ShowErrorMsg(warnLabel4);
+                //if (!RegexD(@" ^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber)) ShowErrorMsg(warnLabel4);
                 if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^[0-9]{3,5}$", engineCapacity)) ShowErrorMsg(warnLabel5);
                 if (!RegexD(@"^[0-9]{2,4}$", enginePower)) ShowErrorMsg(warnLabel6);
@@ -527,29 +528,35 @@ namespace SBBD
             Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             Bitmap bm = new Bitmap(310, 174);
             Bitmap bm2 = ByteToImage(vehImage.vehicle_image);
-            /*Image infoimg = Image.FromFile(@"Resources\info.png");
+            Image infoimg = Image.FromFile(@"Resources\info.png");
             Image editimg = Image.FromFile(@"Resources\edit.png");
-            Image deleteimg = Image.FromFile(@"Resources\delete.png");*/
-
-            
-
-            
-
+            Image deleteimg = Image.FromFile(@"Resources\delete.png");
             using (Graphics g = Graphics.FromImage(bm))
             {
                 g.DrawImage(bm2, 0, 0, 310, 174);
             }
 
-            /*using (Graphics g = Graphics.FromImage(bm))
+            Rectangle r = new Rectangle(0, 0, bm.Width, bm.Height);
+            int alpha = 128;
+            using (Graphics g = Graphics.FromImage(bm))
+
+            {
+                using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
+                {
+                    g.FillRectangle(cloud_brush, r);
+                }
+            }
+
+            using (Graphics g = Graphics.FromImage(bm))
             {
                 g.DrawImage(deleteimg, 275, 139, 20, 20);
-                g.DrawImage(infoimg, 240, 139, 20, 20);    // potrzebne
+                g.DrawImage(infoimg, 240, 139, 20, 20);    
                 g.DrawImage(editimg, 205, 139, 20, 20);
-            }*/
+            }
 
-            /*infoimg.Dispose();
+            infoimg.Dispose();
             editimg.Dispose();
-            deleteimg.Dispose();*/
+            deleteimg.Dispose();
 
             pictureBox.Image = bm;
             label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
@@ -608,10 +615,19 @@ namespace SBBD
                 editSelecetedId = tileList.IndexOf(pb);
             if (vLabelList[editSelecetedId].Text != "")
             {
-                //MouseEventArgs mousePos = (MouseEventArgs)e;
-                //Point mouseCoordinates = mousePos.Location;              //potrzebne
-                //if(mouseCoordinates.X >= 205 && mouseCoordinates.X <= 225 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
-                editVehicleFill();
+                MouseEventArgs mousePos = (MouseEventArgs)e;
+                Point mouseCoordinates = mousePos.Location;
+
+                /*g.DrawImage(deleteimg, 275, 139, 20, 20);
+                g.DrawImage(infoimg, 240, 139, 20, 20);    
+                g.DrawImage(editimg, 205, 139, 20, 20);*/
+
+                if (mouseCoordinates.X >= 205 && mouseCoordinates.X <= 225 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
+                    editVehicleFill();
+                if (mouseCoordinates.X >= 240 && mouseCoordinates.X <= 260 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
+                    infoVehicleFill();
+                if (mouseCoordinates.X >= 275 && mouseCoordinates.X <= 295 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
+                    deleteVehicle();
             }
         }
 
@@ -643,6 +659,16 @@ namespace SBBD
                 editAvailable.Text = "Nie";
             else
                 editAvailable.Text = "Tak";
+        }
+
+        private void infoVehicleFill()
+        {
+
+        }
+
+        private void deleteVehicle()
+        {
+
         }
 
         private void editCancel_Click(object sender, EventArgs e)
@@ -864,8 +890,13 @@ namespace SBBD
                 }
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            this.Hide();
+            this.OnLoad(null);
+            this.Refresh();
+            this.Show();
+        }
     }
 }
-
-
-

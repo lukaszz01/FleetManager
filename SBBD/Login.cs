@@ -69,11 +69,10 @@ namespace SBBD
             {
                 warningTimer.Start();
                 ShowErrorMsg(warnLabel1);
-                ShowErrorMsg(warnLabel3);
             }
             else
             {
-                var allUsers = login_context.Users.Select(x => x).ToList();
+                /*var allUsers = login_context.Users.Select(x => x).ToList();
                 //var User = login_context.Users.Where(x => x.email == emailLogin.Text).FirstOrDefault();
                 Users user1=new Users();
                 foreach (Users user in allUsers)
@@ -101,6 +100,18 @@ namespace SBBD
                         warningTimer.Start();
                         ShowErrorMsg(warnLabel3);
                     }
+                }*/
+                string pass = ComputeSha256Hash(passwordLogin.Text);
+                var user = login_context.Users.Where(x => x.email == emailLogin.Text && x.password == pass).FirstOrDefault();
+                if(user == null)
+                {
+                    warningTimer.Start();
+                    ShowErrorMsg(warnLabel2);
+                }
+                else
+                {
+                    logged_user_value = user;
+                    this.Close();
                 }
             }
         }
@@ -233,7 +244,7 @@ namespace SBBD
             warningTimer.Stop();
             warnLabel1.Visible = false;
             warnLabel2.Visible = false;
-            warnLabel3.Visible = false;
+            warnLabel2.Visible = false;
         }
 
         private void passwordLogin_KeyDown(object sender, KeyEventArgs e)

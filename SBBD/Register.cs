@@ -91,6 +91,8 @@ namespace SBBD
                 user_context.Users.Add(user);
                 user_context.SaveChanges();
 
+                MessageBox.Show("Rejestracja udana");
+
                 register.Close();
                 this.Hide();
                 Login.ShowLogin();

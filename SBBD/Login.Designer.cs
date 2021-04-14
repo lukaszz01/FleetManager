@@ -40,7 +40,6 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.warnLabel1 = new System.Windows.Forms.Label();
             this.warnLabel2 = new System.Windows.Forms.Label();
-            this.warnLabel3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.loginLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeLogin)).BeginInit();
@@ -151,25 +150,12 @@ namespace SBBD
             this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
             this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel2.Location = new System.Drawing.Point(58, 233);
+            this.warnLabel2.Location = new System.Drawing.Point(130, 149);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(94, 9);
-            this.warnLabel2.TabIndex = 37;
-            this.warnLabel2.Text = "E-mail niepoprawny!";
+            this.warnLabel2.Size = new System.Drawing.Size(162, 9);
+            this.warnLabel2.TabIndex = 38;
+            this.warnLabel2.Text = "e-mail lub hasło jest nieprawidłowe!";
             this.warnLabel2.Visible = false;
-            // 
-            // warnLabel3
-            // 
-            this.warnLabel3.AutoSize = true;
-            this.warnLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.warnLabel3.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel3.Location = new System.Drawing.Point(58, 277);
-            this.warnLabel3.Name = "warnLabel3";
-            this.warnLabel3.Size = new System.Drawing.Size(90, 9);
-            this.warnLabel3.TabIndex = 38;
-            this.warnLabel3.Text = "Hasło niepoprawne!";
-            this.warnLabel3.Visible = false;
             // 
             // Login
             // 
@@ -178,7 +164,6 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.Log2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(420, 525);
-            this.Controls.Add(this.warnLabel3);
             this.Controls.Add(this.warnLabel2);
             this.Controls.Add(this.warnLabel1);
             this.Controls.Add(this.passwordLogin);
@@ -212,7 +197,6 @@ namespace SBBD
         private System.Windows.Forms.Timer warningTimer;
         private System.Windows.Forms.Label warnLabel1;
         private System.Windows.Forms.Label warnLabel2;
-        private System.Windows.Forms.Label warnLabel3;
     }
 }
 
