@@ -233,5 +233,13 @@ namespace SBBD
             warnLabel2.Visible = false;
             warnLabel3.Visible = false;
         }
+
+        private void passwordLogin_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                loginLogin_Click(null, null);
+            }
+        }
     }
 }

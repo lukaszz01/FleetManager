@@ -43,12 +43,15 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.warnLabel2 = new System.Windows.Forms.Label();
             this.warnLabel3 = new System.Windows.Forms.Label();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.warnLabel4 = new System.Windows.Forms.Label();
+            this.passwordInfo = new System.Windows.Forms.PictureBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -157,6 +160,7 @@ namespace SBBD
             this.passwordRegister.TabIndex = 4;
             this.passwordRegister.Text = "Hasło";
             this.passwordRegister.Enter += new System.EventHandler(this.passwordRegister_Enter);
+            this.passwordRegister.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordRegister_KeyDown);
             this.passwordRegister.Leave += new System.EventHandler(this.passwordRegister_Leave);
             // 
             // warnLabel1
@@ -203,10 +207,6 @@ namespace SBBD
             this.warnLabel3.Text = "Uzupelnij wszystkie pola!";
             this.warnLabel3.Visible = false;
             // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
-            // 
             // warnLabel4
             // 
             this.warnLabel4.AutoSize = true;
@@ -220,12 +220,33 @@ namespace SBBD
             this.warnLabel4.Text = "Podane konto już istnieje!";
             this.warnLabel4.Visible = false;
             // 
+            // passwordInfo
+            // 
+            this.passwordInfo.BackColor = System.Drawing.Color.Transparent;
+            this.passwordInfo.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.passwordInfo.Location = new System.Drawing.Point(366, 336);
+            this.passwordInfo.Name = "passwordInfo";
+            this.passwordInfo.Size = new System.Drawing.Size(10, 10);
+            this.passwordInfo.TabIndex = 42;
+            this.passwordInfo.TabStop = false;
+            // 
+            // toolTip
+            // 
+            this.toolTip.BackColor = System.Drawing.Color.White;
+            this.toolTip.ForeColor = System.Drawing.Color.Black;
+            this.toolTip.IsBalloon = true;
+            // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.Reg;
             this.ClientSize = new System.Drawing.Size(420, 600);
+            this.Controls.Add(this.passwordInfo);
             this.Controls.Add(this.warnLabel4);
             this.Controls.Add(this.warnLabel3);
             this.Controls.Add(this.warnLabel2);
@@ -247,6 +268,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -269,5 +291,7 @@ namespace SBBD
         private System.Windows.Forms.Label warnLabel2;
         private System.Windows.Forms.Label warnLabel3;
         private System.Windows.Forms.Label warnLabel4;
+        private System.Windows.Forms.PictureBox passwordInfo;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

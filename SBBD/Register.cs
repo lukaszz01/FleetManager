@@ -33,7 +33,9 @@ namespace SBBD
             base.OnLoad(e);
             user_context = new VFEntities();
             user_context.Users.Load();
-            
+
+            toolTip.SetToolTip(passwordInfo, "Poprawny format min. 8 znaków, jedna mała litera, jedna duża litera,\njedna cyfra, jeden znak specjalny(@$!%*?&) ");
+
         }
 
         public static DialogResult ShowRegister()
@@ -63,12 +65,13 @@ namespace SBBD
             else if (
                 !IsValid(emailRegister.Text) || 
                 !RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister) ||
-                !RegexD(@"^(?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9])(?=.*?[#?!@$%^&*-]).{8,}$", passwordRegister)
+                !RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)
                 )
             {
                 if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1);
-                if (!RegexD(@"^(?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9])(?=.*?[#?!@$%^&*-]).{8,}$", passwordRegister)) ShowErrorMsg(warnLabel2);
+                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowErrorMsg(warnLabel2);
+                //            ^(?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9])(?=.*?[#?!@$%^&*-]).{8,}$
             }
             else if (emailIsRepeat(emailRegister.Text))
             {
@@ -111,6 +114,7 @@ namespace SBBD
                 for (int i = 0; i < bytes.Length; i++)
                 {
                     builder.Append(bytes[i].ToString("x2"));
+                    
                 }
                 return builder.ToString();
             }
@@ -295,6 +299,14 @@ namespace SBBD
             warnLabel1.Visible = false;
             warnLabel2.Visible = false;
             warnLabel3.Visible = false;
+        }
+
+        private void passwordRegister_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                registerRegister_Click(null, null);
+            }
         }
     }
 }

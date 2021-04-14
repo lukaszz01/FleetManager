@@ -528,6 +528,7 @@ namespace SBBD
             this.vLabel00.Size = new System.Drawing.Size(0, 18);
             this.vLabel00.TabIndex = 1;
             this.vLabel00.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.vLabel00.Visible = false;
             // 
             // addVehiclePanel
             // 
@@ -1144,9 +1145,9 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW3;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
-            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);

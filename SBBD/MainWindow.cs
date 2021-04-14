@@ -34,13 +34,13 @@ namespace SBBD
 
         int selected;
         public MainWindow()
-        {
-            InitializeComponent();
-            selected = 1;
-            currentPage = 1;
-            siteCounter.Text = currentPage.ToString();
+        {          
+                InitializeComponent();
+                selected = 1;
+                currentPage = 1;
+                siteCounter.Text = currentPage.ToString();
 
-            tileList = new List<PictureBox>()
+                tileList = new List<PictureBox>()
             {
                 pictureBox00,
                 pictureBox01,
@@ -52,7 +52,7 @@ namespace SBBD
                 pictureBox21,
                 pictureBox22
             };
-            vLabelList = new List<Label>()
+                vLabelList = new List<Label>()
             {
                 vLabel00,
                 vLabel01,
@@ -71,36 +71,37 @@ namespace SBBD
             base.OnLoad(e);
 
             Login.ShowLogin();
-
-            pfc = new PrivateFontCollection();
-            pfc.AddFontFile(@"Resources\fontBold.ttf");
-            foreach (Control c in this.Controls)
+            user = Login.logged_user_value;
+            if (user != null)
             {
-                foreach (Control c2 in c.Controls)
+                pfc = new PrivateFontCollection();
+                pfc.AddFontFile(@"Resources\fontBold.ttf");
+                foreach (Control c in this.Controls)
                 {
-                    c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
-                    foreach (Control c3 in c2.Controls)
+                    foreach (Control c2 in c.Controls)
                     {
-                        c3.Font = new Font(pfc.Families[0], c3.Font.Size, FontStyle.Bold);
+                        c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
+                        foreach (Control c3 in c2.Controls)
+                        {
+                            c3.Font = new Font(pfc.Families[0], c3.Font.Size, FontStyle.Bold);
+                        }
                     }
                 }
+                context = new VFEntities();
+                context.Vehicles.Load();
+                context.Manufacturers.Load();
+                //this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
+                vehiclePages = 0;
+            
+                populatePanel();
+
+                toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
+                toolTip.SetToolTip(infoBox2, "Poprawny format A-Z, bez znaków specjalnych i spacji");
+                toolTip.SetToolTip(infoBox3, "Poprawny format 4 znaki (0-9), bez znaków specjalnych i spacji");
+                toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
+                toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9), bez znaków specjalnych i spacji");
+                toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9), bez znaków specjalnych i spacji");
             }
-
-            user = Login.logged_user_value;
-            context = new VFEntities();
-            context.Vehicles.Load();
-            context.Manufacturers.Load();
-            this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
-            vehiclePages = 0;
-
-            populatePanel();
-
-            toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
-            toolTip.SetToolTip(infoBox2, "Poprawny format A-Z, bez znaków specjalnych i spacji");
-            toolTip.SetToolTip(infoBox3, "Poprawny format 4 znaki (0-9), bez znaków specjalnych i spacji");
-            toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
-            toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9), bez znaków specjalnych i spacji");
-            toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9), bez znaków specjalnych i spacji");
         }
 
         private void addVehicle_MouseEnter(object sender, EventArgs e)
@@ -302,11 +303,11 @@ namespace SBBD
 
         private void populatePanel()
         {
-            foreach(Label l in vLabelList)
+            foreach (Label l in vLabelList)
             {
                 l.Text = "";
             }
-            foreach(PictureBox p in tileList)
+            foreach (PictureBox p in tileList)
             {
                 p.Image = null;
             }
@@ -323,23 +324,25 @@ namespace SBBD
             */
 
 
-            /*
 
-             var allVehicles = context.Vehicles.Select(x => x).ToList();          //dla admina      
+            if (user.admin == true)
+            {
+                var allVehicles = context.Vehicles.Select(x => x).ToList();          //dla admina      
 
-             vehicleCount = allVehicles.Count;      //dla admina
+                vehicleCount = allVehicles.Count;      //dla admina
 
-             if(vehiclePages == 0)
-                 vehiclePages = (vehicleCount / 9) + 1;
+                if (vehiclePages == 0)
+                    vehiclePages = (vehicleCount / 9) + 1;
 
-             for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
-             {
-                 ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);          //dla admina
-             } 
-            
-             */
+                for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
+                {
+                    ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);          //dla admina
+                }
 
-            
+
+            }
+
+
 
 
 
@@ -355,18 +358,20 @@ namespace SBBD
 
             */
 
+            else
+            {
+                var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();
 
-            var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();           
-
-            vehicleCount = userVehicles.Count;
-            if (vehiclePages == 0)
-                vehiclePages = (vehicleCount / 9) + 1;
+                vehicleCount = userVehicles.Count;
+                if (vehiclePages == 0)
+                    vehiclePages = (vehicleCount / 9) + 1;
 
 
-             for (int i = 0; i < (currentPage==vehiclePages?(vehicleCount % 9):9); i++)
-             {
-                 ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i+((currentPage-1)*9)]);
-             }
+                for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
+                {
+                    ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i + ((currentPage - 1) * 9)]);
+                }
+            }
         }
 
         private void addVehicleLoad()
