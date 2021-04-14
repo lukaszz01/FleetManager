@@ -39,7 +39,12 @@ namespace SBBD
             this.firstNameRegister = new System.Windows.Forms.TextBox();
             this.lastNameRegister = new System.Windows.Forms.TextBox();
             this.passwordRegister = new System.Windows.Forms.TextBox();
+            this.warnLabel1 = new System.Windows.Forms.Label();
+            this.warningTimer = new System.Windows.Forms.Timer(this.components);
+            this.warnLabel2 = new System.Windows.Forms.Label();
+            this.warnLabel3 = new System.Windows.Forms.Label();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.warnLabel4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).BeginInit();
@@ -154,9 +159,66 @@ namespace SBBD
             this.passwordRegister.Enter += new System.EventHandler(this.passwordRegister_Enter);
             this.passwordRegister.Leave += new System.EventHandler(this.passwordRegister_Leave);
             // 
+            // warnLabel1
+            // 
+            this.warnLabel1.AutoSize = true;
+            this.warnLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel1.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel1.Location = new System.Drawing.Point(60, 232);
+            this.warnLabel1.Name = "warnLabel1";
+            this.warnLabel1.Size = new System.Drawing.Size(94, 9);
+            this.warnLabel1.TabIndex = 32;
+            this.warnLabel1.Text = "E-mail niepoprawny!";
+            this.warnLabel1.Visible = false;
+            // 
+            // warningTimer
+            // 
+            this.warningTimer.Interval = 4000;
+            this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
+            // 
+            // warnLabel2
+            // 
+            this.warnLabel2.AutoSize = true;
+            this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel2.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel2.Location = new System.Drawing.Point(60, 357);
+            this.warnLabel2.Name = "warnLabel2";
+            this.warnLabel2.Size = new System.Drawing.Size(90, 9);
+            this.warnLabel2.TabIndex = 33;
+            this.warnLabel2.Text = "Hasło niepoprawne!";
+            this.warnLabel2.Visible = false;
+            // 
+            // warnLabel3
+            // 
+            this.warnLabel3.AutoSize = true;
+            this.warnLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel3.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel3.Location = new System.Drawing.Point(152, 444);
+            this.warnLabel3.Name = "warnLabel3";
+            this.warnLabel3.Size = new System.Drawing.Size(116, 9);
+            this.warnLabel3.TabIndex = 34;
+            this.warnLabel3.Text = "Uzupelnij wszystkie pola!";
+            this.warnLabel3.Visible = false;
+            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
+            // 
+            // warnLabel4
+            // 
+            this.warnLabel4.AutoSize = true;
+            this.warnLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel4.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel4.Location = new System.Drawing.Point(152, 156);
+            this.warnLabel4.Name = "warnLabel4";
+            this.warnLabel4.Size = new System.Drawing.Size(116, 9);
+            this.warnLabel4.TabIndex = 35;
+            this.warnLabel4.Text = "Podane konto już istnieje!";
+            this.warnLabel4.Visible = false;
             // 
             // Register
             // 
@@ -164,6 +226,10 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.Reg;
             this.ClientSize = new System.Drawing.Size(420, 600);
+            this.Controls.Add(this.warnLabel4);
+            this.Controls.Add(this.warnLabel3);
+            this.Controls.Add(this.warnLabel2);
+            this.Controls.Add(this.warnLabel1);
             this.Controls.Add(this.passwordRegister);
             this.Controls.Add(this.lastNameRegister);
             this.Controls.Add(this.firstNameRegister);
@@ -198,5 +264,10 @@ namespace SBBD
         private System.Windows.Forms.TextBox lastNameRegister;
         private System.Windows.Forms.TextBox passwordRegister;
         private System.Windows.Forms.BindingSource vehiclesBindingSource;
+        private System.Windows.Forms.Label warnLabel1;
+        private System.Windows.Forms.Timer warningTimer;
+        private System.Windows.Forms.Label warnLabel2;
+        private System.Windows.Forms.Label warnLabel3;
+        private System.Windows.Forms.Label warnLabel4;
     }
 }

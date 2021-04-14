@@ -35,9 +35,6 @@ namespace SBBD
         int selected;
         public MainWindow()
         {
-            
-            
-
             InitializeComponent();
             selected = 1;
             currentPage = 1;
@@ -67,9 +64,6 @@ namespace SBBD
                 vLabel21,
                 vLabel22
             };
-
-            
-
         }
 
         protected override void OnLoad(EventArgs e)
@@ -101,18 +95,12 @@ namespace SBBD
 
             populatePanel();
 
-            
-
             toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox2, "Poprawny format A-Z, bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox3, "Poprawny format 4 znaki (0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków (a-z, A-Z, 0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9), bez znaków specjalnych i spacji");
             toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9), bez znaków specjalnych i spacji");
-
-            
-            
-
         }
 
         private void addVehicle_MouseEnter(object sender, EventArgs e)
@@ -531,8 +519,7 @@ namespace SBBD
             Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             Bitmap bm = ByteToImage(vehImage.vehicle_image);
             pictureBox.Image = bm;
-            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
-            
+            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num; 
         }
 
         private Bitmap ByteToImage(byte[] image)
@@ -582,7 +569,6 @@ namespace SBBD
 
         private void tile_Click(object sender, EventArgs e)
         {
-           
                 PictureBox pb = (PictureBox)sender;
                 editSelecetedId = tileList.IndexOf(pb);
             if (vLabelList[editSelecetedId].Text != "")

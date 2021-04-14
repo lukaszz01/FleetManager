@@ -29,6 +29,7 @@ namespace SBBD
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.loginLogin = new System.Windows.Forms.PictureBox();
             this.registerLogin = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,10 @@ namespace SBBD
             this.titleBarLogin = new System.Windows.Forms.PictureBox();
             this.emailLogin = new System.Windows.Forms.TextBox();
             this.passwordLogin = new System.Windows.Forms.TextBox();
+            this.warningTimer = new System.Windows.Forms.Timer(this.components);
+            this.warnLabel1 = new System.Windows.Forms.Label();
+            this.warnLabel2 = new System.Windows.Forms.Label();
+            this.warnLabel3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.loginLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeLogin)).BeginInit();
@@ -121,6 +126,50 @@ namespace SBBD
             this.passwordLogin.Enter += new System.EventHandler(this.passwordLogin_Enter);
             this.passwordLogin.Leave += new System.EventHandler(this.passwordLogin_Leave);
             // 
+            // warningTimer
+            // 
+            this.warningTimer.Interval = 4000;
+            this.warningTimer.Tick += new System.EventHandler(this.warningTimer_Tick);
+            // 
+            // warnLabel1
+            // 
+            this.warnLabel1.AutoSize = true;
+            this.warnLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel1.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel1.Location = new System.Drawing.Point(152, 365);
+            this.warnLabel1.Name = "warnLabel1";
+            this.warnLabel1.Size = new System.Drawing.Size(116, 9);
+            this.warnLabel1.TabIndex = 36;
+            this.warnLabel1.Text = "Uzupełnij wszystkie pola!";
+            this.warnLabel1.Visible = false;
+            // 
+            // warnLabel2
+            // 
+            this.warnLabel2.AutoSize = true;
+            this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel2.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel2.Location = new System.Drawing.Point(155, 155);
+            this.warnLabel2.Name = "warnLabel2";
+            this.warnLabel2.Size = new System.Drawing.Size(109, 9);
+            this.warnLabel2.TabIndex = 37;
+            this.warnLabel2.Text = "Użytkownik nie istnieje!";
+            this.warnLabel2.Visible = false;
+            // 
+            // warnLabel3
+            // 
+            this.warnLabel3.AutoSize = true;
+            this.warnLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel3.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel3.Location = new System.Drawing.Point(58, 277);
+            this.warnLabel3.Name = "warnLabel3";
+            this.warnLabel3.Size = new System.Drawing.Size(90, 9);
+            this.warnLabel3.TabIndex = 38;
+            this.warnLabel3.Text = "Hasło niepoprawne!";
+            this.warnLabel3.Visible = false;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -128,6 +177,9 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.Log2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(420, 525);
+            this.Controls.Add(this.warnLabel3);
+            this.Controls.Add(this.warnLabel2);
+            this.Controls.Add(this.warnLabel1);
             this.Controls.Add(this.passwordLogin);
             this.Controls.Add(this.emailLogin);
             this.Controls.Add(this.titleBarLogin);
@@ -156,6 +208,10 @@ namespace SBBD
         private System.Windows.Forms.PictureBox titleBarLogin;
         private System.Windows.Forms.TextBox emailLogin;
         private System.Windows.Forms.TextBox passwordLogin;
+        private System.Windows.Forms.Timer warningTimer;
+        private System.Windows.Forms.Label warnLabel1;
+        private System.Windows.Forms.Label warnLabel2;
+        private System.Windows.Forms.Label warnLabel3;
     }
 }
 

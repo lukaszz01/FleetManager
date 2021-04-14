@@ -62,11 +62,12 @@ namespace SBBD
 
         private void loginLogin_Click(object sender, EventArgs e)
         {
-            if (IsEmpty(emailLogin, "Login (adres e-mail)") ||
+            if (
+                IsEmpty(emailLogin, "Login (adres e-mail)") ||
                 IsEmpty(passwordLogin, "Hasło")
                 )
             {
-                MessageBox.Show("Uzupełnij wszystkie pola");
+                ShowErrorMsg(warnLabel1);
             }
             else
             {
@@ -82,7 +83,7 @@ namespace SBBD
                 }
                 if (user1.email == null)
                 {
-                    MessageBox.Show("Użytkownik nie istnieje");
+                    ShowErrorMsg(warnLabel2);
                 }
                 else
                 {
@@ -93,14 +94,17 @@ namespace SBBD
                     }
                     else
                     {
-                        MessageBox.Show("Złe hasło");
+                        ShowErrorMsg(warnLabel3);
                     }
                 }
             }
-            
         }
 
-        
+        private void ShowErrorMsg(Label warnLabel)
+        {
+            warnLabel.Visible = true;
+            warningTimer.Start();
+        }
 
         private bool IsEmpty(TextBox textBox, string placeholder)
         {
@@ -109,10 +113,8 @@ namespace SBBD
 
         private string ComputeSha256Hash(string rawData)
         {
-
             using (SHA256 sha256Hash = SHA256.Create())
             {
-
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
 
                 StringBuilder builder = new StringBuilder();
@@ -219,6 +221,14 @@ namespace SBBD
         {
             base.OnClosing(e);
             this.login_context.Dispose();
+        }
+
+        private void warningTimer_Tick(object sender, EventArgs e)
+        {
+            warningTimer.Stop();
+            warnLabel1.Visible = false;
+            warnLabel2.Visible = false;
+            warnLabel3.Visible = false;
         }
     }
 }

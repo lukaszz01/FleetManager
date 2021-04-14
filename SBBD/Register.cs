@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Data.Entity;
 using System.Net.Mail;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 
 namespace SBBD
 {
@@ -49,21 +50,30 @@ namespace SBBD
 
         private void registerRegister_Click(object sender, EventArgs e)
         {
-            if (IsEmpty(emailRegister, "Login (adres e-mail)") ||
+            if (
+                IsEmpty(emailRegister, "Login (adres e-mail)") ||
                 IsEmpty(firstNameRegister, "Imię") ||
                 IsEmpty(lastNameRegister, "Nazwisko") ||
                 IsEmpty(passwordRegister, "Hasło")
                 )
             {
-                MessageBox.Show("Uzupełnij wszystkie pola");
+                warningTimer.Start();
+                warnLabel3.Visible = true;
             }
-            else if (!IsValid(emailRegister.Text))
+            else if (
+                !IsValid(emailRegister.Text) || 
+                !RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister) ||
+                !RegexD(@"^(?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9])(?=.*?[#?!@$%^&*-]).{8,}$", passwordRegister)
+                )
             {
-                MessageBox.Show("Niepoprawny email");
+                if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1);
+                if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1);
+                if (!RegexD(@"^(?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9])(?=.*?[#?!@$%^&*-]).{8,}$", passwordRegister)) ShowErrorMsg(warnLabel2);
             }
-            else if(emailIsRepeat(emailRegister.Text))
+            else if (emailIsRepeat(emailRegister.Text))
             {
-                MessageBox.Show("Konto istnieje");
+                warningTimer.Start();
+                warnLabel4.Visible = true;
             }
             else
             {
@@ -74,7 +84,6 @@ namespace SBBD
                     last_name = lastNameRegister.Text,
                     password = ComputeSha256Hash(passwordRegister.Text),
                     admin = false
-
                 };
                 user_context.Users.Add(user);
                 user_context.SaveChanges();
@@ -86,12 +95,16 @@ namespace SBBD
             }
         }
 
-        private  string ComputeSha256Hash(string rawData)
+        private void ShowErrorMsg(Label warnLabel)
         {
-             
+            warnLabel.Visible = true;
+            warningTimer.Start();
+        }
+
+        private  string ComputeSha256Hash(string rawData)
+        {   
             using (SHA256 sha256Hash = SHA256.Create())
             {
-                
                 byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
 
                 StringBuilder builder = new StringBuilder();
@@ -103,20 +116,35 @@ namespace SBBD
             }
         }
 
-        private bool IsValid(string emailaddress)
+        private bool RegexD(string reg, TextBox textbox)
         {
-        try
-        {
-            MailAddress m = new MailAddress(emailaddress);
-            return true;
-        }
-        catch
-        {
-            return false;
-        }
+            Regex regex = new Regex(reg);
+            if (!regex.IsMatch(textbox.Text))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
-    private bool emailIsRepeat(string email)
+        
+        private bool IsValid(string emailaddress)
+        {
+            try
+            {
+                MailAddress m = new MailAddress(emailaddress);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
+        }
+        
+
+        private bool emailIsRepeat(string email)
         {
             var allUsers = user_context.Users.Select(x => x).ToList();
             bool isTrue = false;
@@ -259,6 +287,14 @@ namespace SBBD
         {
             base.OnClosing(e);
             this.user_context.Dispose();
+        }
+
+        private void warningTimer_Tick(object sender, EventArgs e)
+        {
+            warningTimer.Stop();
+            warnLabel1.Visible = false;
+            warnLabel2.Visible = false;
+            warnLabel3.Visible = false;
         }
     }
 }
