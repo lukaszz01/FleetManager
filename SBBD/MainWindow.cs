@@ -90,7 +90,6 @@ namespace SBBD
                 context = new VFEntities();
                 context.Vehicles.Load();
                 context.Manufacturers.Load();
-                //this.vehiclesBindingSource.DataSource = context.Vehicles.Local.ToBindingList();
                 vehiclePages = 0;
             
                 populatePanel();
@@ -856,7 +855,7 @@ namespace SBBD
             using(OpenFileDialog openFileDialog = new OpenFileDialog())
             {
                 openFileDialog.Title = "Wybierz zdjęcie";
-                openFileDialog.Filter = "Plik JPEG (*.jpg)|*.jpg";
+                openFileDialog.Filter = "Plik JPEG (*.jpg)|*.jpg|Plik PNG (*.png)|*.png";
 
                 if(openFileDialog.ShowDialog() == DialogResult.OK)
                 {

@@ -110,7 +110,6 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.userNameInfo = new System.Windows.Forms.Label();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -154,7 +153,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -1172,11 +1170,7 @@ namespace SBBD
             this.userNameInfo.Name = "userNameInfo";
             this.userNameInfo.Size = new System.Drawing.Size(170, 14);
             this.userNameInfo.TabIndex = 23;
-            this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
+            this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // MainWindow
             // 
@@ -1185,8 +1179,8 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.userNameInfo);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
+            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
@@ -1255,7 +1249,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).EndInit();
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1271,7 +1264,6 @@ namespace SBBD
         private System.Windows.Forms.PictureBox mainMinimize;
         private System.Windows.Forms.PictureBox mainTitleBar;
         private System.Windows.Forms.Panel vehiclesPanel;
-        private System.Windows.Forms.BindingSource vehiclesBindingSource;
         private System.Windows.Forms.Panel addVehiclePanel;
         private System.Windows.Forms.ComboBox manufacturerComboBox;
         private System.Windows.Forms.ComboBox modelComboBox;
