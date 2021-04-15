@@ -46,6 +46,7 @@ namespace SBBD
             this.warnLabel4 = new System.Windows.Forms.Label();
             this.passwordInfo = new System.Windows.Forms.PictureBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.showPassword = new System.Windows.Forms.Button();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).BeginInit();
@@ -110,11 +111,11 @@ namespace SBBD
             // 
             this.emailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.emailRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.emailRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.emailRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.emailRegister.Location = new System.Drawing.Point(60, 210);
+            this.emailRegister.Location = new System.Drawing.Point(60, 208);
             this.emailRegister.Name = "emailRegister";
-            this.emailRegister.Size = new System.Drawing.Size(300, 13);
+            this.emailRegister.Size = new System.Drawing.Size(300, 17);
             this.emailRegister.TabIndex = 1;
             this.emailRegister.Text = "Login (adres e-mail)";
             this.emailRegister.Enter += new System.EventHandler(this.emailRegister_Enter);
@@ -124,11 +125,11 @@ namespace SBBD
             // 
             this.firstNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.firstNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstNameRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.firstNameRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.firstNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.firstNameRegister.Location = new System.Drawing.Point(60, 253);
+            this.firstNameRegister.Location = new System.Drawing.Point(60, 252);
             this.firstNameRegister.Name = "firstNameRegister";
-            this.firstNameRegister.Size = new System.Drawing.Size(300, 13);
+            this.firstNameRegister.Size = new System.Drawing.Size(300, 17);
             this.firstNameRegister.TabIndex = 2;
             this.firstNameRegister.Text = "Imię";
             this.firstNameRegister.Enter += new System.EventHandler(this.firstNameRegister_Enter);
@@ -138,11 +139,11 @@ namespace SBBD
             // 
             this.lastNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.lastNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastNameRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lastNameRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lastNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.lastNameRegister.Location = new System.Drawing.Point(60, 292);
             this.lastNameRegister.Name = "lastNameRegister";
-            this.lastNameRegister.Size = new System.Drawing.Size(300, 13);
+            this.lastNameRegister.Size = new System.Drawing.Size(300, 17);
             this.lastNameRegister.TabIndex = 3;
             this.lastNameRegister.Text = "Nazwisko";
             this.lastNameRegister.Enter += new System.EventHandler(this.lastNameRegister_Enter);
@@ -152,11 +153,11 @@ namespace SBBD
             // 
             this.passwordRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.passwordRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.passwordRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.passwordRegister.Location = new System.Drawing.Point(60, 333);
             this.passwordRegister.Name = "passwordRegister";
-            this.passwordRegister.Size = new System.Drawing.Size(300, 13);
+            this.passwordRegister.Size = new System.Drawing.Size(300, 17);
             this.passwordRegister.TabIndex = 4;
             this.passwordRegister.Text = "Hasło";
             this.passwordRegister.Enter += new System.EventHandler(this.passwordRegister_Enter);
@@ -167,11 +168,11 @@ namespace SBBD
             // 
             this.warnLabel1.AutoSize = true;
             this.warnLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel1.Font = new System.Drawing.Font("Poppins SemiBold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel1.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel1.Location = new System.Drawing.Point(60, 232);
+            this.warnLabel1.Location = new System.Drawing.Point(57, 232);
             this.warnLabel1.Name = "warnLabel1";
-            this.warnLabel1.Size = new System.Drawing.Size(94, 9);
+            this.warnLabel1.Size = new System.Drawing.Size(90, 14);
             this.warnLabel1.TabIndex = 32;
             this.warnLabel1.Text = "E-mail niepoprawny!";
             this.warnLabel1.Visible = false;
@@ -185,11 +186,11 @@ namespace SBBD
             // 
             this.warnLabel2.AutoSize = true;
             this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel2.Location = new System.Drawing.Point(60, 357);
+            this.warnLabel2.Location = new System.Drawing.Point(57, 357);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(90, 9);
+            this.warnLabel2.Size = new System.Drawing.Size(86, 14);
             this.warnLabel2.TabIndex = 33;
             this.warnLabel2.Text = "Hasło niepoprawne!";
             this.warnLabel2.Visible = false;
@@ -198,11 +199,11 @@ namespace SBBD
             // 
             this.warnLabel3.AutoSize = true;
             this.warnLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel3.Font = new System.Drawing.Font("Poppins SemiBold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel3.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel3.Location = new System.Drawing.Point(152, 444);
+            this.warnLabel3.Location = new System.Drawing.Point(157, 440);
             this.warnLabel3.Name = "warnLabel3";
-            this.warnLabel3.Size = new System.Drawing.Size(116, 9);
+            this.warnLabel3.Size = new System.Drawing.Size(106, 14);
             this.warnLabel3.TabIndex = 34;
             this.warnLabel3.Text = "Uzupelnij wszystkie pola!";
             this.warnLabel3.Visible = false;
@@ -211,11 +212,11 @@ namespace SBBD
             // 
             this.warnLabel4.AutoSize = true;
             this.warnLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel4.Font = new System.Drawing.Font("Poppins SemiBold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel4.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel4.Location = new System.Drawing.Point(152, 156);
+            this.warnLabel4.Location = new System.Drawing.Point(158, 153);
             this.warnLabel4.Name = "warnLabel4";
-            this.warnLabel4.Size = new System.Drawing.Size(116, 9);
+            this.warnLabel4.Size = new System.Drawing.Size(108, 14);
             this.warnLabel4.TabIndex = 35;
             this.warnLabel4.Text = "Podane konto już istnieje!";
             this.warnLabel4.Visible = false;
@@ -224,7 +225,7 @@ namespace SBBD
             // 
             this.passwordInfo.BackColor = System.Drawing.Color.Transparent;
             this.passwordInfo.BackgroundImage = global::SBBD.Properties.Resources.question;
-            this.passwordInfo.Location = new System.Drawing.Point(366, 336);
+            this.passwordInfo.Location = new System.Drawing.Point(370, 334);
             this.passwordInfo.Name = "passwordInfo";
             this.passwordInfo.Size = new System.Drawing.Size(10, 10);
             this.passwordInfo.TabIndex = 42;
@@ -236,6 +237,24 @@ namespace SBBD
             this.toolTip.ForeColor = System.Drawing.Color.Black;
             this.toolTip.IsBalloon = true;
             // 
+            // showPassword
+            // 
+            this.showPassword.BackColor = System.Drawing.Color.Transparent;
+            this.showPassword.BackgroundImage = global::SBBD.Properties.Resources.showPassword;
+            this.showPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.showPassword.FlatAppearance.BorderSize = 0;
+            this.showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPassword.ForeColor = System.Drawing.Color.Transparent;
+            this.showPassword.Location = new System.Drawing.Point(340, 360);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(18, 13);
+            this.showPassword.TabIndex = 44;
+            this.showPassword.UseVisualStyleBackColor = false;
+            this.showPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPassword_MouseDown);
+            this.showPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.showPassword_MouseUp);
+            // 
             // vehiclesBindingSource
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
@@ -246,6 +265,7 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.Reg;
             this.ClientSize = new System.Drawing.Size(420, 600);
+            this.Controls.Add(this.showPassword);
             this.Controls.Add(this.passwordInfo);
             this.Controls.Add(this.warnLabel4);
             this.Controls.Add(this.warnLabel3);
@@ -293,5 +313,6 @@ namespace SBBD
         private System.Windows.Forms.Label warnLabel4;
         private System.Windows.Forms.PictureBox passwordInfo;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.Button showPassword;
     }
 }

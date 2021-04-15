@@ -26,7 +26,14 @@ namespace SBBD
         public Register()
         {
             InitializeComponent();
+
+            showPassword.FlatAppearance.MouseOverBackColor = showPassword.BackColor;
+            showPassword.BackColorChanged += (s, e) =>
+            {
+                showPassword.FlatAppearance.MouseOverBackColor = showPassword.BackColor;
+            };
         }
+
 
         protected override void OnLoad(EventArgs e)
         {
@@ -47,7 +54,7 @@ namespace SBBD
 
         private void closeRegister_Click(object sender, EventArgs e)
         {
-            switch (MessageBox.Show("Czy na pewno chcesz zamknąć aplikację?",
+            switch (MessageBox.Show("Czy na pewno chcesz zakończyć rejestrację?",
                         "Informacja",
                         MessageBoxButtons.YesNo,
                         MessageBoxIcon.Question))
@@ -355,5 +362,23 @@ namespace SBBD
             [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
         }
+
+        private void showPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            passwordRegister.PasswordChar = '\0';
+        }
+
+        private void showPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            if(passwordRegister.Text == "Hasło")
+            {
+                passwordRegister.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordRegister.PasswordChar = '*';
+            }
+        }
     }
 }
+

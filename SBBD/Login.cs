@@ -247,7 +247,7 @@ namespace SBBD
             if (emailLogin.Text == "Login (adres e-mail)")
             {
                 emailLogin.Text = "";
-                emailLogin.ForeColor = Color.White;
+                emailLogin.ForeColor = Color.FromArgb(200, 200, 200);
             }
         }
 
@@ -266,7 +266,7 @@ namespace SBBD
             {
                 passwordLogin.Text = "";
                 passwordLogin.PasswordChar = '*';
-                passwordLogin.ForeColor = Color.White;
+                passwordLogin.ForeColor = Color.FromArgb(200, 200, 200);
             }
         }
 
@@ -312,6 +312,23 @@ namespace SBBD
             if (e.KeyCode == Keys.Enter)
             {
                 loginLogin_Click(null, null);
+            }
+        }
+
+        private void showPassword_MouseDown(object sender, MouseEventArgs e)
+        {
+            passwordLogin.PasswordChar = '\0';
+        }
+
+        private void showPassword_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (passwordLogin.Text == "Hasło")
+            {
+                passwordLogin.PasswordChar = '\0';
+            }
+            else
+            {
+                passwordLogin.PasswordChar = '*';
             }
         }
     }

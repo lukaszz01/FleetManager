@@ -40,6 +40,7 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.warnLabel1 = new System.Windows.Forms.Label();
             this.warnLabel2 = new System.Windows.Forms.Label();
+            this.showPassword = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.loginLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.registerLogin)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.closeLogin)).BeginInit();
@@ -103,7 +104,7 @@ namespace SBBD
             this.emailLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.emailLogin.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.emailLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.emailLogin.Location = new System.Drawing.Point(60, 210);
+            this.emailLogin.Location = new System.Drawing.Point(60, 209);
             this.emailLogin.Name = "emailLogin";
             this.emailLogin.Size = new System.Drawing.Size(300, 17);
             this.emailLogin.TabIndex = 1;
@@ -117,7 +118,7 @@ namespace SBBD
             this.passwordLogin.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.passwordLogin.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.passwordLogin.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.passwordLogin.Location = new System.Drawing.Point(60, 253);
+            this.passwordLogin.Location = new System.Drawing.Point(60, 252);
             this.passwordLogin.Name = "passwordLogin";
             this.passwordLogin.Size = new System.Drawing.Size(300, 17);
             this.passwordLogin.TabIndex = 2;
@@ -135,11 +136,11 @@ namespace SBBD
             // 
             this.warnLabel1.AutoSize = true;
             this.warnLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel1.Font = new System.Drawing.Font("Poppins SemiBold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel1.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel1.Location = new System.Drawing.Point(152, 365);
+            this.warnLabel1.Location = new System.Drawing.Point(157, 365);
             this.warnLabel1.Name = "warnLabel1";
-            this.warnLabel1.Size = new System.Drawing.Size(116, 9);
+            this.warnLabel1.Size = new System.Drawing.Size(106, 14);
             this.warnLabel1.TabIndex = 36;
             this.warnLabel1.Text = "Uzupełnij wszystkie pola!";
             this.warnLabel1.Visible = false;
@@ -148,14 +149,32 @@ namespace SBBD
             // 
             this.warnLabel2.AutoSize = true;
             this.warnLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel2.Font = new System.Drawing.Font("Poppins SemiBold", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel2.Location = new System.Drawing.Point(130, 149);
+            this.warnLabel2.Location = new System.Drawing.Point(135, 155);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(162, 9);
+            this.warnLabel2.Size = new System.Drawing.Size(149, 14);
             this.warnLabel2.TabIndex = 38;
-            this.warnLabel2.Text = "e-mail lub hasło jest nieprawidłowe!";
+            this.warnLabel2.Text = "E-mail lub hasło jest nieprawidłowe!";
             this.warnLabel2.Visible = false;
+            // 
+            // showPassword
+            // 
+            this.showPassword.BackColor = System.Drawing.Color.Transparent;
+            this.showPassword.BackgroundImage = global::SBBD.Properties.Resources.showPassword;
+            this.showPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.showPassword.FlatAppearance.BorderSize = 0;
+            this.showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.showPassword.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.showPassword.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.showPassword.ForeColor = System.Drawing.Color.Transparent;
+            this.showPassword.Location = new System.Drawing.Point(340, 280);
+            this.showPassword.Name = "showPassword";
+            this.showPassword.Size = new System.Drawing.Size(18, 13);
+            this.showPassword.TabIndex = 45;
+            this.showPassword.UseVisualStyleBackColor = false;
+            this.showPassword.MouseDown += new System.Windows.Forms.MouseEventHandler(this.showPassword_MouseDown);
+            this.showPassword.MouseUp += new System.Windows.Forms.MouseEventHandler(this.showPassword_MouseUp);
             // 
             // Login
             // 
@@ -164,6 +183,7 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.Log2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(420, 525);
+            this.Controls.Add(this.showPassword);
             this.Controls.Add(this.warnLabel2);
             this.Controls.Add(this.warnLabel1);
             this.Controls.Add(this.passwordLogin);
@@ -197,6 +217,7 @@ namespace SBBD
         private System.Windows.Forms.Timer warningTimer;
         private System.Windows.Forms.Label warnLabel1;
         private System.Windows.Forms.Label warnLabel2;
+        private System.Windows.Forms.Button showPassword;
     }
 }
 

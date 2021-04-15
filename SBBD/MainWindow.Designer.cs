@@ -110,6 +110,8 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.userNameInfo = new System.Windows.Forms.Label();
+            this.infoVehiclePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -153,6 +155,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
+            this.infoVehiclePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -1166,11 +1169,29 @@ namespace SBBD
             this.userNameInfo.BackColor = System.Drawing.Color.Transparent;
             this.userNameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.userNameInfo.ForeColor = System.Drawing.Color.White;
-            this.userNameInfo.Location = new System.Drawing.Point(970, 6);
+            this.userNameInfo.Location = new System.Drawing.Point(0, 0);
             this.userNameInfo.Name = "userNameInfo";
             this.userNameInfo.Size = new System.Drawing.Size(170, 14);
             this.userNameInfo.TabIndex = 23;
             this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // infoVehiclePanel
+            // 
+            this.infoVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
+            this.infoVehiclePanel.Controls.Add(this.label1);
+            this.infoVehiclePanel.Location = new System.Drawing.Point(200, 26);
+            this.infoVehiclePanel.Name = "infoVehiclePanel";
+            this.infoVehiclePanel.Size = new System.Drawing.Size(1080, 694);
+            this.infoVehiclePanel.TabIndex = 48;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(60, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(180, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Tło do zmiany, teskt informacyjny xD";
             // 
             // MainWindow
             // 
@@ -1178,11 +1199,12 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.userNameInfo);
+            this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.addVehiclePanel);
-            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
+            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.mainTitleBar);
+            this.Controls.Add(this.userNameInfo);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);
             this.Controls.Add(this.appInfo);
@@ -1250,6 +1272,8 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).EndInit();
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
+            this.infoVehiclePanel.ResumeLayout(false);
+            this.infoVehiclePanel.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1335,5 +1359,7 @@ namespace SBBD
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label userLabel1;
         private System.Windows.Forms.Label userNameInfo;
+        private System.Windows.Forms.Panel infoVehiclePanel;
+        private System.Windows.Forms.Label label1;
     }
 }

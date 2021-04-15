@@ -287,6 +287,7 @@
     <None Include="Resources\ConfirmBG.png" />
     <None Include="Resources\OffBTN_active.png" />
     <None Include="Resources\OffBTN_inactive.png" />
+    <None Include="Resources\showPassword.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
