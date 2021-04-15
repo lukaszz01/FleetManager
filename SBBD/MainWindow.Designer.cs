@@ -114,8 +114,8 @@ namespace SBBD
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.tBarPanel = new System.Windows.Forms.Panel();
-            this.label2 = new System.Windows.Forms.Label();
             this.trackBar1 = new SBBD.NoFocusTrackBar();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -1188,7 +1188,7 @@ namespace SBBD
             this.userNameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.userNameInfo.ForeColor = System.Drawing.Color.White;
             this.userNameInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.userNameInfo.Location = new System.Drawing.Point(966, 7);
+            this.userNameInfo.Location = new System.Drawing.Point(966, 6);
             this.userNameInfo.Name = "userNameInfo";
             this.userNameInfo.Size = new System.Drawing.Size(170, 14);
             this.userNameInfo.TabIndex = 23;
@@ -1215,7 +1215,7 @@ namespace SBBD
             // 
             // tBarPanel
             // 
-            this.tBarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.tBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.tBarPanel.Controls.Add(this.trackBar1);
             this.tBarPanel.Controls.Add(this.label2);
             this.tBarPanel.Location = new System.Drawing.Point(0, 630);
@@ -1223,32 +1223,32 @@ namespace SBBD
             this.tBarPanel.Size = new System.Drawing.Size(200, 90);
             this.tBarPanel.TabIndex = 49;
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(9, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 19);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Ustaw przyciemnienie obrazów";
-            // 
             // trackBar1
             // 
-            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trackBar1.Location = new System.Drawing.Point(0, 45);
+            this.trackBar1.Location = new System.Drawing.Point(0, 55);
             this.trackBar1.Maximum = 180;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(200, 45);
             this.trackBar1.TabIndex = 0;
             this.trackBar1.TabStop = false;
             this.trackBar1.TickFrequency = 10;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
             this.trackBar1.Value = 128;
             this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(15, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(170, 38);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Poziom przyciemnienia zdjęć\r\ndodanych aut\r\n";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // MainWindow
             // 

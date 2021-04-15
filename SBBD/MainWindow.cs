@@ -102,7 +102,7 @@ namespace SBBD
                 toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków - 11 znaków (A-Z, 0-9), 6 znaków (0-9)");
                 toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9)");
                 toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9)");
-
+               
                 userNameInfo.Text = user.email;
             }
         }
@@ -261,7 +261,7 @@ namespace SBBD
             switch (MessageBox.Show("Czy na pewno chcesz się wylogować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
                 case DialogResult.Yes:
-                    AutoClosingMessageBox.Show("Pomyślnie wylogowano!", "Informacja", 1500);
+                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano!", caption: "Informacja", timeout: 1500);
                     this.Hide();
                     this.OnLoad(null);
                     this.Refresh();
@@ -322,7 +322,7 @@ namespace SBBD
                         MessageBoxIcon.Question))
             {
                 case DialogResult.Yes:
-                    AutoClosingMessageBox.Show("Pomyślnie wylogowano!", "Informacja", 1500);
+                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano!", caption: "Informacja", timeout: 1500);
                     Application.Exit();
                     break;
                 case DialogResult.No:
@@ -502,7 +502,7 @@ namespace SBBD
                     vehicle_id = vehicle.vehicle_id,
                     vehicle_image = image,
                 };
-                AutoClosingMessageBox.Show("Pomyślnie dodano pojazd!", "Informacja", 1500);
+                AutoClosingMessageBox.Show(text: "Pomyślnie dodano pojazd!", caption: "Informacja", timeout: 1500);
                 context.Vehicles.Add(vehicle);
                 context.Vehicles_Images.Add(vehicleImage);
                 context.SaveChanges();
@@ -916,39 +916,39 @@ namespace SBBD
         }
 
 
-        public class AutoClosingMessageBox
-        {
-            System.Threading.Timer _timeoutTimer;
-            string _caption;
-            DialogResult _result;
-            DialogResult _timerResult;
-            AutoClosingMessageBox(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
-            {
-                _caption = caption;
-                _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
-                    null, timeout, System.Threading.Timeout.Infinite);
-                _timerResult = timerResult;
-                using (_timeoutTimer)
-                    _result = MessageBox.Show(text, caption, buttons);
-            }
-            public static DialogResult Show(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
-            {
-                return new AutoClosingMessageBox(text, caption, timeout, buttons, timerResult)._result;
-            }
-            void OnTimerElapsed(object state)
-            {
-                IntPtr mbWnd = FindWindow("#32770", _caption); // lpClassName is #32770 for MessageBox
-                if (mbWnd != IntPtr.Zero)
-                    SendMessage(mbWnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
-                _timeoutTimer.Dispose();
-                _result = _timerResult;
-            }
-            const int WM_CLOSE = 0x0010;
-            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
-            static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
-            [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
-            static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
-        }
+        //public class AutoClosingMessageBox
+        //{
+        //    System.Threading.Timer _timeoutTimer;
+        //    string _caption;
+        //    DialogResult _result;
+        //    DialogResult _timerResult;
+        //    AutoClosingMessageBox(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
+        //    {
+        //        _caption = caption;
+        //        _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
+        //            null, timeout, System.Threading.Timeout.Infinite);
+        //        _timerResult = timerResult;
+        //        using (_timeoutTimer)
+        //            _result = MessageBox.Show(text, caption, buttons);
+        //    }
+        //    public static DialogResult Show(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
+        //    {
+        //        return new AutoClosingMessageBox(text, caption, timeout, buttons, timerResult)._result;
+        //    }
+        //    void OnTimerElapsed(object state)
+        //    {
+        //        IntPtr mbWnd = FindWindow("#32770", _caption); // lpClassName is #32770 for MessageBox
+        //        if (mbWnd != IntPtr.Zero)
+        //            SendMessage(mbWnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+        //        _timeoutTimer.Dispose();
+        //        _result = _timerResult;
+        //    }
+        //    const int WM_CLOSE = 0x0010;
+        //    [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+        //    static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        //    [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+        //    static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+        //}
 
         private void trackBar1_MouseUp(object sender, MouseEventArgs e)
         {
@@ -975,11 +975,6 @@ namespace SBBD
         {
             base.OnGotFocus(e);
             SendMessage(this.Handle, 0x0128, MakeParam(1, 0x1), 0);
-        }
-        
-        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
-        {
-            e.Graphics.FillRectangle(Brushes.Green, ClientRectangle);
         }
     }
 }
