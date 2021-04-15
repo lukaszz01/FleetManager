@@ -87,7 +87,7 @@ namespace SBBD
                     null, timeout, System.Threading.Timeout.Infinite);
                 _timerResult = timerResult;
                 using (_timeoutTimer)
-                    _result = MessageBox.Show(text, caption, buttons);
+                    _result = MessageBox.Show(text, caption/*, buttons*/);
             }
             public static DialogResult Show(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
             {

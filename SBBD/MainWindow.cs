@@ -175,9 +175,10 @@ namespace SBBD
                 selected = 0;
                 addVehicle.BackColor = Color.FromArgb(30, 35, 40);
                 addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1off;
-                vehiclesPanel.Visible = false;
-                addVehiclePanel.Visible = true;
-                editVehiclePanel.Visible = false;
+                HideOtherPanels(addVehiclePanel);
+                //vehiclesPanel.Visible = false;
+                //addVehiclePanel.Visible = true;
+                //editVehiclePanel.Visible = false;
                 if(manufacturerComboBox.Items.Count == 0)
                     addVehicleLoad();
             }
@@ -191,9 +192,10 @@ namespace SBBD
                 selected = 1;
                 allVehicles.BackColor = Color.FromArgb(30, 35, 40);
                 allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
-                vehiclesPanel.Visible = true;
-                addVehiclePanel.Visible = false;
-                editVehiclePanel.Visible = false;
+                HideOtherPanels(vehiclesPanel);
+                //vehiclesPanel.Visible = true;
+                //addVehiclePanel.Visible = false;
+                //editVehiclePanel.Visible = false;
             }
         }
 
@@ -219,6 +221,26 @@ namespace SBBD
                 appInfo.BackColor = Color.FromArgb(30, 35, 40);
                 appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
                 vehiclesPanel.Visible = false;
+            }
+        }
+
+        private void HideOtherPanels(Panel panel)
+        {
+            Panel toHide;
+            panel.Visible = true;
+            foreach(Control control in this.Controls)
+            {
+                try
+                {
+                    toHide = (Panel)control;
+                    if(toHide != panel)
+                    {
+                        toHide.Visible = false;
+                    }
+                } catch
+                {
+
+                }
             }
         }
 
@@ -340,19 +362,6 @@ namespace SBBD
                 p.Image = null;
             }
 
-            /*
-            Warunek wykonywany przed adminem 
-
-            var userRole = context.Users.Where(x => x.email == user.email).Where(x => x.admin == true);
-            foreach (var item in userRole)
-            {
-                Console.WriteLine($"Id: {item.email}, Płeć: {item.admin}"); //możesz na debugu zobaczyć że jest poprawny efekt
-            }          
-           
-            */
-
-
-
             if (user.admin == true)
             {
                 var allVehicles = context.Vehicles.Select(x => x).ToList();     
@@ -367,24 +376,8 @@ namespace SBBD
                     ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);
                 }
 
-
+                allVehicles = null;
             }
-
-
-
-
-
-            /*            
-            warunek wykonywany przed userem 
-           
-            var userRole2 = context.Users.Where(x => x.email == user.email).Where(x => x.admin == false);
-            foreach (var item in userRole2)
-            {
-                Console.WriteLine($"Id: {item.email}, Płeć: {item.admin}"); //możesz na debugu zobaczyć że jest poprawny efekt
-            }
-           
-
-            */
 
             else
             {
@@ -399,6 +392,8 @@ namespace SBBD
                 {
                     ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i + ((currentPage - 1) * 9)]);
                 }
+
+                userVehicles = null;
             }
         }
 
@@ -410,6 +405,7 @@ namespace SBBD
             {
                 manufacturerComboBox.Items.Add(manufacturers.manufacturer_name);
             }
+            allManufacturers = null;
         }
 
         private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e)
@@ -508,16 +504,12 @@ namespace SBBD
                 context.SaveChanges();
                 allVehicles_Click(null, null);
                 populatePanel();
+
+                vehicle = null;
+                vehicleImage = null;
             }
         }
 
-        private void SiteCounter()
-        {
-            siteCounter.Parent = siteNavCenter;
-            siteCounter.BackColor = Color.Transparent;
-            siteCounter.ForeColor = Color.White;
-            siteCounter.Text = currentPage.ToString();
-        }
         private void ShowErrorMsg(Label warnLabel)
         {
             warnLabel.Visible = true;
@@ -563,7 +555,7 @@ namespace SBBD
             }
 
             Rectangle r = new Rectangle(0, 0, bm.Width, bm.Height);
-            int alpha = 128;
+            int alpha = trackBar1.Value;
             using (Graphics g = Graphics.FromImage(bm))
 
             {
@@ -580,14 +572,17 @@ namespace SBBD
                 g.DrawImage(editimg, 205, 139, 20, 20);
             }
 
-            infoimg.Dispose();
-            editimg.Dispose();
-            deleteimg.Dispose();
+            
 
             pictureBox.Image = bm;
             label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
 
             vehImage = null;
+            bm.Dispose();
+            bm2.Dispose();
+            infoimg.Dispose();
+            editimg.Dispose();
+            deleteimg.Dispose();
         }
 
         private Bitmap ByteToImage(byte[] image)
@@ -641,12 +636,7 @@ namespace SBBD
                 editSelecetedId = tileList.IndexOf(pb);
             if (vLabelList[editSelecetedId].Text != "")
             {
-                MouseEventArgs mousePos = (MouseEventArgs)e;
-                Point mouseCoordinates = mousePos.Location;
-
-                /*g.DrawImage(deleteimg, 275, 139, 20, 20);
-                g.DrawImage(infoimg, 240, 139, 20, 20);    
-                g.DrawImage(editimg, 205, 139, 20, 20);*/
+                Point mouseCoordinates = ((MouseEventArgs)e).Location;
 
                 if (mouseCoordinates.X >= 205 && mouseCoordinates.X <= 225 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
                     editVehicleFill();
@@ -659,11 +649,12 @@ namespace SBBD
 
         private void editVehicleFill()
         {
-            vehiclesPanel.Visible = false;
-            editVehiclePanel.Visible = true;
+            HideOtherPanels(editVehiclePanel);
             string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
             Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+            Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             editManufacturer.Text = selectedVehicle.manufacturer;
+            editVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
             editModel.Text = selectedVehicle.model;
             editRegNum.Text = selectedVehicle.registration_num;
             editVehicleColor.Text = selectedVehicle.color;
@@ -685,11 +676,14 @@ namespace SBBD
                 editAvailable.Text = "Nie";
             else
                 editAvailable.Text = "Tak";
+
+            selectedVehicle = null;
+            selectedVehicleImage = null;
         }
 
         private void infoVehicleFill()
         {
-
+            HideOtherPanels(infoVehiclePanel);
         }
 
         private void deleteVehicle()
@@ -726,6 +720,8 @@ namespace SBBD
                 vehiclesPanel.Visible = true;
                 editVehiclePanel.Visible = false;
                 populatePanel();
+
+                selectedVehicle = null;
             }
         }
 
@@ -950,6 +946,11 @@ namespace SBBD
             static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
             [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
             static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
+        }
+
+        private void trackBar1_MouseUp(object sender, MouseEventArgs e)
+        {
+            populatePanel();
         }
     }
 }

@@ -112,6 +112,8 @@ namespace SBBD
             this.userNameInfo = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.editVehicleImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -156,6 +158,8 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
             this.infoVehiclePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -265,6 +269,7 @@ namespace SBBD
             // 
             this.vehiclesPanel.BackColor = System.Drawing.Color.Transparent;
             this.vehiclesPanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
+            this.vehiclesPanel.Controls.Add(this.trackBar1);
             this.vehiclesPanel.Controls.Add(this.siteNavCenter);
             this.vehiclesPanel.Controls.Add(this.siteNavLeft);
             this.vehiclesPanel.Controls.Add(this.siteNavRight);
@@ -646,6 +651,7 @@ namespace SBBD
             this.selectedImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.selectedImage.TabIndex = 41;
             this.selectedImage.TabStop = false;
+            this.selectedImage.Click += new System.EventHandler(this.addPhotoBtn_Click);
             // 
             // addPhotoBtn
             // 
@@ -947,6 +953,7 @@ namespace SBBD
             // 
             this.editVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.editVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo113;
+            this.editVehiclePanel.Controls.Add(this.editVehicleImage);
             this.editVehiclePanel.Controls.Add(this.userLabel);
             this.editVehiclePanel.Controls.Add(this.editEnginePower);
             this.editVehiclePanel.Controls.Add(this.editEngineCapacity);
@@ -1183,6 +1190,7 @@ namespace SBBD
             this.infoVehiclePanel.Name = "infoVehiclePanel";
             this.infoVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.infoVehiclePanel.TabIndex = 48;
+            this.infoVehiclePanel.Visible = false;
             // 
             // label1
             // 
@@ -1193,16 +1201,35 @@ namespace SBBD
             this.label1.TabIndex = 0;
             this.label1.Text = "Tło do zmiany, teskt informacyjny xD";
             // 
+            // trackBar1
+            // 
+            this.trackBar1.Location = new System.Drawing.Point(651, 34);
+            this.trackBar1.Maximum = 180;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(104, 45);
+            this.trackBar1.TabIndex = 15;
+            this.trackBar1.Value = 128;
+            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            // 
+            // editVehicleImage
+            // 
+            this.editVehicleImage.Location = new System.Drawing.Point(637, 24);
+            this.editVehicleImage.Name = "editVehicleImage";
+            this.editVehicleImage.Size = new System.Drawing.Size(260, 146);
+            this.editVehicleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.editVehicleImage.TabIndex = 42;
+            this.editVehicleImage.TabStop = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.infoVehiclePanel);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.editVehiclePanel);
+            this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.userNameInfo);
             this.Controls.Add(this.mainMinimize);
@@ -1226,6 +1253,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             this.vehiclesPanel.ResumeLayout(false);
+            this.vehiclesPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).EndInit();
             this.siteNavCenter.ResumeLayout(false);
             this.siteNavCenter.PerformLayout();
@@ -1274,6 +1302,8 @@ namespace SBBD
             this.editVehiclePanel.PerformLayout();
             this.infoVehiclePanel.ResumeLayout(false);
             this.infoVehiclePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1361,5 +1391,7 @@ namespace SBBD
         private System.Windows.Forms.Label userNameInfo;
         private System.Windows.Forms.Panel infoVehiclePanel;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.PictureBox editVehicleImage;
     }
 }
