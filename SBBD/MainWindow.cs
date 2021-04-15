@@ -66,6 +66,8 @@ namespace SBBD
             };
         }
 
+         
+
         protected override void OnLoad(EventArgs e)
         {           
             base.OnLoad(e);
@@ -141,28 +143,28 @@ namespace SBBD
                 userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
         }
 
-        private void settings_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != 3)
-                settings.BackgroundImage = SBBD.Properties.Resources.MWB4on;
-        }
-
-        private void settings_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != 3)
-                settings.BackgroundImage = SBBD.Properties.Resources.MWB4off;
-        }
-
         private void appInfo_MouseEnter(object sender, EventArgs e)
         {
-            if (selected != 4)
+            if (selected != 3)
                 appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5on;
         }
 
         private void appInfo_MouseLeave(object sender, EventArgs e)
         {
-            if (selected != 4)
+            if (selected != 3)
                 appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
+        }
+
+        private void logout_MouseEnter(object sender, EventArgs e)
+        {
+            if (selected != 4)
+                logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_active;
+        }
+
+        private void logout_MouseLeave(object sender, EventArgs e)
+        {
+            if (selected != 4)
+                logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
         }
 
         private void addVehicle_Click(object sender, EventArgs e)
@@ -208,27 +210,39 @@ namespace SBBD
 
         }
 
-        private void settings_Click(object sender, EventArgs e)
+        private void appInfo_Click(object sender, EventArgs e)
         {
             if (selected != 3)
             {
                 changeBtnTransparent(selected);
                 selected = 3;
-                settings.BackColor = Color.FromArgb(30, 35, 40);
-                settings.BackgroundImage = SBBD.Properties.Resources.MWB4off;
+                appInfo.BackColor = Color.FromArgb(30, 35, 40);
+                appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
                 vehiclesPanel.Visible = false;
             }
         }
 
-        private void appInfo_Click(object sender, EventArgs e)
+        private void logout_Click(object sender, EventArgs e)
         {
             if (selected != 4)
             {
                 changeBtnTransparent(selected);
                 selected = 4;
-                appInfo.BackColor = Color.FromArgb(30, 35, 40);
-                appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
-                vehiclesPanel.Visible = false;
+                logout.BackColor = Color.FromArgb(30, 35, 40);
+                logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
+           
+            }
+            switch (MessageBox.Show("Czy na pewno chcesz się wylogować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            {
+                case DialogResult.Yes:
+                    AutoClosingMessageBox.Show("Pomyślnie wylogowano!", "Informacja", 1500);
+                    this.Hide();
+                    this.OnLoad(null);
+                    this.Refresh();
+                    this.Show();
+                    break;
+                case DialogResult.No:
+                    break;
             }
         }
 
@@ -246,10 +260,10 @@ namespace SBBD
                     userInfo.BackColor = Color.Transparent;
                     break;
                 case 3:
-                    settings.BackColor = Color.Transparent;
+                    appInfo.BackColor = Color.Transparent;
                     break;
                 case 4:
-                    appInfo.BackColor = Color.Transparent;
+                    logout.BackColor = Color.Transparent;
                     break;
             }
         }
@@ -276,7 +290,17 @@ namespace SBBD
 
         private void mainExit_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            switch (MessageBox.Show("Czy na pewno chcesz zamknąć aplikację?",
+                        "Informacja",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question))
+            {
+                case DialogResult.Yes:
+                    Application.Exit();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
         }
 
         private void mainMinimize_Click(object sender, EventArgs e)
@@ -477,6 +501,7 @@ namespace SBBD
                     vehicle_id = vehicle.vehicle_id,
                     vehicle_image = image,
                 };
+                AutoClosingMessageBox.Show("Pomyślnie dodano pojazd!", "Informacja", 1500);
                 context.Vehicles.Add(vehicle);
                 context.Vehicles_Images.Add(vehicleImage);
                 context.SaveChanges();
@@ -891,12 +916,39 @@ namespace SBBD
             }
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+
+        public class AutoClosingMessageBox
         {
-            this.Hide();
-            this.OnLoad(null);
-            this.Refresh();
-            this.Show();
+            System.Threading.Timer _timeoutTimer;
+            string _caption;
+            DialogResult _result;
+            DialogResult _timerResult;
+            AutoClosingMessageBox(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
+            {
+                _caption = caption;
+                _timeoutTimer = new System.Threading.Timer(OnTimerElapsed,
+                    null, timeout, System.Threading.Timeout.Infinite);
+                _timerResult = timerResult;
+                using (_timeoutTimer)
+                    _result = MessageBox.Show(text, caption, buttons);
+            }
+            public static DialogResult Show(string text, string caption, int timeout, MessageBoxButtons buttons = MessageBoxButtons.OK, DialogResult timerResult = DialogResult.None)
+            {
+                return new AutoClosingMessageBox(text, caption, timeout, buttons, timerResult)._result;
+            }
+            void OnTimerElapsed(object state)
+            {
+                IntPtr mbWnd = FindWindow("#32770", _caption); // lpClassName is #32770 for MessageBox
+                if (mbWnd != IntPtr.Zero)
+                    SendMessage(mbWnd, WM_CLOSE, IntPtr.Zero, IntPtr.Zero);
+                _timeoutTimer.Dispose();
+                _result = _timerResult;
+            }
+            const int WM_CLOSE = 0x0010;
+            [System.Runtime.InteropServices.DllImport("user32.dll", SetLastError = true)]
+            static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+            [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
+            static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
         }
     }
 }

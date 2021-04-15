@@ -34,7 +34,7 @@ namespace SBBD
             this.addVehicle = new System.Windows.Forms.PictureBox();
             this.allVehicles = new System.Windows.Forms.PictureBox();
             this.userInfo = new System.Windows.Forms.PictureBox();
-            this.settings = new System.Windows.Forms.PictureBox();
+            this.logout = new System.Windows.Forms.PictureBox();
             this.appInfo = new System.Windows.Forms.PictureBox();
             this.mainExit = new System.Windows.Forms.PictureBox();
             this.mainMinimize = new System.Windows.Forms.PictureBox();
@@ -110,11 +110,10 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.userNameInfo = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settings)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.appInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainExit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).BeginInit();
@@ -195,24 +194,24 @@ namespace SBBD
             this.userInfo.MouseEnter += new System.EventHandler(this.userInfo_MouseEnter);
             this.userInfo.MouseLeave += new System.EventHandler(this.userInfo_MouseLeave);
             // 
-            // settings
+            // logout
             // 
-            this.settings.BackColor = System.Drawing.Color.Transparent;
-            this.settings.BackgroundImage = global::SBBD.Properties.Resources.MWB4off;
-            this.settings.Location = new System.Drawing.Point(0, 260);
-            this.settings.Name = "settings";
-            this.settings.Size = new System.Drawing.Size(200, 50);
-            this.settings.TabIndex = 3;
-            this.settings.TabStop = false;
-            this.settings.Click += new System.EventHandler(this.settings_Click);
-            this.settings.MouseEnter += new System.EventHandler(this.settings_MouseEnter);
-            this.settings.MouseLeave += new System.EventHandler(this.settings_MouseLeave);
+            this.logout.BackColor = System.Drawing.Color.Transparent;
+            this.logout.BackgroundImage = global::SBBD.Properties.Resources.OffBTN_inactive;
+            this.logout.Location = new System.Drawing.Point(0, 310);
+            this.logout.Name = "logout";
+            this.logout.Size = new System.Drawing.Size(200, 50);
+            this.logout.TabIndex = 3;
+            this.logout.TabStop = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            this.logout.MouseEnter += new System.EventHandler(this.logout_MouseEnter);
+            this.logout.MouseLeave += new System.EventHandler(this.logout_MouseLeave);
             // 
             // appInfo
             // 
             this.appInfo.BackColor = System.Drawing.Color.Transparent;
             this.appInfo.BackgroundImage = global::SBBD.Properties.Resources.MWB5off;
-            this.appInfo.Location = new System.Drawing.Point(0, 310);
+            this.appInfo.Location = new System.Drawing.Point(0, 260);
             this.appInfo.Name = "appInfo";
             this.appInfo.Size = new System.Drawing.Size(200, 50);
             this.appInfo.TabIndex = 4;
@@ -1173,23 +1172,12 @@ namespace SBBD
             this.userNameInfo.TabIndex = 23;
             this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(37, 388);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 24;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.userNameInfo);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
@@ -1198,18 +1186,19 @@ namespace SBBD
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);
             this.Controls.Add(this.appInfo);
-            this.Controls.Add(this.settings);
+            this.Controls.Add(this.logout);
             this.Controls.Add(this.userInfo);
             this.Controls.Add(this.allVehicles);
             this.Controls.Add(this.addVehicle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fleet Manager";
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.settings)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.appInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainExit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).EndInit();
@@ -1270,7 +1259,7 @@ namespace SBBD
         private System.Windows.Forms.PictureBox addVehicle;
         private System.Windows.Forms.PictureBox allVehicles;
         private System.Windows.Forms.PictureBox userInfo;
-        private System.Windows.Forms.PictureBox settings;
+        private System.Windows.Forms.PictureBox logout;
         private System.Windows.Forms.PictureBox appInfo;
         private System.Windows.Forms.PictureBox mainExit;
         private System.Windows.Forms.PictureBox mainMinimize;
@@ -1346,6 +1335,5 @@ namespace SBBD
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label userLabel1;
         private System.Windows.Forms.Label userNameInfo;
-        private System.Windows.Forms.Button button1;
     }
 }

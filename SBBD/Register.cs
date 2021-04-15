@@ -47,7 +47,17 @@ namespace SBBD
 
         private void closeRegister_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            switch (MessageBox.Show("Czy na pewno chcesz zamknąć aplikację?",
+                        "Informacja",
+                        MessageBoxButtons.YesNo,
+                        MessageBoxIcon.Question))
+            {
+                case DialogResult.Yes:
+                    Application.Exit();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
         }
 
         private void registerRegister_Click(object sender, EventArgs e)

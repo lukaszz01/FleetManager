@@ -203,6 +203,16 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ConfirmBG {
+            get {
+                object obj = ResourceManager.GetObject("ConfirmBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap delete {
             get {
                 object obj = ResourceManager.GetObject("delete", resourceCulture);
@@ -486,6 +496,26 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap NumCircleRight_inactive {
             get {
                 object obj = ResourceManager.GetObject("NumCircleRight_inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OffBTN_active {
+            get {
+                object obj = ResourceManager.GetObject("OffBTN_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap OffBTN_inactive {
+            get {
+                object obj = ResourceManager.GetObject("OffBTN_inactive", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
