@@ -160,7 +160,7 @@ namespace SBBD
                 else
                 {
                     logged_user_value = user;
-                    AutoClosingMessageBox.Show("Pomyślnie zalogowano. Witamy!", "Informacja", 2000);
+                    AutoClosingMessageBox.Show("Pomyślnie zalogowano. Witamy!", "Informacja", 1500);
                     this.Close();
                 }
 
