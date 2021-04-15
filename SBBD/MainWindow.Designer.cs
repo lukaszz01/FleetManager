@@ -111,11 +111,24 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.userNameInfo = new System.Windows.Forms.Label();
-            this.infoVehiclePanel = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.tBarPanel = new System.Windows.Forms.Panel();
             this.trackBar1 = new SBBD.NoFocusTrackBar();
             this.label2 = new System.Windows.Forms.Label();
+            this.infoVehiclePanel = new System.Windows.Forms.Panel();
+            this.infoManufacturer = new System.Windows.Forms.TextBox();
+            this.infoModel = new System.Windows.Forms.TextBox();
+            this.infoFuelType = new System.Windows.Forms.TextBox();
+            this.infoBodyType = new System.Windows.Forms.TextBox();
+            this.infoAvaliable = new System.Windows.Forms.Label();
+            this.infoVehicleImage = new System.Windows.Forms.PictureBox();
+            this.infoUserLabel = new System.Windows.Forms.Label();
+            this.infoEnginePower = new System.Windows.Forms.TextBox();
+            this.infoEngineCapacity = new System.Windows.Forms.TextBox();
+            this.infoVinNum = new System.Windows.Forms.TextBox();
+            this.infoProdYear = new System.Windows.Forms.TextBox();
+            this.infoUserLabel1 = new System.Windows.Forms.Label();
+            this.infoReturnBtn = new System.Windows.Forms.Button();
+            this.infoRegNum = new System.Windows.Forms.TextBox();
+            this.infoVehicleColor = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -160,9 +173,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).BeginInit();
-            this.infoVehiclePanel.SuspendLayout();
-            this.tBarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            this.infoVehiclePanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -259,7 +272,7 @@ namespace SBBD
             // mainTitleBar
             // 
             this.mainTitleBar.BackColor = System.Drawing.Color.Transparent;
-            this.mainTitleBar.Location = new System.Drawing.Point(200, 0);
+            this.mainTitleBar.Location = new System.Drawing.Point(0, 0);
             this.mainTitleBar.Name = "mainTitleBar";
             this.mainTitleBar.Size = new System.Drawing.Size(760, 26);
             this.mainTitleBar.TabIndex = 7;
@@ -1194,40 +1207,11 @@ namespace SBBD
             this.userNameInfo.TabIndex = 23;
             this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // infoVehiclePanel
-            // 
-            this.infoVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
-            this.infoVehiclePanel.Controls.Add(this.label1);
-            this.infoVehiclePanel.Location = new System.Drawing.Point(200, 26);
-            this.infoVehiclePanel.Name = "infoVehiclePanel";
-            this.infoVehiclePanel.Size = new System.Drawing.Size(1080, 694);
-            this.infoVehiclePanel.TabIndex = 48;
-            this.infoVehiclePanel.Visible = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(60, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(180, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Tło do zmiany, teskt informacyjny xD";
-            // 
-            // tBarPanel
-            // 
-            this.tBarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.tBarPanel.Controls.Add(this.trackBar1);
-            this.tBarPanel.Controls.Add(this.label2);
-            this.tBarPanel.Location = new System.Drawing.Point(0, 630);
-            this.tBarPanel.Name = "tBarPanel";
-            this.tBarPanel.Size = new System.Drawing.Size(200, 90);
-            this.tBarPanel.TabIndex = 49;
-            // 
             // trackBar1
             // 
-            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
             this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trackBar1.Location = new System.Drawing.Point(0, 55);
+            this.trackBar1.Location = new System.Drawing.Point(0, 685);
             this.trackBar1.Maximum = 180;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(200, 45);
@@ -1243,12 +1227,235 @@ namespace SBBD
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(15, 13);
+            this.label2.Location = new System.Drawing.Point(15, 640);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(170, 38);
             this.label2.TabIndex = 1;
             this.label2.Text = "Poziom przyciemnienia zdjęć\r\ndodanych aut\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // infoVehiclePanel
+            // 
+            this.infoVehiclePanel.BackColor = System.Drawing.Color.Transparent;
+            this.infoVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.VehInfoBG;
+            this.infoVehiclePanel.Controls.Add(this.infoManufacturer);
+            this.infoVehiclePanel.Controls.Add(this.infoModel);
+            this.infoVehiclePanel.Controls.Add(this.infoFuelType);
+            this.infoVehiclePanel.Controls.Add(this.infoBodyType);
+            this.infoVehiclePanel.Controls.Add(this.infoAvaliable);
+            this.infoVehiclePanel.Controls.Add(this.infoVehicleImage);
+            this.infoVehiclePanel.Controls.Add(this.infoUserLabel);
+            this.infoVehiclePanel.Controls.Add(this.infoEnginePower);
+            this.infoVehiclePanel.Controls.Add(this.infoEngineCapacity);
+            this.infoVehiclePanel.Controls.Add(this.infoVinNum);
+            this.infoVehiclePanel.Controls.Add(this.infoProdYear);
+            this.infoVehiclePanel.Controls.Add(this.infoUserLabel1);
+            this.infoVehiclePanel.Controls.Add(this.infoReturnBtn);
+            this.infoVehiclePanel.Controls.Add(this.infoRegNum);
+            this.infoVehiclePanel.Controls.Add(this.infoVehicleColor);
+            this.infoVehiclePanel.Location = new System.Drawing.Point(200, 26);
+            this.infoVehiclePanel.Name = "infoVehiclePanel";
+            this.infoVehiclePanel.Size = new System.Drawing.Size(1080, 694);
+            this.infoVehiclePanel.TabIndex = 50;
+            this.infoVehiclePanel.Visible = false;
+            // 
+            // infoManufacturer
+            // 
+            this.infoManufacturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoManufacturer.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoManufacturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoManufacturer.ForeColor = System.Drawing.Color.White;
+            this.infoManufacturer.Location = new System.Drawing.Point(240, 212);
+            this.infoManufacturer.Name = "infoManufacturer";
+            this.infoManufacturer.ReadOnly = true;
+            this.infoManufacturer.Size = new System.Drawing.Size(160, 15);
+            this.infoManufacturer.TabIndex = 47;
+            this.infoManufacturer.TabStop = false;
+            this.infoManufacturer.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoModel
+            // 
+            this.infoModel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoModel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoModel.ForeColor = System.Drawing.Color.White;
+            this.infoModel.Location = new System.Drawing.Point(240, 272);
+            this.infoModel.Name = "infoModel";
+            this.infoModel.ReadOnly = true;
+            this.infoModel.Size = new System.Drawing.Size(160, 15);
+            this.infoModel.TabIndex = 46;
+            this.infoModel.TabStop = false;
+            this.infoModel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoFuelType
+            // 
+            this.infoFuelType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoFuelType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoFuelType.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoFuelType.ForeColor = System.Drawing.Color.White;
+            this.infoFuelType.Location = new System.Drawing.Point(240, 332);
+            this.infoFuelType.Name = "infoFuelType";
+            this.infoFuelType.ReadOnly = true;
+            this.infoFuelType.Size = new System.Drawing.Size(160, 20);
+            this.infoFuelType.TabIndex = 45;
+            this.infoFuelType.TabStop = false;
+            this.infoFuelType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoBodyType
+            // 
+            this.infoBodyType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoBodyType.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoBodyType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoBodyType.ForeColor = System.Drawing.Color.White;
+            this.infoBodyType.Location = new System.Drawing.Point(240, 392);
+            this.infoBodyType.Name = "infoBodyType";
+            this.infoBodyType.ReadOnly = true;
+            this.infoBodyType.Size = new System.Drawing.Size(160, 15);
+            this.infoBodyType.TabIndex = 44;
+            this.infoBodyType.TabStop = false;
+            this.infoBodyType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoAvaliable
+            // 
+            this.infoAvaliable.AutoSize = true;
+            this.infoAvaliable.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoAvaliable.ForeColor = System.Drawing.Color.White;
+            this.infoAvaliable.Location = new System.Drawing.Point(250, 131);
+            this.infoAvaliable.Name = "infoAvaliable";
+            this.infoAvaliable.Size = new System.Drawing.Size(35, 16);
+            this.infoAvaliable.TabIndex = 43;
+            this.infoAvaliable.Text = "Tak";
+            // 
+            // infoVehicleImage
+            // 
+            this.infoVehicleImage.Location = new System.Drawing.Point(615, 102);
+            this.infoVehicleImage.Name = "infoVehicleImage";
+            this.infoVehicleImage.Size = new System.Drawing.Size(260, 146);
+            this.infoVehicleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.infoVehicleImage.TabIndex = 42;
+            this.infoVehicleImage.TabStop = false;
+            // 
+            // infoUserLabel
+            // 
+            this.infoUserLabel.AutoSize = true;
+            this.infoUserLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoUserLabel.ForeColor = System.Drawing.Color.White;
+            this.infoUserLabel.Location = new System.Drawing.Point(250, 580);
+            this.infoUserLabel.Name = "infoUserLabel";
+            this.infoUserLabel.Size = new System.Drawing.Size(85, 16);
+            this.infoUserLabel.TabIndex = 32;
+            this.infoUserLabel.Text = "Użytkownik";
+            this.infoUserLabel.Visible = false;
+            // 
+            // infoEnginePower
+            // 
+            this.infoEnginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoEnginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoEnginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoEnginePower.ForeColor = System.Drawing.Color.White;
+            this.infoEnginePower.Location = new System.Drawing.Point(240, 512);
+            this.infoEnginePower.Name = "infoEnginePower";
+            this.infoEnginePower.ReadOnly = true;
+            this.infoEnginePower.Size = new System.Drawing.Size(160, 15);
+            this.infoEnginePower.TabIndex = 30;
+            this.infoEnginePower.TabStop = false;
+            this.infoEnginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoEngineCapacity
+            // 
+            this.infoEngineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoEngineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoEngineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoEngineCapacity.ForeColor = System.Drawing.Color.White;
+            this.infoEngineCapacity.Location = new System.Drawing.Point(240, 452);
+            this.infoEngineCapacity.Name = "infoEngineCapacity";
+            this.infoEngineCapacity.ReadOnly = true;
+            this.infoEngineCapacity.Size = new System.Drawing.Size(160, 15);
+            this.infoEngineCapacity.TabIndex = 29;
+            this.infoEngineCapacity.TabStop = false;
+            this.infoEngineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoVinNum
+            // 
+            this.infoVinNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoVinNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoVinNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoVinNum.ForeColor = System.Drawing.Color.White;
+            this.infoVinNum.Location = new System.Drawing.Point(750, 512);
+            this.infoVinNum.Name = "infoVinNum";
+            this.infoVinNum.ReadOnly = true;
+            this.infoVinNum.Size = new System.Drawing.Size(160, 15);
+            this.infoVinNum.TabIndex = 28;
+            this.infoVinNum.TabStop = false;
+            this.infoVinNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoProdYear
+            // 
+            this.infoProdYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoProdYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoProdYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoProdYear.ForeColor = System.Drawing.Color.White;
+            this.infoProdYear.Location = new System.Drawing.Point(750, 452);
+            this.infoProdYear.Name = "infoProdYear";
+            this.infoProdYear.ReadOnly = true;
+            this.infoProdYear.Size = new System.Drawing.Size(160, 15);
+            this.infoProdYear.TabIndex = 27;
+            this.infoProdYear.TabStop = false;
+            this.infoProdYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoUserLabel1
+            // 
+            this.infoUserLabel1.AutoSize = true;
+            this.infoUserLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoUserLabel1.ForeColor = System.Drawing.Color.White;
+            this.infoUserLabel1.Location = new System.Drawing.Point(80, 580);
+            this.infoUserLabel1.Name = "infoUserLabel1";
+            this.infoUserLabel1.Size = new System.Drawing.Size(85, 16);
+            this.infoUserLabel1.TabIndex = 31;
+            this.infoUserLabel1.Text = "Użytkownik";
+            this.infoUserLabel1.Visible = false;
+            // 
+            // infoReturnBtn
+            // 
+            this.infoReturnBtn.BackgroundImage = global::SBBD.Properties.Resources.ReturnBTN_inactive;
+            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
+            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
+            this.infoReturnBtn.Name = "infoReturnBtn";
+            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
+            this.infoReturnBtn.TabIndex = 24;
+            this.infoReturnBtn.UseVisualStyleBackColor = true;
+            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
+            this.infoReturnBtn.MouseEnter += new System.EventHandler(this.infoReturn_MouseEnter);
+            this.infoReturnBtn.MouseLeave += new System.EventHandler(this.infoReturn_MouseLeave);
+            // 
+            // infoRegNum
+            // 
+            this.infoRegNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoRegNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoRegNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoRegNum.ForeColor = System.Drawing.Color.White;
+            this.infoRegNum.Location = new System.Drawing.Point(750, 332);
+            this.infoRegNum.Name = "infoRegNum";
+            this.infoRegNum.ReadOnly = true;
+            this.infoRegNum.Size = new System.Drawing.Size(160, 15);
+            this.infoRegNum.TabIndex = 1;
+            this.infoRegNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // infoVehicleColor
+            // 
+            this.infoVehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoVehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoVehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoVehicleColor.ForeColor = System.Drawing.Color.White;
+            this.infoVehicleColor.Location = new System.Drawing.Point(750, 392);
+            this.infoVehicleColor.Name = "infoVehicleColor";
+            this.infoVehicleColor.ReadOnly = true;
+            this.infoVehicleColor.Size = new System.Drawing.Size(160, 15);
+            this.infoVehicleColor.TabIndex = 2;
+            this.infoVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainWindow
             // 
@@ -1256,13 +1463,14 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.tBarPanel);
-            this.Controls.Add(this.vehiclesPanel);
-            this.Controls.Add(this.editVehiclePanel);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
-            this.Controls.Add(this.mainTitleBar);
+            this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.editVehiclePanel);
+            this.Controls.Add(this.vehiclesPanel);
+            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.userNameInfo);
+            this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainExit);
             this.Controls.Add(this.appInfo);
@@ -1331,12 +1539,12 @@ namespace SBBD
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.infoVehiclePanel.ResumeLayout(false);
             this.infoVehiclePanel.PerformLayout();
-            this.tBarPanel.ResumeLayout(false);
-            this.tBarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1421,11 +1629,24 @@ namespace SBBD
         private System.Windows.Forms.Label userLabel;
         private System.Windows.Forms.Label userLabel1;
         private System.Windows.Forms.Label userNameInfo;
-        private System.Windows.Forms.Panel infoVehiclePanel;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox editVehicleImage;
-        private System.Windows.Forms.Panel tBarPanel;
         private System.Windows.Forms.Label label2;
         private NoFocusTrackBar trackBar1;
+        private System.Windows.Forms.Panel infoVehiclePanel;
+        private System.Windows.Forms.PictureBox infoVehicleImage;
+        private System.Windows.Forms.Label infoUserLabel;
+        private System.Windows.Forms.TextBox infoEnginePower;
+        private System.Windows.Forms.TextBox infoEngineCapacity;
+        private System.Windows.Forms.TextBox infoVinNum;
+        private System.Windows.Forms.TextBox infoProdYear;
+        private System.Windows.Forms.Label infoUserLabel1;
+        private System.Windows.Forms.Button infoReturnBtn;
+        private System.Windows.Forms.TextBox infoRegNum;
+        private System.Windows.Forms.TextBox infoVehicleColor;
+        private System.Windows.Forms.Label infoAvaliable;
+        private System.Windows.Forms.TextBox infoManufacturer;
+        private System.Windows.Forms.TextBox infoModel;
+        private System.Windows.Forms.TextBox infoFuelType;
+        private System.Windows.Forms.TextBox infoBodyType;
     }
 }

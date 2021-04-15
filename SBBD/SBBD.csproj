@@ -312,6 +312,9 @@
     <None Include="Resources\OffBTN_active.png" />
     <None Include="Resources\OffBTN_inactive.png" />
     <None Include="Resources\showPassword.png" />
+    <None Include="Resources\VehInfoBG.png" />
+    <None Include="Resources\ReturnBTN_active.png" />
+    <None Include="Resources\ReturnBTN_inactive.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>

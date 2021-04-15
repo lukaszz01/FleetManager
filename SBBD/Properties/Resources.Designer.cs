@@ -573,6 +573,26 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ReturnBTN_active {
+            get {
+                object obj = ResourceManager.GetObject("ReturnBTN_active", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReturnBTN_inactive {
+            get {
+                object obj = ResourceManager.GetObject("ReturnBTN_inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap showPassword {
             get {
                 object obj = ResourceManager.GetObject("showPassword", resourceCulture);
@@ -646,6 +666,16 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap tlo1153 {
             get {
                 object obj = ResourceManager.GetObject("tlo1153", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap VehInfoBG {
+            get {
+                object obj = ResourceManager.GetObject("VehInfoBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

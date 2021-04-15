@@ -179,7 +179,6 @@ namespace SBBD
                 //vehiclesPanel.Visible = false;
                 //addVehiclePanel.Visible = true;
                 //editVehiclePanel.Visible = false;
-                tBarPanel.Visible = false;
                 if (manufacturerComboBox.Items.Count == 0)
                     addVehicleLoad();
             }
@@ -197,7 +196,6 @@ namespace SBBD
                 //vehiclesPanel.Visible = true;
                 //addVehiclePanel.Visible = false;
                 //editVehiclePanel.Visible = false;
-                tBarPanel.Visible = true;
             }
         }
 
@@ -210,9 +208,7 @@ namespace SBBD
                 userInfo.BackColor = Color.FromArgb(30, 35, 40);
                 userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
                 vehiclesPanel.Visible = false;
-                tBarPanel.Visible = false;
             }
-
         }
 
         private void appInfo_Click(object sender, EventArgs e)
@@ -224,7 +220,6 @@ namespace SBBD
                 appInfo.BackColor = Color.FromArgb(30, 35, 40);
                 appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
                 vehiclesPanel.Visible = false;
-                tBarPanel.Visible = false;
             }
         }
 
@@ -268,6 +263,11 @@ namespace SBBD
                     this.Show();
                     break;
                 case DialogResult.No:
+                    changeBtnTransparent(selected);
+                    selected = 1;
+                    allVehicles.BackColor = Color.FromArgb(30, 35, 40);
+                    allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
+                    HideOtherPanels(vehiclesPanel);
                     break;
             }
         }
@@ -651,46 +651,85 @@ namespace SBBD
 
         private void editVehicleFill()
         {
-            HideOtherPanels(editVehiclePanel);
-            string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
-            Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-            Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
-            editManufacturer.Text = selectedVehicle.manufacturer;
-            editVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
-            editModel.Text = selectedVehicle.model;
-            editRegNum.Text = selectedVehicle.registration_num;
-            editVehicleColor.Text = selectedVehicle.color;
-            editFuelType.Text = selectedVehicle.fuel_type;
-            editBodyType.Text = selectedVehicle.body_type;
-            editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
-            editVinNum.Text = selectedVehicle.VIN;
-            editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
-            editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
-
-            if (user.admin == true)
+            var question = MessageBox.Show("Czy na pewno chcesz edytować dane pojazdu?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if(question == DialogResult.Yes)
             {
-                userLabel.Text = selectedVehicle.user_email;
-                userLabel.Visible = true;
-                userLabel1.Visible = true;
+                HideOtherPanels(editVehiclePanel);
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+                Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+                editManufacturer.Text = selectedVehicle.manufacturer;
+                editVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
+                editModel.Text = selectedVehicle.model;
+                editRegNum.Text = selectedVehicle.registration_num;
+                editVehicleColor.Text = selectedVehicle.color;
+                editFuelType.Text = selectedVehicle.fuel_type;
+                editBodyType.Text = selectedVehicle.body_type;
+                editProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
+                editVinNum.Text = selectedVehicle.VIN;
+                editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
+                editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
+
+                if (user.admin == true)
+                {
+                    userLabel.Text = selectedVehicle.user_email;
+                    userLabel.Visible = true;
+                    userLabel1.Visible = true;
+                }
+
+                if (selectedVehicle.available == false)
+                    editAvailable.Text = "Nie";
+                else
+                    editAvailable.Text = "Tak";
+
+                selectedVehicle = null;
+                selectedVehicleImage = null;
             }
-
-            if (selectedVehicle.available == false)
-                editAvailable.Text = "Nie";
-            else
-                editAvailable.Text = "Tak";
-
-            selectedVehicle = null;
-            selectedVehicleImage = null;
+            else { }
         }
 
         private void infoVehicleFill()
         {
             HideOtherPanels(infoVehiclePanel);
+            string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+            Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+            Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+            infoManufacturer.Text = selectedVehicle.manufacturer;
+            infoVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
+            infoModel.Text = selectedVehicle.model;
+            infoRegNum.Text = selectedVehicle.registration_num;
+            infoVehicleColor.Text = selectedVehicle.color;
+            infoFuelType.Text = selectedVehicle.fuel_type;
+            infoBodyType.Text = selectedVehicle.body_type;
+            infoProdYear.Text = Convert.ToString(selectedVehicle.prod_year);
+            infoVinNum.Text = selectedVehicle.VIN;
+            infoEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
+            infoEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
+           
+            if (selectedVehicle.available == false)
+                infoAvaliable.Text = "Nie";
+            else
+                infoAvaliable.Text = "Tak";
+
+            selectedVehicle = null;
+            selectedVehicleImage = null;
         }
 
         private void deleteVehicle()
         {
-
+            var warn = MessageBox.Show("Czy na pewno chcesz usunąć ten pojazd?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (warn == DialogResult.Yes)
+            {
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+                Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+                this.context.Vehicles.Remove(selectedVehicle);
+                this.context.Vehicles_Images.Remove(selectedVehicleImage);
+                this.context.SaveChanges();
+                allVehicles_Click(null, null);
+                populatePanel();
+            }
+            else { }
         }
 
         private void editCancel_Click(object sender, EventArgs e)
@@ -865,6 +904,15 @@ namespace SBBD
             addPhotoBtn.BackgroundImage = SBBD.Properties.Resources.PhotoBTN_inactive;
         }
 
+        private void infoReturn_MouseEnter(object sender, EventArgs e)
+        {
+            infoReturnBtn.BackgroundImage = SBBD.Properties.Resources.ReturnBTN_active;
+        }
+
+        private void infoReturn_MouseLeave(object sender, EventArgs e)
+        {
+            infoReturnBtn.BackgroundImage = SBBD.Properties.Resources.ReturnBTN_inactive;
+        }
         private void warningTimer_Tick(object sender, EventArgs e)
         {
             warningTimer.Stop();
@@ -918,6 +966,11 @@ namespace SBBD
         private void trackBar1_MouseUp(object sender, MouseEventArgs e)
         {
             populatePanel();
+        }
+
+        private void infoReturnBtn_Click(object sender, EventArgs e)
+        {
+            HideOtherPanels(vehiclesPanel);
         }
     }
 
