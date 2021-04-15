@@ -35,12 +35,12 @@ namespace SBBD
         int selected;
         public MainWindow()
         {          
-                InitializeComponent();
-                selected = 1;
-                currentPage = 1;
-                siteCounter.Text = currentPage.ToString();
+            InitializeComponent();
+            selected = 1;
+            currentPage = 1;
+            siteCounter.Text = currentPage.ToString();
 
-                tileList = new List<PictureBox>()
+            tileList = new List<PictureBox>()
             {
                 pictureBox00,
                 pictureBox01,
@@ -52,7 +52,7 @@ namespace SBBD
                 pictureBox21,
                 pictureBox22
             };
-                vLabelList = new List<Label>()
+            vLabelList = new List<Label>()
             {
                 vLabel00,
                 vLabel01,
@@ -568,17 +568,15 @@ namespace SBBD
             using (Graphics g = Graphics.FromImage(bm))
             {
                 g.DrawImage(deleteimg, 275, 139, 20, 20);
-                g.DrawImage(infoimg, 240, 139, 20, 20);    
+                g.DrawImage(infoimg, 240, 139, 20, 20);
                 g.DrawImage(editimg, 205, 139, 20, 20);
             }
 
-            
 
             pictureBox.Image = bm;
             label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
 
             vehImage = null;
-            bm.Dispose();
             bm2.Dispose();
             infoimg.Dispose();
             editimg.Dispose();

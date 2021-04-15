@@ -40,6 +40,7 @@ namespace SBBD
             this.mainMinimize = new System.Windows.Forms.PictureBox();
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.siteNavCenter = new System.Windows.Forms.PictureBox();
             this.siteCounter = new System.Windows.Forms.Label();
             this.siteNavLeft = new System.Windows.Forms.PictureBox();
@@ -92,6 +93,7 @@ namespace SBBD
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
             this.editVehiclePanel = new System.Windows.Forms.Panel();
+            this.editVehicleImage = new System.Windows.Forms.PictureBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.editEnginePower = new System.Windows.Forms.TextBox();
             this.editEngineCapacity = new System.Windows.Forms.TextBox();
@@ -112,8 +114,6 @@ namespace SBBD
             this.userNameInfo = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.editVehicleImage = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -123,6 +123,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             this.vehiclesPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
             this.siteNavCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavLeft)).BeginInit();
@@ -157,9 +158,8 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.clearVehicleBtn)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
-            this.infoVehiclePanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).BeginInit();
+            this.infoVehiclePanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -286,6 +286,23 @@ namespace SBBD
             this.vehiclesPanel.Name = "vehiclesPanel";
             this.vehiclesPanel.Size = new System.Drawing.Size(1080, 694);
             this.vehiclesPanel.TabIndex = 8;
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBar1.Location = new System.Drawing.Point(1045, 247);
+            this.trackBar1.Maximum = 180;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
+            this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.trackBar1.Size = new System.Drawing.Size(45, 200);
+            this.trackBar1.TabIndex = 0;
+            this.trackBar1.TabStop = false;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
+            this.trackBar1.Value = 128;
+            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
             // siteNavCenter
             // 
@@ -975,6 +992,15 @@ namespace SBBD
             this.editVehiclePanel.TabIndex = 21;
             this.editVehiclePanel.Visible = false;
             // 
+            // editVehicleImage
+            // 
+            this.editVehicleImage.Location = new System.Drawing.Point(637, 24);
+            this.editVehicleImage.Name = "editVehicleImage";
+            this.editVehicleImage.Size = new System.Drawing.Size(260, 146);
+            this.editVehicleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.editVehicleImage.TabIndex = 42;
+            this.editVehicleImage.TabStop = false;
+            // 
             // userLabel
             // 
             this.userLabel.AutoSize = true;
@@ -1176,7 +1202,8 @@ namespace SBBD
             this.userNameInfo.BackColor = System.Drawing.Color.Transparent;
             this.userNameInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.userNameInfo.ForeColor = System.Drawing.Color.White;
-            this.userNameInfo.Location = new System.Drawing.Point(0, 0);
+            this.userNameInfo.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.userNameInfo.Location = new System.Drawing.Point(966, 7);
             this.userNameInfo.Name = "userNameInfo";
             this.userNameInfo.Size = new System.Drawing.Size(170, 14);
             this.userNameInfo.TabIndex = 23;
@@ -1200,25 +1227,6 @@ namespace SBBD
             this.label1.Size = new System.Drawing.Size(180, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tło do zmiany, teskt informacyjny xD";
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.Location = new System.Drawing.Point(651, 34);
-            this.trackBar1.Maximum = 180;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(104, 45);
-            this.trackBar1.TabIndex = 15;
-            this.trackBar1.Value = 128;
-            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
-            // 
-            // editVehicleImage
-            // 
-            this.editVehicleImage.Location = new System.Drawing.Point(637, 24);
-            this.editVehicleImage.Name = "editVehicleImage";
-            this.editVehicleImage.Size = new System.Drawing.Size(260, 146);
-            this.editVehicleImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.editVehicleImage.TabIndex = 42;
-            this.editVehicleImage.TabStop = false;
             // 
             // MainWindow
             // 
@@ -1254,6 +1262,7 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             this.vehiclesPanel.ResumeLayout(false);
             this.vehiclesPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).EndInit();
             this.siteNavCenter.ResumeLayout(false);
             this.siteNavCenter.PerformLayout();
@@ -1300,10 +1309,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).EndInit();
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).EndInit();
             this.infoVehiclePanel.ResumeLayout(false);
             this.infoVehiclePanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).EndInit();
             this.ResumeLayout(false);
 
         }
