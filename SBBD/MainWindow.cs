@@ -253,10 +253,10 @@ namespace SBBD
                 logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
            
             }
-            switch (MessageBox.Show("Czy na pewno chcesz się wylogować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            switch (MessageBox.Show("Czy na pewno chcesz się wylogować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
             {
                 case DialogResult.Yes:
-                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano!", caption: "Informacja", timeout: 1500);
+                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano! Zamykanie aplikacji...", caption: "Informacja", timeout: 2000);
                     this.Hide();
                     this.OnLoad(null);
                     this.Refresh();
@@ -319,10 +319,10 @@ namespace SBBD
             switch (MessageBox.Show("Czy na pewno chcesz zamknąć aplikację?",
                         "Informacja",
                         MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question))
+                        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
             {
                 case DialogResult.Yes:
-                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano!", caption: "Informacja", timeout: 1500);
+                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano! Zamykanie aplikacji...", caption: "Informacja", timeout: 2000);
                     Application.Exit();
                     break;
                 case DialogResult.No:
@@ -651,7 +651,7 @@ namespace SBBD
 
         private void editVehicleFill()
         {
-            var question = MessageBox.Show("Czy na pewno chcesz edytować dane pojazdu?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            var question = MessageBox.Show("Czy na pewno chcesz edytować dane pojazdu?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
             if(question == DialogResult.Yes)
             {
                 HideOtherPanels(editVehiclePanel);
@@ -717,7 +717,7 @@ namespace SBBD
 
         private void deleteVehicle()
         {
-            var warn = MessageBox.Show("Czy na pewno chcesz usunąć ten pojazd?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            var warn = MessageBox.Show("Czy na pewno chcesz usunąć ten pojazd?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
             if (warn == DialogResult.Yes)
             {
                 string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
@@ -928,24 +928,29 @@ namespace SBBD
 
         private void clearVehicleBtn_Click(object sender, EventArgs e)
         {
-            bodyTypeComboBox.SelectedIndex = -1;
-            fuelTypeComboBox.SelectedIndex = -1;
-            enginePower.Text = "";
-            enginePower_Leave(null, null);
-            engineCapacity.Text = "";
-            engineCapacity_Leave(null, null);
-            regNumber.Text = "";
-            regNumber_Leave(null, null);
-            vinNumber.Text = "";
-            vinNumber_Leave(null, null);
-            vehicleColor.Text = "";
-            vehicleColor_Leave(null, null);
-            prodYear.Text = "";
-            prodYear_Leave(null, null);
-            modelComboBox.SelectedIndex = -1;
-            manufacturerComboBox.SelectedIndex = -1;
-            modelComboBox.Enabled = false;
-            selectedImage.Image = null;
+            var quest = MessageBox.Show("Usunąć wprowadzone dane?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            if(quest == DialogResult.Yes)
+            {
+                bodyTypeComboBox.SelectedIndex = -1;
+                fuelTypeComboBox.SelectedIndex = -1;
+                enginePower.Text = "";
+                enginePower_Leave(null, null);
+                engineCapacity.Text = "";
+                engineCapacity_Leave(null, null);
+                regNumber.Text = "";
+                regNumber_Leave(null, null);
+                vinNumber.Text = "";
+                vinNumber_Leave(null, null);
+                vehicleColor.Text = "";
+                vehicleColor_Leave(null, null);
+                prodYear.Text = "";
+                prodYear_Leave(null, null);
+                modelComboBox.SelectedIndex = -1;
+                manufacturerComboBox.SelectedIndex = -1;
+                modelComboBox.Enabled = false;
+                selectedImage.Image = null;
+            }
+            else { }
         }
 
         private void addPhotoBtn_Click(object sender, EventArgs e)
