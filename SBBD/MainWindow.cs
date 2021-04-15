@@ -179,7 +179,8 @@ namespace SBBD
                 //vehiclesPanel.Visible = false;
                 //addVehiclePanel.Visible = true;
                 //editVehiclePanel.Visible = false;
-                if(manufacturerComboBox.Items.Count == 0)
+                tBarPanel.Visible = false;
+                if (manufacturerComboBox.Items.Count == 0)
                     addVehicleLoad();
             }
         }
@@ -196,6 +197,7 @@ namespace SBBD
                 //vehiclesPanel.Visible = true;
                 //addVehiclePanel.Visible = false;
                 //editVehiclePanel.Visible = false;
+                tBarPanel.Visible = true;
             }
         }
 
@@ -208,6 +210,7 @@ namespace SBBD
                 userInfo.BackColor = Color.FromArgb(30, 35, 40);
                 userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
                 vehiclesPanel.Visible = false;
+                tBarPanel.Visible = false;
             }
 
         }
@@ -221,6 +224,7 @@ namespace SBBD
                 appInfo.BackColor = Color.FromArgb(30, 35, 40);
                 appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
                 vehiclesPanel.Visible = false;
+                tBarPanel.Visible = false;
             }
         }
 
@@ -949,6 +953,33 @@ namespace SBBD
         private void trackBar1_MouseUp(object sender, MouseEventArgs e)
         {
             populatePanel();
+        }
+
+        private void trackBar1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+    }
+
+    public class NoFocusTrackBar : System.Windows.Forms.TrackBar
+    {
+        [System.Runtime.InteropServices.DllImport("user32.dll")]
+        public extern static int SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
+
+        private static int MakeParam(int loWord, int hiWord)
+        {
+            return (hiWord << 16) | (loWord & 0xffff);
+        }
+
+        protected override void OnGotFocus(EventArgs e)
+        {
+            base.OnGotFocus(e);
+            SendMessage(this.Handle, 0x0128, MakeParam(1, 0x1), 0);
+        }
+        
+        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        {
+            e.Graphics.FillRectangle(Brushes.Green, ClientRectangle);
         }
     }
 }

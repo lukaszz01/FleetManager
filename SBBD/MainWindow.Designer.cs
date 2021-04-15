@@ -40,7 +40,6 @@ namespace SBBD
             this.mainMinimize = new System.Windows.Forms.PictureBox();
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
             this.siteNavCenter = new System.Windows.Forms.PictureBox();
             this.siteCounter = new System.Windows.Forms.Label();
             this.siteNavLeft = new System.Windows.Forms.PictureBox();
@@ -114,6 +113,9 @@ namespace SBBD
             this.userNameInfo = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.tBarPanel = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.trackBar1 = new SBBD.NoFocusTrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -123,7 +125,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             this.vehiclesPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
             this.siteNavCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavLeft)).BeginInit();
@@ -160,6 +161,8 @@ namespace SBBD
             this.editVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).BeginInit();
             this.infoVehiclePanel.SuspendLayout();
+            this.tBarPanel.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -269,7 +272,6 @@ namespace SBBD
             // 
             this.vehiclesPanel.BackColor = System.Drawing.Color.Transparent;
             this.vehiclesPanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
-            this.vehiclesPanel.Controls.Add(this.trackBar1);
             this.vehiclesPanel.Controls.Add(this.siteNavCenter);
             this.vehiclesPanel.Controls.Add(this.siteNavLeft);
             this.vehiclesPanel.Controls.Add(this.siteNavRight);
@@ -286,23 +288,6 @@ namespace SBBD
             this.vehiclesPanel.Name = "vehiclesPanel";
             this.vehiclesPanel.Size = new System.Drawing.Size(1080, 694);
             this.vehiclesPanel.TabIndex = 8;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trackBar1.Location = new System.Drawing.Point(1045, 247);
-            this.trackBar1.Maximum = 180;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Orientation = System.Windows.Forms.Orientation.Vertical;
-            this.trackBar1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.trackBar1.Size = new System.Drawing.Size(45, 200);
-            this.trackBar1.TabIndex = 0;
-            this.trackBar1.TabStop = false;
-            this.trackBar1.TickFrequency = 10;
-            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.TopLeft;
-            this.trackBar1.Value = 128;
-            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
             // siteNavCenter
             // 
@@ -1228,12 +1213,50 @@ namespace SBBD
             this.label1.TabIndex = 0;
             this.label1.Text = "Tło do zmiany, teskt informacyjny xD";
             // 
+            // tBarPanel
+            // 
+            this.tBarPanel.BackColor = System.Drawing.Color.Transparent;
+            this.tBarPanel.Controls.Add(this.trackBar1);
+            this.tBarPanel.Controls.Add(this.label2);
+            this.tBarPanel.Location = new System.Drawing.Point(0, 630);
+            this.tBarPanel.Name = "tBarPanel";
+            this.tBarPanel.Size = new System.Drawing.Size(200, 90);
+            this.tBarPanel.TabIndex = 49;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.ForeColor = System.Drawing.Color.White;
+            this.label2.Location = new System.Drawing.Point(9, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(183, 19);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Ustaw przyciemnienie obrazów";
+            // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBar1.Location = new System.Drawing.Point(0, 45);
+            this.trackBar1.Maximum = 180;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(200, 45);
+            this.trackBar1.TabIndex = 0;
+            this.trackBar1.TabStop = false;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.TickStyle = System.Windows.Forms.TickStyle.Both;
+            this.trackBar1.Value = 128;
+            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.tBarPanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehiclePanel);
@@ -1261,8 +1284,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.mainMinimize)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             this.vehiclesPanel.ResumeLayout(false);
-            this.vehiclesPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).EndInit();
             this.siteNavCenter.ResumeLayout(false);
             this.siteNavCenter.PerformLayout();
@@ -1312,6 +1333,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).EndInit();
             this.infoVehiclePanel.ResumeLayout(false);
             this.infoVehiclePanel.PerformLayout();
+            this.tBarPanel.ResumeLayout(false);
+            this.tBarPanel.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1399,7 +1423,9 @@ namespace SBBD
         private System.Windows.Forms.Label userNameInfo;
         private System.Windows.Forms.Panel infoVehiclePanel;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TrackBar trackBar1;
         private System.Windows.Forms.PictureBox editVehicleImage;
+        private System.Windows.Forms.Panel tBarPanel;
+        private System.Windows.Forms.Label label2;
+        private NoFocusTrackBar trackBar1;
     }
 }
