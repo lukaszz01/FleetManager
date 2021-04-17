@@ -111,7 +111,6 @@ namespace SBBD
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.userNameInfo = new System.Windows.Forms.Label();
-            this.trackBar1 = new SBBD.NoFocusTrackBar();
             this.label2 = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
             this.infoManufacturer = new System.Windows.Forms.TextBox();
@@ -129,6 +128,7 @@ namespace SBBD
             this.infoReturnBtn = new System.Windows.Forms.Button();
             this.infoRegNum = new System.Windows.Forms.TextBox();
             this.infoVehicleColor = new System.Windows.Forms.TextBox();
+            this.trackBar1 = new SBBD.NoFocusTrackBar();
             ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
@@ -173,9 +173,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.addVehicleBtn)).BeginInit();
             this.editVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.infoVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
             // addVehicle
@@ -1105,7 +1105,7 @@ namespace SBBD
             // 
             this.editCancel.Location = new System.Drawing.Point(690, 588);
             this.editCancel.Name = "editCancel";
-            this.editCancel.Size = new System.Drawing.Size(75, 23);
+            this.editCancel.Size = new System.Drawing.Size(113, 23);
             this.editCancel.TabIndex = 24;
             this.editCancel.Text = "Anuluj";
             this.editCancel.UseVisualStyleBackColor = true;
@@ -1206,20 +1206,6 @@ namespace SBBD
             this.userNameInfo.Size = new System.Drawing.Size(170, 14);
             this.userNameInfo.TabIndex = 23;
             this.userNameInfo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // trackBar1
-            // 
-            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.trackBar1.Location = new System.Drawing.Point(0, 685);
-            this.trackBar1.Maximum = 180;
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(200, 45);
-            this.trackBar1.TabIndex = 0;
-            this.trackBar1.TabStop = false;
-            this.trackBar1.TickFrequency = 10;
-            this.trackBar1.Value = 128;
-            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
             // label2
             // 
@@ -1457,15 +1443,29 @@ namespace SBBD
             this.infoVehicleColor.TabIndex = 2;
             this.infoVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // trackBar1
+            // 
+            this.trackBar1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.trackBar1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.trackBar1.Location = new System.Drawing.Point(0, 685);
+            this.trackBar1.Maximum = 180;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(200, 45);
+            this.trackBar1.TabIndex = 0;
+            this.trackBar1.TabStop = false;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.Value = 128;
+            this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
-            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label2);
@@ -1539,10 +1539,10 @@ namespace SBBD
             this.editVehiclePanel.ResumeLayout(false);
             this.editVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.infoVehiclePanel.ResumeLayout(false);
             this.infoVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

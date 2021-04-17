@@ -11,6 +11,7 @@ using System.Data.Entity;
 using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing.Text;
+using System.Drawing.Drawing2D;
 
 namespace SBBD
 {
@@ -729,7 +730,6 @@ namespace SBBD
                 allVehicles_Click(null, null);
                 populatePanel();
             }
-            else { }
         }
 
         private void editCancel_Click(object sender, EventArgs e)
@@ -993,6 +993,117 @@ namespace SBBD
         {
             base.OnGotFocus(e);
             SendMessage(this.Handle, 0x0128, MakeParam(1, 0x1), 0);
+        }
+    }
+
+    public class CustomButton : Button
+    {
+        public Image ImageActive { get; set; }
+        public Image ImageInctive { get; set; }
+
+        protected override void OnMouseEnter(EventArgs e)
+        {
+            this.BackgroundImage = this.ImageActive;
+        }
+
+        protected override void OnMouseLeave(EventArgs e)
+        {
+            this.BackgroundImage = this.ImageInctive;
+        }
+    }
+
+    class RoundedButton : Button
+    {
+        private int _roundRadius = 30;
+        private Color _buttonColor = Color.FromArgb(0, 110, 255);
+        private Color _hoverColor = Color.FromArgb(72, 150, 253);
+        private bool _isHovering;
+
+        public RoundedButton()
+        {
+            MouseEnter += (sender, e) =>
+            {
+                _isHovering = true;
+                Invalidate();
+            };
+            MouseLeave += (sender, e) =>
+            {
+                _isHovering = false;
+                Invalidate();
+            };
+            this.FlatStyle = FlatStyle.Flat;
+            this.FlatAppearance.BorderSize = 0;
+            this.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            this.Width = 140;
+            this.Height = 30;
+            this.ForeColor = Color.White;
+            this.Font = new Font(this.Font.FontFamily, 10, FontStyle.Bold);
+        }
+
+        GraphicsPath GetRoundPath(RectangleF rectangle, int radius)
+        {
+            float r2 = radius / 2f;
+            GraphicsPath GraphPath = new GraphicsPath();
+            GraphPath.AddArc(rectangle.X, rectangle.Y, radius, radius, 180, 90);
+            GraphPath.AddLine(rectangle.X + r2, rectangle.Y, rectangle.Width - r2, rectangle.Y);
+            GraphPath.AddArc(rectangle.X + rectangle.Width - radius, rectangle.Y, radius, radius, 270, 90);
+            GraphPath.AddLine(rectangle.Width, rectangle.Y + r2, rectangle.Width, rectangle.Height - r2);
+            GraphPath.AddArc(rectangle.X + rectangle.Width - radius, rectangle.Y + rectangle.Height - radius, radius, radius, 0, 90);
+            GraphPath.AddLine(rectangle.Width - r2, rectangle.Height, rectangle.X + r2, rectangle.Height);
+            GraphPath.AddArc(rectangle.X, rectangle.Y + rectangle.Height - radius, radius, radius, 90, 90);
+            GraphPath.AddLine(rectangle.X, rectangle.Height - r2, rectangle.X, rectangle.Y + r2);
+            GraphPath.CloseFigure();
+            return GraphPath;
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
+            using (GraphicsPath GraphPath = GetRoundPath(Rect, _roundRadius))
+            {
+                e.Graphics.SmoothingMode = SmoothingMode.AntiAlias;
+                e.Graphics.TextRenderingHint = TextRenderingHint.AntiAlias;
+                using (SolidBrush solidBrush = new SolidBrush(_isHovering ? _hoverColor : _buttonColor))
+                {                    
+                    e.Graphics.FillPath(solidBrush, GraphPath);
+                    SizeF stringSize = e.Graphics.MeasureString(Text, Font);
+                    Brush textColor = new SolidBrush(ForeColor);
+                    e.Graphics.DrawString(Text, Font, textColor, (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
+                    textColor.Dispose();
+                }
+            }
+        }
+
+        public int RoundRadius
+        {
+            get => _roundRadius;
+            set
+            {
+                _roundRadius = value;
+                Invalidate();
+            }
+        }
+
+        public Color ButtonColor
+        {
+            get => _buttonColor;
+            set
+            {
+                _buttonColor = value;
+                Invalidate();
+            }
+        }
+
+        public Color HoverColor
+        {
+            get => _hoverColor;
+            set
+            {
+                _hoverColor = value;
+                Invalidate();
+            }
         }
     }
 }
