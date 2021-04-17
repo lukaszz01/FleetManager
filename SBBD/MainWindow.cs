@@ -1001,14 +1001,49 @@ namespace SBBD
         public Image ImageActive { get; set; }
         public Image ImageInctive { get; set; }
 
-        protected override void OnMouseEnter(EventArgs e)
+        private bool _isHovering;
+
+        public CustomButton()
         {
-            this.BackgroundImage = this.ImageActive;
+            MouseEnter += (sender, e) =>
+            {
+                _isHovering = true;
+                Invalidate();
+            };
+            MouseLeave += (sender, e) =>
+            {
+                _isHovering = false;
+                Invalidate();
+            };
+            this.FlatStyle = FlatStyle.Flat;
+            this.FlatAppearance.BorderSize = 0;
+            this.FlatAppearance.MouseDownBackColor = Color.Transparent;
+            this.FlatAppearance.MouseOverBackColor = Color.Transparent;
+            this.Width = 140;
+            this.Height = 30;
         }
 
-        protected override void OnMouseLeave(EventArgs e)
+        protected override void OnPaint(PaintEventArgs e)
         {
-            this.BackgroundImage = this.ImageInctive;
+            base.OnPaint(e);
+            if (ImageActive != null && ImageInctive != null)
+            {
+                RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
+                GraphicsPath gPath = new GraphicsPath();
+                gPath.AddRectangle(Rect);
+
+                using (gPath)
+                {
+                    TextureBrush tBrush = new TextureBrush(_isHovering ? ImageActive : ImageInctive);
+                    //e.Graphics.FillRectangle(tBrush, Rect);
+                    e.Graphics.FillPath(tBrush, gPath);
+
+                    SizeF stringSize = e.Graphics.MeasureString(Text, Font);
+                    Brush textColor = new SolidBrush(ForeColor);
+                    e.Graphics.DrawString(Text, Font, textColor, (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
+                }
+
+            }
         }
     }
 
