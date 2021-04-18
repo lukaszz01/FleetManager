@@ -977,6 +977,16 @@ namespace SBBD
         {
             HideOtherPanels(vehiclesPanel);
         }
+
+        private void customPictureBox2_Click(object sender, EventArgs e)
+        {
+            customPictureBox2.SelectedMenuItem = true;
+        }
+
+        private void customPictureBox2_DoubleClick(object sender, EventArgs e)
+        {
+            customPictureBox2.SelectedMenuItem = false;
+        }
     }
 
     public class NoFocusTrackBar : System.Windows.Forms.TrackBar
@@ -1047,7 +1057,7 @@ namespace SBBD
         }
     }
 
-    class RoundedButton : Button
+    public class RoundedButton : Button
     {
         private int _roundRadius = 30;
         private Color _buttonColor = Color.FromArgb(0, 110, 255);
@@ -1137,6 +1147,147 @@ namespace SBBD
             set
             {
                 _hoverColor = value;
+                Invalidate();
+            }
+        }
+    }
+
+    public class CustomPictureBox : PictureBox
+    {
+        private Image _hoverImage;
+        private Image _nonHoverImage;
+        private Color _selectedColor;
+        private bool _isHovering;
+        private bool _selectedMenuItem;
+
+        public CustomPictureBox()
+        {
+            MouseEnter += (sender, e) =>
+            {
+                _isHovering = true;
+                Invalidate();
+            };
+            MouseLeave += (sender, e) =>
+            {
+                _isHovering = false;
+                Invalidate();
+            };
+        }
+
+        public Image HoverImage
+        {
+            get => _hoverImage;
+            set
+            {
+                _hoverImage = value;
+                Invalidate();
+            }
+        }
+
+        public Image RegularImage
+        {
+            get => _nonHoverImage;
+            set
+            {
+                _nonHoverImage = value;
+                Invalidate();
+            }
+        }
+
+        public Color SelectedColor
+        {
+            get => _selectedColor;
+            set
+            {
+                _selectedColor = value;
+                Invalidate();
+            }
+        }
+
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SelectedMenuItem
+        {
+            get => _selectedMenuItem;
+            set
+            {
+                _selectedMenuItem = value;
+                Invalidate();
+            }
+        }
+
+        protected override void OnPaint(PaintEventArgs e)
+        {
+            base.OnPaint(e);
+            RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
+            if (_hoverImage != null && _nonHoverImage != null)
+            {
+                if (!_selectedMenuItem)
+                {
+                    TextureBrush tBrush = new TextureBrush(_isHovering ? _hoverImage : _nonHoverImage);
+                    e.Graphics.FillRectangle(tBrush, Rect);
+                    tBrush.Dispose();
+                }
+                else
+                {
+                    TextureBrush tBrush = new TextureBrush(_nonHoverImage);
+                    Brush brush = new SolidBrush(_selectedColor);
+                    e.Graphics.FillRectangle(brush, Rect);
+                    e.Graphics.FillRectangle(tBrush, Rect);
+                }
+            }
+        }
+    }
+
+    public class CustomTextBox : TextBox
+    {
+        private string _placeHolder;
+        private bool _isPassword = false;
+
+        protected override void OnEnter(EventArgs e)
+        {
+            base.OnEnter(e);
+            if (this.Text == _placeHolder)
+            {
+                if(_isPassword)
+                {
+                    this.PasswordChar = '*';
+                }
+                this.Text = "";
+            }
+        }
+
+        protected override void OnLeave(EventArgs e)
+        {
+            base.OnLeave(e);
+            if (this.Text == "")
+            {
+                if(_isPassword)
+                {
+                    this.PasswordChar = '\0';
+                }
+                this.Text = _placeHolder;
+            }
+        }
+
+
+
+        public string PlaceHolder
+        {
+            get => _placeHolder;
+            set
+            {
+                _placeHolder = value;
+                Invalidate();
+            }
+        }
+
+        public bool IsPassword
+        {
+            get => _isPassword;
+            set
+            {
+                _isPassword = value;
                 Invalidate();
             }
         }
