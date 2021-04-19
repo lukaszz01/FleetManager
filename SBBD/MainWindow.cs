@@ -178,9 +178,6 @@ namespace SBBD
                 addVehicle.BackColor = Color.FromArgb(30, 35, 40);
                 addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1off;
                 HideOtherPanels(addVehiclePanel);
-                //vehiclesPanel.Visible = false;
-                //addVehiclePanel.Visible = true;
-                //editVehiclePanel.Visible = false;
                 if (manufacturerComboBox.Items.Count == 0)
                     addVehicleLoad();
             }
@@ -195,9 +192,6 @@ namespace SBBD
                 allVehicles.BackColor = Color.FromArgb(30, 35, 40);
                 allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
                 HideOtherPanels(vehiclesPanel);
-                //vehiclesPanel.Visible = true;
-                //addVehiclePanel.Visible = false;
-                //editVehiclePanel.Visible = false;
             }
         }
 
@@ -294,26 +288,6 @@ namespace SBBD
                     logout.BackColor = Color.Transparent;
                     break;
             }
-        }
-
-        private void mainExit_MouseEnter(object sender, EventArgs e)
-        {
-            mainExit.BackgroundImage = Properties.Resources.MWB6on;
-        }
-
-        private void mainExit_MouseLeave(object sender, EventArgs e)
-        {
-            mainExit.BackgroundImage = Properties.Resources.MWB6off;
-        }
-
-        private void mainMinimize_MouseEnter(object sender, EventArgs e)
-        {
-            mainMinimize.BackgroundImage = SBBD.Properties.Resources.MWB7on;
-        }
-
-        private void mainMinimize_MouseLeave(object sender, EventArgs e)
-        {
-            mainMinimize.BackgroundImage = SBBD.Properties.Resources.MWB7off;
         }
 
         private void mainExit_Click(object sender, EventArgs e)
@@ -442,8 +416,6 @@ namespace SBBD
                 IsEmpty(enginePower, "np. 240")               
                 )
             {
-                //MessageBox.Show("Pola nie mogą być puste!");
-                
                 warningTimer.Start();
                 warnLabel7.Visible = true;
             }
@@ -464,25 +436,12 @@ namespace SBBD
                 if (!RegexD(@"^[0-9]{4}$", prodYear)) ShowErrorMsg(warnLabel3);
                 if (!RegexD(@"^[a-zA-Z]+$", vehicleColor)) ShowErrorMsg(warnLabel2);
                 if (!RegexD(@"^[A-HJ-NPR-Z0-9]{11}[0-9]{6}$", vinNumber)) ShowErrorMsg(warnLabel4);
-                //if (!RegexD(@" ^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber)) ShowErrorMsg(warnLabel4);
                 if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^[0-9]{3,5}$", engineCapacity)) ShowErrorMsg(warnLabel5);
                 if (!RegexD(@"^[0-9]{2,4}$", enginePower)) ShowErrorMsg(warnLabel6);
             }
             else
             {
-                //RegexD(@"\d{4}", prodYear); //Tylko cyfry
-                //RegexD(@"^[0-9]+$", prodYear); //Tylko cyfry
-                //RegexD(@"^[a-zA-Z]+$", vehicleColor); //Tylko litery
-                //RegexD(@"^[A-HJ-NPR-Za-hj-npr-z\d]{8}[\dX][A-HJ-NPR-Za-hj-npr-z\d]{2}\d{6}$", vinNumber); //17 znaków
-                //RegexD(@"^[a-zA-Z0-9]+$", regNumber); //Tylko cyfry i litery
-
-                //RegexD(@"\d{3,5}", engineCapacity);
-                //RegexD(@"^[0-9]+$", engineCapacity); //Tylko cyfry
-
-                //RegexD(@"^[0-9]+$", enginePower); //Tylko cyfry
-
-                // Trzeba wyjątek jak pola są puste, inaczej sie krzaczy xD
                 warnLabel7.Text = "";
                 Vehicles vehicle = new Vehicles()
                 {
@@ -621,7 +580,6 @@ namespace SBBD
             if(currentPage + 1 <= vehiclePages)
             currentPage++;
             populatePanel();
-            //SiteCounter();
             siteCounter.Text = currentPage.ToString();
         }
 
@@ -630,7 +588,6 @@ namespace SBBD
             if (currentPage > 1)
                 currentPage--;
             populatePanel();
-            //SiteCounter();
             siteCounter.Text = currentPage.ToString();
         }
 
@@ -767,123 +724,6 @@ namespace SBBD
             }
         }
 
-        //private void regNumber_Enter(object sender, EventArgs e)
-        //{
-        //    if (regNumber.Text == "np. LHR12345")
-        //    {
-        //        regNumber.Text = "";
-        //        regNumber.ForeColor = Color.White;
-        //    }
-        //}
-
-        //private void regNumber_Leave(object sender, EventArgs e)
-        //{
-        //    if (regNumber.Text == "")
-        //    {
-        //        regNumber.Text = "np. LHR12345";
-        //        regNumber.ForeColor = Color.FromArgb(77, 77, 77);
-        //    }
-        //}
-
-        //private void vehicleColor_Enter(object sender, EventArgs e)
-        //{
-        //    if (vehicleColor.Text == "np. Czarny")
-        //    {
-        //        vehicleColor.Text = "";
-        //        vehicleColor.ForeColor = Color.White;
-        //    }
-        //}
-
-        //private void vehicleColor_Leave(object sender, EventArgs e)
-        //{
-        //    if (vehicleColor.Text == "")
-        //    {
-        //        vehicleColor.Text = "np. Czarny";
-        //        vehicleColor.ForeColor = Color.FromArgb(77, 77, 77);
-        //    }
-        //}
-
-        //private void prodYear_Enter(object sender, EventArgs e)
-        //{
-        //    if (prodYear.Text == "np. 2021")
-        //    {
-        //        prodYear.Text = "";
-        //        prodYear.ForeColor = Color.White;
-        //    }
-        //}
-
-        //private void prodYear_Leave(object sender, EventArgs e)
-        //{
-        //    if (prodYear.Text == "")
-        //    {
-        //        prodYear.Text = "np. 2021";
-        //        prodYear.ForeColor = Color.FromArgb(77, 77, 77);
-        //    }
-        //}
-
-        //private void vinNumber_Enter(object sender, EventArgs e)
-        //{
-        //    if (vinNumber.Text == "17 - znakowy VIN")
-        //    {
-        //        vinNumber.Text = "";
-        //        vinNumber.ForeColor = Color.White;
-        //    }
-        //}
-
-        //private void vinNumber_Leave(object sender, EventArgs e)
-        //{
-        //    if (vinNumber.Text == "")
-        //    {
-        //        vinNumber.Text = "17 - znakowy VIN";
-        //        vinNumber.ForeColor = Color.FromArgb(77, 77, 77);
-        //    }
-        //}
-
-        //private void engineCapacity_Enter(object sender, EventArgs e)
-        //{
-        //    if (engineCapacity.Text == "np. 3000")
-        //    {
-        //        engineCapacity.Text = "";
-        //        engineCapacity.ForeColor = Color.White;
-        //    }
-        //}
-
-        //private void engineCapacity_Leave(object sender, EventArgs e)
-        //{
-        //    if (engineCapacity.Text == "")
-        //    {
-        //        engineCapacity.Text = "np. 3000";
-        //        engineCapacity.ForeColor = Color.FromArgb(77, 77, 77);
-        //    }
-        //}
-
-        //private void enginePower_Enter(object sender, EventArgs e)
-        //{
-        //    if (enginePower.Text == "np. 240")
-        //    {
-        //        enginePower.Text = "";
-        //        enginePower.ForeColor = Color.White;
-        //    }
-        //}
-
-        //private void enginePower_Leave(object sender, EventArgs e)
-        //{
-        //    if (enginePower.Text == "")
-        //    {
-        //        enginePower.Text = "np. 240";
-        //        enginePower.ForeColor = Color.FromArgb(77, 77, 77);
-        //    }
-        //}
-
-        //private void infoReturn_MouseEnter(object sender, EventArgs e)
-        //{
-        //    infoReturnBtn.BackgroundImage = SBBD.Properties.Resources.ReturnBTN_active;
-        //}
-
-        //private void infoReturn_MouseLeave(object sender, EventArgs e)
-        //{
-        //    infoReturnBtn.BackgroundImage = SBBD.Properties.Resources.ReturnBTN_inactive;
-        //}
         private void warningTimer_Tick(object sender, EventArgs e)
         {
             warningTimer.Stop();
@@ -905,18 +745,12 @@ namespace SBBD
             {
                 bodyTypeComboBox.SelectedIndex = -1;
                 fuelTypeComboBox.SelectedIndex = -1;
-                enginePower.Text = "";
-                
-                engineCapacity.Text = "";
-              //  engineCapacity_Leave(null, null);
-                regNumber.Text = "";
-              //  regNumber_Leave(null, null);
-                vinNumber.Text = "";
-              //  vinNumber_Leave(null, null);
-                vehicleColor.Text = "";
-             //   vehicleColor_Leave(null, null);
-                prodYear.Text = "";
-               // prodYear_Leave(null, null);
+                enginePower.ClearText();
+                engineCapacity.ClearText();
+                regNumber.ClearText();
+                vinNumber.ClearText();
+                vehicleColor.ClearText();
+                prodYear.ClearText();
                 modelComboBox.SelectedIndex = -1;
                 manufacturerComboBox.SelectedIndex = -1;
                 modelComboBox.Enabled = false;
@@ -925,34 +759,6 @@ namespace SBBD
             else { }
            
         }
-
-        //private void clearVehicleBtn_Click(object sender, EventArgs e)
-        //{
-        //    var quest = MessageBox.Show("Usunąć wprowadzone dane?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-        //    if (quest == DialogResult.Yes)
-        //    {
-        //        bodyTypeComboBox.SelectedIndex = -1;
-        //        fuelTypeComboBox.SelectedIndex = -1;
-        //        enginePower.Text = "";
-        //        enginePower_Leave(null, null);
-        //        engineCapacity.Text = "";
-        //        engineCapacity_Leave(null, null);
-        //        regNumber.Text = "";
-        //        regNumber_Leave(null, null);
-        //        vinNumber.Text = "";
-        //        vinNumber_Leave(null, null);
-        //        vehicleColor.Text = "";
-        //        vehicleColor_Leave(null, null);
-        //        prodYear.Text = "";
-        //        prodYear_Leave(null, null);
-        //        modelComboBox.SelectedIndex = -1;
-        //        manufacturerComboBox.SelectedIndex = -1;
-        //        modelComboBox.Enabled = false;
-        //        selectedImage.Image = null;
-        //    }
-        //    else { }
-        //}
-
 
         private void addPhotoBtn_Click(object sender, EventArgs e)
         {

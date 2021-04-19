@@ -270,6 +270,7 @@ namespace SBBD
     {
         private string _placeHolder;
         private bool _isPassword = false;
+        private bool _isIn;
 
         protected override void OnEnter(EventArgs e)
         {
@@ -300,6 +301,12 @@ namespace SBBD
                 this.ForeColor = Color.FromArgb(77, 77, 77);
             }
 
+        }
+
+        public void ClearText()
+        {
+            this.Text = _placeHolder;
+            this.ForeColor = Color.FromArgb(77, 77, 77);
         }
 
         public string PlaceHolder

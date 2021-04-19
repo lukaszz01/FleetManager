@@ -94,7 +94,6 @@ namespace SBBD
                 if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowErrorMsg(warnLabel2);
-                //            ^(?=.*?[A - Z])(?=.*?[a - z])(?=.*?[0 - 9])(?=.*?[#?!@$%^&*-]).{8,}$
             }
             else if (emailIsRepeat(emailRegister.Text))
             {
@@ -215,29 +214,6 @@ namespace SBBD
                 this.SetDesktopLocation(MousePosition.X - moveX, MousePosition.Y - moveY);
             }
         }
-        /*
-        private void textBoxEnter(TextBox textBox, string placeholder, bool password)
-        {
-            if (textBox.Text == placeholder)
-            {
-                if(password)
-                    textBox.PasswordChar = '*';
-                textBox.Text = "";
-                textBox.ForeColor = Color.FromArgb(165, 166, 167);
-            }
-        }
-
-        private void textBoxLeave(TextBox textBox, string placeholder, bool password)
-        {
-            if (textBox.Text == "")
-            {
-                if(password)
-                    textBox.PasswordChar = '\0';
-                textBox.Text = placeholder;
-                textBox.ForeColor = Color.FromArgb(77, 77, 77);
-            }
-        }
-        */
         private void closeRegister_MouseEnter(object sender, EventArgs e)
         {
             closeRegister.BackgroundImage = Properties.Resources.B3;
@@ -277,7 +253,7 @@ namespace SBBD
 
         private void showPassword_MouseUp(object sender, MouseEventArgs e)
         {
-            if(passwordRegister.Text == "Hasło" && passwordRegister.PlaceHolder == "Hasło")
+            if(passwordRegister.Text == passwordRegister.PlaceHolder)
             {
                 passwordRegister.PasswordChar = '\0';
             }
