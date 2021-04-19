@@ -83,6 +83,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtendedControls.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -315,6 +319,9 @@
     <None Include="Resources\VehInfoBG.png" />
     <None Include="Resources\ReturnBTN_active.png" />
     <None Include="Resources\ReturnBTN_inactive.png" />
+    <None Include="Resources\ReturnBTN_inactive1.png" />
+    <None Include="Resources\editWindow.png" />
+    <None Include="Resources\editWindow1.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>

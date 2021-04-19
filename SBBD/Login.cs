@@ -20,6 +20,7 @@ namespace SBBD
         int moveX;
         int moveY;
         Users logged_user;
+        PrivateFontCollection pfc;
 
         public static Users logged_user_value
         {
@@ -38,7 +39,14 @@ namespace SBBD
             base.OnLoad(e);
             login_context = new VFEntities();
             login_context.Users.Load();
-            
+
+            pfc = new PrivateFontCollection();
+            pfc.AddFontFile(@"Resources\fontBold.ttf");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(pfc.Families[0], c.Font.Size, FontStyle.Regular);
+            }
+
         }
 
         public static DialogResult ShowLogin()
@@ -70,9 +78,6 @@ namespace SBBD
             Register.ShowRegister();
             this.Close();
         }
-
-
-
 
         //public class AutoClosingMessageBox
         //{
@@ -107,7 +112,6 @@ namespace SBBD
         //    [System.Runtime.InteropServices.DllImport("user32.dll", CharSet = System.Runtime.InteropServices.CharSet.Auto)]
         //    static extern IntPtr SendMessage(IntPtr hWnd, UInt32 Msg, IntPtr wParam, IntPtr lParam);
         //}
-
 
         private void loginLogin_Click(object sender, EventArgs e)
         {
@@ -152,7 +156,7 @@ namespace SBBD
                 }*/
                 string pass = ComputeSha256Hash(passwordLogin.Text);
                 var user = login_context.Users.Where(x => x.email == emailLogin.Text && x.password == pass).FirstOrDefault();
-                if(user == null)
+                if (user == null)
                 {
                     warningTimer.Start();
                     ShowErrorMsg(warnLabel2);
@@ -164,7 +168,7 @@ namespace SBBD
                     this.Close();
                 }
 
-                
+
                 //switch (MessageBox.Show("Pomyślnie zalogowano. Witamy!",
                 //        "Informacja",
                 //        MessageBoxButtons.OK,
@@ -222,67 +226,6 @@ namespace SBBD
             moving = false;
         }
 
-        private void loginLogin_MouseLeave(object sender, EventArgs e)
-        {
-            loginLogin.BackgroundImage = SBBD.Properties.Resources.B1;
-        }
-
-        private void loginLogin_MouseEnter(object sender, EventArgs e)
-        {
-            loginLogin.BackgroundImage = SBBD.Properties.Resources.BL2on;
-        }
-
-        private void registerLogin_MouseEnter(object sender, EventArgs e)
-        {
-            registerLogin.BackgroundImage = SBBD.Properties.Resources.BL1on;
-        }
-
-        private void registerLogin_MouseLeave(object sender, EventArgs e)
-        {
-            registerLogin.BackgroundImage = SBBD.Properties.Resources.B2;
-        }
-
-        private void emailLogin_Enter(object sender, EventArgs e)
-        {
-            if (emailLogin.Text == "Login (adres e-mail)")
-            {
-                emailLogin.Text = "";
-                emailLogin.ForeColor = Color.FromArgb(200, 200, 200);
-            }
-        }
-
-        private void emailLogin_Leave(object sender, EventArgs e)
-        {
-            if(emailLogin.Text == "")
-            {
-                emailLogin.Text = "Login (adres e-mail)";
-                emailLogin.ForeColor = Color.FromArgb(77, 77, 77);
-            }
-        }
-
-        private void passwordLogin_Enter(object sender, EventArgs e)
-        {
-            if(passwordLogin.Text == "Hasło")
-            {
-                passwordLogin.Text = "";
-                passwordLogin.PasswordChar = '*';
-                passwordLogin.ForeColor = Color.FromArgb(200, 200, 200);
-            }
-        }
-
-        private void passwordLogin_Leave(object sender, EventArgs e)
-        {
-            {
-                if (passwordLogin.Text == "")
-                {
-                    passwordLogin.PasswordChar = '\0';
-                    passwordLogin.Text = "Hasło";
-                    passwordLogin.ForeColor = Color.FromArgb(77, 77, 77);
-                }
-
-            }
-        }
-
         private void closeLogin_MouseEnter(object sender, EventArgs e)
         {
             closeLogin.BackgroundImage = Properties.Resources.B3;
@@ -322,7 +265,7 @@ namespace SBBD
 
         private void showPassword_MouseUp(object sender, MouseEventArgs e)
         {
-            if (passwordLogin.Text == "Hasło")
+            if (passwordLogin.Text == "Hasło" && passwordLogin.PlaceHolder == "Hasło")
             {
                 passwordLogin.PasswordChar = '\0';
             }

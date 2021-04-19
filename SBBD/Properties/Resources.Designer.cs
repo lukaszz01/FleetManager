@@ -231,6 +231,26 @@ namespace SBBD.Properties {
         }
         
         /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editWindow {
+            get {
+                object obj = ResourceManager.GetObject("editWindow", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editWindow1 {
+            get {
+                object obj = ResourceManager.GetObject("editWindow1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
         /// </summary>
         internal static byte[] fontBold {
@@ -586,6 +606,16 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap ReturnBTN_inactive {
             get {
                 object obj = ResourceManager.GetObject("ReturnBTN_inactive", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ReturnBTN_inactive1 {
+            get {
+                object obj = ResourceManager.GetObject("ReturnBTN_inactive1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -32,13 +32,7 @@ namespace SBBD
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.closeRegister = new System.Windows.Forms.PictureBox();
-            this.registerRegister = new System.Windows.Forms.PictureBox();
-            this.loginRegister = new System.Windows.Forms.PictureBox();
             this.titleBarRegister = new System.Windows.Forms.PictureBox();
-            this.emailRegister = new System.Windows.Forms.TextBox();
-            this.firstNameRegister = new System.Windows.Forms.TextBox();
-            this.lastNameRegister = new System.Windows.Forms.TextBox();
-            this.passwordRegister = new System.Windows.Forms.TextBox();
             this.warnLabel1 = new System.Windows.Forms.Label();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.warnLabel2 = new System.Windows.Forms.Label();
@@ -48,9 +42,13 @@ namespace SBBD
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
             this.showPassword = new System.Windows.Forms.Button();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.emailRegister = new SBBD.CustomTextBox();
+            this.firstNameRegister = new SBBD.CustomTextBox();
+            this.lastNameRegister = new SBBD.CustomTextBox();
+            this.passwordRegister = new SBBD.CustomTextBox();
+            this.loginRegister = new SBBD.RoundedButton();
+            this.registerRegister = new SBBD.RoundedButton();
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
@@ -69,32 +67,6 @@ namespace SBBD
             this.closeRegister.MouseEnter += new System.EventHandler(this.closeRegister_MouseEnter);
             this.closeRegister.MouseLeave += new System.EventHandler(this.closeRegister_MouseLeave);
             // 
-            // registerRegister
-            // 
-            this.registerRegister.BackColor = System.Drawing.Color.Transparent;
-            this.registerRegister.BackgroundImage = global::SBBD.Properties.Resources.BR1;
-            this.registerRegister.Location = new System.Drawing.Point(120, 393);
-            this.registerRegister.Name = "registerRegister";
-            this.registerRegister.Size = new System.Drawing.Size(182, 39);
-            this.registerRegister.TabIndex = 1;
-            this.registerRegister.TabStop = false;
-            this.registerRegister.Click += new System.EventHandler(this.registerRegister_Click);
-            this.registerRegister.MouseEnter += new System.EventHandler(this.registerRegister_MouseEnter);
-            this.registerRegister.MouseLeave += new System.EventHandler(this.registerRegister_MouseLeave);
-            // 
-            // loginRegister
-            // 
-            this.loginRegister.BackColor = System.Drawing.Color.Transparent;
-            this.loginRegister.BackgroundImage = global::SBBD.Properties.Resources.BR2;
-            this.loginRegister.Location = new System.Drawing.Point(150, 523);
-            this.loginRegister.Name = "loginRegister";
-            this.loginRegister.Size = new System.Drawing.Size(120, 26);
-            this.loginRegister.TabIndex = 2;
-            this.loginRegister.TabStop = false;
-            this.loginRegister.Click += new System.EventHandler(this.loginRegister_Click);
-            this.loginRegister.MouseEnter += new System.EventHandler(this.loginRegister_MouseEnter);
-            this.loginRegister.MouseLeave += new System.EventHandler(this.loginRegister_MouseLeave);
-            // 
             // titleBarRegister
             // 
             this.titleBarRegister.BackColor = System.Drawing.Color.Transparent;
@@ -106,63 +78,6 @@ namespace SBBD
             this.titleBarRegister.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBarRegister_MouseDown);
             this.titleBarRegister.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBarRegister_MouseMove);
             this.titleBarRegister.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBarRegister_MouseUp);
-            // 
-            // emailRegister
-            // 
-            this.emailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.emailRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.emailRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.emailRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.emailRegister.Location = new System.Drawing.Point(60, 208);
-            this.emailRegister.Name = "emailRegister";
-            this.emailRegister.Size = new System.Drawing.Size(300, 17);
-            this.emailRegister.TabIndex = 1;
-            this.emailRegister.Text = "Login (adres e-mail)";
-            this.emailRegister.Enter += new System.EventHandler(this.emailRegister_Enter);
-            this.emailRegister.Leave += new System.EventHandler(this.emailRegister_Leave);
-            // 
-            // firstNameRegister
-            // 
-            this.firstNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.firstNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstNameRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.firstNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.firstNameRegister.Location = new System.Drawing.Point(60, 252);
-            this.firstNameRegister.Name = "firstNameRegister";
-            this.firstNameRegister.Size = new System.Drawing.Size(300, 17);
-            this.firstNameRegister.TabIndex = 2;
-            this.firstNameRegister.Text = "Imię";
-            this.firstNameRegister.Enter += new System.EventHandler(this.firstNameRegister_Enter);
-            this.firstNameRegister.Leave += new System.EventHandler(this.firstNameRegister_Leave);
-            // 
-            // lastNameRegister
-            // 
-            this.lastNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.lastNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastNameRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lastNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.lastNameRegister.Location = new System.Drawing.Point(60, 292);
-            this.lastNameRegister.Name = "lastNameRegister";
-            this.lastNameRegister.Size = new System.Drawing.Size(300, 17);
-            this.lastNameRegister.TabIndex = 3;
-            this.lastNameRegister.Text = "Nazwisko";
-            this.lastNameRegister.Enter += new System.EventHandler(this.lastNameRegister_Enter);
-            this.lastNameRegister.Leave += new System.EventHandler(this.lastNameRegister_Leave);
-            // 
-            // passwordRegister
-            // 
-            this.passwordRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.passwordRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.passwordRegister.Font = new System.Drawing.Font("Poppins SemiBold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.passwordRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.passwordRegister.Location = new System.Drawing.Point(60, 333);
-            this.passwordRegister.Name = "passwordRegister";
-            this.passwordRegister.Size = new System.Drawing.Size(300, 17);
-            this.passwordRegister.TabIndex = 4;
-            this.passwordRegister.Text = "Hasło";
-            this.passwordRegister.Enter += new System.EventHandler(this.passwordRegister_Enter);
-            this.passwordRegister.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordRegister_KeyDown);
-            this.passwordRegister.Leave += new System.EventHandler(this.passwordRegister_Leave);
             // 
             // warnLabel1
             // 
@@ -259,25 +174,120 @@ namespace SBBD
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
+            // emailRegister
+            // 
+            this.emailRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.emailRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.emailRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.emailRegister.IsPassword = false;
+            this.emailRegister.Location = new System.Drawing.Point(60, 208);
+            this.emailRegister.Name = "emailRegister";
+            this.emailRegister.PlaceHolder = "Login (adres e-mail)";
+            this.emailRegister.Size = new System.Drawing.Size(300, 13);
+            this.emailRegister.TabIndex = 1;
+            this.emailRegister.Text = "Login (adres e-mail)";
+            // 
+            // firstNameRegister
+            // 
+            this.firstNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.firstNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.firstNameRegister.IsPassword = false;
+            this.firstNameRegister.Location = new System.Drawing.Point(60, 252);
+            this.firstNameRegister.Name = "firstNameRegister";
+            this.firstNameRegister.PlaceHolder = "Imię";
+            this.firstNameRegister.Size = new System.Drawing.Size(300, 13);
+            this.firstNameRegister.TabIndex = 2;
+            this.firstNameRegister.Text = "Imię";
+            // 
+            // lastNameRegister
+            // 
+            this.lastNameRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.lastNameRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.lastNameRegister.IsPassword = false;
+            this.lastNameRegister.Location = new System.Drawing.Point(60, 292);
+            this.lastNameRegister.Name = "lastNameRegister";
+            this.lastNameRegister.PlaceHolder = "Nazwisko";
+            this.lastNameRegister.Size = new System.Drawing.Size(300, 13);
+            this.lastNameRegister.TabIndex = 3;
+            this.lastNameRegister.Text = "Nazwisko";
+            // 
+            // passwordRegister
+            // 
+            this.passwordRegister.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.passwordRegister.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.passwordRegister.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.passwordRegister.IsPassword = true;
+            this.passwordRegister.Location = new System.Drawing.Point(60, 333);
+            this.passwordRegister.Name = "passwordRegister";
+            this.passwordRegister.PlaceHolder = "Hasło";
+            this.passwordRegister.Size = new System.Drawing.Size(300, 13);
+            this.passwordRegister.TabIndex = 4;
+            this.passwordRegister.Text = "Hasło";
+            this.passwordRegister.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordRegister_KeyDown);
+            // 
+            // loginRegister
+            // 
+            this.loginRegister.BackColor = System.Drawing.Color.Transparent;
+            this.loginRegister.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.loginRegister.FlatAppearance.BorderSize = 0;
+            this.loginRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.loginRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.loginRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.loginRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.loginRegister.ForeColor = System.Drawing.Color.White;
+            this.loginRegister.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.loginRegister.Location = new System.Drawing.Point(150, 523);
+            this.loginRegister.Name = "loginRegister";
+            this.loginRegister.RoundRadius = 30;
+            this.loginRegister.Size = new System.Drawing.Size(120, 26);
+            this.loginRegister.TabIndex = 53;
+            this.loginRegister.TabStop = false;
+            this.loginRegister.Text = "Zaloguj się!";
+            this.loginRegister.UseVisualStyleBackColor = false;
+            this.loginRegister.Click += new System.EventHandler(this.loginRegister_Click);
+            // 
+            // registerRegister
+            // 
+            this.registerRegister.BackColor = System.Drawing.Color.Transparent;
+            this.registerRegister.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.registerRegister.FlatAppearance.BorderSize = 0;
+            this.registerRegister.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.registerRegister.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.registerRegister.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.registerRegister.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.registerRegister.ForeColor = System.Drawing.Color.White;
+            this.registerRegister.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.registerRegister.Location = new System.Drawing.Point(120, 393);
+            this.registerRegister.Name = "registerRegister";
+            this.registerRegister.RoundRadius = 30;
+            this.registerRegister.Size = new System.Drawing.Size(182, 38);
+            this.registerRegister.TabIndex = 54;
+            this.registerRegister.TabStop = false;
+            this.registerRegister.Text = "Zarejestruj";
+            this.registerRegister.UseVisualStyleBackColor = false;
+            this.registerRegister.Click += new System.EventHandler(this.registerRegister_Click);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.Reg;
             this.ClientSize = new System.Drawing.Size(420, 600);
+            this.Controls.Add(this.registerRegister);
+            this.Controls.Add(this.loginRegister);
+            this.Controls.Add(this.passwordRegister);
+            this.Controls.Add(this.lastNameRegister);
+            this.Controls.Add(this.firstNameRegister);
+            this.Controls.Add(this.emailRegister);
             this.Controls.Add(this.showPassword);
             this.Controls.Add(this.passwordInfo);
             this.Controls.Add(this.warnLabel4);
             this.Controls.Add(this.warnLabel3);
             this.Controls.Add(this.warnLabel2);
             this.Controls.Add(this.warnLabel1);
-            this.Controls.Add(this.passwordRegister);
-            this.Controls.Add(this.lastNameRegister);
-            this.Controls.Add(this.firstNameRegister);
-            this.Controls.Add(this.emailRegister);
             this.Controls.Add(this.titleBarRegister);
-            this.Controls.Add(this.loginRegister);
-            this.Controls.Add(this.registerRegister);
             this.Controls.Add(this.closeRegister);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -285,8 +295,6 @@ namespace SBBD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.registerRegister)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.loginRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
@@ -298,13 +306,7 @@ namespace SBBD
         #endregion
 
         private System.Windows.Forms.PictureBox closeRegister;
-        private System.Windows.Forms.PictureBox registerRegister;
-        private System.Windows.Forms.PictureBox loginRegister;
         private System.Windows.Forms.PictureBox titleBarRegister;
-        private System.Windows.Forms.TextBox emailRegister;
-        private System.Windows.Forms.TextBox firstNameRegister;
-        private System.Windows.Forms.TextBox lastNameRegister;
-        private System.Windows.Forms.TextBox passwordRegister;
         private System.Windows.Forms.BindingSource vehiclesBindingSource;
         private System.Windows.Forms.Label warnLabel1;
         private System.Windows.Forms.Timer warningTimer;
@@ -314,5 +316,11 @@ namespace SBBD
         private System.Windows.Forms.PictureBox passwordInfo;
         private System.Windows.Forms.ToolTip toolTip;
         private System.Windows.Forms.Button showPassword;
+        private CustomTextBox emailRegister;
+        private CustomTextBox firstNameRegister;
+        private CustomTextBox lastNameRegister;
+        private CustomTextBox passwordRegister;
+        private RoundedButton loginRegister;
+        private RoundedButton registerRegister;
     }
 }

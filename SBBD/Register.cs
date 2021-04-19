@@ -11,6 +11,7 @@ using System.Data.Entity;
 using System.Net.Mail;
 using System.Security.Cryptography;
 using System.Text.RegularExpressions;
+using System.Drawing.Text;
 
 namespace SBBD
 {
@@ -20,6 +21,7 @@ namespace SBBD
         bool moving;
         int moveX;
         int moveY;
+        PrivateFontCollection pfc;
 
         static Register register;
         static DialogResult dialogResult = DialogResult.No;
@@ -40,6 +42,13 @@ namespace SBBD
             user_context = new VFEntities();
             user_context.Users.Load();
             toolTip.SetToolTip(passwordInfo, "Musi zawierać min. 8 znaków, w tym (A-Z, a-z, 0-9) oraz znak specjalny (@$!%*?&)");
+
+            pfc = new PrivateFontCollection();
+            pfc.AddFontFile(@"Resources\fontBold.ttf");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(pfc.Families[0], c.Font.Size, FontStyle.Regular);
+            }
         }
 
         public static DialogResult ShowRegister()
@@ -146,7 +155,6 @@ namespace SBBD
                 return true;
             }
         }
-
         
         private bool IsValid(string emailaddress)
         {
@@ -159,8 +167,7 @@ namespace SBBD
             {
                 return false;
             }
-        }
-        
+        }  
 
         private bool emailIsRepeat(string email)
         {
@@ -181,26 +188,6 @@ namespace SBBD
         {
             return textBox.Text == "" || textBox.Text == placeholder;
         } 
-
-        private void loginRegister_MouseEnter(object sender, EventArgs e)
-        {
-            loginRegister.BackgroundImage = SBBD.Properties.Resources.BR1on;
-        }
-
-        private void loginRegister_MouseLeave(object sender, EventArgs e)
-        {
-            loginRegister.BackgroundImage = SBBD.Properties.Resources.BR2;
-        }
-
-        private void registerRegister_MouseEnter(object sender, EventArgs e)
-        {
-            registerRegister.BackgroundImage = SBBD.Properties.Resources.BR2on;
-        }
-
-        private void registerRegister_MouseLeave(object sender, EventArgs e)
-        {
-            registerRegister.BackgroundImage = SBBD.Properties.Resources.BR1;
-        }
 
         private void loginRegister_Click(object sender, EventArgs e)
         {
@@ -228,7 +215,7 @@ namespace SBBD
                 this.SetDesktopLocation(MousePosition.X - moveX, MousePosition.Y - moveY);
             }
         }
-
+        /*
         private void textBoxEnter(TextBox textBox, string placeholder, bool password)
         {
             if (textBox.Text == placeholder)
@@ -250,47 +237,7 @@ namespace SBBD
                 textBox.ForeColor = Color.FromArgb(77, 77, 77);
             }
         }
-
-        private void emailRegister_Enter(object sender, EventArgs e)
-        {
-            textBoxEnter((TextBox)sender, "Login (adres e-mail)", false);
-        }
-
-        private void emailRegister_Leave(object sender, EventArgs e)
-        {
-            textBoxLeave((TextBox)sender, "Login (adres e-mail)", false);
-        }
-
-        private void firstNameRegister_Enter(object sender, EventArgs e)
-        {
-            textBoxEnter((TextBox)sender, "Imię", false);
-        }
-
-        private void firstNameRegister_Leave(object sender, EventArgs e)
-        {
-            textBoxLeave((TextBox)sender, "Imię", false);
-        }
-
-        private void lastNameRegister_Enter(object sender, EventArgs e)
-        {
-            textBoxEnter((TextBox)sender, "Nazwisko", false);
-        }
-
-        private void lastNameRegister_Leave(object sender, EventArgs e)
-        {
-            textBoxLeave((TextBox)sender, "Nazwisko", false);
-        }
-
-        private void passwordRegister_Enter(object sender, EventArgs e)
-        {
-            textBoxEnter((TextBox)sender, "Hasło", true);
-        }
-
-        private void passwordRegister_Leave(object sender, EventArgs e)
-        {
-            textBoxLeave((TextBox)sender, "Hasło", true);
-        }
-
+        */
         private void closeRegister_MouseEnter(object sender, EventArgs e)
         {
             closeRegister.BackgroundImage = Properties.Resources.B3;
@@ -330,7 +277,7 @@ namespace SBBD
 
         private void showPassword_MouseUp(object sender, MouseEventArgs e)
         {
-            if(passwordRegister.Text == "Hasło")
+            if(passwordRegister.Text == "Hasło" && passwordRegister.PlaceHolder == "Hasło")
             {
                 passwordRegister.PasswordChar = '\0';
             }
