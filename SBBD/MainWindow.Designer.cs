@@ -114,7 +114,7 @@ namespace SBBD
             this.infoUserLabel1 = new System.Windows.Forms.Label();
             this.infoRegNum = new System.Windows.Forms.TextBox();
             this.infoVehicleColor = new System.Windows.Forms.TextBox();
-            this.customPictureBox2 = new SBBD.CustomPictureBox();
+            this.customButton1 = new SBBD.CustomButton();
             this.enginePower = new SBBD.CustomTextBox();
             this.engineCapacity = new SBBD.CustomTextBox();
             this.vinNumber = new SBBD.CustomTextBox();
@@ -172,7 +172,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.editVehicleImage)).BeginInit();
             this.infoVehiclePanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customPictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1252,20 +1251,23 @@ namespace SBBD
             this.infoVehicleColor.TabIndex = 2;
             this.infoVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // customPictureBox2
+            // customButton1
             // 
-            this.customPictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.customPictureBox2.HoverImage = global::SBBD.Properties.Resources.MWB2on;
-            this.customPictureBox2.Location = new System.Drawing.Point(0, 358);
-            this.customPictureBox2.Name = "customPictureBox2";
-            this.customPictureBox2.RegularImage = global::SBBD.Properties.Resources.MWB2off;
-            this.customPictureBox2.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.customPictureBox2.SelectedMenuItem = false;
-            this.customPictureBox2.Size = new System.Drawing.Size(200, 50);
-            this.customPictureBox2.TabIndex = 51;
-            this.customPictureBox2.TabStop = false;
-            this.customPictureBox2.Click += new System.EventHandler(this.customPictureBox2_Click);
-            this.customPictureBox2.DoubleClick += new System.EventHandler(this.customPictureBox2_DoubleClick);
+            this.customButton1.BackColor = System.Drawing.Color.Transparent;
+            this.customButton1.FlatAppearance.BorderSize = 0;
+            this.customButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.customButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.customButton1.ImageActive = global::SBBD.Properties.Resources.MWB1on;
+            this.customButton1.ImageInactive = global::SBBD.Properties.Resources.MWB1off;
+            this.customButton1.Location = new System.Drawing.Point(0, 402);
+            this.customButton1.Name = "customButton1";
+            this.customButton1.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.customButton1.SelectedMenuItem = false;
+            this.customButton1.Size = new System.Drawing.Size(200, 50);
+            this.customButton1.TabIndex = 52;
+            this.customButton1.UseVisualStyleBackColor = false;
+            this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
             // 
             // enginePower
             // 
@@ -1425,9 +1427,11 @@ namespace SBBD
             this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
             this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
-            this.infoReturnBtn.ImageInctive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
+            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
             this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
             this.infoReturnBtn.Name = "infoReturnBtn";
+            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
+            this.infoReturnBtn.SelectedMenuItem = false;
             this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
             this.infoReturnBtn.TabIndex = 49;
             this.infoReturnBtn.TabStop = false;
@@ -1515,9 +1519,11 @@ namespace SBBD
             this.mainExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.mainExit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mainExit.ImageActive = global::SBBD.Properties.Resources.MWB6on;
-            this.mainExit.ImageInctive = global::SBBD.Properties.Resources.MWB6off;
+            this.mainExit.ImageInactive = global::SBBD.Properties.Resources.MWB6off;
             this.mainExit.Location = new System.Drawing.Point(1240, 0);
             this.mainExit.Name = "mainExit";
+            this.mainExit.SelectedColor = System.Drawing.Color.Empty;
+            this.mainExit.SelectedMenuItem = false;
             this.mainExit.Size = new System.Drawing.Size(40, 26);
             this.mainExit.TabIndex = 45;
             this.mainExit.UseVisualStyleBackColor = false;
@@ -1531,9 +1537,11 @@ namespace SBBD
             this.mainMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.mainMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.mainMinimize.ImageActive = global::SBBD.Properties.Resources.MWB7on;
-            this.mainMinimize.ImageInctive = global::SBBD.Properties.Resources.MWB7off;
+            this.mainMinimize.ImageInactive = global::SBBD.Properties.Resources.MWB7off;
             this.mainMinimize.Location = new System.Drawing.Point(1200, 0);
             this.mainMinimize.Name = "mainMinimize";
+            this.mainMinimize.SelectedColor = System.Drawing.Color.Empty;
+            this.mainMinimize.SelectedMenuItem = false;
             this.mainMinimize.Size = new System.Drawing.Size(40, 26);
             this.mainMinimize.TabIndex = 46;
             this.mainMinimize.UseVisualStyleBackColor = false;
@@ -1545,7 +1553,7 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
-            this.Controls.Add(this.customPictureBox2);
+            this.Controls.Add(this.customButton1);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
@@ -1620,7 +1628,6 @@ namespace SBBD
             this.infoVehiclePanel.ResumeLayout(false);
             this.infoVehiclePanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.customPictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -1713,7 +1720,6 @@ namespace SBBD
         private System.Windows.Forms.TextBox infoModel;
         private System.Windows.Forms.TextBox infoFuelType;
         private System.Windows.Forms.TextBox infoBodyType;
-        private CustomPictureBox customPictureBox2;
         private CustomButton mainExit;
         private CustomTextBox regNumber;
         private RoundedButton addVehicleBtn;
@@ -1729,5 +1735,6 @@ namespace SBBD
         private RoundedButton editConfirm;
         private RoundedButton editCancel;
         private RoundedButton roundedButton2;
+        private CustomButton customButton1;
     }
 }

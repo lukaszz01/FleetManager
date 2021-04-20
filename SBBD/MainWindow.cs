@@ -785,14 +785,9 @@ namespace SBBD
             HideOtherPanels(vehiclesPanel);
         }
 
-        private void customPictureBox2_Click(object sender, EventArgs e)
+        private void customButton1_Click(object sender, EventArgs e)
         {
-            customPictureBox2.SelectedMenuItem = true;
-        }
-
-        private void customPictureBox2_DoubleClick(object sender, EventArgs e)
-        {
-            customPictureBox2.SelectedMenuItem = false;
+            customButton1.SelectedMenuItem = !customButton1.SelectedMenuItem;
         }
     }
 }

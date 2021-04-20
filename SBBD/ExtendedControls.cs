@@ -35,21 +35,25 @@ namespace SBBD
 
     public class CustomButton : Button
     {
-        public Image ImageActive { get; set; }
-        public Image ImageInctive { get; set; }
+        private Image _imageActive;
+        private Image _imageInactive;
 
         private bool _isHovering;
+        private Color _selectedColor;
+        private bool _selectedMenuItem;
 
         public CustomButton()
         {
             MouseEnter += (sender, e) =>
             {
                 _isHovering = true;
+                this.Cursor = Cursors.Hand;
                 Invalidate();
             };
             MouseLeave += (sender, e) =>
             {
                 _isHovering = false;
+                this.Cursor = Cursors.Default;
                 Invalidate();
             };
             this.FlatStyle = FlatStyle.Flat;
@@ -60,26 +64,67 @@ namespace SBBD
             this.Height = 30;
         }
 
+        public Image ImageActive
+        {
+            get => _imageActive;
+            set
+            {
+                _imageActive = value;
+                Invalidate();
+            }
+        }
+
+        public Image ImageInactive
+        {
+            get => _imageInactive;
+            set
+            {
+                _imageInactive = value;
+                Invalidate();
+            }
+        }
+
+        public Color SelectedColor
+        {
+            get => _selectedColor;
+            set
+            {
+                _selectedColor = value;
+                Invalidate();
+            }
+        }
+
+        [Browsable(false)]
+        [EditorBrowsable(EditorBrowsableState.Never)]
+        public bool SelectedMenuItem
+        {
+            get => _selectedMenuItem;
+            set
+            {
+                _selectedMenuItem = value;
+                Invalidate();
+            }
+        }
+
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
-            if (ImageActive != null && ImageInctive != null)
+            RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
+            if (_imageActive != null && _imageInactive != null)
             {
-                RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
-                GraphicsPath gPath = new GraphicsPath();
-                gPath.AddRectangle(Rect);
-
-                using (gPath)
+                if (!_selectedMenuItem)
                 {
-                    TextureBrush tBrush = new TextureBrush(_isHovering ? ImageActive : ImageInctive);
-                    //e.Graphics.FillRectangle(tBrush, Rect);
-                    e.Graphics.FillPath(tBrush, gPath);
-
-                    SizeF stringSize = e.Graphics.MeasureString(Text, Font);
-                    Brush textColor = new SolidBrush(ForeColor);
-                    e.Graphics.DrawString(Text, Font, textColor, (Width - stringSize.Width) / 2, (Height - stringSize.Height) / 2);
+                    TextureBrush tBrush = new TextureBrush(_isHovering ? _imageActive : _imageInactive);
+                    e.Graphics.FillRectangle(tBrush, Rect);
+                    tBrush.Dispose();
                 }
-
+                else
+                {
+                    TextureBrush tBrush = new TextureBrush(_imageInactive);
+                    Brush brush = new SolidBrush(_selectedColor);
+                    e.Graphics.FillRectangle(brush, Rect);
+                    e.Graphics.FillRectangle(tBrush, Rect);
+                }
             }
         }
     }
@@ -96,11 +141,13 @@ namespace SBBD
             MouseEnter += (sender, e) =>
             {
                 _isHovering = true;
+                this.Cursor = Cursors.Hand;
                 Invalidate();
             };
             MouseLeave += (sender, e) =>
             {
                 _isHovering = false;
+                this.Cursor = Cursors.Default;
                 Invalidate();
             };
             this.FlatStyle = FlatStyle.Flat;
@@ -178,99 +225,10 @@ namespace SBBD
             }
         }
     }
-
-    public class CustomPictureBox : PictureBox
-    {
-        private Image _hoverImage;
-        private Image _nonHoverImage;
-        private Color _selectedColor;
-        private bool _isHovering;
-        private bool _selectedMenuItem;
-
-        public CustomPictureBox()
-        {
-            MouseEnter += (sender, e) =>
-            {
-                _isHovering = true;
-                Invalidate();
-            };
-            MouseLeave += (sender, e) =>
-            {
-                _isHovering = false;
-                Invalidate();
-            };
-        }
-
-        public Image HoverImage
-        {
-            get => _hoverImage;
-            set
-            {
-                _hoverImage = value;
-                Invalidate();
-            }
-        }
-
-        public Image RegularImage
-        {
-            get => _nonHoverImage;
-            set
-            {
-                _nonHoverImage = value;
-                Invalidate();
-            }
-        }
-
-        public Color SelectedColor
-        {
-            get => _selectedColor;
-            set
-            {
-                _selectedColor = value;
-                Invalidate();
-            }
-        }
-
-        [Browsable(false)]
-        [EditorBrowsable(EditorBrowsableState.Never)]
-        public bool SelectedMenuItem
-        {
-            get => _selectedMenuItem;
-            set
-            {
-                _selectedMenuItem = value;
-                Invalidate();
-            }
-        }
-
-        protected override void OnPaint(PaintEventArgs e)
-        {
-            base.OnPaint(e);
-            RectangleF Rect = new RectangleF(0, 0, this.Width, this.Height);
-            if (_hoverImage != null && _nonHoverImage != null)
-            {
-                if (!_selectedMenuItem)
-                {
-                    TextureBrush tBrush = new TextureBrush(_isHovering ? _hoverImage : _nonHoverImage);
-                    e.Graphics.FillRectangle(tBrush, Rect);
-                    tBrush.Dispose();
-                }
-                else
-                {
-                    TextureBrush tBrush = new TextureBrush(_nonHoverImage);
-                    Brush brush = new SolidBrush(_selectedColor);
-                    e.Graphics.FillRectangle(brush, Rect);
-                    e.Graphics.FillRectangle(tBrush, Rect);
-                }
-            }
-        }
-    }
-
     public class CustomTextBox : TextBox
     {
         private string _placeHolder;
         private bool _isPassword = false;
-        private bool _isIn;
 
         protected override void OnEnter(EventArgs e)
         {
