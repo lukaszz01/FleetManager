@@ -322,8 +322,12 @@
     <None Include="Resources\ReturnBTN_inactive1.png" />
     <None Include="Resources\editWindow.png" />
     <None Include="Resources\editWindow1.png" />
-    <Resource Include="Resources\vehicleCheck1.png" />
-    <Resource Include="Resources\vehicleUncheck1.png" />
+    <None Include="Resources\vehicleCheck1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="Resources\vehicleUncheck1.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
