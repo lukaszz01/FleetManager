@@ -514,6 +514,8 @@ namespace SBBD
             Image infoimg = Image.FromFile(@"Resources\info.png");
             Image editimg = Image.FromFile(@"Resources\edit.png");
             Image deleteimg = Image.FromFile(@"Resources\delete.png");
+            Image checkVehicle = Image.FromFile(@"Resources\vehicleCheck1.png");
+            Image uncheckVehicle = Image.FromFile(@"Resources\vehicleUncheck1.png");
             using (Graphics g = Graphics.FromImage(bm))
             {
                 g.DrawImage(bm2, 0, 0, 310, 174);
@@ -535,8 +537,16 @@ namespace SBBD
                 g.DrawImage(deleteimg, 275, 139, 20, 20);
                 g.DrawImage(infoimg, 240, 139, 20, 20);
                 g.DrawImage(editimg, 205, 139, 20, 20);
+                if(vehicle.available == true)
+                {
+                    g.DrawImage(checkVehicle, 10, 10, 20, 20);
+                }
+                else
+                {
+                    g.DrawImage(uncheckVehicle, 10, 10, 20, 20);
+                }
+                
             }
-
 
             pictureBox.Image = bm;
             label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
@@ -546,6 +556,9 @@ namespace SBBD
             infoimg.Dispose();
             editimg.Dispose();
             deleteimg.Dispose();
+
+            checkVehicle.Dispose();
+            uncheckVehicle.Dispose();
         }
 
         private Bitmap ByteToImage(byte[] image)

@@ -703,6 +703,26 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap vehicleCheck1 {
+            get {
+                object obj = ResourceManager.GetObject("vehicleCheck1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap vehicleUncheck1 {
+            get {
+                object obj = ResourceManager.GetObject("vehicleUncheck1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap VehInfoBG {
             get {
                 object obj = ResourceManager.GetObject("VehInfoBG", resourceCulture);
