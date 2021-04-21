@@ -241,14 +241,14 @@ namespace SBBD
 
         private void logout_Click(object sender, EventArgs e)
         {
-            if (selected != 4)
+            /*if (selected != 4)
             {
                 changeBtnTransparent(selected);
-                selected = 4;
+                /*selected = 4;
                 logout.BackColor = Color.FromArgb(30, 35, 40);
                 logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
            
-            }
+            }*/
             switch (MessageBox.Show("Czy na pewno chcesz się wylogować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
             {
                 case DialogResult.Yes:
@@ -537,7 +537,7 @@ namespace SBBD
                 g.DrawImage(deleteimg, 275, 139, 20, 20);
                 g.DrawImage(infoimg, 240, 139, 20, 20);
                 g.DrawImage(editimg, 205, 139, 20, 20);
-                if(vehicle.available == true)
+                if(vehicle.available)
                 {
                     g.DrawImage(checkVehicle, 10, 10, 20, 20);
                 }
@@ -556,7 +556,6 @@ namespace SBBD
             infoimg.Dispose();
             editimg.Dispose();
             deleteimg.Dispose();
-
             checkVehicle.Dispose();
             uncheckVehicle.Dispose();
         }
