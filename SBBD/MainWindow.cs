@@ -17,7 +17,17 @@ namespace SBBD
 {
     public partial class MainWindow : Form
     {
-        
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
         VFEntities context;
         bool moving;
         int moveX;
@@ -799,7 +809,8 @@ namespace SBBD
 
         private void customButton1_Click(object sender, EventArgs e)
         {
-            customButton1.SelectedMenuItem = !customButton1.SelectedMenuItem;
+            //customButton1.SelectedMenuItem = !customButton1.SelectedMenuItem;
+            CustomMessageBox.CustomMsg("cos", 1500, false);
         }
     }
 }

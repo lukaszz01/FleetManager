@@ -47,13 +47,11 @@ namespace SBBD
             MouseEnter += (sender, e) =>
             {
                 _isHovering = true;
-                this.Cursor = Cursors.Hand;
                 Invalidate();
             };
             MouseLeave += (sender, e) =>
             {
                 _isHovering = false;
-                this.Cursor = Cursors.Default;
                 Invalidate();
             };
             this.FlatStyle = FlatStyle.Flat;
@@ -62,6 +60,8 @@ namespace SBBD
             this.FlatAppearance.MouseOverBackColor = Color.Transparent;
             this.Width = 140;
             this.Height = 30;
+            this.Cursor = Cursors.Hand;
+            this.BackColor = Color.Transparent;
         }
 
         public Image ImageActive
@@ -141,13 +141,11 @@ namespace SBBD
             MouseEnter += (sender, e) =>
             {
                 _isHovering = true;
-                this.Cursor = Cursors.Hand;
                 Invalidate();
             };
             MouseLeave += (sender, e) =>
             {
                 _isHovering = false;
-                this.Cursor = Cursors.Default;
                 Invalidate();
             };
             this.FlatStyle = FlatStyle.Flat;
@@ -158,6 +156,8 @@ namespace SBBD
             this.Height = 30;
             this.ForeColor = Color.White;
             this.Font = new Font(this.Font.FontFamily, 10, FontStyle.Bold);
+            this.BackColor = Color.Transparent;
+            this.Cursor = Cursors.Hand;
         }
 
         GraphicsPath GetRoundPath(RectangleF rectangle, int radius)
@@ -285,6 +285,29 @@ namespace SBBD
                 _isPassword = value;
                 Invalidate();
             }
+        }
+    }
+
+    public static class CustomMessageBox
+    {
+        public static DialogResult CustomMsg(string text, int miliseconds, bool YesNo)
+        {
+            DialogResult dialogResult = DialogResult.No;
+            if (!YesNo)
+            {
+                using (CustomMessageBoxForm msg = new CustomMessageBoxForm(text, miliseconds))
+                {
+                    dialogResult = msg.ShowDialog();
+                }
+            }
+            else
+            {
+                using (CustomMessageBoxForm msg = new CustomMessageBoxForm(text, YesNo))
+                {
+                    dialogResult = msg.ShowDialog();
+                }
+            }
+            return dialogResult;
         }
     }
 }
