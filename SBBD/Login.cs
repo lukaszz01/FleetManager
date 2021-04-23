@@ -58,10 +58,7 @@ namespace SBBD
 
         private void closeLogin_Click(object sender, EventArgs e)
         {
-            switch(MessageBox.Show("Czy na pewno chcesz zamknąć aplikację?", 
-                        "Informacja", 
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question))
+            switch(CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zamknąć aplikację?", 1500, true))
             {
                 case DialogResult.Yes:
                     Application.Exit();
@@ -101,7 +98,6 @@ namespace SBBD
                 else
                 {
                     logged_user_value = user;
-                    AutoClosingMessageBox.Show(text: "Pomyślnie zalogowano. Witamy!", caption: "Informacja", timeout: 1500);
                     this.Close();
                 }
             }

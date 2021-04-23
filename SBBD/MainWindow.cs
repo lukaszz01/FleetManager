@@ -259,10 +259,10 @@ namespace SBBD
                 logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
            
             }*/
-            switch (MessageBox.Show("Czy na pewno chcesz się wylogować?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+            switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz\n się wylogować?", 1500, true))
             {
                 case DialogResult.Yes:
-                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano! Zamykanie aplikacji...", caption: "Informacja", timeout: 2000);
+                    CustomMessageBox.CustomMsg("Pomyślnie wylogowano!\n Zamykanie aplikacji...", 1500, false);
                     this.Hide();
                     this.OnLoad(null);
                     this.Refresh();
@@ -302,13 +302,10 @@ namespace SBBD
 
         private void mainExit_Click(object sender, EventArgs e)
         {
-            switch (MessageBox.Show("Czy na pewno chcesz zamknąć aplikację?",
-                        "Informacja",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question, MessageBoxDefaultButton.Button2))
+            switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zamknąć aplikację?", 1500, true))
             {
                 case DialogResult.Yes:
-                    AutoClosingMessageBox.Show(text: "Pomyślnie wylogowano! Zamykanie aplikacji...", caption: "Informacja", timeout: 2000);
+                    CustomMessageBox.CustomMsg("Zamykanie aplikacji...", 1500, false);
                     Application.Exit();
                     break;
                 case DialogResult.No:
@@ -473,7 +470,7 @@ namespace SBBD
                     vehicle_id = vehicle.vehicle_id,
                     vehicle_image = image,
                 };
-                AutoClosingMessageBox.Show(text: "Pomyślnie dodano pojazd!", caption: "Informacja", timeout: 1500);
+                CustomMessageBox.CustomMsg("Pomyślnie dodano \n pojazd do bazy!", 1500, false);
                 context.Vehicles.Add(vehicle);
                 context.Vehicles_Images.Add(vehicleImage);
                 context.SaveChanges();
@@ -632,7 +629,7 @@ namespace SBBD
 
         private void editVehicleFill()
         {
-            var question = MessageBox.Show("Czy na pewno chcesz edytować dane pojazdu?", "Informacja", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane?", 1500, true);
             if(question == DialogResult.Yes)
             {
                 HideOtherPanels(editVehiclePanel);
@@ -698,7 +695,7 @@ namespace SBBD
 
         private void deleteVehicle()
         {
-            var warn = MessageBox.Show("Czy na pewno chcesz usunąć ten pojazd?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Warning, MessageBoxDefaultButton.Button2);
+            var warn = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć ten pojazd?", 1500, true);
             if (warn == DialogResult.Yes)
             {
                 string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
@@ -709,6 +706,7 @@ namespace SBBD
                 this.context.SaveChanges();
                 allVehicles_Click(null, null);
                 populatePanel();
+                CustomMessageBox.CustomMsg("Poprawnie usunięto \n wybrany pojazd!", 1500, false);
             }
         }
 
@@ -724,7 +722,7 @@ namespace SBBD
                 IsEmpty(editRegNum)
                 )
             {
-                MessageBox.Show("Pola nie mogą być puste!");
+                CustomMessageBox.CustomMsg("Pola nie mogą \n być puste!", 1500, false);
             }
             //else if (
             //    !RegexD(@"^[a-zA-Z]+$", editVehicleColor) ||
@@ -762,8 +760,10 @@ namespace SBBD
         private void clearVehicleBtn_Click(object sender, EventArgs e)
         {
 
-            var quest = MessageBox.Show("Usunąć wprowadzone dane?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            if(quest == DialogResult.Yes)
+            //var quest = MessageBox.Show("Usunąć wprowadzone dane?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+            
+            var quest = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć wprowadzone dane?", 1500, true);
+            if (quest == DialogResult.Yes)
             {
                 bodyTypeComboBox.SelectedIndex = -1;
                 fuelTypeComboBox.SelectedIndex = -1;

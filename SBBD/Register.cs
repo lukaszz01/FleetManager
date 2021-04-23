@@ -59,11 +59,14 @@ namespace SBBD
         }
 
         private void closeRegister_Click(object sender, EventArgs e)
+
         {
-            switch (MessageBox.Show("Czy na pewno chcesz zakończyć rejestrację?",
-                        "Informacja",
-                        MessageBoxButtons.YesNo,
-                        MessageBoxIcon.Question))
+            //MessageBox.Show("Czy na pewno chcesz zakończyć rejestrację?",
+            //            "Informacja",
+            //            MessageBoxButtons.YesNo,
+            //            MessageBoxIcon.Question)
+
+            switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zakończyć rejestracje?", 1500, true))
             {
                 case DialogResult.Yes:
                     Application.Exit();
@@ -79,7 +82,8 @@ namespace SBBD
                 IsEmpty(emailRegister, "Login (adres e-mail)") ||
                 IsEmpty(firstNameRegister, "Imię") ||
                 IsEmpty(lastNameRegister, "Nazwisko") ||
-                IsEmpty(passwordRegister, "Hasło")
+                IsEmpty(passwordRegister, "Hasło") ||
+                IsEmpty(passwordRegister1, "Hasło")
                 )
             {
                 warningTimer.Start();
@@ -88,12 +92,15 @@ namespace SBBD
             else if (
                 !IsValid(emailRegister.Text) || 
                 !RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister) ||
-                !RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)
+                !RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister) ||
+                !RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)
                 )
             {
                 if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowErrorMsg(warnLabel2);
+                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)) ShowErrorMsg(warnLabel2);
+                if (passwordRegister.PasswordChar.Equals(passwordRegister1.PasswordChar)) ShowErrorMsg(warnLabel2);
             }
             else if (emailIsRepeat(emailRegister.Text))
             {
@@ -112,7 +119,8 @@ namespace SBBD
                 };
                 user_context.Users.Add(user);
                 user_context.SaveChanges();
-                AutoClosingMessageBox.Show(text: "Rejestracja udana. Możesz się zalogować!", caption: "Informacja", timeout: 1500);
+                CustomMessageBox.CustomMsg("Rejestracja udana! Możesz \n teraz się zalogować", 1500, false);
+                //AutoClosingMessageBox.Show(text: "Rejestracja udana. Możesz się zalogować!", caption: "Informacja", timeout: 1500);
                 register.Close();
                 this.Hide();
                 Login.ShowLogin();
@@ -249,17 +257,20 @@ namespace SBBD
         private void showPassword_MouseDown(object sender, MouseEventArgs e)
         {
             passwordRegister.PasswordChar = '\0';
+            passwordRegister1.PasswordChar = '\0';
         }
 
         private void showPassword_MouseUp(object sender, MouseEventArgs e)
         {
-            if(passwordRegister.Text == passwordRegister.PlaceHolder)
+            if(passwordRegister.Text == passwordRegister.PlaceHolder && passwordRegister1.Text == passwordRegister1.PlaceHolder)
             {
                 passwordRegister.PasswordChar = '\0';
+                passwordRegister1.PasswordChar = '\0';
             }
             else
             {
                 passwordRegister.PasswordChar = '*';
+                passwordRegister1.PasswordChar = '*';
             }
         }
     }

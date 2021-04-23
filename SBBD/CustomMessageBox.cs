@@ -14,7 +14,7 @@ namespace SBBD
     public partial class CustomMessageBoxForm : Form
     {
         PrivateFontCollection pfc;
-
+        
         protected override CreateParams CreateParams
         {
             get
@@ -32,12 +32,13 @@ namespace SBBD
             pfc.AddFontFile(@"Resources\fontBold.ttf");
             foreach (Control c in this.Controls)
             {
-                c.Font = new Font(pfc.Families[0], c.Font.Size, FontStyle.Regular);
+                c.Font = new Font(pfc.Families[0], c.Font.Size, FontStyle.Bold);
                 foreach (Control c2 in c.Controls)
                 {
                     c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
                 }
             }
+            messageInfo.Text = "Automatyczne zamykanie...";
         }
         public CustomMessageBoxForm()
         {
@@ -63,24 +64,26 @@ namespace SBBD
         public CustomMessageBoxForm(string text, int miliseconds)
         {
             InitializeComponent();
-            this.messageText.Text = text;
+            this.customMSbx_text.Text = text;
+           // this.messageText.Text = text;
             this.timer.Interval = miliseconds;
-            this.buttonOK.Visible = true;
+            this.messageInfo.Visible = true;
             this.timer.Start();
-            imageChange(2, iconPic);
+            imageChange(1, iconPic);
             //this.iconPic.Image = Properties.Resources.   // info
-
         }
 
         public CustomMessageBoxForm(string text, bool YesNo)
         {
             InitializeComponent();
-            this.messageText.Text = text;
+            this.customMSbx_text.Text = text;
+           // this.messageText.Text = text;
             this.timer.Enabled = false;
             this.buttonNo.Visible = true;
             this.buttonYes.Visible = true;
-            this.buttonOK.Visible = false;
-            imageChange(1, iconPic);
+            this.messageInfo.Visible = false;
+            //this.buttonOK.Visible = false;
+            imageChange(2, iconPic);
            //this.iconPic.Image = Properties.Resources.   // pytajnik
         }
 

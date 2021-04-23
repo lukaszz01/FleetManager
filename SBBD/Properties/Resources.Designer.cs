@@ -133,6 +133,16 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap BGcustomMBX2 {
+            get {
+                object obj = ResourceManager.GetObject("BGcustomMBX2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap BL1on {
             get {
                 object obj = ResourceManager.GetObject("BL1on", resourceCulture);
@@ -606,6 +616,16 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap Reg {
             get {
                 object obj = ResourceManager.GetObject("Reg", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Reg1 {
+            get {
+                object obj = ResourceManager.GetObject("Reg1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
