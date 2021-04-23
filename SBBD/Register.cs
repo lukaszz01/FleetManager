@@ -119,7 +119,7 @@ namespace SBBD
                 };
                 user_context.Users.Add(user);
                 user_context.SaveChanges();
-                CustomMessageBox.CustomMsg("Rejestracja udana! Możesz \n teraz się zalogować", 1500, false);
+                CustomMessageBox.CustomMsg("Rejestracja udana! Możesz \n teraz się zalogować", 2000, false);
                 //AutoClosingMessageBox.Show(text: "Rejestracja udana. Możesz się zalogować!", caption: "Informacja", timeout: 1500);
                 register.Close();
                 this.Hide();

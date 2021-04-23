@@ -282,7 +282,7 @@ namespace SBBD
             this.passwordRegister1.Name = "passwordRegister1";
             this.passwordRegister1.PlaceHolder = "Hasło";
             this.passwordRegister1.Size = new System.Drawing.Size(300, 13);
-            this.passwordRegister1.TabIndex = 55;
+            this.passwordRegister1.TabIndex = 5;
             this.passwordRegister1.Text = "Hasło";
             // 
             // Register

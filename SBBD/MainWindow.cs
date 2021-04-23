@@ -262,7 +262,7 @@ namespace SBBD
             switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz\n się wylogować?", 1500, true))
             {
                 case DialogResult.Yes:
-                    CustomMessageBox.CustomMsg("Pomyślnie wylogowano!\n Zamykanie aplikacji...", 1500, false);
+                    CustomMessageBox.CustomMsg("Pomyślnie wylogowano!\n Zamykanie aplikacji...", 2000, false);
                     this.Hide();
                     this.OnLoad(null);
                     this.Refresh();
@@ -305,7 +305,7 @@ namespace SBBD
             switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zamknąć aplikację?", 1500, true))
             {
                 case DialogResult.Yes:
-                    CustomMessageBox.CustomMsg("Zamykanie aplikacji...", 1500, false);
+                    CustomMessageBox.CustomMsg("Zamykanie aplikacji...", 2000, false);
                     Application.Exit();
                     break;
                 case DialogResult.No:
@@ -470,7 +470,7 @@ namespace SBBD
                     vehicle_id = vehicle.vehicle_id,
                     vehicle_image = image,
                 };
-                CustomMessageBox.CustomMsg("Pomyślnie dodano \n pojazd do bazy!", 1500, false);
+                CustomMessageBox.CustomMsg("Pomyślnie dodano \n pojazd do bazy!", 2000, false);
                 context.Vehicles.Add(vehicle);
                 context.Vehicles_Images.Add(vehicleImage);
                 context.SaveChanges();
@@ -706,7 +706,7 @@ namespace SBBD
                 this.context.SaveChanges();
                 allVehicles_Click(null, null);
                 populatePanel();
-                CustomMessageBox.CustomMsg("Poprawnie usunięto \n wybrany pojazd!", 1500, false);
+                CustomMessageBox.CustomMsg("Poprawnie usunięto \n wybrany pojazd!", 2000, false);
             }
         }
 
@@ -722,7 +722,7 @@ namespace SBBD
                 IsEmpty(editRegNum)
                 )
             {
-                CustomMessageBox.CustomMsg("Pola nie mogą \n być puste!", 1500, false);
+                CustomMessageBox.CustomMsg("Pola nie mogą \n być puste!", 2000, false);
             }
             //else if (
             //    !RegexD(@"^[a-zA-Z]+$", editVehicleColor) ||
