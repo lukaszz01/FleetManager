@@ -337,6 +337,14 @@
     <None Include="Resources\vehicleUncheck1.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+    <None Include="Resources\BGcustomMBX.png" />
+    <None Include="Resources\BGcustomMBX1.png" />
+    <None Include="Resources\CMSBX_info.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <Content Include="Resources\CMSBX_question.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>

@@ -7,11 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing.Text;
 
 namespace SBBD
 {
     public partial class CustomMessageBoxForm : Form
     {
+        PrivateFontCollection pfc;
+
         protected override CreateParams CreateParams
         {
             get
@@ -22,9 +25,39 @@ namespace SBBD
                 return cp;
             }
         }
+
+        protected override void OnLoad(EventArgs e)
+        {
+            pfc = new PrivateFontCollection();
+            pfc.AddFontFile(@"Resources\fontBold.ttf");
+            foreach (Control c in this.Controls)
+            {
+                c.Font = new Font(pfc.Families[0], c.Font.Size, FontStyle.Regular);
+                foreach (Control c2 in c.Controls)
+                {
+                    c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
+                }
+            }
+        }
         public CustomMessageBoxForm()
         {
             InitializeComponent();
+        }
+
+        public static void imageChange(int switchNum, PictureBox pb)
+        {
+            switch (switchNum)
+            {
+                case 1:
+                    pb.Load(@"Resources\CMSBX_info.png");
+                    break;
+                case 2:
+                    pb.Load(@"Resources\CMSBX_question.png");
+                    break;
+                case 3:
+                    // trzeci jakiś obrazek xD
+                    break;
+            }
         }
 
         public CustomMessageBoxForm(string text, int miliseconds)
@@ -32,7 +65,9 @@ namespace SBBD
             InitializeComponent();
             this.messageText.Text = text;
             this.timer.Interval = miliseconds;
+            this.buttonOK.Visible = true;
             this.timer.Start();
+            imageChange(2, iconPic);
             //this.iconPic.Image = Properties.Resources.   // info
 
         }
@@ -44,7 +79,9 @@ namespace SBBD
             this.timer.Enabled = false;
             this.buttonNo.Visible = true;
             this.buttonYes.Visible = true;
-            //this.iconPic.Image = Properties.Resources.   // pytajnik
+            this.buttonOK.Visible = false;
+            imageChange(1, iconPic);
+           //this.iconPic.Image = Properties.Resources.   // pytajnik
         }
 
 

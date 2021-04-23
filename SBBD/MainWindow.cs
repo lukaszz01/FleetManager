@@ -547,7 +547,7 @@ namespace SBBD
                 g.DrawImage(deleteimg, 275, 139, 20, 20);
                 g.DrawImage(infoimg, 240, 139, 20, 20);
                 g.DrawImage(editimg, 205, 139, 20, 20);
-                if(vehicle.available)
+                if(vehicle.available == true)
                 {
                     g.DrawImage(checkVehicle, 10, 10, 20, 20);
                 }
@@ -810,7 +810,7 @@ namespace SBBD
         private void customButton1_Click(object sender, EventArgs e)
         {
             //customButton1.SelectedMenuItem = !customButton1.SelectedMenuItem;
-            CustomMessageBox.CustomMsg("cos", 1500, false);
+            CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane pojazdu?", 1500, false);
         }
     }
 }

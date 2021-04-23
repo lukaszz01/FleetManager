@@ -654,7 +654,9 @@ namespace SBBD
             // 
             // addVehicleBtn
             // 
+            this.addVehicleBtn.BackColor = System.Drawing.Color.Transparent;
             this.addVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addVehicleBtn.FlatAppearance.BorderSize = 0;
             this.addVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.addVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -674,7 +676,9 @@ namespace SBBD
             // 
             // addPhotoBtn
             // 
+            this.addPhotoBtn.BackColor = System.Drawing.Color.Transparent;
             this.addPhotoBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addPhotoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.addPhotoBtn.FlatAppearance.BorderSize = 0;
             this.addPhotoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.addPhotoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -694,7 +698,9 @@ namespace SBBD
             // 
             // clearVehicleBtn
             // 
+            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
             this.clearVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.clearVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.clearVehicleBtn.FlatAppearance.BorderSize = 0;
             this.clearVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.clearVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -986,7 +992,9 @@ namespace SBBD
             // 
             // editConfirm
             // 
+            this.editConfirm.BackColor = System.Drawing.Color.Transparent;
             this.editConfirm.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.editConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editConfirm.FlatAppearance.BorderSize = 0;
             this.editConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.editConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1006,7 +1014,9 @@ namespace SBBD
             // 
             // editCancel
             // 
+            this.editCancel.BackColor = System.Drawing.Color.Transparent;
             this.editCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.editCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.editCancel.FlatAppearance.BorderSize = 0;
             this.editCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.editCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1026,7 +1036,9 @@ namespace SBBD
             // 
             // roundedButton2
             // 
+            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
             this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.roundedButton2.FlatAppearance.BorderSize = 0;
             this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1280,6 +1292,8 @@ namespace SBBD
             // 
             // infoReturnBtn
             // 
+            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
             this.infoReturnBtn.FlatAppearance.BorderSize = 0;
             this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1482,6 +1496,7 @@ namespace SBBD
             // customButton1
             // 
             this.customButton1.BackColor = System.Drawing.Color.Transparent;
+            this.customButton1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.customButton1.FlatAppearance.BorderSize = 0;
             this.customButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.customButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1514,6 +1529,7 @@ namespace SBBD
             // mainExit
             // 
             this.mainExit.BackColor = System.Drawing.Color.Transparent;
+            this.mainExit.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mainExit.FlatAppearance.BorderSize = 0;
             this.mainExit.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.mainExit.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1532,6 +1548,7 @@ namespace SBBD
             // mainMinimize
             // 
             this.mainMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.mainMinimize.Cursor = System.Windows.Forms.Cursors.Hand;
             this.mainMinimize.FlatAppearance.BorderSize = 0;
             this.mainMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.mainMinimize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1554,10 +1571,10 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
             this.Controls.Add(this.customButton1);
+            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
-            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.userNameInfo);
