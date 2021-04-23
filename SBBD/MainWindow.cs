@@ -173,9 +173,20 @@ namespace SBBD
                     case DialogResult.Yes:
                         CustomMessageBox.CustomMsg("Pomyślnie wylogowano!\n Zamykanie aplikacji...", 2000, false);
                         this.Hide();
-                        this.OnLoad(null);
                         this.Refresh();
-                        this.Show();
+                        this.OnLoad(null);
+                        this.Invalidate();
+                        FormCollection fc = Application.OpenForms;
+                        foreach (Form form in fc)
+                        {
+                            if (form.Name == "MainWindow")
+                            {
+                                this.Show();
+                                break;
+                            }
+                        }
+                        //selected = 1;
+                        //allVehicles.BackColor = Color.FromArgb(30, 35, 40);
                         break;
                     case DialogResult.No:
                         changeBtnTransparent(selected);
@@ -736,11 +747,7 @@ namespace SBBD
             HideOtherPanels(vehiclesPanel);
         }
 
-        private void customButton1_Click(object sender, EventArgs e)
-        {
-            //customButton1.SelectedMenuItem = !customButton1.SelectedMenuItem;
-            //CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane pojazdu?", 1500, false);
-            context.Vehicles.Select(x => x).OrderBy(x => x.available).ToList();
-        }
+
+        // context.Vehicles.Select(x => x).OrderBy(x => x.available).ToList();
     }
 }
