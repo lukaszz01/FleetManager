@@ -666,12 +666,12 @@ namespace SBBD
                 editWarnLabel3.Visible = true;
             }
             else if (
-                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
-                !RegexD(@"^[a-zA-Z]+$", vehicleColor)
+                !RegexD(@"^[a-zA-Z0-9]+$", editRegNum) ||
+                !RegexD(@"^[a-zA-Z]+$", editVehicleColor)
             )
             {
-                if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(editWarnLabel1);
-                if (!RegexD(@"^[a-zA-Z]+$", vehicleColor)) ShowErrorMsg(editWarnLabel2);
+                if (!RegexD(@"^[a-zA-Z0-9]+$", editRegNum)) ShowErrorMsg(editWarnLabel1);
+                if (!RegexD(@"^[a-zA-Z]+$", editVehicleColor)) ShowErrorMsg(editWarnLabel2);
             }
             else
             {
@@ -746,7 +746,6 @@ namespace SBBD
         {
             HideOtherPanels(vehiclesPanel);
         }
-
 
         // context.Vehicles.Select(x => x).OrderBy(x => x.available).ToList();
     }
