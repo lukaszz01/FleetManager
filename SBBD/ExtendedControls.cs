@@ -309,8 +309,5 @@ namespace SBBD
             }
             return dialogResult;
         }
-
-
-
     }
 }

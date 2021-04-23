@@ -31,11 +31,6 @@ namespace SBBD
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
-            this.addVehicle = new System.Windows.Forms.PictureBox();
-            this.allVehicles = new System.Windows.Forms.PictureBox();
-            this.userInfo = new System.Windows.Forms.PictureBox();
-            this.logout = new System.Windows.Forms.PictureBox();
-            this.appInfo = new System.Windows.Forms.PictureBox();
             this.mainTitleBar = new System.Windows.Forms.PictureBox();
             this.vehiclesPanel = new System.Windows.Forms.Panel();
             this.siteNavCenter = new System.Windows.Forms.PictureBox();
@@ -61,15 +56,6 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
-            this.enginePower = new SBBD.CustomTextBox();
-            this.engineCapacity = new SBBD.CustomTextBox();
-            this.vinNumber = new SBBD.CustomTextBox();
-            this.prodYear = new SBBD.CustomTextBox();
-            this.vehicleColor = new SBBD.CustomTextBox();
-            this.regNumber = new SBBD.CustomTextBox();
-            this.addVehicleBtn = new SBBD.RoundedButton();
-            this.addPhotoBtn = new SBBD.RoundedButton();
-            this.clearVehicleBtn = new SBBD.RoundedButton();
             this.warnLabel8 = new System.Windows.Forms.Label();
             this.infoBox6 = new System.Windows.Forms.PictureBox();
             this.infoBox5 = new System.Windows.Forms.PictureBox();
@@ -90,9 +76,8 @@ namespace SBBD
             this.modelComboBox = new System.Windows.Forms.ComboBox();
             this.manufacturerComboBox = new System.Windows.Forms.ComboBox();
             this.editVehiclePanel = new System.Windows.Forms.Panel();
-            this.editConfirm = new SBBD.RoundedButton();
-            this.editCancel = new SBBD.RoundedButton();
-            this.roundedButton2 = new SBBD.RoundedButton();
+            this.editWarnLabel2 = new System.Windows.Forms.Label();
+            this.editWarnLabel1 = new System.Windows.Forms.Label();
             this.editVehicleImage = new System.Windows.Forms.PictureBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.editEnginePower = new System.Windows.Forms.TextBox();
@@ -112,7 +97,6 @@ namespace SBBD
             this.userNameInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
-            this.infoReturnBtn = new SBBD.CustomButton();
             this.infoManufacturer = new System.Windows.Forms.TextBox();
             this.infoModel = new System.Windows.Forms.TextBox();
             this.infoFuelType = new System.Windows.Forms.TextBox();
@@ -127,15 +111,28 @@ namespace SBBD
             this.infoUserLabel1 = new System.Windows.Forms.Label();
             this.infoRegNum = new System.Windows.Forms.TextBox();
             this.infoVehicleColor = new System.Windows.Forms.TextBox();
+            this.logout = new SBBD.CustomButton();
+            this.appInfo = new SBBD.CustomButton();
+            this.userInfo = new SBBD.CustomButton();
+            this.allVehicles = new SBBD.CustomButton();
+            this.addVehicle = new SBBD.CustomButton();
+            this.editConfirm = new SBBD.RoundedButton();
+            this.editCancel = new SBBD.RoundedButton();
+            this.enginePower = new SBBD.CustomTextBox();
+            this.engineCapacity = new SBBD.CustomTextBox();
+            this.vinNumber = new SBBD.CustomTextBox();
+            this.prodYear = new SBBD.CustomTextBox();
+            this.vehicleColor = new SBBD.CustomTextBox();
+            this.regNumber = new SBBD.CustomTextBox();
+            this.addVehicleBtn = new SBBD.RoundedButton();
+            this.addPhotoBtn = new SBBD.RoundedButton();
+            this.clearVehicleBtn = new SBBD.RoundedButton();
             this.customButton1 = new SBBD.CustomButton();
+            this.infoReturnBtn = new SBBD.CustomButton();
             this.trackBar1 = new SBBD.NoFocusTrackBar();
             this.mainExit = new SBBD.CustomButton();
             this.mainMinimize = new SBBD.CustomButton();
-            ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userInfo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logout)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appInfo)).BeginInit();
+            this.editWarnLabel3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             this.vehiclesPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
@@ -174,71 +171,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // addVehicle
-            // 
-            this.addVehicle.BackColor = System.Drawing.Color.Transparent;
-            this.addVehicle.BackgroundImage = global::SBBD.Properties.Resources.MWB1off;
-            this.addVehicle.Location = new System.Drawing.Point(0, 110);
-            this.addVehicle.Name = "addVehicle";
-            this.addVehicle.Size = new System.Drawing.Size(200, 50);
-            this.addVehicle.TabIndex = 0;
-            this.addVehicle.TabStop = false;
-            this.addVehicle.Click += new System.EventHandler(this.addVehicle_Click);
-            this.addVehicle.MouseEnter += new System.EventHandler(this.addVehicle_MouseEnter);
-            this.addVehicle.MouseLeave += new System.EventHandler(this.addVehicle_MouseLeave);
-            // 
-            // allVehicles
-            // 
-            this.allVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.allVehicles.BackgroundImage = global::SBBD.Properties.Resources.MWB2off;
-            this.allVehicles.Location = new System.Drawing.Point(0, 160);
-            this.allVehicles.Name = "allVehicles";
-            this.allVehicles.Size = new System.Drawing.Size(200, 50);
-            this.allVehicles.TabIndex = 1;
-            this.allVehicles.TabStop = false;
-            this.allVehicles.Click += new System.EventHandler(this.allVehicles_Click);
-            this.allVehicles.MouseEnter += new System.EventHandler(this.allVehicles_MouseEnter);
-            this.allVehicles.MouseLeave += new System.EventHandler(this.allVehicles_MouseLeave);
-            // 
-            // userInfo
-            // 
-            this.userInfo.BackColor = System.Drawing.Color.Transparent;
-            this.userInfo.BackgroundImage = global::SBBD.Properties.Resources.MWB3off;
-            this.userInfo.Location = new System.Drawing.Point(0, 210);
-            this.userInfo.Name = "userInfo";
-            this.userInfo.Size = new System.Drawing.Size(200, 50);
-            this.userInfo.TabIndex = 2;
-            this.userInfo.TabStop = false;
-            this.userInfo.Click += new System.EventHandler(this.userInfo_Click);
-            this.userInfo.MouseEnter += new System.EventHandler(this.userInfo_MouseEnter);
-            this.userInfo.MouseLeave += new System.EventHandler(this.userInfo_MouseLeave);
-            // 
-            // logout
-            // 
-            this.logout.BackColor = System.Drawing.Color.Transparent;
-            this.logout.BackgroundImage = global::SBBD.Properties.Resources.OffBTN_inactive;
-            this.logout.Location = new System.Drawing.Point(0, 310);
-            this.logout.Name = "logout";
-            this.logout.Size = new System.Drawing.Size(200, 50);
-            this.logout.TabIndex = 3;
-            this.logout.TabStop = false;
-            this.logout.Click += new System.EventHandler(this.logout_Click);
-            this.logout.MouseEnter += new System.EventHandler(this.logout_MouseEnter);
-            this.logout.MouseLeave += new System.EventHandler(this.logout_MouseLeave);
-            // 
-            // appInfo
-            // 
-            this.appInfo.BackColor = System.Drawing.Color.Transparent;
-            this.appInfo.BackgroundImage = global::SBBD.Properties.Resources.MWB5off;
-            this.appInfo.Location = new System.Drawing.Point(0, 260);
-            this.appInfo.Name = "appInfo";
-            this.appInfo.Size = new System.Drawing.Size(200, 50);
-            this.appInfo.TabIndex = 4;
-            this.appInfo.TabStop = false;
-            this.appInfo.Click += new System.EventHandler(this.appInfo_Click);
-            this.appInfo.MouseEnter += new System.EventHandler(this.appInfo_MouseEnter);
-            this.appInfo.MouseLeave += new System.EventHandler(this.appInfo_MouseLeave);
             // 
             // mainTitleBar
             // 
@@ -562,162 +494,6 @@ namespace SBBD
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
             // 
-            // enginePower
-            // 
-            this.enginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.enginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.enginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.enginePower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.enginePower.IsPassword = false;
-            this.enginePower.Location = new System.Drawing.Point(710, 311);
-            this.enginePower.Name = "enginePower";
-            this.enginePower.PlaceHolder = "np. 240";
-            this.enginePower.Size = new System.Drawing.Size(160, 15);
-            this.enginePower.TabIndex = 10;
-            this.enginePower.Text = "np. 240";
-            this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // engineCapacity
-            // 
-            this.engineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.engineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.engineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.engineCapacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.engineCapacity.IsPassword = false;
-            this.engineCapacity.Location = new System.Drawing.Point(710, 251);
-            this.engineCapacity.Name = "engineCapacity";
-            this.engineCapacity.PlaceHolder = "np. 3000";
-            this.engineCapacity.Size = new System.Drawing.Size(160, 15);
-            this.engineCapacity.TabIndex = 9;
-            this.engineCapacity.Text = "np. 3000";
-            this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // vinNumber
-            // 
-            this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vinNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.vinNumber.IsPassword = false;
-            this.vinNumber.Location = new System.Drawing.Point(270, 429);
-            this.vinNumber.Name = "vinNumber";
-            this.vinNumber.PlaceHolder = "17 - znakowy VIN";
-            this.vinNumber.Size = new System.Drawing.Size(160, 15);
-            this.vinNumber.TabIndex = 8;
-            this.vinNumber.Text = "17 - znakowy VIN";
-            this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // prodYear
-            // 
-            this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prodYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.prodYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.prodYear.IsPassword = false;
-            this.prodYear.Location = new System.Drawing.Point(270, 371);
-            this.prodYear.Name = "prodYear";
-            this.prodYear.PlaceHolder = "np. 2021";
-            this.prodYear.Size = new System.Drawing.Size(160, 15);
-            this.prodYear.TabIndex = 7;
-            this.prodYear.Text = "np. 2021";
-            this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // vehicleColor
-            // 
-            this.vehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.vehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vehicleColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.vehicleColor.IsPassword = false;
-            this.vehicleColor.Location = new System.Drawing.Point(270, 309);
-            this.vehicleColor.Name = "vehicleColor";
-            this.vehicleColor.PlaceHolder = "np. Czarny";
-            this.vehicleColor.Size = new System.Drawing.Size(160, 15);
-            this.vehicleColor.TabIndex = 6;
-            this.vehicleColor.Text = "np. Czarny";
-            this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // regNumber
-            // 
-            this.regNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.regNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.regNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.regNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.regNumber.IsPassword = false;
-            this.regNumber.Location = new System.Drawing.Point(270, 251);
-            this.regNumber.Name = "regNumber";
-            this.regNumber.PlaceHolder = "np. LHR12345";
-            this.regNumber.Size = new System.Drawing.Size(160, 15);
-            this.regNumber.TabIndex = 5;
-            this.regNumber.Text = "np. LHR12345";
-            this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // addVehicleBtn
-            // 
-            this.addVehicleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addVehicleBtn.FlatAppearance.BorderSize = 0;
-            this.addVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.addVehicleBtn.ForeColor = System.Drawing.Color.White;
-            this.addVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addVehicleBtn.Location = new System.Drawing.Point(860, 550);
-            this.addVehicleBtn.Name = "addVehicleBtn";
-            this.addVehicleBtn.RoundRadius = 30;
-            this.addVehicleBtn.Size = new System.Drawing.Size(140, 30);
-            this.addVehicleBtn.TabIndex = 50;
-            this.addVehicleBtn.TabStop = false;
-            this.addVehicleBtn.Text = "+ Dodaj auto!";
-            this.addVehicleBtn.UseVisualStyleBackColor = true;
-            this.addVehicleBtn.Click += new System.EventHandler(this.addVehicleBtn_Click);
-            // 
-            // addPhotoBtn
-            // 
-            this.addPhotoBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addPhotoBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addPhotoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addPhotoBtn.FlatAppearance.BorderSize = 0;
-            this.addPhotoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addPhotoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addPhotoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addPhotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.addPhotoBtn.ForeColor = System.Drawing.Color.White;
-            this.addPhotoBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addPhotoBtn.Location = new System.Drawing.Point(680, 550);
-            this.addPhotoBtn.Name = "addPhotoBtn";
-            this.addPhotoBtn.RoundRadius = 30;
-            this.addPhotoBtn.Size = new System.Drawing.Size(140, 30);
-            this.addPhotoBtn.TabIndex = 49;
-            this.addPhotoBtn.TabStop = false;
-            this.addPhotoBtn.Text = "+ Zdjęcie";
-            this.addPhotoBtn.UseVisualStyleBackColor = true;
-            this.addPhotoBtn.Click += new System.EventHandler(this.addPhotoBtn_Click);
-            // 
-            // clearVehicleBtn
-            // 
-            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.clearVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearVehicleBtn.FlatAppearance.BorderSize = 0;
-            this.clearVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.clearVehicleBtn.ForeColor = System.Drawing.Color.White;
-            this.clearVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.clearVehicleBtn.Location = new System.Drawing.Point(60, 550);
-            this.clearVehicleBtn.Name = "clearVehicleBtn";
-            this.clearVehicleBtn.RoundRadius = 30;
-            this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
-            this.clearVehicleBtn.TabIndex = 48;
-            this.clearVehicleBtn.TabStop = false;
-            this.clearVehicleBtn.Text = "Wyczyść";
-            this.clearVehicleBtn.UseVisualStyleBackColor = true;
-            this.clearVehicleBtn.Click += new System.EventHandler(this.clearVehicleBtn_Click);
-            // 
             // warnLabel8
             // 
             this.warnLabel8.AutoSize = true;
@@ -967,9 +743,11 @@ namespace SBBD
             // 
             this.editVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.editVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.editWindow1;
+            this.editVehiclePanel.Controls.Add(this.editWarnLabel3);
+            this.editVehiclePanel.Controls.Add(this.editWarnLabel2);
+            this.editVehiclePanel.Controls.Add(this.editWarnLabel1);
             this.editVehiclePanel.Controls.Add(this.editConfirm);
             this.editVehiclePanel.Controls.Add(this.editCancel);
-            this.editVehiclePanel.Controls.Add(this.roundedButton2);
             this.editVehiclePanel.Controls.Add(this.editVehicleImage);
             this.editVehiclePanel.Controls.Add(this.userLabel);
             this.editVehiclePanel.Controls.Add(this.editEnginePower);
@@ -990,70 +768,31 @@ namespace SBBD
             this.editVehiclePanel.TabIndex = 21;
             this.editVehiclePanel.Visible = false;
             // 
-            // editConfirm
+            // editWarnLabel2
             // 
-            this.editConfirm.BackColor = System.Drawing.Color.Transparent;
-            this.editConfirm.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.editConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editConfirm.FlatAppearance.BorderSize = 0;
-            this.editConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.editConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.editConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.editConfirm.ForeColor = System.Drawing.Color.White;
-            this.editConfirm.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.editConfirm.Location = new System.Drawing.Point(860, 540);
-            this.editConfirm.Name = "editConfirm";
-            this.editConfirm.RoundRadius = 30;
-            this.editConfirm.Size = new System.Drawing.Size(140, 30);
-            this.editConfirm.TabIndex = 47;
-            this.editConfirm.TabStop = false;
-            this.editConfirm.Text = "Zatwierdź!";
-            this.editConfirm.UseVisualStyleBackColor = true;
-            this.editConfirm.Click += new System.EventHandler(this.editConfirm_Click);
+            this.editWarnLabel2.AutoSize = true;
+            this.editWarnLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.editWarnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editWarnLabel2.ForeColor = System.Drawing.Color.Red;
+            this.editWarnLabel2.Location = new System.Drawing.Point(260, 337);
+            this.editWarnLabel2.Name = "editWarnLabel2";
+            this.editWarnLabel2.Size = new System.Drawing.Size(85, 9);
+            this.editWarnLabel2.TabIndex = 49;
+            this.editWarnLabel2.Text = "Kolor niepoprawny";
+            this.editWarnLabel2.Visible = false;
             // 
-            // editCancel
+            // editWarnLabel1
             // 
-            this.editCancel.BackColor = System.Drawing.Color.Transparent;
-            this.editCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.editCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editCancel.FlatAppearance.BorderSize = 0;
-            this.editCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.editCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.editCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.editCancel.ForeColor = System.Drawing.Color.White;
-            this.editCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.editCancel.Location = new System.Drawing.Point(670, 540);
-            this.editCancel.Name = "editCancel";
-            this.editCancel.RoundRadius = 30;
-            this.editCancel.Size = new System.Drawing.Size(140, 30);
-            this.editCancel.TabIndex = 46;
-            this.editCancel.TabStop = false;
-            this.editCancel.Text = "Anuluj";
-            this.editCancel.UseVisualStyleBackColor = true;
-            this.editCancel.Click += new System.EventHandler(this.editCancel_Click);
-            // 
-            // roundedButton2
-            // 
-            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton2.FlatAppearance.BorderSize = 0;
-            this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.roundedButton2.ForeColor = System.Drawing.Color.White;
-            this.roundedButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.roundedButton2.Location = new System.Drawing.Point(60, 540);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.RoundRadius = 30;
-            this.roundedButton2.Size = new System.Drawing.Size(140, 30);
-            this.roundedButton2.TabIndex = 45;
-            this.roundedButton2.TabStop = false;
-            this.roundedButton2.Text = "Wyczyść";
-            this.roundedButton2.UseVisualStyleBackColor = true;
+            this.editWarnLabel1.AutoSize = true;
+            this.editWarnLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.editWarnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editWarnLabel1.ForeColor = System.Drawing.Color.Red;
+            this.editWarnLabel1.Location = new System.Drawing.Point(260, 278);
+            this.editWarnLabel1.Name = "editWarnLabel1";
+            this.editWarnLabel1.Size = new System.Drawing.Size(146, 9);
+            this.editWarnLabel1.TabIndex = 48;
+            this.editWarnLabel1.Text = "Nuer rejestracyjny niepoprawny!";
+            this.editWarnLabel1.Visible = false;
             // 
             // editVehicleImage
             // 
@@ -1290,27 +1029,6 @@ namespace SBBD
             this.infoVehiclePanel.TabIndex = 50;
             this.infoVehiclePanel.Visible = false;
             // 
-            // infoReturnBtn
-            // 
-            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
-            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
-            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
-            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
-            this.infoReturnBtn.Name = "infoReturnBtn";
-            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
-            this.infoReturnBtn.SelectedMenuItem = false;
-            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
-            this.infoReturnBtn.TabIndex = 49;
-            this.infoReturnBtn.TabStop = false;
-            this.infoReturnBtn.UseVisualStyleBackColor = true;
-            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
-            // 
             // infoManufacturer
             // 
             this.infoManufacturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
@@ -1493,6 +1211,301 @@ namespace SBBD
             this.infoVehicleColor.TabIndex = 2;
             this.infoVehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // logout
+            // 
+            this.logout.BackColor = System.Drawing.Color.Transparent;
+            this.logout.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.logout.FlatAppearance.BorderSize = 0;
+            this.logout.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.logout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.logout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.logout.ImageActive = global::SBBD.Properties.Resources.OffBTN_active;
+            this.logout.ImageInactive = global::SBBD.Properties.Resources.OffBTN_inactive;
+            this.logout.Location = new System.Drawing.Point(0, 310);
+            this.logout.Name = "logout";
+            this.logout.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.logout.SelectedMenuItem = false;
+            this.logout.Size = new System.Drawing.Size(200, 50);
+            this.logout.TabIndex = 57;
+            this.logout.UseVisualStyleBackColor = false;
+            this.logout.Click += new System.EventHandler(this.logout_Click);
+            // 
+            // appInfo
+            // 
+            this.appInfo.BackColor = System.Drawing.Color.Transparent;
+            this.appInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.appInfo.FlatAppearance.BorderSize = 0;
+            this.appInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.appInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.appInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appInfo.ImageActive = global::SBBD.Properties.Resources.MWB5on;
+            this.appInfo.ImageInactive = global::SBBD.Properties.Resources.MWB5off;
+            this.appInfo.Location = new System.Drawing.Point(0, 260);
+            this.appInfo.Name = "appInfo";
+            this.appInfo.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.appInfo.SelectedMenuItem = false;
+            this.appInfo.Size = new System.Drawing.Size(200, 50);
+            this.appInfo.TabIndex = 56;
+            this.appInfo.UseVisualStyleBackColor = false;
+            this.appInfo.Click += new System.EventHandler(this.appInfo_Click);
+            // 
+            // userInfo
+            // 
+            this.userInfo.BackColor = System.Drawing.Color.Transparent;
+            this.userInfo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.userInfo.FlatAppearance.BorderSize = 0;
+            this.userInfo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.userInfo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.userInfo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userInfo.ImageActive = global::SBBD.Properties.Resources.MWB3on;
+            this.userInfo.ImageInactive = global::SBBD.Properties.Resources.MWB3off;
+            this.userInfo.Location = new System.Drawing.Point(0, 210);
+            this.userInfo.Name = "userInfo";
+            this.userInfo.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.userInfo.SelectedMenuItem = false;
+            this.userInfo.Size = new System.Drawing.Size(200, 50);
+            this.userInfo.TabIndex = 55;
+            this.userInfo.UseVisualStyleBackColor = false;
+            this.userInfo.Click += new System.EventHandler(this.userInfo_Click);
+            // 
+            // allVehicles
+            // 
+            this.allVehicles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.allVehicles.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.allVehicles.FlatAppearance.BorderSize = 0;
+            this.allVehicles.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.allVehicles.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.allVehicles.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.allVehicles.ImageActive = global::SBBD.Properties.Resources.MWB2on;
+            this.allVehicles.ImageInactive = global::SBBD.Properties.Resources.MWB2off;
+            this.allVehicles.Location = new System.Drawing.Point(0, 160);
+            this.allVehicles.Name = "allVehicles";
+            this.allVehicles.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.allVehicles.SelectedMenuItem = false;
+            this.allVehicles.Size = new System.Drawing.Size(200, 50);
+            this.allVehicles.TabIndex = 54;
+            this.allVehicles.UseVisualStyleBackColor = false;
+            this.allVehicles.Click += new System.EventHandler(this.allVehicles_Click);
+            // 
+            // addVehicle
+            // 
+            this.addVehicle.BackColor = System.Drawing.Color.Transparent;
+            this.addVehicle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addVehicle.FlatAppearance.BorderSize = 0;
+            this.addVehicle.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addVehicle.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addVehicle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addVehicle.ImageActive = global::SBBD.Properties.Resources.MWB1on;
+            this.addVehicle.ImageInactive = global::SBBD.Properties.Resources.MWB1off;
+            this.addVehicle.Location = new System.Drawing.Point(0, 110);
+            this.addVehicle.Name = "addVehicle";
+            this.addVehicle.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.addVehicle.SelectedMenuItem = false;
+            this.addVehicle.Size = new System.Drawing.Size(200, 50);
+            this.addVehicle.TabIndex = 53;
+            this.addVehicle.UseVisualStyleBackColor = false;
+            this.addVehicle.Click += new System.EventHandler(this.addVehicle_Click);
+            // 
+            // editConfirm
+            // 
+            this.editConfirm.BackColor = System.Drawing.Color.Transparent;
+            this.editConfirm.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.editConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editConfirm.FlatAppearance.BorderSize = 0;
+            this.editConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.editConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.editConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.editConfirm.ForeColor = System.Drawing.Color.White;
+            this.editConfirm.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.editConfirm.Location = new System.Drawing.Point(860, 540);
+            this.editConfirm.Name = "editConfirm";
+            this.editConfirm.RoundRadius = 30;
+            this.editConfirm.Size = new System.Drawing.Size(140, 30);
+            this.editConfirm.TabIndex = 47;
+            this.editConfirm.TabStop = false;
+            this.editConfirm.Text = "Zatwierdź!";
+            this.editConfirm.UseVisualStyleBackColor = true;
+            this.editConfirm.Click += new System.EventHandler(this.editConfirm_Click);
+            // 
+            // editCancel
+            // 
+            this.editCancel.BackColor = System.Drawing.Color.Transparent;
+            this.editCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.editCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editCancel.FlatAppearance.BorderSize = 0;
+            this.editCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.editCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.editCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.editCancel.ForeColor = System.Drawing.Color.White;
+            this.editCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.editCancel.Location = new System.Drawing.Point(670, 540);
+            this.editCancel.Name = "editCancel";
+            this.editCancel.RoundRadius = 30;
+            this.editCancel.Size = new System.Drawing.Size(140, 30);
+            this.editCancel.TabIndex = 46;
+            this.editCancel.TabStop = false;
+            this.editCancel.Text = "Anuluj";
+            this.editCancel.UseVisualStyleBackColor = true;
+            this.editCancel.Click += new System.EventHandler(this.editCancel_Click);
+            // 
+            // enginePower
+            // 
+            this.enginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.enginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.enginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.enginePower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.enginePower.IsPassword = false;
+            this.enginePower.Location = new System.Drawing.Point(710, 311);
+            this.enginePower.Name = "enginePower";
+            this.enginePower.PlaceHolder = "np. 240";
+            this.enginePower.Size = new System.Drawing.Size(160, 15);
+            this.enginePower.TabIndex = 10;
+            this.enginePower.Text = "np. 240";
+            this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // engineCapacity
+            // 
+            this.engineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.engineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.engineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.engineCapacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.engineCapacity.IsPassword = false;
+            this.engineCapacity.Location = new System.Drawing.Point(710, 251);
+            this.engineCapacity.Name = "engineCapacity";
+            this.engineCapacity.PlaceHolder = "np. 3000";
+            this.engineCapacity.Size = new System.Drawing.Size(160, 15);
+            this.engineCapacity.TabIndex = 9;
+            this.engineCapacity.Text = "np. 3000";
+            this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // vinNumber
+            // 
+            this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vinNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.vinNumber.IsPassword = false;
+            this.vinNumber.Location = new System.Drawing.Point(270, 429);
+            this.vinNumber.Name = "vinNumber";
+            this.vinNumber.PlaceHolder = "17 - znakowy VIN";
+            this.vinNumber.Size = new System.Drawing.Size(160, 15);
+            this.vinNumber.TabIndex = 8;
+            this.vinNumber.Text = "17 - znakowy VIN";
+            this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // prodYear
+            // 
+            this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.prodYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.prodYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.prodYear.IsPassword = false;
+            this.prodYear.Location = new System.Drawing.Point(270, 371);
+            this.prodYear.Name = "prodYear";
+            this.prodYear.PlaceHolder = "np. 2021";
+            this.prodYear.Size = new System.Drawing.Size(160, 15);
+            this.prodYear.TabIndex = 7;
+            this.prodYear.Text = "np. 2021";
+            this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // vehicleColor
+            // 
+            this.vehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vehicleColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.vehicleColor.IsPassword = false;
+            this.vehicleColor.Location = new System.Drawing.Point(270, 309);
+            this.vehicleColor.Name = "vehicleColor";
+            this.vehicleColor.PlaceHolder = "np. Czarny";
+            this.vehicleColor.Size = new System.Drawing.Size(160, 15);
+            this.vehicleColor.TabIndex = 6;
+            this.vehicleColor.Text = "np. Czarny";
+            this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // regNumber
+            // 
+            this.regNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.regNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.regNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.regNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.regNumber.IsPassword = false;
+            this.regNumber.Location = new System.Drawing.Point(270, 251);
+            this.regNumber.Name = "regNumber";
+            this.regNumber.PlaceHolder = "np. LHR12345";
+            this.regNumber.Size = new System.Drawing.Size(160, 15);
+            this.regNumber.TabIndex = 5;
+            this.regNumber.Text = "np. LHR12345";
+            this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // addVehicleBtn
+            // 
+            this.addVehicleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addVehicleBtn.FlatAppearance.BorderSize = 0;
+            this.addVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.addVehicleBtn.ForeColor = System.Drawing.Color.White;
+            this.addVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addVehicleBtn.Location = new System.Drawing.Point(860, 550);
+            this.addVehicleBtn.Name = "addVehicleBtn";
+            this.addVehicleBtn.RoundRadius = 30;
+            this.addVehicleBtn.Size = new System.Drawing.Size(140, 30);
+            this.addVehicleBtn.TabIndex = 50;
+            this.addVehicleBtn.TabStop = false;
+            this.addVehicleBtn.Text = "+ Dodaj auto!";
+            this.addVehicleBtn.UseVisualStyleBackColor = true;
+            this.addVehicleBtn.Click += new System.EventHandler(this.addVehicleBtn_Click);
+            // 
+            // addPhotoBtn
+            // 
+            this.addPhotoBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addPhotoBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addPhotoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addPhotoBtn.FlatAppearance.BorderSize = 0;
+            this.addPhotoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addPhotoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addPhotoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPhotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.addPhotoBtn.ForeColor = System.Drawing.Color.White;
+            this.addPhotoBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addPhotoBtn.Location = new System.Drawing.Point(680, 550);
+            this.addPhotoBtn.Name = "addPhotoBtn";
+            this.addPhotoBtn.RoundRadius = 30;
+            this.addPhotoBtn.Size = new System.Drawing.Size(140, 30);
+            this.addPhotoBtn.TabIndex = 49;
+            this.addPhotoBtn.TabStop = false;
+            this.addPhotoBtn.Text = "+ Zdjęcie";
+            this.addPhotoBtn.UseVisualStyleBackColor = true;
+            this.addPhotoBtn.Click += new System.EventHandler(this.addPhotoBtn_Click);
+            // 
+            // clearVehicleBtn
+            // 
+            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.clearVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearVehicleBtn.FlatAppearance.BorderSize = 0;
+            this.clearVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.clearVehicleBtn.ForeColor = System.Drawing.Color.White;
+            this.clearVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.clearVehicleBtn.Location = new System.Drawing.Point(60, 550);
+            this.clearVehicleBtn.Name = "clearVehicleBtn";
+            this.clearVehicleBtn.RoundRadius = 30;
+            this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
+            this.clearVehicleBtn.TabIndex = 48;
+            this.clearVehicleBtn.TabStop = false;
+            this.clearVehicleBtn.Text = "Wyczyść";
+            this.clearVehicleBtn.UseVisualStyleBackColor = true;
+            this.clearVehicleBtn.Click += new System.EventHandler(this.clearVehicleBtn_Click);
+            // 
             // customButton1
             // 
             this.customButton1.BackColor = System.Drawing.Color.Transparent;
@@ -1511,6 +1524,27 @@ namespace SBBD
             this.customButton1.TabIndex = 52;
             this.customButton1.UseVisualStyleBackColor = false;
             this.customButton1.Click += new System.EventHandler(this.customButton1_Click);
+            // 
+            // infoReturnBtn
+            // 
+            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
+            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
+            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
+            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
+            this.infoReturnBtn.Name = "infoReturnBtn";
+            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
+            this.infoReturnBtn.SelectedMenuItem = false;
+            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
+            this.infoReturnBtn.TabIndex = 49;
+            this.infoReturnBtn.TabStop = false;
+            this.infoReturnBtn.UseVisualStyleBackColor = true;
+            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
             // 
             // trackBar1
             // 
@@ -1564,38 +1598,46 @@ namespace SBBD
             this.mainMinimize.UseVisualStyleBackColor = false;
             this.mainMinimize.Click += new System.EventHandler(this.mainMinimize_Click);
             // 
+            // editWarnLabel3
+            // 
+            this.editWarnLabel3.AutoSize = true;
+            this.editWarnLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.editWarnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.editWarnLabel3.ForeColor = System.Drawing.Color.Red;
+            this.editWarnLabel3.Location = new System.Drawing.Point(80, 495);
+            this.editWarnLabel3.Name = "editWarnLabel3";
+            this.editWarnLabel3.Size = new System.Drawing.Size(207, 13);
+            this.editWarnLabel3.TabIndex = 50;
+            this.editWarnLabel3.Text = "Uzupełnij wszystkie dostępne pola!";
+            this.editWarnLabel3.Visible = false;
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 720);
+            this.Controls.Add(this.logout);
+            this.Controls.Add(this.appInfo);
+            this.Controls.Add(this.userInfo);
+            this.Controls.Add(this.allVehicles);
+            this.Controls.Add(this.addVehicle);
+            this.Controls.Add(this.editVehiclePanel);
+            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.customButton1);
             this.Controls.Add(this.vehiclesPanel);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
-            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.trackBar1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.userNameInfo);
             this.Controls.Add(this.mainExit);
             this.Controls.Add(this.mainMinimize);
             this.Controls.Add(this.mainTitleBar);
-            this.Controls.Add(this.appInfo);
-            this.Controls.Add(this.logout);
-            this.Controls.Add(this.userInfo);
-            this.Controls.Add(this.allVehicles);
-            this.Controls.Add(this.addVehicle);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainWindow";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fleet Manager";
-            ((System.ComponentModel.ISupportInitialize)(this.addVehicle)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.allVehicles)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.userInfo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.logout)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.appInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             this.vehiclesPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).EndInit();
@@ -1652,12 +1694,6 @@ namespace SBBD
         }
 
         #endregion
-
-        private System.Windows.Forms.PictureBox addVehicle;
-        private System.Windows.Forms.PictureBox allVehicles;
-        private System.Windows.Forms.PictureBox userInfo;
-        private System.Windows.Forms.PictureBox logout;
-        private System.Windows.Forms.PictureBox appInfo;
         private System.Windows.Forms.PictureBox mainTitleBar;
         private System.Windows.Forms.Panel vehiclesPanel;
         private System.Windows.Forms.Panel addVehiclePanel;
@@ -1751,7 +1787,14 @@ namespace SBBD
         private CustomButton mainMinimize;
         private RoundedButton editConfirm;
         private RoundedButton editCancel;
-        private RoundedButton roundedButton2;
         private CustomButton customButton1;
+        private System.Windows.Forms.Label editWarnLabel1;
+        private System.Windows.Forms.Label editWarnLabel2;
+        private CustomButton addVehicle;
+        private CustomButton allVehicles;
+        private CustomButton userInfo;
+        private CustomButton appInfo;
+        private CustomButton logout;
+        private System.Windows.Forms.Label editWarnLabel3;
     }
 }

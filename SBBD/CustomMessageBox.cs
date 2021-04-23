@@ -40,6 +40,7 @@ namespace SBBD
             }
             messageInfo.Text = "Automatyczne zamykanie...";
         }
+
         public CustomMessageBoxForm()
         {
             InitializeComponent();
@@ -65,7 +66,6 @@ namespace SBBD
         {
             InitializeComponent();
             this.customMSbx_text.Text = text;
-           // this.messageText.Text = text;
             this.timer.Interval = miliseconds;
             this.messageInfo.Visible = true;
             this.timer.Start();
@@ -77,7 +77,6 @@ namespace SBBD
         {
             InitializeComponent();
             this.customMSbx_text.Text = text;
-           // this.messageText.Text = text;
             this.timer.Enabled = false;
             this.buttonNo.Visible = true;
             this.buttonYes.Visible = true;
@@ -86,7 +85,6 @@ namespace SBBD
             imageChange(2, iconPic);
            //this.iconPic.Image = Properties.Resources.   // pytajnik
         }
-
 
         private void timer_Tick(object sender, EventArgs e)
         {

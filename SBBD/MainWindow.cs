@@ -43,7 +43,6 @@ namespace SBBD
         Users user;
         PrivateFontCollection pfc;
         
-
         int selected;
         public MainWindow()
         {          
@@ -77,13 +76,10 @@ namespace SBBD
                 vLabel22
             };
         }
-
          
-
         protected override void OnLoad(EventArgs e)
         {           
             base.OnLoad(e);
-
             Login.ShowLogin();
             user = Login.logged_user_value;
             if (user != null)
@@ -105,7 +101,6 @@ namespace SBBD
                 context.Vehicles.Load();
                 context.Manufacturers.Load();
                 vehiclePages = 0;
-            
                 populatePanel();
 
                 toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9)");
@@ -114,69 +109,8 @@ namespace SBBD
                 toolTip.SetToolTip(infoBox4, "Poprawny format 17 znaków - 11 znaków (A-Z, 0-9), 6 znaków (0-9)");
                 toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9)");
                 toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9)");
-               
                 userNameInfo.Text = user.email;
             }
-        }
-
-        private void addVehicle_MouseEnter(object sender, EventArgs e)
-        {
-            if(selected != 0)
-                addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1on;
-        }
-
-        private void addVehicle_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != 0)
-                addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1off;
-        }
-
-        private void allVehicles_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != 1)
-                allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2on;
-        }
-
-        private void allVehicles_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != 1)
-                allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
-        }
-
-        private void userInfo_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != 2)
-                userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3on;
-        }
-
-        private void userInfo_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != 2)
-                userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
-        }
-
-        private void appInfo_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != 3)
-                appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5on;
-        }
-
-        private void appInfo_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != 3)
-                appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
-        }
-
-        private void logout_MouseEnter(object sender, EventArgs e)
-        {
-            if (selected != 4)
-                logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_active;
-        }
-
-        private void logout_MouseLeave(object sender, EventArgs e)
-        {
-            if (selected != 4)
-                logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
         }
 
         private void addVehicle_Click(object sender, EventArgs e)
@@ -186,7 +120,6 @@ namespace SBBD
                 changeBtnTransparent(selected);
                 selected = 0;
                 addVehicle.BackColor = Color.FromArgb(30, 35, 40);
-                addVehicle.BackgroundImage = SBBD.Properties.Resources.MWB1off;
                 HideOtherPanels(addVehiclePanel);
                 if (manufacturerComboBox.Items.Count == 0)
                     addVehicleLoad();
@@ -200,7 +133,6 @@ namespace SBBD
                 changeBtnTransparent(selected);
                 selected = 1;
                 allVehicles.BackColor = Color.FromArgb(30, 35, 40);
-                allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
                 HideOtherPanels(vehiclesPanel);
             }
         }
@@ -212,7 +144,7 @@ namespace SBBD
                 changeBtnTransparent(selected);
                 selected = 2;
                 userInfo.BackColor = Color.FromArgb(30, 35, 40);
-                userInfo.BackgroundImage = SBBD.Properties.Resources.MWB3off;
+                // Dodać panel użytkownik i ukrywanie
                 vehiclesPanel.Visible = false;
             }
         }
@@ -224,8 +156,34 @@ namespace SBBD
                 changeBtnTransparent(selected);
                 selected = 3;
                 appInfo.BackColor = Color.FromArgb(30, 35, 40);
-                appInfo.BackgroundImage = SBBD.Properties.Resources.MWB5off;
+                // Dodać panel info i ukrywanie
                 vehiclesPanel.Visible = false;
+            }
+        }
+
+        private void logout_Click(object sender, EventArgs e)
+        {
+            if (selected != 4)
+            {
+                changeBtnTransparent(selected);
+                selected = 4;
+                logout.BackColor = Color.FromArgb(30, 35, 40);
+                switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz\n się wylogować?", 1500, true))
+                {
+                    case DialogResult.Yes:
+                        CustomMessageBox.CustomMsg("Pomyślnie wylogowano!\n Zamykanie aplikacji...", 2000, false);
+                        this.Hide();
+                        this.OnLoad(null);
+                        this.Refresh();
+                        this.Show();
+                        break;
+                    case DialogResult.No:
+                        changeBtnTransparent(selected);
+                        selected = 1;
+                        allVehicles.BackColor = Color.FromArgb(30, 35, 40);
+                        HideOtherPanels(vehiclesPanel);
+                        break;
+                }
             }
         }
 
@@ -233,48 +191,20 @@ namespace SBBD
         {
             Panel toHide;
             panel.Visible = true;
-            foreach(Control control in this.Controls)
+            foreach (Control control in this.Controls)
             {
                 try
                 {
                     toHide = (Panel)control;
-                    if(toHide != panel)
+                    if (toHide != panel)
                     {
                         toHide.Visible = false;
                     }
-                } catch
+                }
+                catch
                 {
 
                 }
-            }
-        }
-
-        private void logout_Click(object sender, EventArgs e)
-        {
-            /*if (selected != 4)
-            {
-                changeBtnTransparent(selected);
-                /*selected = 4;
-                logout.BackColor = Color.FromArgb(30, 35, 40);
-                logout.BackgroundImage = SBBD.Properties.Resources.OffBTN_inactive;
-           
-            }*/
-            switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz\n się wylogować?", 1500, true))
-            {
-                case DialogResult.Yes:
-                    CustomMessageBox.CustomMsg("Pomyślnie wylogowano!\n Zamykanie aplikacji...", 2000, false);
-                    this.Hide();
-                    this.OnLoad(null);
-                    this.Refresh();
-                    this.Show();
-                    break;
-                case DialogResult.No:
-                    changeBtnTransparent(selected);
-                    selected = 1;
-                    allVehicles.BackColor = Color.FromArgb(30, 35, 40);
-                    allVehicles.BackgroundImage = SBBD.Properties.Resources.MWB2off;
-                    HideOtherPanels(vehiclesPanel);
-                    break;
             }
         }
 
@@ -554,7 +484,6 @@ namespace SBBD
                 }
                 
             }
-
             pictureBox.Image = bm;
             label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
 
@@ -597,7 +526,7 @@ namespace SBBD
         private void button1_Click(object sender, EventArgs e)
         {
             if(currentPage + 1 <= vehiclePages)
-            currentPage++;
+                currentPage++;
             populatePanel();
             siteCounter.Text = currentPage.ToString();
         }
@@ -612,8 +541,8 @@ namespace SBBD
 
         private void tile_Click(object sender, EventArgs e)
         {
-                PictureBox pb = (PictureBox)sender;
-                editSelecetedId = tileList.IndexOf(pb);
+            PictureBox pb = (PictureBox)sender;
+            editSelecetedId = tileList.IndexOf(pb);
             if (vLabelList[editSelecetedId].Text != "")
             {
                 Point mouseCoordinates = ((MouseEventArgs)e).Location;
@@ -688,7 +617,7 @@ namespace SBBD
                 infoAvaliable.Text = "Nie";
             else
                 infoAvaliable.Text = "Tak";
-
+            
             selectedVehicle = null;
             selectedVehicleImage = null;
         }
@@ -722,12 +651,17 @@ namespace SBBD
                 IsEmpty(editRegNum)
                 )
             {
-                CustomMessageBox.CustomMsg("Pola nie mogą \n być puste!", 2000, false);
+                warningTimer.Start();
+                editWarnLabel3.Visible = true;
             }
-            //else if (
-            //    !RegexD(@"^[a-zA-Z]+$", editVehicleColor) ||
-            //    !RegexD(@"^[a-zA-Z0-9]+$", editRegNum)
-            //    ) { }
+            else if (
+                !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
+                !RegexD(@"^[a-zA-Z]+$", vehicleColor)
+            )
+            {
+                if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(editWarnLabel1);
+                if (!RegexD(@"^[a-zA-Z]+$", vehicleColor)) ShowErrorMsg(editWarnLabel2);
+            }
             else
             {
                 string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
@@ -739,7 +673,6 @@ namespace SBBD
                 vehiclesPanel.Visible = true;
                 editVehiclePanel.Visible = false;
                 populatePanel();
-
                 selectedVehicle = null;
             }
         }
@@ -759,9 +692,6 @@ namespace SBBD
 
         private void clearVehicleBtn_Click(object sender, EventArgs e)
         {
-
-            //var quest = MessageBox.Show("Usunąć wprowadzone dane?", "Ostrzeżenie", MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
-            
             var quest = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć wprowadzone dane?", 1500, true);
             if (quest == DialogResult.Yes)
             {
@@ -779,7 +709,6 @@ namespace SBBD
                 selectedImage.Image = null;
             }
             else { }
-           
         }
 
         private void addPhotoBtn_Click(object sender, EventArgs e)
@@ -810,7 +739,8 @@ namespace SBBD
         private void customButton1_Click(object sender, EventArgs e)
         {
             //customButton1.SelectedMenuItem = !customButton1.SelectedMenuItem;
-            CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane pojazdu?", 1500, false);
+            //CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane pojazdu?", 1500, false);
+            context.Vehicles.Select(x => x).OrderBy(x => x.available).ToList();
         }
     }
 }
