@@ -290,38 +290,93 @@ namespace SBBD
                 p.Image = null;
             }
 
+            List<Vehicles> vehList;
+
+            if (!user.admin)
+            {
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        vehList = context.Vehicles.Where(v => v.user_email == user.email).ToList();
+                        break;
+                    case 1:
+                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderByDescending(v => v.available).ToList();
+                        break;
+                    case 2:
+                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderBy(v => v.available).ToList();
+                        break;
+                    case 3:
+                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderBy(v => v.model).ToList();
+                        break;
+                    case 4:
+                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderByDescending(v => v.model).ToList();
+                        break;
+
+
+                    default:
+                        vehList = context.Vehicles.Where(v => v.user_email == user.email).ToList();
+                        break;
+                }
+            }
+            else
+            {
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        vehList = context.Vehicles.Select(v => v).ToList();
+                        break;
+                    case 1:
+                        vehList = context.Vehicles.Select(v => v).OrderByDescending(v => v.available).ToList();
+                        break;
+                    case 2:
+                        vehList = context.Vehicles.Select(v => v).OrderBy(v => v.available).ToList();
+                        break;
+                    case 3:
+                        vehList = context.Vehicles.Select(v => v).OrderBy(v => v.model).ToList();
+                        break;
+                    case 4:
+                        vehList = context.Vehicles.Select(v => v).OrderByDescending(v => v.model).ToList();
+                        break;
+
+
+                    default:
+                        vehList = context.Vehicles.Select(v => v).ToList();
+                        break;
+                }
+            }
+
             if (user.admin == true)
             {
-                var allVehicles = context.Vehicles.Select(x => x).ToList();     
+                //var allVehicles = context.Vehicles.Select(x => x).ToList();     
 
-                vehicleCount = allVehicles.Count;
+                vehicleCount = vehList.Count;
 
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
 
                 for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
                 {
-                    ShowVehicleTile(tileList[i], vLabelList[i], allVehicles[i + ((currentPage - 1) * 9)]);
+                    ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)]);
                 }
 
-                allVehicles = null;
+                vehList = null;
             }
 
             else
             {
-                var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();
+                //var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();
 
-                vehicleCount = userVehicles.Count;
+                vehicleCount = vehList.Count;
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
 
 
                 for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
                 {
-                    ShowVehicleTile(tileList[i], vLabelList[i], userVehicles[i + ((currentPage - 1) * 9)]);
+                    ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)]);
                 }
 
-                userVehicles = null;
+                vehList = null;
             }
         }
 
@@ -745,6 +800,11 @@ namespace SBBD
         private void infoReturnBtn_Click(object sender, EventArgs e)
         {
             HideOtherPanels(vehiclesPanel);
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populatePanel();
         }
 
         // context.Vehicles.Select(x => x).OrderBy(x => x.available).ToList();
