@@ -42,6 +42,7 @@ namespace SBBD
         byte[] image;
         Users user;
         PrivateFontCollection pfc;
+        List<Manufacturers> allManufacturers;
         
         int selected;
         public MainWindow()
@@ -110,6 +111,9 @@ namespace SBBD
                 toolTip.SetToolTip(infoBox5, "Poprawny format 3-5 znaków (0-9)");
                 toolTip.SetToolTip(infoBox6, "Poprawny format 2-4 znaki (0-9)");
                 userNameInfo.Text = user.email;
+                allManufacturers = context.Manufacturers.Select(x => x).ToList();
+                allModels = context.Models.Select(x => x).ToList();
+                ManufacturersLoad(filterManufacturer);
             }
         }
 
@@ -122,7 +126,7 @@ namespace SBBD
                 addVehicle.BackColor = Color.FromArgb(30, 35, 40);
                 HideOtherPanels(addVehiclePanel);
                 if (manufacturerComboBox.Items.Count == 0)
-                    addVehicleLoad();
+                    ManufacturersLoad(manufacturerComboBox);
             }
         }
 
@@ -290,57 +294,118 @@ namespace SBBD
                 p.Image = null;
             }
 
-            List<Vehicles> vehList;
+            List<Vehicles> vehFilter , vehFilterTemp ,vehList;
 
             if (!user.admin)
             {
+                vehFilter = context.Vehicles.Where(v => v.user_email == user.email).ToList();
+                if (filterManufacturer.Text != null)
+                    vehFilter = vehFilter.Where(v => v.manufacturer == filterManufacturer.Text).ToList();
+                if (filterModel.Text != null)
+                    vehFilter = vehFilter.Where(v => v.model == filterModel.Text).ToList();
+                if(filterAvailable !=null)
+                {
+                    switch(filterAvailable.SelectedIndex)
+                    {
+                        case 0:
+                            vehFilter = vehFilter.Where(v => v.available == true).ToList();
+                            break;
+                        case 1:
+                            vehFilter = vehFilter.Where(v => v.available == false).ToList();
+                            break;
+                        case 2:
+                            vehFilter = vehFilter.Where(v => v.available == true || v.available == false).ToList();
+                            break;
+                        /*default:
+                            vehFilter = context.Vehicles.Where(v => v.user_email == user.email).ToList();
+                            break;*/
+                    }
+                }
+                //vehFilter = context.Vehicles.Where(v => v.user_email == user.email).Where(v => v.manufacturer == filterManufacturer.Text).ToList();
+
+
                 switch (comboBox1.SelectedIndex)
                 {
                     case 0:
-                        vehList = context.Vehicles.Where(v => v.user_email == user.email).ToList();
+                        vehList = vehFilter.Where(v => v.user_email == user.email).ToList();
                         break;
                     case 1:
-                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderByDescending(v => v.available).ToList();
+                        vehList = vehFilter.Where(v => v.user_email == user.email).OrderByDescending(v => v.available).ToList();
                         break;
                     case 2:
-                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderBy(v => v.available).ToList();
+                        vehList = vehFilter.Where(v => v.user_email == user.email).OrderBy(v => v.available).ToList();
                         break;
                     case 3:
-                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderBy(v => v.model).ToList();
+                        vehList = vehFilter.Where(v => v.user_email == user.email).OrderBy(v => v.model).ToList();
                         break;
                     case 4:
-                        vehList = context.Vehicles.Where(v => v.user_email == user.email).OrderByDescending(v => v.model).ToList();
+                        vehList = vehFilter.Where(v => v.user_email == user.email).OrderByDescending(v => v.model).ToList();
                         break;
 
 
                     default:
-                        vehList = context.Vehicles.Where(v => v.user_email == user.email).ToList();
+                        vehList = vehFilter.Where(v => v.user_email == user.email).ToList();
                         break;
                 }
             }
             else
             {
+                vehFilterTemp = context.Vehicles.Select(v => v).ToList();
+                vehFilter = context.Vehicles.Select(v => v).ToList();
+                if (filterManufacturer.Text != null)
+                {
+                    vehFilter = vehFilterTemp.Where(v => v.manufacturer == filterManufacturer.Text).ToList();
+                    vehFilterTemp = vehFilter;
+                }
+                if (filterModel.Text != null)
+                {
+                    vehFilter = vehFilterTemp.Where(v => v.model == filterModel.Text).ToList();
+                    vehFilterTemp = vehFilter;
+                }
+                if (filterAvailable != null)
+
+                {
+                    switch (filterAvailable.SelectedIndex)
+                    {
+                        case 0:
+                            vehFilter = vehFilterTemp.Where(v => v.available == true).ToList();
+                            vehFilterTemp = vehFilter;
+                            break;
+                        case 1:
+                            vehFilter = vehFilterTemp.Where(v => v.available == false).ToList();
+                            vehFilterTemp = vehFilter;
+                            break;
+                        case 2:
+                            vehFilter = vehFilterTemp.Select(v => v).ToList();
+                            vehFilterTemp = vehFilter;
+                            break;
+                        default:
+                            vehFilter = vehFilterTemp.Select(v => v).ToList();
+                            vehFilterTemp = vehFilter;
+                            break;
+                    }
+                }
                 switch (comboBox1.SelectedIndex)
                 {
                     case 0:
-                        vehList = context.Vehicles.Select(v => v).ToList();
+                        vehList = vehFilter.Select(v => v).ToList();
                         break;
                     case 1:
-                        vehList = context.Vehicles.Select(v => v).OrderByDescending(v => v.available).ToList();
+                        vehList = vehFilter.Select(v => v).OrderByDescending(v => v.available).ToList();
                         break;
                     case 2:
-                        vehList = context.Vehicles.Select(v => v).OrderBy(v => v.available).ToList();
+                        vehList = vehFilter.Select(v => v).OrderBy(v => v.available).ToList();
                         break;
                     case 3:
-                        vehList = context.Vehicles.Select(v => v).OrderBy(v => v.model).ToList();
+                        vehList = vehFilter.Select(v => v).OrderBy(v => v.model).ToList();
                         break;
                     case 4:
-                        vehList = context.Vehicles.Select(v => v).OrderByDescending(v => v.model).ToList();
+                        vehList = vehFilter.Select(v => v).OrderByDescending(v => v.model).ToList();
                         break;
 
 
                     default:
-                        vehList = context.Vehicles.Select(v => v).ToList();
+                        vehList = vehFilter.Select(v => v).ToList();
                         break;
                 }
             }
@@ -378,29 +443,32 @@ namespace SBBD
 
                 vehList = null;
             }
+            //vehFilter = null;
         }
 
-        private void addVehicleLoad()
+        private void ManufacturersLoad(ComboBox comboBox)
         {
-            var allManufacturers = context.Manufacturers.Select(x => x).ToList();
-            allModels = context.Models.Select(x => x).ToList();
             foreach (Manufacturers manufacturers in allManufacturers)
             {
-                manufacturerComboBox.Items.Add(manufacturers.manufacturer_name);
+                comboBox.Items.Add(manufacturers.manufacturer_name);
             }
-            allManufacturers = null;
         }
 
         private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            modelComboBox.Enabled = true;
-            modelComboBox.Items.Clear();
-            modelComboBox.Text = "";
+            ModelsLoad(manufacturerComboBox, modelComboBox);
+        }
+
+        private void ModelsLoad(ComboBox manufacturersComboBox, ComboBox modelsComboBox)
+        {
+            modelsComboBox.Enabled = true;
+            modelsComboBox.Items.Clear();
+            modelsComboBox.Text = "";
             foreach (Models models in allModels)
             {
-                if(manufacturerComboBox.Text == models.manufacturer_name)
+                if (manufacturersComboBox.Text == models.manufacturer_name)
                 {
-                    modelComboBox.Items.Add(models.model_name);
+                    modelsComboBox.Items.Add(models.model_name);
                 }
             }
         }
@@ -803,6 +871,21 @@ namespace SBBD
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            populatePanel();
+        }
+
+        private void filterManufacturer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ModelsLoad(filterManufacturer, filterModel);
+        }
+
+        private void filterButton_Click(object sender, EventArgs e)
+        {
+            filterPanel.Visible = !filterPanel.Visible;
+        }
+
+        private void filterAccept_Click(object sender, EventArgs e)
         {
             populatePanel();
         }
