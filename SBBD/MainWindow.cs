@@ -116,6 +116,10 @@ namespace SBBD
                 filterManufacturer.Items.Add("Wszystkie");
                 filterModel.Items.Add("Wszystkie");
                 ManufacturersLoad(filterManufacturer);
+
+                comboBox1.SelectedIndex = 0;
+                filterManufacturer.SelectedIndex = 0;
+                filterAvailable.SelectedIndex = 2;
             }
         }
 
@@ -956,6 +960,7 @@ namespace SBBD
         private void filterAccept_Click(object sender, EventArgs e)
         {
             populatePanel();
+            filterPanel.Visible = false;
         }
 
         // context.Vehicles.Select(x => x).OrderBy(x => x.available).ToList();

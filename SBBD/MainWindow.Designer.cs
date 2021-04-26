@@ -198,7 +198,6 @@ namespace SBBD
             this.vehiclesPanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
             this.vehiclesPanel.Controls.Add(this.filterButton);
             this.vehiclesPanel.Controls.Add(this.filterPanel);
-            this.vehiclesPanel.Controls.Add(this.comboBox1);
             this.vehiclesPanel.Controls.Add(this.siteNavCenter);
             this.vehiclesPanel.Controls.Add(this.siteNavLeft);
             this.vehiclesPanel.Controls.Add(this.siteNavRight);
@@ -228,10 +227,10 @@ namespace SBBD
             this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.filterButton.ForeColor = System.Drawing.Color.White;
             this.filterButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.filterButton.Location = new System.Drawing.Point(748, 35);
+            this.filterButton.Location = new System.Drawing.Point(720, 44);
             this.filterButton.Name = "filterButton";
             this.filterButton.RoundRadius = 30;
-            this.filterButton.Size = new System.Drawing.Size(140, 30);
+            this.filterButton.Size = new System.Drawing.Size(120, 25);
             this.filterButton.TabIndex = 17;
             this.filterButton.Text = "Filtry";
             this.filterButton.UseVisualStyleBackColor = false;
@@ -239,13 +238,15 @@ namespace SBBD
             // 
             // filterPanel
             // 
+            this.filterPanel.BackgroundImage = global::SBBD.Properties.Resources.filterBG1;
             this.filterPanel.Controls.Add(this.filterAvailable);
             this.filterPanel.Controls.Add(this.filterModel);
+            this.filterPanel.Controls.Add(this.comboBox1);
             this.filterPanel.Controls.Add(this.filterManufacturer);
             this.filterPanel.Controls.Add(this.filterAccept);
-            this.filterPanel.Location = new System.Drawing.Point(385, 70);
+            this.filterPanel.Location = new System.Drawing.Point(380, 84);
             this.filterPanel.Name = "filterPanel";
-            this.filterPanel.Size = new System.Drawing.Size(503, 238);
+            this.filterPanel.Size = new System.Drawing.Size(460, 220);
             this.filterPanel.TabIndex = 16;
             this.filterPanel.Visible = false;
             // 
@@ -261,8 +262,8 @@ namespace SBBD
             this.filterAvailable.Items.AddRange(new object[] {
             "Tak",
             "Nie",
-            "nie wiem"});
-            this.filterAvailable.Location = new System.Drawing.Point(38, 130);
+            "Wszystkie"});
+            this.filterAvailable.Location = new System.Drawing.Point(142, 132);
             this.filterAvailable.Name = "filterAvailable";
             this.filterAvailable.Size = new System.Drawing.Size(121, 21);
             this.filterAvailable.TabIndex = 18;
@@ -277,7 +278,7 @@ namespace SBBD
             this.filterModel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.filterModel.ForeColor = System.Drawing.Color.White;
             this.filterModel.FormattingEnabled = true;
-            this.filterModel.Location = new System.Drawing.Point(38, 78);
+            this.filterModel.Location = new System.Drawing.Point(142, 80);
             this.filterModel.Name = "filterModel";
             this.filterModel.Size = new System.Drawing.Size(121, 21);
             this.filterModel.TabIndex = 17;
@@ -291,7 +292,7 @@ namespace SBBD
             this.filterManufacturer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.filterManufacturer.ForeColor = System.Drawing.Color.White;
             this.filterManufacturer.FormattingEnabled = true;
-            this.filterManufacturer.Location = new System.Drawing.Point(38, 28);
+            this.filterManufacturer.Location = new System.Drawing.Point(142, 30);
             this.filterManufacturer.Name = "filterManufacturer";
             this.filterManufacturer.Size = new System.Drawing.Size(121, 21);
             this.filterManufacturer.TabIndex = 16;
@@ -309,10 +310,10 @@ namespace SBBD
             this.filterAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.filterAccept.ForeColor = System.Drawing.Color.White;
             this.filterAccept.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.filterAccept.Location = new System.Drawing.Point(345, 184);
+            this.filterAccept.Location = new System.Drawing.Point(305, 175);
             this.filterAccept.Name = "filterAccept";
             this.filterAccept.RoundRadius = 30;
-            this.filterAccept.Size = new System.Drawing.Size(140, 30);
+            this.filterAccept.Size = new System.Drawing.Size(120, 25);
             this.filterAccept.TabIndex = 0;
             this.filterAccept.Text = "Filtruj";
             this.filterAccept.UseVisualStyleBackColor = false;
@@ -328,12 +329,12 @@ namespace SBBD
             this.comboBox1.ForeColor = System.Drawing.Color.White;
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "jak w bazie xD",
-            "Dostępność->",
-            "Dostępnośc<-",
-            "Alfabetycznie(marka)->",
-            "Alfabetycznie(marka)-<"});
-            this.comboBox1.Location = new System.Drawing.Point(450, 41);
+            "Domyślne",
+            "Dostępność ->",
+            "Dostępnośc <-",
+            "Alfabetycznie (marka) ->",
+            "Alfabetycznie (marka) <-"});
+            this.comboBox1.Location = new System.Drawing.Point(301, 67);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(121, 21);
             this.comboBox1.TabIndex = 15;

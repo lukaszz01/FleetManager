@@ -47,8 +47,8 @@ namespace SBBD
             this.lastNameRegister = new SBBD.CustomTextBox();
             this.firstNameRegister = new SBBD.CustomTextBox();
             this.emailRegister = new SBBD.CustomTextBox();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.passwordRegister1 = new SBBD.CustomTextBox();
+            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).BeginInit();
@@ -106,9 +106,9 @@ namespace SBBD
             this.warnLabel2.ForeColor = System.Drawing.Color.Red;
             this.warnLabel2.Location = new System.Drawing.Point(57, 397);
             this.warnLabel2.Name = "warnLabel2";
-            this.warnLabel2.Size = new System.Drawing.Size(86, 14);
+            this.warnLabel2.Size = new System.Drawing.Size(41, 14);
             this.warnLabel2.TabIndex = 33;
-            this.warnLabel2.Text = "Hasło niepoprawne!";
+            this.warnLabel2.Text = "Tekst xD";
             this.warnLabel2.Visible = false;
             // 
             // warnLabel3
@@ -268,10 +268,6 @@ namespace SBBD
             this.emailRegister.TabIndex = 1;
             this.emailRegister.Text = "Login (adres e-mail)";
             // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
-            // 
             // passwordRegister1
             // 
             this.passwordRegister1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
@@ -280,10 +276,14 @@ namespace SBBD
             this.passwordRegister1.IsPassword = true;
             this.passwordRegister1.Location = new System.Drawing.Point(60, 373);
             this.passwordRegister1.Name = "passwordRegister1";
-            this.passwordRegister1.PlaceHolder = "Poftusz Hasło";
+            this.passwordRegister1.PlaceHolder = "Powtórz hasło";
             this.passwordRegister1.Size = new System.Drawing.Size(300, 13);
             this.passwordRegister1.TabIndex = 5;
-            this.passwordRegister1.Text = "Poftusz Hasło";
+            this.passwordRegister1.Text = "Powtórz hasło";
+            // 
+            // vehiclesBindingSource
+            // 
+            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
             // Register
             // 

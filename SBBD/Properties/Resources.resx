@@ -181,6 +181,9 @@
   <data name="PhotoBTN_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\PhotoBTN_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Reg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Reg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="tlo115" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\tlo115.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -252,6 +255,9 @@
   </data>
   <data name="Reg" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reg.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="filterBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filterBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MWB5off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MWB5off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -328,7 +334,7 @@
   <data name="Log1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Log1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Reg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Reg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="filterBG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\filterBG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

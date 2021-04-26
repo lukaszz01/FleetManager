@@ -281,6 +281,26 @@ namespace SBBD.Properties {
         }
         
         /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filterBG {
+            get {
+                object obj = ResourceManager.GetObject("filterBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap filterBG1 {
+            get {
+                object obj = ResourceManager.GetObject("filterBG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Byte[].
         /// </summary>
         internal static byte[] fontBold {

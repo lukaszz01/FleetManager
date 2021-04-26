@@ -69,7 +69,23 @@ namespace SBBD
                     break;
             }
         }
-
+        private void ShowMsg(int warnNum, Label warnLabel)
+        {
+            warnLabel.Visible = true;
+            warningTimer.Start();
+            switch (warnNum)
+            {
+                case 0:
+                    warnLabel.Text = "Hasło niepoprawne!";
+                    break;
+                case 1:
+                    warnLabel.Text = "Wprowadzone hasła różnią się!";
+                    break;
+                case 2:
+                    warnLabel.Text = "Hasło za krótkie!";
+                    break;
+            }
+        }
         private void registerRegister_Click(object sender, EventArgs e)
         {
             if (
@@ -77,7 +93,7 @@ namespace SBBD
                 IsEmpty(firstNameRegister, "Imię") ||
                 IsEmpty(lastNameRegister, "Nazwisko") ||
                 IsEmpty(passwordRegister, "Hasło") ||
-                IsEmpty(passwordRegister1, "Hasło")
+                IsEmpty(passwordRegister1, "Powtórz hasło")
                 )
             {
                 warningTimer.Start();
@@ -92,9 +108,10 @@ namespace SBBD
             {
                 if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1);
                 if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1);
-                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowErrorMsg(warnLabel2);
-                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)) ShowErrorMsg(warnLabel2);
-                if (passwordRegister.PasswordChar.Equals(passwordRegister1.PasswordChar)) ShowErrorMsg(warnLabel2);
+                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowMsg(0, warnLabel2);
+                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)) ShowMsg(0, warnLabel2);
+                if (passwordRegister.PasswordChar.Equals(passwordRegister1.PasswordChar)) ShowMsg(1, warnLabel2);
+                if (passwordRegister.TextLength < 8 && passwordRegister1.TextLength < 8) ShowMsg(2, warnLabel2);
             }
             else if (emailIsRepeat(emailRegister.Text))
             {
