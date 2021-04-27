@@ -9,18 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
 using System.Net.Mail;
-using System.Security.Cryptography;
 using System.Text.RegularExpressions;
 using System.Drawing.Text;
+using static SBBD.ExtendedClass;
 
 namespace SBBD
 {
     public partial class Register : Form
     {
-        VFEntities user_context;
-        bool moving;
-        int moveX;
-        int moveY;
+        VFEntities context;
         PrivateFontCollection pfc;
 
         static Register register;
@@ -39,8 +36,8 @@ namespace SBBD
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            user_context = new VFEntities();
-            user_context.Users.Load();
+            context = new VFEntities();
+            context.Users.Load();
             toolTip.SetToolTip(passwordInfo, "Musi zawierać min. 8 znaków, w tym (A-Z, a-z, 0-9) oraz znak specjalny (@$!%*?&)");
 
             pfc = new PrivateFontCollection();
@@ -69,23 +66,7 @@ namespace SBBD
                     break;
             }
         }
-        private void ShowMsg(int warnNum, Label warnLabel)
-        {
-            warnLabel.Visible = true;
-            warningTimer.Start();
-            switch (warnNum)
-            {
-                case 0:
-                    warnLabel.Text = "Hasło niepoprawne!";
-                    break;
-                case 1:
-                    warnLabel.Text = "Wprowadzone hasła różnią się!";
-                    break;
-                case 2:
-                    warnLabel.Text = "Hasło za krótkie!";
-                    break;
-            }
-        }
+       
         private void registerRegister_Click(object sender, EventArgs e)
         {
             if (
@@ -106,12 +87,12 @@ namespace SBBD
                 !RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)
                 )
             {
-                if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1);
-                if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1);
-                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowMsg(0, warnLabel2);
-                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)) ShowMsg(0, warnLabel2);
-                if (passwordRegister.PasswordChar.Equals(passwordRegister1.PasswordChar)) ShowMsg(1, warnLabel2);
-                if (passwordRegister.TextLength < 8 && passwordRegister1.TextLength < 8) ShowMsg(2, warnLabel2);
+                if (!IsValid(emailRegister.Text)) ShowErrorMsg(warnLabel1, warningTimer);
+                if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1, warningTimer);
+                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowMsg(0, warnLabel2, warningTimer);
+                if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)) ShowMsg(0, warnLabel2, warningTimer);
+                if (passwordRegister.PasswordChar.Equals(passwordRegister1.PasswordChar)) ShowMsg(1, warnLabel2, warningTimer);
+                if (passwordRegister.TextLength < 8 && passwordRegister1.TextLength < 8) ShowMsg(2, warnLabel2, warningTimer);
             }
             else if (emailIsRepeat(emailRegister.Text))
             {
@@ -128,8 +109,8 @@ namespace SBBD
                     password = ComputeSha256Hash(passwordRegister.Text),
                     admin = false
                 };
-                user_context.Users.Add(user);
-                user_context.SaveChanges();
+                context.Users.Add(user);
+                context.SaveChanges();
                 CustomMessageBox.CustomMsg("Rejestracja udana! Możesz \n teraz się zalogować", 2000, false);
                 register.Close();
                 this.Hide();
@@ -138,41 +119,6 @@ namespace SBBD
             }
         }
 
-        private void ShowErrorMsg(Label warnLabel)
-        {
-            warnLabel.Visible = true;
-            warningTimer.Start();
-        }
-
-        private  string ComputeSha256Hash(string rawData)
-        {   
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                    
-                }
-                return builder.ToString();
-            }
-        }
-
-        private bool RegexD(string reg, TextBox textbox)
-        {
-            Regex regex = new Regex(reg);
-            if (!regex.IsMatch(textbox.Text))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
-        }
-        
         private bool IsValid(string emailaddress)
         {
             try
@@ -188,23 +134,16 @@ namespace SBBD
 
         private bool emailIsRepeat(string email)
         {
-            var allUsers = user_context.Users.Select(x => x).ToList();
-            bool isTrue = false;
-            foreach(Users user in allUsers)
+            try
             {
-                if(email == user.email)
-                {
-                    isTrue = true;
-                    break;
-                }
+                var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
+                return userName == null;
             }
-            return isTrue;
+            catch
+            {
+                return true;
+            }
         }
-
-        private bool IsEmpty(TextBox textBox, string placeholder)
-        {
-            return textBox.Text == "" || textBox.Text == placeholder;
-        } 
 
         private void loginRegister_Click(object sender, EventArgs e)
         {
@@ -213,25 +152,6 @@ namespace SBBD
             this.Close();
         }
 
-        private void titleBarRegister_MouseDown(object sender, MouseEventArgs e)
-        {
-            moving = true;
-            moveX = e.X;
-            moveY = e.Y;
-        }
-
-        private void titleBarRegister_MouseUp(object sender, MouseEventArgs e)
-        {
-            moving = false;
-        }
-
-        private void titleBarRegister_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (moving)
-            {
-                this.SetDesktopLocation(MousePosition.X - moveX, MousePosition.Y - moveY);
-            }
-        }
         private void closeRegister_MouseEnter(object sender, EventArgs e)
         {
             closeRegister.BackgroundImage = Properties.Resources.B3;
@@ -245,7 +165,7 @@ namespace SBBD
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            this.user_context.Dispose();
+            this.context.Dispose();
         }
 
         private void warningTimer_Tick(object sender, EventArgs e)

@@ -32,7 +32,6 @@ namespace SBBD
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Register));
             this.closeRegister = new System.Windows.Forms.PictureBox();
-            this.titleBarRegister = new System.Windows.Forms.PictureBox();
             this.warnLabel1 = new System.Windows.Forms.Label();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.warnLabel2 = new System.Windows.Forms.Label();
@@ -49,10 +48,11 @@ namespace SBBD
             this.emailRegister = new SBBD.CustomTextBox();
             this.passwordRegister1 = new SBBD.CustomTextBox();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.titleBarRegister1 = new SBBD.MoveBar();
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister1)).BeginInit();
             this.SuspendLayout();
             // 
             // closeRegister
@@ -67,18 +67,6 @@ namespace SBBD
             this.closeRegister.Click += new System.EventHandler(this.closeRegister_Click);
             this.closeRegister.MouseEnter += new System.EventHandler(this.closeRegister_MouseEnter);
             this.closeRegister.MouseLeave += new System.EventHandler(this.closeRegister_MouseLeave);
-            // 
-            // titleBarRegister
-            // 
-            this.titleBarRegister.BackColor = System.Drawing.Color.Transparent;
-            this.titleBarRegister.Location = new System.Drawing.Point(0, 0);
-            this.titleBarRegister.Name = "titleBarRegister";
-            this.titleBarRegister.Size = new System.Drawing.Size(393, 16);
-            this.titleBarRegister.TabIndex = 3;
-            this.titleBarRegister.TabStop = false;
-            this.titleBarRegister.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBarRegister_MouseDown);
-            this.titleBarRegister.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBarRegister_MouseMove);
-            this.titleBarRegister.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBarRegister_MouseUp);
             // 
             // warnLabel1
             // 
@@ -285,12 +273,24 @@ namespace SBBD
             // 
             this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
             // 
+            // titleBarRegister1
+            // 
+            this.titleBarRegister1.BackColor = System.Drawing.Color.Transparent;
+            this.titleBarRegister1.Location = new System.Drawing.Point(0, 0);
+            this.titleBarRegister1.Name = "titleBarRegister1";
+            this.titleBarRegister1.Size = new System.Drawing.Size(393, 16);
+            this.titleBarRegister1.TabIndex = 55;
+            this.titleBarRegister1.TabStop = false;
+            this.titleBarRegister1.TargetForm = this;
+            this.titleBarRegister1.XOffset = 0;
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.Reg1;
             this.ClientSize = new System.Drawing.Size(420, 640);
+            this.Controls.Add(this.titleBarRegister1);
             this.Controls.Add(this.passwordRegister1);
             this.Controls.Add(this.registerRegister);
             this.Controls.Add(this.loginRegister);
@@ -304,7 +304,6 @@ namespace SBBD
             this.Controls.Add(this.warnLabel3);
             this.Controls.Add(this.warnLabel2);
             this.Controls.Add(this.warnLabel1);
-            this.Controls.Add(this.titleBarRegister);
             this.Controls.Add(this.closeRegister);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -312,9 +311,9 @@ namespace SBBD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";
             ((System.ComponentModel.ISupportInitialize)(this.closeRegister)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.passwordInfo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarRegister1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -323,7 +322,6 @@ namespace SBBD
         #endregion
 
         private System.Windows.Forms.PictureBox closeRegister;
-        private System.Windows.Forms.PictureBox titleBarRegister;
         private System.Windows.Forms.BindingSource vehiclesBindingSource;
         private System.Windows.Forms.Label warnLabel1;
         private System.Windows.Forms.Timer warningTimer;
@@ -340,5 +338,6 @@ namespace SBBD
         private RoundedButton loginRegister;
         private RoundedButton registerRegister;
         private CustomTextBox passwordRegister1;
+        private MoveBar titleBarRegister1;
     }
 }

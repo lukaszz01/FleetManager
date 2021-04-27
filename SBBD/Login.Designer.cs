@@ -32,7 +32,6 @@ namespace SBBD
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.closeLogin = new System.Windows.Forms.PictureBox();
-            this.titleBarLogin = new System.Windows.Forms.PictureBox();
             this.warningTimer = new System.Windows.Forms.Timer(this.components);
             this.warnLabel1 = new System.Windows.Forms.Label();
             this.warnLabel2 = new System.Windows.Forms.Label();
@@ -41,8 +40,9 @@ namespace SBBD
             this.loginLogin = new SBBD.RoundedButton();
             this.emailLogin = new SBBD.CustomTextBox();
             this.passwordLogin = new SBBD.CustomTextBox();
+            this.titleBarLogin1 = new SBBD.MoveBar();
             ((System.ComponentModel.ISupportInitialize)(this.closeLogin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogin1)).BeginInit();
             this.SuspendLayout();
             // 
             // closeLogin
@@ -57,18 +57,6 @@ namespace SBBD
             this.closeLogin.Click += new System.EventHandler(this.closeLogin_Click);
             this.closeLogin.MouseEnter += new System.EventHandler(this.closeLogin_MouseEnter);
             this.closeLogin.MouseLeave += new System.EventHandler(this.closeLogin_MouseLeave);
-            // 
-            // titleBarLogin
-            // 
-            this.titleBarLogin.BackColor = System.Drawing.Color.Transparent;
-            this.titleBarLogin.Location = new System.Drawing.Point(0, 0);
-            this.titleBarLogin.Name = "titleBarLogin";
-            this.titleBarLogin.Size = new System.Drawing.Size(393, 16);
-            this.titleBarLogin.TabIndex = 3;
-            this.titleBarLogin.TabStop = false;
-            this.titleBarLogin.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleBarLogin_MouseDown);
-            this.titleBarLogin.MouseMove += new System.Windows.Forms.MouseEventHandler(this.titleBarLogin_MouseMove);
-            this.titleBarLogin.MouseUp += new System.Windows.Forms.MouseEventHandler(this.titleBarLogin_MouseUp);
             // 
             // warningTimer
             // 
@@ -123,6 +111,7 @@ namespace SBBD
             // 
             this.registerLogin.BackColor = System.Drawing.Color.Transparent;
             this.registerLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.registerLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.registerLogin.FlatAppearance.BorderSize = 0;
             this.registerLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.registerLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -144,6 +133,7 @@ namespace SBBD
             // 
             this.loginLogin.BackColor = System.Drawing.Color.Transparent;
             this.loginLogin.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.loginLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.loginLogin.FlatAppearance.BorderSize = 0;
             this.loginLogin.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.loginLogin.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -188,6 +178,17 @@ namespace SBBD
             this.passwordLogin.Text = "Hasło";
             this.passwordLogin.KeyDown += new System.Windows.Forms.KeyEventHandler(this.passwordLogin_KeyDown);
             // 
+            // titleBarLogin1
+            // 
+            this.titleBarLogin1.BackColor = System.Drawing.Color.Transparent;
+            this.titleBarLogin1.Location = new System.Drawing.Point(0, 0);
+            this.titleBarLogin1.Name = "titleBarLogin1";
+            this.titleBarLogin1.Size = new System.Drawing.Size(393, 16);
+            this.titleBarLogin1.TabIndex = 56;
+            this.titleBarLogin1.TabStop = false;
+            this.titleBarLogin1.TargetForm = this;
+            this.titleBarLogin1.XOffset = 0;
+            // 
             // Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -195,6 +196,7 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.Log2;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(420, 525);
+            this.Controls.Add(this.titleBarLogin1);
             this.Controls.Add(this.passwordLogin);
             this.Controls.Add(this.emailLogin);
             this.Controls.Add(this.loginLogin);
@@ -202,7 +204,6 @@ namespace SBBD
             this.Controls.Add(this.showPassword);
             this.Controls.Add(this.warnLabel2);
             this.Controls.Add(this.warnLabel1);
-            this.Controls.Add(this.titleBarLogin);
             this.Controls.Add(this.closeLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -210,7 +211,7 @@ namespace SBBD
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             ((System.ComponentModel.ISupportInitialize)(this.closeLogin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.titleBarLogin1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,7 +219,6 @@ namespace SBBD
 
         #endregion
         private System.Windows.Forms.PictureBox closeLogin;
-        private System.Windows.Forms.PictureBox titleBarLogin;
         private System.Windows.Forms.Timer warningTimer;
         private System.Windows.Forms.Label warnLabel1;
         private System.Windows.Forms.Label warnLabel2;
@@ -227,6 +227,7 @@ namespace SBBD
         private RoundedButton loginLogin;
         private CustomTextBox emailLogin;
         private CustomTextBox passwordLogin;
+        private MoveBar titleBarLogin1;
     }
 }
 

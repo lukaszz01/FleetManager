@@ -13,10 +13,59 @@ using System.IO;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 
-
 namespace SBBD
 {
-    public class NoFocusTrackBar : System.Windows.Forms.TrackBar
+    public class MoveBar : PictureBox
+    {
+        private int moveX, moveY;
+        private bool moving = false;
+        private Form _targetForm;
+        private int _xOffset;
+        public Form TargetForm
+        {
+            get => _targetForm;
+            set
+            {
+                _targetForm = value;
+                Invalidate();
+            }
+        }
+
+        public int XOffset
+        {
+            get => _xOffset;
+            set
+            {
+                _xOffset = value;
+                Invalidate();
+            }
+        }
+
+        protected override void OnMouseMove(MouseEventArgs e)
+        {
+            base.OnMouseMove(e);
+            if (moving)
+            {
+                _targetForm.SetDesktopLocation(MousePosition.X - _xOffset - moveX, MousePosition.Y - moveY);
+            }
+        }
+        protected override void OnMouseUp(MouseEventArgs e)
+        {
+            base.OnMouseUp(e);
+            moving = false;
+        }
+        protected override void OnMouseDown(MouseEventArgs e)
+        {
+            base.OnMouseDown(e);
+            moving = true;
+            moveX = e.X;
+            moveY = e.Y;
+        }
+
+
+    }
+
+    public class NoFocusTrackBar : TrackBar
     {
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public extern static int SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);

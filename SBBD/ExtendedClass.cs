@@ -1,0 +1,176 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Data.Entity;
+using System.Text.RegularExpressions;
+using System.IO;
+using System.Drawing.Text;
+using System.Drawing.Drawing2D;
+using System.Security.Cryptography;
+
+namespace SBBD
+{
+    public class ExtendedClass
+    { 
+        //Main Window - error msg
+        public static void ShowErrorMsg(Label warnLabel, Timer warnTimer)
+        {
+            warnLabel.Visible = true;
+            warnTimer.Start();
+        }
+        // rejestracja - niepoprawne hasło
+        public static void ShowMsg(int warnNum, Label warnLabel, Timer warnTimer)
+        {
+            switch (warnNum)
+            {
+                case 0:
+                    warnLabel.Text = "Hasło niepoprawne!";
+                    break;
+                case 1:
+                    warnLabel.Text = "Wprowadzone hasła różnią się!";
+                    break;
+                case 2:
+                    warnLabel.Text = "Hasło za krótkie!";
+                    break;
+            }
+            warnLabel.Visible = true;
+            warnTimer.Start();
+        }
+        //Main Window - hide panels
+        public static void HideOtherPanels(Panel panel, Control.ControlCollection Controls)
+        {
+            Panel toHide;
+            panel.Visible = true;
+            foreach (Control control in Controls)
+            {
+                try
+                {
+                    toHide = (Panel)control;
+                    if (toHide != panel)
+                    {
+                        toHide.Visible = false;
+                    }
+                }
+                catch
+                {
+
+                }
+            }
+        }
+        public static string ComputeSha256Hash(string rawData)
+        {
+            using (SHA256 sha256Hash = SHA256.Create())
+            {
+                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
+
+                StringBuilder builder = new StringBuilder();
+                for (int i = 0; i < bytes.Length; i++)
+                {
+                    builder.Append(bytes[i].ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
+        public static bool RegexD(string reg, TextBox textbox)
+        {
+            Regex regex = new Regex(reg);
+            if (!regex.IsMatch(textbox.Text))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public static bool IsEmpty(TextBox textBox, string placeholder)
+        {
+            return textBox.Text == "" || textBox.Text == placeholder;
+        }
+        public static bool IsEmpty(TextBox textBox)
+        {
+            return textBox.Text == "";
+        }
+        public static bool IsEmpty(ComboBox comboBox)
+        {
+            return comboBox.Text == "";
+        }
+        public static Bitmap ByteToImage(byte[] image)
+        {
+            MemoryStream mStream = new MemoryStream();
+            mStream.Write(image, 0, Convert.ToInt32(image.Length));
+            Bitmap bm = new Bitmap(mStream, false);
+            mStream.Dispose();
+            return bm;
+        }
+        public static byte[] ImageToByte(string fileName)
+        {
+            Image img = Image.FromFile(@fileName);
+            byte[] image;
+            using (MemoryStream ms = new MemoryStream())
+            {
+                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                image = ms.ToArray();
+            }
+            return image;
+        }
+        public static void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle, TrackBar trackbar, VFEntities context)
+        {
+            Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+            Bitmap bm = new Bitmap(310, 174);
+            Bitmap bm2 = ByteToImage(vehImage.vehicle_image);
+            Image infoimg = Image.FromFile(@"Resources\info.png");
+            Image editimg = Image.FromFile(@"Resources\edit.png");
+            Image deleteimg = Image.FromFile(@"Resources\delete.png");
+            Image checkVehicle = Image.FromFile(@"Resources\vehicleCheck1.png");
+            Image uncheckVehicle = Image.FromFile(@"Resources\vehicleUncheck1.png");
+            using (Graphics g = Graphics.FromImage(bm))
+            {
+                g.DrawImage(bm2, 0, 0, 310, 174);
+            }
+
+            Rectangle r = new Rectangle(0, 0, bm.Width, bm.Height);
+            int alpha = trackbar.Value;
+            using (Graphics g = Graphics.FromImage(bm))
+
+            {
+                using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
+                {
+                    g.FillRectangle(cloud_brush, r);
+                }
+            }
+
+            using (Graphics g = Graphics.FromImage(bm))
+            {
+                g.DrawImage(deleteimg, 275, 139, 20, 20);
+                g.DrawImage(infoimg, 240, 139, 20, 20);
+                g.DrawImage(editimg, 205, 139, 20, 20);
+                if (vehicle.available == true)
+                {
+                    g.DrawImage(checkVehicle, 10, 10, 20, 20);
+                }
+                else
+                {
+                    g.DrawImage(uncheckVehicle, 10, 10, 20, 20);
+                }
+
+            }
+            pictureBox.Image = bm;
+            label.Text = vehicle.manufacturer + " " + vehicle.model + "\n " + vehicle.registration_num;
+
+            vehImage = null;
+            bm2.Dispose();
+            infoimg.Dispose();
+            editimg.Dispose();
+            deleteimg.Dispose();
+            checkVehicle.Dispose();
+            uncheckVehicle.Dispose();
+        }
+    }
+}

@@ -7,18 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Security.Cryptography;
 using System.Data.Entity;
 using System.Drawing.Text;
+using static SBBD.ExtendedClass;
 
 namespace SBBD
 {
     public partial class Login : Form
     {
-        VFEntities login_context;
-        bool moving;
-        int moveX;
-        int moveY;
+        VFEntities context;
         Users logged_user;
         PrivateFontCollection pfc;
 
@@ -37,8 +34,8 @@ namespace SBBD
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
-            login_context = new VFEntities();
-            login_context.Users.Load();
+            context = new VFEntities();
+            context.Users.Load();
 
             pfc = new PrivateFontCollection();
             pfc.AddFontFile(@"Resources\fontBold.ttf");
@@ -84,16 +81,16 @@ namespace SBBD
                 )
             {
                 warningTimer.Start();
-                ShowErrorMsg(warnLabel1);
+                ShowErrorMsg(warnLabel1, warningTimer);
             }
             else
             {
                 string pass = ComputeSha256Hash(passwordLogin.Text);
-                var user = login_context.Users.Where(x => x.email == emailLogin.Text && x.password == pass).FirstOrDefault();
+                var user = context.Users.Where(x => x.email == emailLogin.Text && x.password == pass).FirstOrDefault();
                 if (user == null)
                 {
                     warningTimer.Start();
-                    ShowErrorMsg(warnLabel2);
+                    ShowErrorMsg(warnLabel2, warningTimer);
                 }
                 else
                 {
@@ -101,52 +98,6 @@ namespace SBBD
                     this.Close();
                 }
             }
-        }
-
-        private void ShowErrorMsg(Label warnLabel)
-        {
-            warnLabel.Visible = true;
-            warningTimer.Start();
-        }
-
-        private bool IsEmpty(TextBox textBox, string placeholder)
-        {
-            return textBox.Text == "" || textBox.Text == placeholder;
-        }
-
-        private string ComputeSha256Hash(string rawData)
-        {
-            using (SHA256 sha256Hash = SHA256.Create())
-            {
-                byte[] bytes = sha256Hash.ComputeHash(Encoding.UTF8.GetBytes(rawData));
-
-                StringBuilder builder = new StringBuilder();
-                for (int i = 0; i < bytes.Length; i++)
-                {
-                    builder.Append(bytes[i].ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
-        private void titleBarLogin_MouseDown(object sender, MouseEventArgs e)
-        {
-            moving = true;
-            moveX = e.X;
-            moveY = e.Y;
-        }
-
-        private void titleBarLogin_MouseMove(object sender, MouseEventArgs e)
-        {
-            if (moving)
-            {
-                this.SetDesktopLocation(MousePosition.X - moveX, MousePosition.Y - moveY);
-            }
-        }
-
-        private void titleBarLogin_MouseUp(object sender, MouseEventArgs e)
-        {
-            moving = false;
         }
 
         private void closeLogin_MouseEnter(object sender, EventArgs e)
@@ -162,7 +113,7 @@ namespace SBBD
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            this.login_context.Dispose();
+            this.context.Dispose();
         }
 
         private void warningTimer_Tick(object sender, EventArgs e)

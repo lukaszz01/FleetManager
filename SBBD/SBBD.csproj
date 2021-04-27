@@ -80,6 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ExtendedClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="CustomMessageBox.cs">
       <SubType>Form</SubType>
     </Compile>
