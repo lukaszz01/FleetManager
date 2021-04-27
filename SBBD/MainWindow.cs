@@ -125,9 +125,9 @@ namespace SBBD
         {
             if (selected != 0)
             {
-                HideOtherPanels(addVehiclePanel, this.Controls);
                 changeBtnTransparent(selected, addVehicle);
                 selected = 0;
+                HideOtherPanels(addVehiclePanel, this.Controls);
                 if (manufacturerComboBox.Items.Count == 0)
                     ManufacturersLoad(manufacturerComboBox);
             }
@@ -137,9 +137,9 @@ namespace SBBD
         {
             if (selected != 1)
             {
-                HideOtherPanels(vehiclesPanel, this.Controls);
                 changeBtnTransparent(selected, allVehicles);
                 selected = 1;
+                HideOtherPanels(vehiclesPanel, this.Controls);
             }
         }
 
@@ -147,9 +147,9 @@ namespace SBBD
         {
             if (selected != 2)
             {
-                HideOtherPanels(userInfoPanel, this.Controls);
                 changeBtnTransparent(selected, userInfo);
                 selected = 2;
+                HideOtherPanels(userInfoPanel, this.Controls);
             }
         }
 
@@ -157,9 +157,9 @@ namespace SBBD
         {
             if (selected != 3)
             {
-                HideOtherPanels(appInfoPanel, this.Controls);
                 changeBtnTransparent(selected, appInfo);
                 selected = 3;
+                HideOtherPanels(appInfoPanel, this.Controls);
             }
         }
 
