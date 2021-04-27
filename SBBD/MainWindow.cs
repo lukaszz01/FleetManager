@@ -123,14 +123,11 @@ namespace SBBD
 
         private void addVehicle_Click(object sender, EventArgs e)
         {
-
-
             if (selected != 0)
             {
-                changeBtnTransparent(selected);
-                selected = 0;
-                addVehicle.BackColor = Color.FromArgb(30, 35, 40);
                 HideOtherPanels(addVehiclePanel, this.Controls);
+                changeBtnTransparent(selected, addVehicle);
+                selected = 0;
                 if (manufacturerComboBox.Items.Count == 0)
                     ManufacturersLoad(manufacturerComboBox);
             }
@@ -140,10 +137,9 @@ namespace SBBD
         {
             if (selected != 1)
             {
-                changeBtnTransparent(selected);
-                selected = 1;
-                allVehicles.BackColor = Color.FromArgb(30, 35, 40);
                 HideOtherPanels(vehiclesPanel, this.Controls);
+                changeBtnTransparent(selected, allVehicles);
+                selected = 1;
             }
         }
 
@@ -151,11 +147,9 @@ namespace SBBD
         {
             if (selected != 2)
             {
-                changeBtnTransparent(selected);
+                HideOtherPanels(userInfoPanel, this.Controls);
+                changeBtnTransparent(selected, userInfo);
                 selected = 2;
-                userInfo.BackColor = Color.FromArgb(30, 35, 40);
-                // Dodać panel użytkownik i ukrywanie
-                vehiclesPanel.Visible = false;
             }
         }
 
@@ -163,11 +157,9 @@ namespace SBBD
         {
             if (selected != 3)
             {
-                changeBtnTransparent(selected);
+                HideOtherPanels(appInfoPanel, this.Controls);
+                changeBtnTransparent(selected, appInfo);
                 selected = 3;
-                appInfo.BackColor = Color.FromArgb(30, 35, 40);
-                // Dodać panel info i ukrywanie
-                vehiclesPanel.Visible = false;
             }
         }
 
@@ -176,9 +168,8 @@ namespace SBBD
             if (selected != 4)
             {
                 HideOtherPanels(vehiclesPanel, this.Controls);
-                changeBtnTransparent(selected);
+                changeBtnTransparent(selected, logout);
                 selected = 4;
-                logout.BackColor = Color.FromArgb(30, 35, 40);
                 switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz\n się wylogować?", 1500, true))
                 {
                     case DialogResult.Yes:
@@ -203,9 +194,7 @@ namespace SBBD
                 }
             }
         }
-
-        // problem z przeniesieniem
-        private void changeBtnTransparent(int num)
+        private void changeBtnTransparent(int num, CustomButton button)
         {
             switch (num)
             {
@@ -225,19 +214,12 @@ namespace SBBD
                     logout.BackColor = Color.Transparent;
                     break;
             }
+            button.BackColor = Color.FromArgb(30, 35, 40);
         }
 
         private void mainExit_Click(object sender, EventArgs e)
         {
-            switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zamknąć aplikację?", 1500, true))
-            {
-                case DialogResult.Yes:
-                    CustomMessageBox.CustomMsg("Zamykanie aplikacji...", 2000, false);
-                    Application.Exit();
-                    break;
-                case DialogResult.No:
-                    break;
-            }
+            AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
         }
 
         private void mainMinimize_Click(object sender, EventArgs e)
@@ -320,7 +302,6 @@ namespace SBBD
                     break;
             }
 
-
             if (user.admin)
             {
                 //var allVehicles = context.Vehicles.Select(x => x).ToList();     
@@ -342,7 +323,6 @@ namespace SBBD
                 vehicleCount = vehList.Count;
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
-
 
                 for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
                 {

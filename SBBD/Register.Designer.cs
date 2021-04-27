@@ -144,7 +144,7 @@ namespace SBBD
             // showPassword
             // 
             this.showPassword.BackColor = System.Drawing.Color.Transparent;
-            this.showPassword.BackgroundImage = global::SBBD.Properties.Resources.showPassword;
+            this.showPassword.BackgroundImage = global::SBBD.Properties.Resources.hidePassword;
             this.showPassword.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.showPassword.FlatAppearance.BorderSize = 0;
             this.showPassword.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;

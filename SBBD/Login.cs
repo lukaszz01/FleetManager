@@ -19,6 +19,17 @@ namespace SBBD
         Users logged_user;
         PrivateFontCollection pfc;
 
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
+
         public static Users logged_user_value
         {
             get;set;
@@ -36,7 +47,6 @@ namespace SBBD
             base.OnLoad(e);
             context = new VFEntities();
             context.Users.Load();
-
             pfc = new PrivateFontCollection();
             pfc.AddFontFile(@"Resources\fontBold.ttf");
             foreach (Control c in this.Controls)
@@ -55,14 +65,7 @@ namespace SBBD
 
         private void closeLogin_Click(object sender, EventArgs e)
         {
-            switch(CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zamknąć aplikację?", 1500, true))
-            {
-                case DialogResult.Yes:
-                    Application.Exit();
-                    break;
-                case DialogResult.No:
-                    break;
-            }
+            AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
         }
 
         private void registerLogin_Click(object sender, EventArgs e)
@@ -134,19 +137,12 @@ namespace SBBD
 
         private void showPassword_MouseDown(object sender, MouseEventArgs e)
         {
-            passwordLogin.PasswordChar = '\0';
+            ShowPassword(passwordLogin, showPassword);
         }
 
         private void showPassword_MouseUp(object sender, MouseEventArgs e)
         {
-            if(passwordLogin.Text == passwordLogin.PlaceHolder)
-            {
-                passwordLogin.PasswordChar = '\0';
-            }
-            else
-            {
-                passwordLogin.PasswordChar = '*';
-            }
+            HidePassword(passwordLogin, showPassword);
         }
     }
 }

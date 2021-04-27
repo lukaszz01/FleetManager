@@ -172,5 +172,34 @@ namespace SBBD
             checkVehicle.Dispose();
             uncheckVehicle.Dispose();
         }
+        public static void AppExit(string message)
+        {
+            switch (CustomMessageBox.CustomMsg(message, 1500, true))
+            {
+                case DialogResult.Yes:
+                    CustomMessageBox.CustomMsg("Zamykanie aplikacji...", 1500, false);
+                    Application.Exit();
+                    break;
+                case DialogResult.No:
+                    break;
+            }
+        }
+        public static void HidePassword(CustomTextBox pswordTextbox, Button button)
+        {
+            if (pswordTextbox.Text == pswordTextbox.PlaceHolder)
+            {
+                pswordTextbox.PasswordChar = '\0';
+            }
+            else
+            {
+                pswordTextbox.PasswordChar = '*';
+            }
+            button.BackgroundImage = Properties.Resources.hidePassword;
+        }
+        public static void ShowPassword(CustomTextBox pswordTextbox, Button button)
+        {
+            pswordTextbox.PasswordChar = '\0';
+            button.BackgroundImage = Properties.Resources.showPassword;
+        }
     }
 }

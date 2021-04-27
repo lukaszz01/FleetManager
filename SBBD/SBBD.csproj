@@ -349,6 +349,7 @@
     <None Include="Resources\Reg1.png" />
     <None Include="Resources\filterBG.png" />
     <None Include="Resources\filterBG1.png" />
+    <None Include="Resources\hidePassword.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>

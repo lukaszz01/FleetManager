@@ -19,6 +19,16 @@ namespace SBBD
     {
         VFEntities context;
         PrivateFontCollection pfc;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                const int CS_DROPSHADOW = 0x20000;
+                CreateParams cp = base.CreateParams;
+                cp.ClassStyle |= CS_DROPSHADOW;
+                return cp;
+            }
+        }
 
         static Register register;
         static DialogResult dialogResult = DialogResult.No;
@@ -39,7 +49,6 @@ namespace SBBD
             context = new VFEntities();
             context.Users.Load();
             toolTip.SetToolTip(passwordInfo, "Musi zawierać min. 8 znaków, w tym (A-Z, a-z, 0-9) oraz znak specjalny (@$!%*?&)");
-
             pfc = new PrivateFontCollection();
             pfc.AddFontFile(@"Resources\fontBold.ttf");
             foreach (Control c in this.Controls)
@@ -56,15 +65,8 @@ namespace SBBD
         }
 
         private void closeRegister_Click(object sender, EventArgs e)
-        { 
-            switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz \n zakończyć rejestracje?", 1500, true))
-            {
-                case DialogResult.Yes:
-                    Application.Exit();
-                    break;
-                case DialogResult.No:
-                    break;
-            }
+        {
+            AppExit("Czy na pewno chcesz \n zakończyć rejestracje?");
         }
        
         private void registerRegister_Click(object sender, EventArgs e)
@@ -186,22 +188,14 @@ namespace SBBD
 
         private void showPassword_MouseDown(object sender, MouseEventArgs e)
         {
-            passwordRegister.PasswordChar = '\0';
-            passwordRegister1.PasswordChar = '\0';
+            ShowPassword(passwordRegister, showPassword);
+            ShowPassword(passwordRegister1, showPassword);
         }
 
         private void showPassword_MouseUp(object sender, MouseEventArgs e)
         {
-            if(passwordRegister.Text == passwordRegister.PlaceHolder && passwordRegister1.Text == passwordRegister1.PlaceHolder)
-            {
-                passwordRegister.PasswordChar = '\0';
-                passwordRegister1.PasswordChar = '\0';
-            }
-            else
-            {
-                passwordRegister.PasswordChar = '*';
-                passwordRegister1.PasswordChar = '*';
-            }
+            HidePassword(passwordRegister, showPassword);
+            HidePassword(passwordRegister1, showPassword);
         }
     }
 }
