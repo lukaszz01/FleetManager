@@ -699,7 +699,15 @@ namespace SBBD
 
         private void filterPanel_MouseLeave(object sender, EventArgs e)
         {
-            filterPanel.Visible = false;
+            
+            if (filterPanel.Visible)
+            {
+                var mea = this.PointToClient(MousePosition);
+                if (mea.X < 590 || mea.X > 1030 || mea.Y < 120 || mea.Y > 320)
+                {
+                    filterPanel.Visible = false;
+                }
+            }
         }
     }
 }
