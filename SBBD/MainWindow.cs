@@ -292,10 +292,10 @@ namespace SBBD
                     vehList = vehFilter.Select(v => v).OrderBy(v => v.available).ToList();
                     break;
                 case 3:
-                    vehList = vehFilter.Select(v => v).OrderBy(v => v.model).ToList();
+                    vehList = vehFilter.Select(v => v).OrderBy(v => v.manufacturer).ToList();
                     break;
                 case 4:
-                    vehList = vehFilter.Select(v => v).OrderByDescending(v => v.model).ToList();
+                    vehList = vehFilter.Select(v => v).OrderByDescending(v => v.manufacturer).ToList();
                     break;
                 default:
                     vehList = vehFilter.Select(v => v).ToList();
