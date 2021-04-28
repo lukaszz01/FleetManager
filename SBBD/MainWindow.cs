@@ -113,7 +113,8 @@ namespace SBBD
                 allModels = context.Models.Select(x => x).ToList();
                 filterManufacturer.Items.Add("Wszystkie");
                 filterModel.Items.Add("Wszystkie");
-                ManufacturersLoad(filterManufacturer);
+                if(filterManufacturer.Items.Count == 1)
+                    ManufacturersLoad(filterManufacturer);
                 trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
@@ -128,7 +129,7 @@ namespace SBBD
                 changeBtnTransparent(selected, addVehicle);
                 selected = 0;
                 HideOtherPanels(addVehiclePanel, this.Controls);
-                if (manufacturerComboBox.Items.Count == 0)
+                if(manufacturerComboBox.Items.Count == 0)
                     ManufacturersLoad(manufacturerComboBox);
             }
         }
@@ -309,10 +310,15 @@ namespace SBBD
 
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
+                if (currentPage > vehiclePages)
+                {
+                    currentPage = vehiclePages;
+                    siteCounter.Text = currentPage.ToString();
+                }
 
                 for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
                 {
-                    ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)], trackBar1, context);
+                    ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)], trackBar1, context, checkBox1);
                 }
                 //vehList = null;
             }
@@ -323,10 +329,15 @@ namespace SBBD
                 vehicleCount = vehList.Count;
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
+                if (currentPage > vehiclePages)
+                {
+                    currentPage = vehiclePages;
+                    siteCounter.Text = currentPage.ToString();
+                }
 
                 for (int i = 0; i < (currentPage == vehiclePages ? (vehicleCount % 9) : 9); i++)
                 {
-                    ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)], trackBar1, context);
+                    ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)], trackBar1, context, checkBox1);
                 }
                 //vehList = null;
             }
@@ -480,7 +491,7 @@ namespace SBBD
             if (question == DialogResult.Yes)
             {
                 HideOtherPanels(editVehiclePanel, this.Controls);
-                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
                 Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
                 Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
                 editManufacturer.Text = selectedVehicle.manufacturer;
@@ -516,8 +527,9 @@ namespace SBBD
         private void infoVehicleFill()
         {
             HideOtherPanels(infoVehiclePanel, this.Controls);
-            string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+            string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
             Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+            CustomMessageBox.CustomMsg(selectedVehicle.registration_num, 0, true);
             Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             infoManufacturer.Text = selectedVehicle.manufacturer;
             infoVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
@@ -545,7 +557,7 @@ namespace SBBD
             var warn = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć ten pojazd?", 1500, true);
             if (warn == DialogResult.Yes)
             {
-                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
                 Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
                 Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
                 this.context.Vehicles.Remove(selectedVehicle);
@@ -673,8 +685,10 @@ namespace SBBD
 
         private void filterAccept_Click(object sender, EventArgs e)
         {
+            vehiclePages = 0;
             populatePanel();
             filterPanel.Visible = false;
+            
         }
 
         private void filterPanel_MouseLeave(object sender, EventArgs e)
@@ -688,6 +702,11 @@ namespace SBBD
                     filterPanel.Visible = false;
                 }
             }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            populatePanel();
         }
     }
 }

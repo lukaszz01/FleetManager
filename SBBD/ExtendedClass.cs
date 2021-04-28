@@ -120,7 +120,7 @@ namespace SBBD
             }
             return image;
         }
-        public static void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle, TrackBar trackbar, VFEntities context)
+        public static void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle, TrackBar trackbar, VFEntities context, CheckBox checkBox)
         {
             Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             Bitmap bm = new Bitmap(310, 174);
@@ -140,9 +140,19 @@ namespace SBBD
             using (Graphics g = Graphics.FromImage(bm))
 
             {
-                using (Brush cloud_brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
+                using (Brush brush = new SolidBrush(Color.FromArgb(alpha, Color.Black)))
                 {
-                    g.FillRectangle(cloud_brush, r);
+                    g.FillRectangle(brush, r);
+                }
+                if (checkBox.Checked)
+                {
+                    if (!vehicle.available)
+                    {
+                        using (Brush brush = new SolidBrush(Color.FromArgb(128, Color.Red)))
+                        {
+                            g.FillRectangle(brush, r);
+                        }
+                    }
                 }
             }
 

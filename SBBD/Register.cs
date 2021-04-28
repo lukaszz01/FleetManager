@@ -136,33 +136,8 @@ namespace SBBD
 
         private bool emailIsRepeat(string email)
         {
-            //try
-            //{
-            //    var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
-            //    return userName == null;
-            //}
-            //catch
-            //{
-            //    return true;
-            //}
-            var allUsers = context.Users.Select(x => x).ToList();
-            bool isTrue = false;
-            foreach (Users user in allUsers)
-                try
-                {
-                    if (email == user.email)
-                    {
-                        isTrue = true;
-                        break;
-                    }
-                    var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
-                    return userName == null;
-                }
-                catch
-                {
-                    return true;
-                }
-            return isTrue;
+            var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
+            return userName != null;
         }
 
         private void loginRegister_Click(object sender, EventArgs e)
