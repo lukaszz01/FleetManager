@@ -1764,11 +1764,11 @@ namespace SBBD
             this.Controls.Add(this.appInfo);
             this.Controls.Add(this.userInfo);
             this.Controls.Add(this.allVehicles);
-            this.Controls.Add(this.addVehicle);
+            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
+            this.Controls.Add(this.addVehicle);
             this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.appInfoPanel);
             this.Controls.Add(this.userInfoPanel);
             this.Controls.Add(this.trackBar1);

@@ -93,7 +93,7 @@ namespace SBBD
                 if (!RegexD(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$", emailRegister)) ShowErrorMsg(warnLabel1, warningTimer);
                 if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister)) ShowMsg(0, warnLabel2, warningTimer);
                 if (!RegexD(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$", passwordRegister1)) ShowMsg(0, warnLabel2, warningTimer);
-                if (passwordRegister.PasswordChar.Equals(passwordRegister1.PasswordChar)) ShowMsg(1, warnLabel2, warningTimer);
+                if (!(passwordRegister.Text.Equals(passwordRegister1.Text))) ShowMsg(1, warnLabel2, warningTimer);
                 if (passwordRegister.TextLength < 8 && passwordRegister1.TextLength < 8) ShowMsg(2, warnLabel2, warningTimer);
             }
             else if (emailIsRepeat(emailRegister.Text))
@@ -136,15 +136,33 @@ namespace SBBD
 
         private bool emailIsRepeat(string email)
         {
-            try
-            {
-                var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
-                return userName == null;
-            }
-            catch
-            {
-                return true;
-            }
+            //try
+            //{
+            //    var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
+            //    return userName == null;
+            //}
+            //catch
+            //{
+            //    return true;
+            //}
+            var allUsers = context.Users.Select(x => x).ToList();
+            bool isTrue = false;
+            foreach (Users user in allUsers)
+                try
+                {
+                    if (email == user.email)
+                    {
+                        isTrue = true;
+                        break;
+                    }
+                    var userName = context.Users.Where(x => x.email == email).FirstOrDefault();
+                    return userName == null;
+                }
+                catch
+                {
+                    return true;
+                }
+            return isTrue;
         }
 
         private void loginRegister_Click(object sender, EventArgs e)
