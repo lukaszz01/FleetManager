@@ -134,7 +134,7 @@ namespace SBBD
             {
                 g.DrawImage(bm2, 0, 0, 310, 174);
             }
-
+            //var trackbar = context.Users.Select(x => x.darken).FirstOrDefault();
             Rectangle r = new Rectangle(0, 0, bm.Width, bm.Height);
             int alpha = trackbar.Value;
             using (Graphics g = Graphics.FromImage(bm))

@@ -1696,7 +1696,6 @@ namespace SBBD
             this.trackBar1.TabIndex = 0;
             this.trackBar1.TabStop = false;
             this.trackBar1.TickFrequency = 10;
-            this.trackBar1.Value = 128;
             this.trackBar1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.trackBar1_MouseUp);
             // 
             // mainExit

@@ -28,6 +28,7 @@
           <Property Name="last_name" Type="varchar" MaxLength="25" Nullable="false" />
           <Property Name="password" Type="varchar(max)" Nullable="false" />
           <Property Name="admin" Type="bit" Nullable="false" />
+          <Property Name="darken" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicle_Service">
           <Key>
@@ -179,6 +180,7 @@
           <Property Name="password" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
           <NavigationProperty Name="Vehicles" Relationship="Self.FK_Vehicles_Users" FromRole="Users" ToRole="Vehicles" />
           <Property Name="admin" Type="Boolean" Nullable="false" />
+          <Property Name="darken" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="Vehicle_Service">
           <Key>
@@ -348,6 +350,7 @@
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="Vehicle_FleetModel.Users">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="darken" ColumnName="darken" />
                 <ScalarProperty Name="admin" ColumnName="admin" />
                 <ScalarProperty Name="email" ColumnName="email" />
                 <ScalarProperty Name="first_name" ColumnName="first_name" />

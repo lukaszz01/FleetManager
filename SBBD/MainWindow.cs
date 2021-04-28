@@ -114,7 +114,7 @@ namespace SBBD
                 filterManufacturer.Items.Add("Wszystkie");
                 filterModel.Items.Add("Wszystkie");
                 ManufacturersLoad(filterManufacturer);
-
+                trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
                 filterAvailable.SelectedIndex = 2;
