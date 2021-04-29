@@ -17,7 +17,13 @@ using System.Security.Cryptography;
 namespace SBBD
 {
     public class ExtendedClass
-    { 
+    {
+        static Image infoimg = Image.FromFile(@"Resources\info.png");
+        static Image editimg = Image.FromFile(@"Resources\edit.png");
+        static Image deleteimg = Image.FromFile(@"Resources\delete.png");
+        static Image checkVehicle = Image.FromFile(@"Resources\vehicleCheck1.png");
+        static Image uncheckVehicle = Image.FromFile(@"Resources\vehicleUncheck1.png");
+        static Vehicles_Images vehImage;
         //Main Window - error msg
         public static void ShowErrorMsg(Label warnLabel, Timer warnTimer)
         {
@@ -122,14 +128,10 @@ namespace SBBD
         }
         public static void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle, TrackBar trackbar, VFEntities context, CheckBox checkBox)
         {
-            Vehicles_Images vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
+            vehImage = context.Vehicles_Images.Where(v => v.vehicle_id == vehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             Bitmap bm = new Bitmap(310, 174);
             Bitmap bm2 = ByteToImage(vehImage.vehicle_image);
-            Image infoimg = Image.FromFile(@"Resources\info.png");
-            Image editimg = Image.FromFile(@"Resources\edit.png");
-            Image deleteimg = Image.FromFile(@"Resources\delete.png");
-            Image checkVehicle = Image.FromFile(@"Resources\vehicleCheck1.png");
-            Image uncheckVehicle = Image.FromFile(@"Resources\vehicleUncheck1.png");
+            
             using (Graphics g = Graphics.FromImage(bm))
             {
                 g.DrawImage(bm2, 0, 0, 310, 174);
@@ -181,11 +183,7 @@ namespace SBBD
 
             vehImage = null;
             bm2.Dispose();
-            infoimg.Dispose();
-            editimg.Dispose();
-            deleteimg.Dispose();
-            checkVehicle.Dispose();
-            uncheckVehicle.Dispose();
+            
         }
         public static void AppExit(string message)
         {
