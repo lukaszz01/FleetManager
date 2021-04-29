@@ -482,8 +482,29 @@ namespace SBBD
                     infoVehicleFill();
                 if (mouseCoordinates.X >= 275 && mouseCoordinates.X <= 295 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
                     deleteVehicle();
+                if (mouseCoordinates.X >= 10 && mouseCoordinates.X <= 30 && mouseCoordinates.Y >= 10 && mouseCoordinates.Y <= 30)
+                    vehAvaliable();
             }
         }
+
+        private void vehAvaliable()
+        {
+            var msg = CustomMessageBox.CustomMsg("Dostępny?", 0, true);
+            string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
+            Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+            if (msg == DialogResult.Yes)
+            {
+                selectedVehicle.available = true;
+            }
+            else
+            {
+                selectedVehicle.available = false;
+
+            }
+            context.SaveChanges();
+            populatePanel();
+            selectedVehicle = null;
+        } 
 
         private void editVehicleFill()
         {
@@ -594,7 +615,7 @@ namespace SBBD
             }
             else
             {
-                string regNumStr = (vLabelList[editSelecetedId].Text.Split(' '))[2];
+                string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
                 Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
                 selectedVehicle.registration_num = editRegNum.Text;
                 selectedVehicle.color = editVehicleColor.Text;

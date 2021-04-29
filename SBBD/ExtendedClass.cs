@@ -146,6 +146,7 @@ namespace SBBD
                 }
                 if (checkBox.Checked)
                 {
+                    checkBox.Text = "Ukryj niedostępne auta";
                     if (!vehicle.available)
                     {
                         using (Brush brush = new SolidBrush(Color.FromArgb(128, Color.Red)))
@@ -153,6 +154,10 @@ namespace SBBD
                             g.FillRectangle(brush, r);
                         }
                     }
+                }
+                else
+                {
+                    checkBox.Text = "Pokaż niedostępne auta";
                 }
             }
 
