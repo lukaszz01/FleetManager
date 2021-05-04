@@ -14,18 +14,19 @@ namespace SBBD
 {
     public partial class Route : Form
     {
-        public static Drivers driver{
+        public static Drivers driver
+        {
             get; set;
-            }
+        }
         public static int distance
         {
             get; set;
         }
+
         PrivateFontCollection pfc;
         VFEntities context;
         List<Drivers> allDrivers;
         
-
         protected override CreateParams CreateParams
         {
             get
@@ -50,11 +51,6 @@ namespace SBBD
                     c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
                 }
             }
-            
-            
-
-            
-          
         }
 
         public Route()
@@ -90,9 +86,7 @@ namespace SBBD
             routeDriver.Items.Clear();
             routeDriver.Items.Add(driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name);
             routeDriver.SelectedIndex = 0;
-            
             //routeDriver.Enabled = false;
-
         }
         /*protected override void OnClosed(EventArgs e)
         {

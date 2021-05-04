@@ -52,7 +52,6 @@ namespace SBBD
             {
                 c.Font = new Font(pfc.Families[0], c.Font.Size, FontStyle.Regular);
             }
-
         }
 
         public static DialogResult ShowLogin()
@@ -62,10 +61,7 @@ namespace SBBD
             return dialogResult;
         }
 
-        private void closeLogin_Click(object sender, EventArgs e)
-        {
-            AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
-        }
+        private void closeLogin_Click(object sender, EventArgs e) => AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
 
         private void registerLogin_Click(object sender, EventArgs e)
         {
@@ -134,14 +130,8 @@ namespace SBBD
             }
         }
 
-        private void showPassword_MouseDown(object sender, MouseEventArgs e)
-        {
-            ShowPassword(passwordLogin, showPassword);
-        }
+        private void showPassword_MouseDown(object sender, MouseEventArgs e) => ShowPassword(passwordLogin, showPassword);
 
-        private void showPassword_MouseUp(object sender, MouseEventArgs e)
-        {
-            HidePassword(passwordLogin, showPassword);
-        }
+        private void showPassword_MouseUp(object sender, MouseEventArgs e) => HidePassword(passwordLogin, showPassword);
     }
 }

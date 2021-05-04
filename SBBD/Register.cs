@@ -64,10 +64,7 @@ namespace SBBD
             return dialogResult;
         }
 
-        private void closeRegister_Click(object sender, EventArgs e)
-        {
-            AppExit("Czy na pewno chcesz \n zakończyć rejestracje?");
-        }
+        private void closeRegister_Click(object sender, EventArgs e) => AppExit("Czy na pewno chcesz \n zakończyć rejestracje?");
        
         private void registerRegister_Click(object sender, EventArgs e)
         {

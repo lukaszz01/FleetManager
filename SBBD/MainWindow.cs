@@ -220,15 +220,9 @@ namespace SBBD
             button.BackColor = Color.FromArgb(30, 35, 40);
         }
 
-        private void mainExit_Click(object sender, EventArgs e)
-        {
-            AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
-        }
+        private void mainExit_Click(object sender, EventArgs e) => AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
 
-        private void mainMinimize_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
-        }
+        private void mainMinimize_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
 
         private void populatePanel()
         {
@@ -355,10 +349,7 @@ namespace SBBD
             }
         }
 
-        private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ModelsLoad(manufacturerComboBox, modelComboBox);
-        }
+        private void ManufacturerComboBox_SelectedIndexChanged(object sender, EventArgs e) => ModelsLoad(manufacturerComboBox, modelComboBox);
 
         private void ModelsLoad(ComboBox manufacturersComboBox, ComboBox modelsComboBox)
         {
@@ -386,8 +377,8 @@ namespace SBBD
                 IsEmpty(vinNumber, "17 - znakowy VIN") ||
                 IsEmpty(regNumber, "np. LHR12345") ||
                 IsEmpty(engineCapacity, "np. 3000") ||
-                IsEmpty(enginePower, "np. 240")
-                //IsEmpty(distance,"np.53423")
+                IsEmpty(enginePower, "np. 240") ||
+                IsEmpty(vehMilage, "np. 50 000")
                 )
             {
                 warningTimer.Start();
@@ -404,8 +395,8 @@ namespace SBBD
                 !RegexD(@"^[A-HJ-NPR-Z0-9]{11}[0-9]{6}$", vinNumber) ||
                 !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
                 !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
-                !RegexD(@"^[0-9]{2,4}$", enginePower)
-                //!RegexD(@"^[0-9]+$", distance)
+                !RegexD(@"^[0-9]{2,4}$", enginePower) ||
+                !RegexD(@"^[0-9]{7}$", vehMilage)
                 )
             {
                 if (!RegexD(@"^[0-9]{4}$", prodYear)) ShowErrorMsg(warnLabel3, warningTimer);
@@ -414,7 +405,7 @@ namespace SBBD
                 if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(warnLabel1, warningTimer);
                 if (!RegexD(@"^[0-9]{3,5}$", engineCapacity)) ShowErrorMsg(warnLabel5, warningTimer);
                 if (!RegexD(@"^[0-9]{2,4}$", enginePower)) ShowErrorMsg(warnLabel6, warningTimer);
-                //if (!RegexD(@"^[0-9]+$", distance)) ShowErrorMsg(warnLabel6, warningTimer);
+                if (!RegexD(@"^[0-9]{7}$", vehMilage)) ShowErrorMsg(warnLabel9, warningTimer);
             }
             else
             {
@@ -433,7 +424,7 @@ namespace SBBD
                     engine_power = Int32.Parse(enginePower.Text),
                     user_email = user.email,
                     available = true,
-                    //distances = Int32.Parse(distance),
+                    mileage = vehMilage.Text
                 };
                 Vehicles_Images vehicleImage = new Vehicles_Images()
                 {
@@ -532,7 +523,6 @@ namespace SBBD
                 }
                 
             }
-            
             context.SaveChanges();
             populatePanel();
             selectedVehicle = null;
@@ -595,6 +585,7 @@ namespace SBBD
             infoEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
             infoEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
             //infoDistance.Text = Convert.ToString(selectedVehicle.distances);
+            infoMilage.Text = selectedVehicle.mileage;
 
             if (selectedVehicle.available == false)
                 infoAvaliable.Text = "Nie";
@@ -671,6 +662,7 @@ namespace SBBD
             warnLabel6.Visible = false;
             warnLabel7.Visible = false;
             warnLabel8.Visible = false;
+            warnLabel9.Visible = false;
         }
 
         private void clearVehicleBtn_Click(object sender, EventArgs e)
@@ -686,6 +678,7 @@ namespace SBBD
                 vinNumber.ClearText();
                 vehicleColor.ClearText();
                 prodYear.ClearText();
+                vehMilage.ClearText();
                // distance.ClearText();
                 modelComboBox.SelectedIndex = -1;
                 manufacturerComboBox.SelectedIndex = -1;
@@ -710,20 +703,11 @@ namespace SBBD
             }
         }
 
-        private void trackBar1_MouseUp(object sender, MouseEventArgs e)
-        {
-            populatePanel();
-        }
+        private void trackBar1_MouseUp(object sender, MouseEventArgs e) => populatePanel();
 
-        private void infoReturnBtn_Click(object sender, EventArgs e)
-        {
-            HideOtherPanels(vehiclesPanel, this.Controls);
-        }
+        private void infoReturnBtn_Click(object sender, EventArgs e) => HideOtherPanels(vehiclesPanel, this.Controls);
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            populatePanel();
-        }
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) => populatePanel();
 
         private void filterManufacturer_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -732,10 +716,7 @@ namespace SBBD
                 filterModel.Enabled = false;
         }
 
-        private void filterButton_Click(object sender, EventArgs e)
-        {
-            filterPanel.Visible = !filterPanel.Visible;
-        }
+        private void filterButton_Click(object sender, EventArgs e) => filterPanel.Visible = !filterPanel.Visible;
 
         private void filterAccept_Click(object sender, EventArgs e)
         {
@@ -758,9 +739,6 @@ namespace SBBD
             }
         }
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            populatePanel();
-        }
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) => populatePanel();
     }
 }
