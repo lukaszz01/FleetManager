@@ -5,6 +5,15 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="Vehicle_FleetModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="driver_id" />
+          </Key>
+          <Property Name="driver_id" Type="int" Nullable="false" />
+          <Property Name="first_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="last_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="available" Type="bit" Nullable="false" />
+        </EntityType>
         <EntityType Name="Manufacturers">
           <Key>
             <PropertyRef Name="manufacturer_name" />
@@ -58,6 +67,7 @@
           <Property Name="vehicle_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="user_email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="available" Type="bit" Nullable="false" />
+          <Property Name="mileage" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Vehicles_Breakdowns">
           <Key>
@@ -76,6 +86,17 @@
           <Property Name="image_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="vehicle_id" Type="int" Nullable="false" />
           <Property Name="vehicle_image" Type="image" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Vehicles_Routes">
+          <Key>
+            <PropertyRef Name="route_id" />
+          </Key>
+          <Property Name="route_id" Type="int" Nullable="false" />
+          <Property Name="driver_id" Type="int" Nullable="false" />
+          <Property Name="vehicle_id" Type="int" Nullable="false" />
+          <Property Name="distance" Type="int" />
+          <Property Name="start_date" Type="date" Nullable="false" />
+          <Property Name="end_date" Type="date" />
         </EntityType>
         <Association Name="FK_Models_Manufacturers">
           <End Role="Manufacturers" Type="Self.Manufacturers" Multiplicity="1" />
@@ -125,6 +146,30 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Vehicles_Roudes_Drivers">
+          <End Role="Drivers" Type="Self.Drivers" Multiplicity="1" />
+          <End Role="Vehicles_Routes" Type="Self.Vehicles_Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drivers">
+              <PropertyRef Name="driver_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Routes">
+              <PropertyRef Name="driver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Roudes_Vehicles">
+          <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="1" />
+          <End Role="Vehicles_Routes" Type="Self.Vehicles_Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Routes">
+              <PropertyRef Name="vehicle_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Vehicles_Users">
           <End Role="Users" Type="Self.Users" Multiplicity="1" />
           <End Role="Vehicles" Type="Self.Vehicles" Multiplicity="*" />
@@ -138,6 +183,7 @@
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="Vehicle_FleetModelStoreContainer">
+          <EntitySet Name="Drivers" EntityType="Self.Drivers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
@@ -145,6 +191,7 @@
           <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicles_Breakdowns" EntityType="Self.Vehicles_Breakdowns" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicles_Images" EntityType="Self.Vehicles_Images" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vehicles_Routes" EntityType="Self.Vehicles_Routes" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_Models_Manufacturers" Association="Self.FK_Models_Manufacturers">
             <End Role="Manufacturers" EntitySet="Manufacturers" />
             <End Role="Models" EntitySet="Models" />
@@ -160,6 +207,14 @@
           <AssociationSet Name="FK_Vehicles_Images_Vehicles" Association="Self.FK_Vehicles_Images_Vehicles">
             <End Role="Vehicles" EntitySet="Vehicles" />
             <End Role="Vehicles_Images" EntitySet="Vehicles_Images" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Roudes_Drivers" Association="Self.FK_Vehicles_Roudes_Drivers">
+            <End Role="Drivers" EntitySet="Drivers" />
+            <End Role="Vehicles_Routes" EntitySet="Vehicles_Routes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Roudes_Vehicles" Association="Self.FK_Vehicles_Roudes_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicles_Routes" EntitySet="Vehicles_Routes" />
           </AssociationSet>
           <AssociationSet Name="FK_Vehicles_Users" Association="Self.FK_Vehicles_Users">
             <End Role="Users" EntitySet="Users" />
@@ -215,6 +270,8 @@
           <NavigationProperty Name="Vehicles_Breakdowns" Relationship="Self.FK_Vehicles_Breakdowns_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Breakdowns" />
           <NavigationProperty Name="Vehicles_Images" Relationship="Self.FK_Vehicles_Images_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Images" />
           <Property Name="available" Type="Boolean" Nullable="false" />
+          <Property Name="mileage" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Vehicles_Routes" Relationship="Vehicle_FleetModel.FK_Vehicles_Roudes_Vehicles" FromRole="Vehicles" ToRole="Vehicles_Routes" />
         </EntityType>
         <EntityType Name="Vehicles_Breakdowns">
           <Key>
@@ -312,6 +369,16 @@
             <End Role="Manufacturers" EntitySet="Manufacturers" />
             <End Role="Models" EntitySet="Models" />
           </AssociationSet>
+          <EntitySet Name="Drivers" EntityType="Vehicle_FleetModel.Drivers" />
+          <EntitySet Name="Vehicles_Routes" EntityType="Vehicle_FleetModel.Vehicles_Routes" />
+          <AssociationSet Name="FK_Vehicles_Roudes_Drivers" Association="Vehicle_FleetModel.FK_Vehicles_Roudes_Drivers">
+            <End Role="Drivers" EntitySet="Drivers" />
+            <End Role="Vehicles_Routes" EntitySet="Vehicles_Routes" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Vehicles_Roudes_Vehicles" Association="Vehicle_FleetModel.FK_Vehicles_Roudes_Vehicles">
+            <End Role="Vehicles" EntitySet="Vehicles" />
+            <End Role="Vehicles_Routes" EntitySet="Vehicles_Routes" />
+          </AssociationSet>
           </EntityContainer>
         <EntityType Name="Manufacturers">
           <Key>
@@ -338,6 +405,53 @@
             </Principal>
             <Dependent Role="Models">
               <PropertyRef Name="manufacturer_name" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Drivers">
+          <Key>
+            <PropertyRef Name="driver_id" />
+          </Key>
+          <Property Name="driver_id" Type="Int32" Nullable="false" />
+          <Property Name="first_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="last_name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="available" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Vehicles_Routes" Relationship="Vehicle_FleetModel.FK_Vehicles_Roudes_Drivers" FromRole="Drivers" ToRole="Vehicles_Routes" />
+        </EntityType>
+        <EntityType Name="Vehicles_Routes">
+          <Key>
+            <PropertyRef Name="route_id" />
+          </Key>
+          <Property Name="route_id" Type="Int32" Nullable="false" />
+          <Property Name="driver_id" Type="Int32" Nullable="false" />
+          <Property Name="vehicle_id" Type="Int32" Nullable="false" />
+          <Property Name="distance" Type="Int32" />
+          <Property Name="start_date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="end_date" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="Drivers" Relationship="Vehicle_FleetModel.FK_Vehicles_Roudes_Drivers" FromRole="Vehicles_Routes" ToRole="Drivers" />
+          <NavigationProperty Name="Vehicles" Relationship="Vehicle_FleetModel.FK_Vehicles_Roudes_Vehicles" FromRole="Vehicles_Routes" ToRole="Vehicles" />
+        </EntityType>
+        <Association Name="FK_Vehicles_Roudes_Drivers">
+          <End Type="Vehicle_FleetModel.Drivers" Role="Drivers" Multiplicity="1" />
+          <End Type="Vehicle_FleetModel.Vehicles_Routes" Role="Vehicles_Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Drivers">
+              <PropertyRef Name="driver_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Routes">
+              <PropertyRef Name="driver_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Vehicles_Roudes_Vehicles">
+          <End Type="Vehicle_FleetModel.Vehicles" Role="Vehicles" Multiplicity="1" />
+          <End Type="Vehicle_FleetModel.Vehicles_Routes" Role="Vehicles_Routes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Vehicles">
+              <PropertyRef Name="vehicle_id" />
+            </Principal>
+            <Dependent Role="Vehicles_Routes">
+              <PropertyRef Name="vehicle_id" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -374,6 +488,7 @@
           <EntitySetMapping Name="Vehicles">
             <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicles">
               <MappingFragment StoreEntitySet="Vehicles">
+                <ScalarProperty Name="mileage" ColumnName="mileage" />
                 <ScalarProperty Name="available" ColumnName="available" />
                 <ScalarProperty Name="manufacturer" ColumnName="manufacturer" />
                 <ScalarProperty Name="model" ColumnName="model" />
@@ -423,6 +538,28 @@
                 <ScalarProperty Name="manufacturer_name" ColumnName="manufacturer_name" />
                 <ScalarProperty Name="model_name" ColumnName="model_name" />
                 <ScalarProperty Name="model_id" ColumnName="model_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drivers">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Drivers">
+              <MappingFragment StoreEntitySet="Drivers">
+                <ScalarProperty Name="available" ColumnName="available" />
+                <ScalarProperty Name="last_name" ColumnName="last_name" />
+                <ScalarProperty Name="first_name" ColumnName="first_name" />
+                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vehicles_Routes">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Vehicles_Routes">
+              <MappingFragment StoreEntitySet="Vehicles_Routes">
+                <ScalarProperty Name="end_date" ColumnName="end_date" />
+                <ScalarProperty Name="start_date" ColumnName="start_date" />
+                <ScalarProperty Name="distance" ColumnName="distance" />
+                <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
+                <ScalarProperty Name="driver_id" ColumnName="driver_id" />
+                <ScalarProperty Name="route_id" ColumnName="route_id" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

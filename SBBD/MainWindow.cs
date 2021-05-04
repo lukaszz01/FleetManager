@@ -385,6 +385,7 @@ namespace SBBD
                 IsEmpty(regNumber, "np. LHR12345") ||
                 IsEmpty(engineCapacity, "np. 3000") ||
                 IsEmpty(enginePower, "np. 240")
+                //IsEmpty(distance,"np.53423")
                 )
             {
                 warningTimer.Start();
@@ -402,6 +403,7 @@ namespace SBBD
                 !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
                 !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
                 !RegexD(@"^[0-9]{2,4}$", enginePower)
+                //!RegexD(@"^[0-9]+$", distance)
                 )
             {
                 if (!RegexD(@"^[0-9]{4}$", prodYear)) ShowErrorMsg(warnLabel3, warningTimer);
@@ -410,6 +412,7 @@ namespace SBBD
                 if (!RegexD(@"^[a-zA-Z0-9]+$", regNumber)) ShowErrorMsg(warnLabel1, warningTimer);
                 if (!RegexD(@"^[0-9]{3,5}$", engineCapacity)) ShowErrorMsg(warnLabel5, warningTimer);
                 if (!RegexD(@"^[0-9]{2,4}$", enginePower)) ShowErrorMsg(warnLabel6, warningTimer);
+                //if (!RegexD(@"^[0-9]+$", distance)) ShowErrorMsg(warnLabel6, warningTimer);
             }
             else
             {
@@ -427,7 +430,8 @@ namespace SBBD
                     engine_capacity = Int32.Parse(engineCapacity.Text),
                     engine_power = Int32.Parse(enginePower.Text),
                     user_email = user.email,
-                    available = true
+                    available = true,
+                    //distances = Int32.Parse(distance),
                 };
                 Vehicles_Images vehicleImage = new Vehicles_Images()
                 {
@@ -495,6 +499,9 @@ namespace SBBD
             if (msg == DialogResult.Yes)
             {
                 selectedVehicle.available = true;
+                /*HideOtherPanels(updateVehiclePanel, this.Controls);*/
+                EditRoute.Show(true);
+                
             }
             else
             {
@@ -526,7 +533,6 @@ namespace SBBD
                 editVinNum.Text = selectedVehicle.VIN;
                 editEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
                 editEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
-
                 if (user.admin == true)
                 {
                     userLabel.Text = selectedVehicle.user_email;
@@ -563,6 +569,7 @@ namespace SBBD
             infoVinNum.Text = selectedVehicle.VIN;
             infoEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
             infoEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
+            //infoDistance.Text = Convert.ToString(selectedVehicle.distances);
 
             if (selectedVehicle.available == false)
                 infoAvaliable.Text = "Nie";
@@ -654,6 +661,7 @@ namespace SBBD
                 vinNumber.ClearText();
                 vehicleColor.ClearText();
                 prodYear.ClearText();
+               // distance.ClearText();
                 modelComboBox.SelectedIndex = -1;
                 manufacturerComboBox.SelectedIndex = -1;
                 modelComboBox.Enabled = false;

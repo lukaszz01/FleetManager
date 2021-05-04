@@ -359,4 +359,17 @@ namespace SBBD
             return dialogResult;
         }
     }
+    public static class EditRoute
+    {
+        public static DialogResult Show(bool zmienna)
+        {
+            DialogResult dialogResult = DialogResult.No;
+            using (Route route = new Route(zmienna))
+            {
+                dialogResult = route.ShowDialog();            
+            }
+            return dialogResult;
+
+        }
+    }
 }

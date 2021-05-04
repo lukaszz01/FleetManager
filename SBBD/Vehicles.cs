@@ -20,6 +20,7 @@ namespace SBBD
             this.Vehicle_Service = new ObservableListSource<Vehicle_Service>();
             this.Vehicles_Breakdowns = new ObservableListSource<Vehicles_Breakdowns>();
             this.Vehicles_Images = new ObservableListSource<Vehicles_Images>();
+            this.Vehicles_Routes = new ObservableListSource<Vehicles_Routes>();
         }
     
         public string manufacturer { get; set; }
@@ -35,6 +36,7 @@ namespace SBBD
         public int vehicle_id { get; set; }
         public string user_email { get; set; }
         public bool available { get; set; }
+        public string mileage { get; set; }
     
         public virtual Users Users { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -43,5 +45,7 @@ namespace SBBD
         public virtual ObservableListSource<Vehicles_Breakdowns> Vehicles_Breakdowns { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ObservableListSource<Vehicles_Images> Vehicles_Images { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ObservableListSource<Vehicles_Routes> Vehicles_Routes { get; set; }
     }
 }

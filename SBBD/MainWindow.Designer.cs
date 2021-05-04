@@ -1326,11 +1326,11 @@ namespace SBBD
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
             this.label2.Location = new System.Drawing.Point(15, 640);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(170, 38);
+            this.label2.Size = new System.Drawing.Size(168, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Poziom przyciemnienia zdjęć\r\ndodanych aut\r\n";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1413,12 +1413,12 @@ namespace SBBD
             // 
             this.infoFuelType.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.infoFuelType.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.infoFuelType.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoFuelType.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.infoFuelType.ForeColor = System.Drawing.Color.White;
             this.infoFuelType.Location = new System.Drawing.Point(240, 332);
             this.infoFuelType.Name = "infoFuelType";
             this.infoFuelType.ReadOnly = true;
-            this.infoFuelType.Size = new System.Drawing.Size(160, 20);
+            this.infoFuelType.Size = new System.Drawing.Size(160, 15);
             this.infoFuelType.TabIndex = 45;
             this.infoFuelType.TabStop = false;
             this.infoFuelType.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -1593,11 +1593,11 @@ namespace SBBD
             this.checkBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
             this.checkBox1.Checked = true;
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.checkBox1.Font = new System.Drawing.Font("Poppins", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
             this.checkBox1.Location = new System.Drawing.Point(22, 600);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(156, 23);
+            this.checkBox1.Size = new System.Drawing.Size(157, 17);
             this.checkBox1.TabIndex = 58;
             this.checkBox1.Text = "Ukryj niedostępne auta";
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -1773,8 +1773,8 @@ namespace SBBD
             this.Controls.Add(this.appInfo);
             this.Controls.Add(this.userInfo);
             this.Controls.Add(this.allVehicles);
-            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
+            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.addVehicle);
             this.Controls.Add(this.infoVehiclePanel);

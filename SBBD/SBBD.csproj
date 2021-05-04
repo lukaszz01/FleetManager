@@ -80,6 +80,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Drivers.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="ExtendedClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +128,12 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Route.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Route.Designer.cs">
+      <DependentUpon>Route.cs</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>VFModel.tt</DependentUpon>
     </Compile>
@@ -135,6 +144,9 @@
       <DependentUpon>VFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vehicles_Images.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vehicles_Routes.cs">
       <DependentUpon>VFModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Vehicle_Service.cs">
@@ -171,6 +183,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Route.resx">
+      <DependentUpon>Route.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Manufacturers.datasource" />

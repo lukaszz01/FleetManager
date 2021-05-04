@@ -17,6 +17,10 @@
         <EntityTypeShape EntityType="Vehicle_FleetModel.Manufacturers" Width="1.5" PointX="7.375" PointY="1.125" />
         <EntityTypeShape EntityType="Vehicle_FleetModel.Models" Width="1.5" PointX="9.625" PointY="0.875" />
         <AssociationConnector Association="Vehicle_FleetModel.FK_Models_Manufacturers" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Drivers" Width="1.5" PointX="6" PointY="11.25" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Vehicles_Routes" Width="1.5" PointX="8.25" PointY="3.875" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Roudes_Drivers" />
+        <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Roudes_Vehicles" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

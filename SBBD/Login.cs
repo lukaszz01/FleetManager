@@ -16,7 +16,6 @@ namespace SBBD
     public partial class Login : Form
     {
         VFEntities context;
-        Users logged_user;
         PrivateFontCollection pfc;
 
         protected override CreateParams CreateParams
