@@ -361,12 +361,22 @@ namespace SBBD
     }
     public static class EditRoute
     {
-        public static DialogResult Show(bool zmienna)
+        public static DialogResult ShowEdit()
         {
             DialogResult dialogResult = DialogResult.No;
-            using (Route route = new Route(zmienna))
+            using (Route route = new Route())
             {
                 dialogResult = route.ShowDialog();            
+            }
+            return dialogResult;
+
+        }
+        public static DialogResult ShowEdit(Drivers driver)
+        {
+            DialogResult dialogResult = DialogResult.No;
+            using (Route route = new Route(driver))
+            {
+                dialogResult = route.ShowDialog();
             }
             return dialogResult;
 

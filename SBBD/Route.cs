@@ -24,6 +24,7 @@ namespace SBBD
         PrivateFontCollection pfc;
         VFEntities context;
         List<Drivers> allDrivers;
+        
 
         protected override CreateParams CreateParams
         {
@@ -49,19 +50,25 @@ namespace SBBD
                     c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
                 }
             }
-            context = new VFEntities();
-            context.Vehicles_Routes.Load();
-            context.Drivers.Load();
-            DriversLoad();
+            
+            
+
+            
           
         }
 
         public Route()
         {
             InitializeComponent();
+            routeDistance.Visible = false;
+            context = new VFEntities();
+            context.Vehicles_Routes.Load();
+            context.Drivers.Load();
+            DriversLoad();
         }
-        public Route(bool zmienna)
+        /*public Route(bool zmienna)
         {
+            InitializeComponent();
             if (zmienna)
             {
                 routeDistance.Visible = false;
@@ -72,13 +79,41 @@ namespace SBBD
                 routeDistance.Visible = true;
             }
 
+        }*/
+        public Route(Drivers driver)
+        {
+            InitializeComponent();
+            context = new VFEntities();
+            context.Vehicles_Routes.Load();
+            context.Drivers.Load();
+            routeDistance.Visible = true;
+            routeDriver.Items.Clear();
+            routeDriver.Items.Add(driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name);
+            routeDriver.SelectedIndex = 0;
+            
+            //routeDriver.Enabled = false;
+
         }
-        protected override void OnClosed(EventArgs e)
+        /*protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
             distance = Int32.Parse(routeDistance.Text);
             int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
             driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
+            context.Dispose();
+        }*/
+
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            base.OnClosing(e);
+            if (this.DialogResult == DialogResult.OK)
+            {
+                if (routeDistance.Text != "")
+                distance = Int32.Parse(routeDistance.Text);
+            
+                int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
+                driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
+            }
             context.Dispose();
         }
         private void DriversLoad()
@@ -87,7 +122,7 @@ namespace SBBD
             allDrivers = context.Drivers.Select(d=>d).ToList();
             foreach (Drivers driver in allDrivers)
             {
-                driver_text = driver.driver_id+' '+driver.first_name + ' ' + driver.last_name;
+                driver_text = driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name;
                 routeDriver.Items.Add(driver_text);
             }
         }
