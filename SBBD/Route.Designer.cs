@@ -29,7 +29,6 @@ namespace SBBD
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
             this.routeDriver = new System.Windows.Forms.ComboBox();
             this.routeDistance = new System.Windows.Forms.TextBox();
             this.routePanel = new System.Windows.Forms.Panel();
@@ -39,14 +38,8 @@ namespace SBBD
             this.driverFName = new System.Windows.Forms.TextBox();
             this.routeOK = new SBBD.RoundedButton();
             this.routeCancel = new SBBD.RoundedButton();
-            this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.vehiclesRoutesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.routePanel.SuspendLayout();
             this.driverPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesRoutesBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // routeDriver
@@ -189,19 +182,6 @@ namespace SBBD
             this.routeCancel.Text = "Anuluj";
             this.routeCancel.UseVisualStyleBackColor = false;
             // 
-            // vehiclesBindingSource
-            // 
-            this.vehiclesBindingSource.DataSource = typeof(SBBD.Vehicles);
-            // 
-            // vehiclesRoutesBindingSource
-            // 
-            this.vehiclesRoutesBindingSource.DataMember = "Vehicles_Routes";
-            this.vehiclesRoutesBindingSource.DataSource = this.vehiclesBindingSource;
-            // 
-            // driversBindingSource
-            // 
-            this.driversBindingSource.DataSource = typeof(SBBD.Drivers);
-            // 
             // Route
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -219,9 +199,6 @@ namespace SBBD
             this.routePanel.PerformLayout();
             this.driverPanel.ResumeLayout(false);
             this.driverPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.vehiclesRoutesBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -237,8 +214,5 @@ namespace SBBD
         private System.Windows.Forms.Panel driverPanel;
         private System.Windows.Forms.TextBox driverLName;
         private System.Windows.Forms.TextBox driverFName;
-        private System.Windows.Forms.BindingSource vehiclesBindingSource;
-        private System.Windows.Forms.BindingSource vehiclesRoutesBindingSource;
-        private System.Windows.Forms.BindingSource driversBindingSource;
     }
 }
