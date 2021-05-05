@@ -51,23 +51,16 @@ namespace SBBD
         //Main Window - hide panels
         public static void HideOtherPanels(Panel panel, Control.ControlCollection Controls)
         {
-            Panel toHide;
-            panel.Visible = true;
+            
             foreach (Control control in Controls)
             {
-                try
+                if (control is Panel)
                 {
-                    toHide = (Panel)control;
-                    if (toHide != panel)
-                    {
-                        toHide.Visible = false;
-                    }
-                }
-                catch
-                {
-
+                    control.Visible = false;
                 }
             }
+            panel.Visible = true;
+            
         }
         public static string ComputeSha256Hash(string rawData)
         {
