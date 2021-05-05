@@ -381,5 +381,15 @@ namespace SBBD
             return dialogResult;
 
         }
+
+        public static DialogResult ShowEdit(bool addDriver)
+        {
+            DialogResult dialogResult = DialogResult.No;
+            using(Route route = new Route(addDriver))
+            {
+                dialogResult = route.ShowDialog();
+            }
+            return dialogResult;
+        }
     }
 }

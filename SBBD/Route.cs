@@ -14,18 +14,15 @@ namespace SBBD
 {
     public partial class Route : Form
     {
-        public static Drivers driver
-        {
-            get; set;
-        }
-        public static int distance
-        {
-            get; set;
-        }
+        public static Drivers driver { get; set; }
+        public static int distance { get; set; }
+        public static string firstName { get; set; }
+        public static string lastName { get; set; }
 
         PrivateFontCollection pfc;
         VFEntities context;
         List<Drivers> allDrivers;
+        bool addingDriver = false;
         
         protected override CreateParams CreateParams
         {
@@ -56,26 +53,26 @@ namespace SBBD
         public Route()
         {
             InitializeComponent();
-            routeDistance.Visible = false;
+            
             context = new VFEntities();
-            context.Vehicles_Routes.Load();
             context.Drivers.Load();
+            context.Vehicles_Routes.Load();
+            routeDistance.Visible = false;
+            
             DriversLoad();
         }
-        /*public Route(bool zmienna)
+
+        public Route(bool addDriver)
         {
             InitializeComponent();
-            if (zmienna)
-            {
-                routeDistance.Visible = false;
-
-            }
-            else
-            {
-                routeDistance.Visible = true;
-            }
-
-        }*/
+            addingDriver = true;
+            context = new VFEntities();
+            context.Drivers.Load();
+            addingDriver = addDriver;
+            routePanel.Visible = false;
+            driverPanel.Visible = true;
+            DriversLoad();
+        }
         public Route(Drivers driver)
         {
             InitializeComponent();
@@ -83,30 +80,37 @@ namespace SBBD
             context.Vehicles_Routes.Load();
             context.Drivers.Load();
             routeDistance.Visible = true;
+            addDriverButton.Visible = false;
             routeDriver.Items.Clear();
             routeDriver.Items.Add(driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name);
             routeDriver.SelectedIndex = 0;
-            //routeDriver.Enabled = false;
+            
         }
-        /*protected override void OnClosed(EventArgs e)
-        {
-            base.OnClosed(e);
-            distance = Int32.Parse(routeDistance.Text);
-            int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
-            driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
-            context.Dispose();
-        }*/
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            if (this.DialogResult == DialogResult.OK)
+            if (!addingDriver)
             {
-                if (routeDistance.Text != "")
-                distance = Int32.Parse(routeDistance.Text);
-            
-                int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
-                driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
+                if (this.DialogResult == DialogResult.OK)
+                {
+                    if (routeDistance.Text != "")
+                        distance = Int32.Parse(routeDistance.Text);
+
+                    int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
+                    driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
+                    driver.available = routeDistance.Visible;
+                    context.SaveChanges();
+                }
+            }
+            else
+            {
+
+                if (this.DialogResult == DialogResult.OK)
+                {
+                    firstName = driverFName.Text;
+                    lastName = driverLName.Text;
+                }
             }
             context.Dispose();
         }
@@ -116,9 +120,51 @@ namespace SBBD
             allDrivers = context.Drivers.Select(d=>d).ToList();
             foreach (Drivers driver in allDrivers)
             {
-                driver_text = driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name;
-                routeDriver.Items.Add(driver_text);
+                if (driver.available)
+                {
+                    driver_text = driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name;
+                    routeDriver.Items.Add(driver_text);
+                }
             }
+        }
+
+        private void addDriverButton_Click(object sender, EventArgs e)
+        {
+
+            var editRoute = EditRoute.ShowEdit(true);
+            if (editRoute == DialogResult.OK)
+            {
+                Drivers driver = new Drivers()
+                {
+                    first_name = firstName,
+                    last_name = lastName,
+                    available = true
+                };
+                context.Drivers.Add(driver);
+                context.SaveChanges();
+            }
+        }
+
+        private void driverFName_TextChanged(object sender, EventArgs e)
+        {
+            routeOK.Enabled = driverFName.Text != "" && driverLName.Text != "";
+        }
+
+        private void routeDriver_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (routeDistance.Visible)
+            {
+                routeOK.Enabled = routeDriver.SelectedIndex != -1 && routeDistance.Text != "";
+            }
+            else
+            {
+                routeOK.Enabled = routeDriver.SelectedIndex != -1;
+            }
+        }
+
+        private void routeDistance_TextChanged(object sender, EventArgs e)
+        {
+            routeOK.Enabled = routeDriver.SelectedIndex != -1 && routeDistance.Text != "";
         }
     }
 }

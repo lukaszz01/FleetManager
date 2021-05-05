@@ -188,6 +188,7 @@
       <DependentUpon>Route.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Drivers.datasource" />
     <None Include="Properties\DataSources\Manufacturers.datasource" />
     <None Include="Properties\DataSources\Vehicles.datasource" />
     <None Include="Properties\Settings.settings">
