@@ -33,10 +33,10 @@ namespace SBBD
             this.routeDriver = new System.Windows.Forms.ComboBox();
             this.routeDistance = new System.Windows.Forms.TextBox();
             this.routePanel = new System.Windows.Forms.Panel();
+            this.addDriverButton = new SBBD.RoundedButton();
             this.driverPanel = new System.Windows.Forms.Panel();
             this.driverLName = new System.Windows.Forms.TextBox();
             this.driverFName = new System.Windows.Forms.TextBox();
-            this.addDriverButton = new SBBD.RoundedButton();
             this.routeOK = new SBBD.RoundedButton();
             this.routeCancel = new SBBD.RoundedButton();
             this.vehiclesBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -80,6 +80,7 @@ namespace SBBD
             // 
             // routePanel
             // 
+            this.routePanel.BackColor = System.Drawing.SystemColors.ControlDark;
             this.routePanel.Controls.Add(this.addDriverButton);
             this.routePanel.Controls.Add(this.routeDriver);
             this.routePanel.Controls.Add(this.routeDistance);
@@ -87,6 +88,27 @@ namespace SBBD
             this.routePanel.Name = "routePanel";
             this.routePanel.Size = new System.Drawing.Size(299, 306);
             this.routePanel.TabIndex = 19;
+            // 
+            // addDriverButton
+            // 
+            this.addDriverButton.BackColor = System.Drawing.Color.Transparent;
+            this.addDriverButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addDriverButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addDriverButton.FlatAppearance.BorderSize = 0;
+            this.addDriverButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addDriverButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addDriverButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addDriverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addDriverButton.ForeColor = System.Drawing.Color.White;
+            this.addDriverButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addDriverButton.Location = new System.Drawing.Point(233, 21);
+            this.addDriverButton.Name = "addDriverButton";
+            this.addDriverButton.RoundRadius = 30;
+            this.addDriverButton.Size = new System.Drawing.Size(31, 30);
+            this.addDriverButton.TabIndex = 19;
+            this.addDriverButton.Text = "+";
+            this.addDriverButton.UseVisualStyleBackColor = false;
+            this.addDriverButton.Click += new System.EventHandler(this.addDriverButton_Click);
             // 
             // driverPanel
             // 
@@ -123,27 +145,6 @@ namespace SBBD
             this.driverFName.TabIndex = 1;
             this.driverFName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.driverFName.TextChanged += new System.EventHandler(this.driverFName_TextChanged);
-            // 
-            // addDriverButton
-            // 
-            this.addDriverButton.BackColor = System.Drawing.Color.Transparent;
-            this.addDriverButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addDriverButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addDriverButton.FlatAppearance.BorderSize = 0;
-            this.addDriverButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addDriverButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addDriverButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addDriverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addDriverButton.ForeColor = System.Drawing.Color.White;
-            this.addDriverButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addDriverButton.Location = new System.Drawing.Point(233, 21);
-            this.addDriverButton.Name = "addDriverButton";
-            this.addDriverButton.RoundRadius = 30;
-            this.addDriverButton.Size = new System.Drawing.Size(31, 30);
-            this.addDriverButton.TabIndex = 19;
-            this.addDriverButton.Text = "+";
-            this.addDriverButton.UseVisualStyleBackColor = false;
-            this.addDriverButton.Click += new System.EventHandler(this.addDriverButton_Click);
             // 
             // routeOK
             // 
@@ -205,6 +206,7 @@ namespace SBBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(391, 450);
             this.Controls.Add(this.routePanel);
             this.Controls.Add(this.driverPanel);
