@@ -111,12 +111,14 @@ namespace SBBD
         public static byte[] ImageToByte(string fileName)
         {
             Image img = Image.FromFile(@fileName);
+            Image imgscaled = (Image)(new Bitmap(img, new Size(310,174)));
             byte[] image;
             using (MemoryStream ms = new MemoryStream())
             {
-                img.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
+                imgscaled.Save(ms, System.Drawing.Imaging.ImageFormat.Jpeg);
                 image = ms.ToArray();
             }
+
             return image;
         }
         public static void ShowVehicleTile(PictureBox pictureBox, Label label, Vehicles vehicle, TrackBar trackbar, VFEntities context, CheckBox checkBox)

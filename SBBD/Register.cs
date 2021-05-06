@@ -106,7 +106,8 @@ namespace SBBD
                     first_name = firstNameRegister.Text,
                     last_name = lastNameRegister.Text,
                     password = ComputeSha256Hash(passwordRegister.Text),
-                    admin = false
+                    admin = false,
+                    darken = 150                   
                 };
                 context.Users.Add(user);
                 context.SaveChanges();

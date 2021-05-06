@@ -60,6 +60,7 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
+            this.warnLabel9 = new System.Windows.Forms.Label();
             this.warnLabel8 = new System.Windows.Forms.Label();
             this.infoBox6 = new System.Windows.Forms.PictureBox();
             this.infoBox5 = new System.Windows.Forms.PictureBox();
@@ -102,6 +103,7 @@ namespace SBBD
             this.userNameInfo = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
+            this.infoMilage = new System.Windows.Forms.TextBox();
             this.infoManufacturer = new System.Windows.Forms.TextBox();
             this.infoModel = new System.Windows.Forms.TextBox();
             this.infoFuelType = new System.Windows.Forms.TextBox();
@@ -120,13 +122,12 @@ namespace SBBD
             this.userInfoPanel = new System.Windows.Forms.Panel();
             this.appInfoPanel = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.warnLabel9 = new System.Windows.Forms.Label();
-            this.infoMilage = new System.Windows.Forms.TextBox();
             this.mainTitleBar = new SBBD.MoveBar();
             this.logout = new SBBD.CustomButton();
             this.appInfo = new SBBD.CustomButton();
             this.userInfo = new SBBD.CustomButton();
             this.allVehicles = new SBBD.CustomButton();
+            this.infoReturnBtn = new SBBD.CustomButton();
             this.vehMilage = new SBBD.CustomTextBox();
             this.enginePower = new SBBD.CustomTextBox();
             this.engineCapacity = new SBBD.CustomTextBox();
@@ -137,7 +138,6 @@ namespace SBBD
             this.addVehicleBtn = new SBBD.RoundedButton();
             this.addPhotoBtn = new SBBD.RoundedButton();
             this.clearVehicleBtn = new SBBD.RoundedButton();
-            this.infoReturnBtn = new SBBD.CustomButton();
             this.filterButton = new SBBD.RoundedButton();
             this.filterAccept = new SBBD.RoundedButton();
             this.editConfirm = new SBBD.RoundedButton();
@@ -574,6 +574,19 @@ namespace SBBD
             this.addVehiclePanel.Size = new System.Drawing.Size(1080, 694);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
+            // 
+            // warnLabel9
+            // 
+            this.warnLabel9.AutoSize = true;
+            this.warnLabel9.BackColor = System.Drawing.Color.Transparent;
+            this.warnLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warnLabel9.ForeColor = System.Drawing.Color.Red;
+            this.warnLabel9.Location = new System.Drawing.Point(698, 410);
+            this.warnLabel9.Name = "warnLabel9";
+            this.warnLabel9.Size = new System.Drawing.Size(100, 9);
+            this.warnLabel9.TabIndex = 52;
+            this.warnLabel9.Text = "Przebieg niepoprawny";
+            this.warnLabel9.Visible = false;
             // 
             // warnLabel8
             // 
@@ -1124,6 +1137,20 @@ namespace SBBD
             this.infoVehiclePanel.TabIndex = 50;
             this.infoVehiclePanel.Visible = false;
             // 
+            // infoMilage
+            // 
+            this.infoMilage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.infoMilage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.infoMilage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.infoMilage.ForeColor = System.Drawing.Color.White;
+            this.infoMilage.Location = new System.Drawing.Point(507, 587);
+            this.infoMilage.Name = "infoMilage";
+            this.infoMilage.ReadOnly = true;
+            this.infoMilage.Size = new System.Drawing.Size(160, 15);
+            this.infoMilage.TabIndex = 50;
+            this.infoMilage.TabStop = false;
+            this.infoMilage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // infoManufacturer
             // 
             this.infoManufacturer.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
@@ -1347,33 +1374,6 @@ namespace SBBD
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
             // 
-            // warnLabel9
-            // 
-            this.warnLabel9.AutoSize = true;
-            this.warnLabel9.BackColor = System.Drawing.Color.Transparent;
-            this.warnLabel9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.warnLabel9.ForeColor = System.Drawing.Color.Red;
-            this.warnLabel9.Location = new System.Drawing.Point(698, 410);
-            this.warnLabel9.Name = "warnLabel9";
-            this.warnLabel9.Size = new System.Drawing.Size(100, 9);
-            this.warnLabel9.TabIndex = 52;
-            this.warnLabel9.Text = "Przebieg niepoprawny";
-            this.warnLabel9.Visible = false;
-            // 
-            // infoMilage
-            // 
-            this.infoMilage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.infoMilage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.infoMilage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.infoMilage.ForeColor = System.Drawing.Color.White;
-            this.infoMilage.Location = new System.Drawing.Point(507, 587);
-            this.infoMilage.Name = "infoMilage";
-            this.infoMilage.ReadOnly = true;
-            this.infoMilage.Size = new System.Drawing.Size(160, 15);
-            this.infoMilage.TabIndex = 50;
-            this.infoMilage.TabStop = false;
-            this.infoMilage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // mainTitleBar
             // 
             this.mainTitleBar.BackColor = System.Drawing.Color.Transparent;
@@ -1460,6 +1460,27 @@ namespace SBBD
             this.allVehicles.TabIndex = 54;
             this.allVehicles.UseVisualStyleBackColor = false;
             this.allVehicles.Click += new System.EventHandler(this.allVehicles_Click);
+            // 
+            // infoReturnBtn
+            // 
+            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
+            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
+            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
+            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
+            this.infoReturnBtn.Name = "infoReturnBtn";
+            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
+            this.infoReturnBtn.SelectedMenuItem = false;
+            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
+            this.infoReturnBtn.TabIndex = 49;
+            this.infoReturnBtn.TabStop = false;
+            this.infoReturnBtn.UseVisualStyleBackColor = true;
+            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
             // 
             // vehMilage
             // 
@@ -1632,27 +1653,6 @@ namespace SBBD
             this.clearVehicleBtn.UseVisualStyleBackColor = true;
             this.clearVehicleBtn.Click += new System.EventHandler(this.clearVehicleBtn_Click);
             // 
-            // infoReturnBtn
-            // 
-            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
-            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
-            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
-            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
-            this.infoReturnBtn.Name = "infoReturnBtn";
-            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
-            this.infoReturnBtn.SelectedMenuItem = false;
-            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
-            this.infoReturnBtn.TabIndex = 49;
-            this.infoReturnBtn.TabStop = false;
-            this.infoReturnBtn.UseVisualStyleBackColor = true;
-            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
-            // 
             // filterButton
             // 
             this.filterButton.BackColor = System.Drawing.Color.Transparent;
@@ -1821,9 +1821,9 @@ namespace SBBD
             this.Controls.Add(this.appInfo);
             this.Controls.Add(this.userInfo);
             this.Controls.Add(this.allVehicles);
-            this.Controls.Add(this.addVehiclePanel);
-            this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
+            this.Controls.Add(this.infoVehiclePanel);
+            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehicle);
             this.Controls.Add(this.appInfoPanel);

@@ -80,7 +80,13 @@ namespace SBBD
         {
             base.OnLoad(e);
             Login.ShowLogin();
-            user = Login.logged_user_value;
+            context = new VFEntities();
+            context.Vehicles.Load();
+            context.Manufacturers.Load();
+            context.Vehicles_Routes.Load();
+            context.Drivers.Load();
+            user = context.Users.Where(u => u.email == Login.logged_user_value.email).FirstOrDefault();
+            //user = Login.logged_user_value;
             if (user != null)
             {
                 pfc = new PrivateFontCollection();
@@ -96,12 +102,9 @@ namespace SBBD
                         }
                     }
                 }
-                context = new VFEntities();
-                context.Vehicles.Load();
-                context.Manufacturers.Load();
-                context.Vehicles_Routes.Load();
-                context.Drivers.Load();
+                
                 vehiclePages = 0;
+                filterAvailable.SelectedIndex = 0;
                 populatePanel();
 
                 toolTip.SetToolTip(infoBox1, "Poprawny format 6-8 znaków (a-z, A-Z, 0-9)");
@@ -120,7 +123,7 @@ namespace SBBD
                 trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
-                filterAvailable.SelectedIndex = 2;
+                
             }
         }
 
@@ -246,58 +249,51 @@ namespace SBBD
                 vehFilter = context.Vehicles.Select(v => v).ToList();
             }
 
-            if (filterManufacturer.SelectedIndex == -1 || filterManufacturer.SelectedIndex == 0)
-            {
-                vehFilter = vehFilter.Select(v => v).ToList();
-            }
-            else
-            {
-                vehFilter = vehFilter.Where(v => v.manufacturer == filterManufacturer.Text).ToList();
-            }
+                vehFilter = filterManufacturer.SelectedIndex == -1 || filterManufacturer.SelectedIndex == 0
+                    ? vehFilter.Select(v => v).ToList()
+                    : vehFilter.Where(v => v.manufacturer == filterManufacturer.Text).ToList();
 
-            if (filterModel.SelectedIndex == -1 || filterModel.SelectedIndex == 0)
-            {
-                vehFilter = vehFilter.Select(v => v).ToList();
-            }
-            else
-            {
-                vehFilter = vehFilter.Where(v => v.model == filterModel.Text).ToList();
-            }
+                vehFilter = filterModel.SelectedIndex == -1 || filterModel.SelectedIndex == 0
+                    ? vehFilter.Select(v => v).ToList()
+                    : vehFilter.Where(v => v.model == filterModel.Text).ToList();
 
-            if (filterAvailable.SelectedIndex == -1 || filterAvailable.SelectedIndex == 2)
-            {
-                vehFilter = vehFilter.Select(v => v).ToList();
-            }
-            else if (filterAvailable.SelectedIndex == 0)
-            {
-                vehFilter = vehFilter.Where(v => v.available).ToList();
-            }
-            else
-            {
-                vehFilter = vehFilter.Where(v => !v.available).ToList();
-            }
+                if (filterAvailable.SelectedIndex == -1 || filterAvailable.SelectedIndex == 2)
+                {
+                    vehFilter = vehFilter.Select(v => v).ToList();
+                }
+                else if (filterAvailable.SelectedIndex == 0)
+                {
+                    vehFilter = vehFilter.Where(v => v.available).ToList();
+                }
+                else
+                {
+                    vehFilter = vehFilter.Where(v => !v.available).ToList();
+                }
 
-            switch (comboBox1.SelectedIndex)
-            {
-                case 0:
-                    vehList = vehFilter.Select(v => v).ToList();
-                    break;
-                case 1:
-                    vehList = vehFilter.Select(v => v).OrderByDescending(v => v.available).ToList();
-                    break;
-                case 2:
-                    vehList = vehFilter.Select(v => v).OrderBy(v => v.available).ToList();
-                    break;
-                case 3:
-                    vehList = vehFilter.Select(v => v).OrderBy(v => v.manufacturer).ToList();
-                    break;
-                case 4:
-                    vehList = vehFilter.Select(v => v).OrderByDescending(v => v.manufacturer).ToList();
-                    break;
-                default:
-                    vehList = vehFilter.Select(v => v).ToList();
-                    break;
-            }
+                switch (comboBox1.SelectedIndex)
+                {
+                    case 0:
+                        vehList = vehFilter.Select(v => v).ToList();
+                        break;
+                    case 1:
+                        vehList = vehFilter.Select(v => v).OrderByDescending(v => v.available).ToList();
+                        break;
+                    case 2:
+                        vehList = vehFilter.Select(v => v).OrderBy(v => v.available).ToList();
+                        break;
+                    case 3:
+                        vehList = vehFilter.Select(v => v).OrderBy(v => v.manufacturer).ToList();
+                        break;
+                    case 4:
+                        vehList = vehFilter.Select(v => v).OrderByDescending(v => v.manufacturer).ToList();
+                        break;
+                    default:
+                        vehList = vehFilter.Select(v => v).ToList();
+                        break;
+                }
+
+                
+            
 
             if (user.admin)
             {
@@ -571,7 +567,7 @@ namespace SBBD
             HideOtherPanels(infoVehiclePanel, this.Controls);
             string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
             Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-            CustomMessageBox.CustomMsg(selectedVehicle.registration_num, 0, true);
+            //CustomMessageBox.CustomMsg(selectedVehicle.registration_num, 0, true);
             Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             infoManufacturer.Text = selectedVehicle.manufacturer;
             infoVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
@@ -703,7 +699,15 @@ namespace SBBD
             }
         }
 
-        private void trackBar1_MouseUp(object sender, MouseEventArgs e) => populatePanel();
+
+
+        private void trackBar1_MouseUp(object sender, MouseEventArgs e) 
+        {
+            populatePanel();
+            //var seluser = context.Users.Where(d => d.email == user.email).FirstOrDefault();
+            user.darken = trackBar1.Value;
+            context.SaveChanges();
+        }
 
         private void infoReturnBtn_Click(object sender, EventArgs e) => HideOtherPanels(vehiclesPanel, this.Controls);
 
