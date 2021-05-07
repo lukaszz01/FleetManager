@@ -359,6 +359,11 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="Resources\BGcustomMBX2.png" />
+    <None Include="Resources\AvaliableBG1.png" />
+    <None Include="Resources\AvaliableBG2.png" />
+    <None Include="Resources\AvaliableBG11.png" />
+    <None Include="Resources\AvaliableBG21.png" />
+    <None Include="Resources\AvaliableBG12.png" />
     <Content Include="Resources\CMSBX_question.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

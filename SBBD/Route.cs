@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using static SBBD.ExtendedClass;
 
 namespace SBBD
 {
@@ -16,8 +17,8 @@ namespace SBBD
     {
         public static Drivers driver { get; set; }
         public static int distance { get; set; }
-        public static string firstName { get; set; }
-        public static string lastName { get; set; }
+      //  public static string firstName { get; set; }
+      //  public static string lastName { get; set; }
 
         PrivateFontCollection pfc;
         VFEntities context;
@@ -57,22 +58,22 @@ namespace SBBD
             context = new VFEntities();
             context.Drivers.Load();
             context.Vehicles_Routes.Load();
-            routeDistance.Visible = false;
+            //dateDeparture.Visible = false;
             
             DriversLoad();
         }
 
-        public Route(bool addDriver)
-        {
-            InitializeComponent();
-            addingDriver = true;
-            context = new VFEntities();
-            context.Drivers.Load();
-            addingDriver = addDriver;
-            routePanel.Visible = false;
-            driverPanel.Visible = true;
-            DriversLoad();
-        }
+        //public Route(bool addDriver)
+        //{
+        //    InitializeComponent();
+        //    //addingDriver = true;
+        //  //  context = new VFEntities();
+        //  //  context.Drivers.Load();
+        //  //  addingDriver = addDriver;
+        // //   routeDeparturePanel.Visible = false;
+        //   // routeReturnPanel.Visible = true;
+        //    DriversLoad();
+        //}
         public Route(Drivers driver)
         {
             InitializeComponent();
@@ -98,8 +99,8 @@ namespace SBBD
                         distance = Int32.Parse(routeDistance.Text);
 
                     int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
-                    driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
-                    driver.available = routeDistance.Visible;
+                  //  driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
+                //    driver.available = dateDeparture.Visible;
                     context.SaveChanges();
                 }
             }
@@ -108,8 +109,8 @@ namespace SBBD
 
                 if (this.DialogResult == DialogResult.OK)
                 {
-                    firstName = driverFName.Text;
-                    lastName = driverLName.Text;
+                 //   firstName = driverFName.Text;
+                 //   lastName = driverLName.Text;
                 }
             }
             context.Dispose();
@@ -130,19 +131,19 @@ namespace SBBD
 
         private void addDriverButton_Click(object sender, EventArgs e)
         {
-
-            var editRoute = EditRoute.ShowEdit(true);
-            if (editRoute == DialogResult.OK)
-            {
-                Drivers driver = new Drivers()
-                {
-                    first_name = firstName,
-                    last_name = lastName,
-                    available = true
-                };
-                context.Drivers.Add(driver);
-                context.SaveChanges();
-            }
+            
+            //var editRoute = EditRoutePanel.ShowAvaliablePanel()
+            //if (editRoute == DialogResult.OK)
+            //{
+            //    //Drivers driver = new Drivers()
+            //    //{
+            //    ////    first_name = firstName,
+            //    // //   last_name = lastName,
+            //    //    available = true
+            //    //};
+            //  //  context.Drivers.Add(driver);
+            //    context.SaveChanges();
+            //}
         }
 
         private void driverFName_TextChanged(object sender, EventArgs e)

@@ -359,37 +359,4 @@ namespace SBBD
             return dialogResult;
         }
     }
-    public static class EditRoute
-    {
-        public static DialogResult ShowEdit()
-        {
-            DialogResult dialogResult = DialogResult.No;
-            using (Route route = new Route())
-            {
-                dialogResult = route.ShowDialog();            
-            }
-            return dialogResult;
-
-        }
-        public static DialogResult ShowEdit(Drivers driver)
-        {
-            DialogResult dialogResult = DialogResult.No;
-            using (Route route = new Route(driver))
-            {
-                dialogResult = route.ShowDialog();
-            }
-            return dialogResult;
-
-        }
-
-        public static DialogResult ShowEdit(bool addDriver)
-        {
-            DialogResult dialogResult = DialogResult.No;
-            using(Route route = new Route(addDriver))
-            {
-                dialogResult = route.ShowDialog();
-            }
-            return dialogResult;
-        }
-    }
 }

@@ -102,7 +102,7 @@ namespace SBBD
                         }
                     }
                 }
-                
+
                 vehiclePages = 0;
                 filterAvailable.SelectedIndex = 0;
                 populatePanel();
@@ -118,12 +118,12 @@ namespace SBBD
                 allModels = context.Models.Select(x => x).ToList();
                 filterManufacturer.Items.Add("Wszystkie");
                 filterModel.Items.Add("Wszystkie");
-                if(filterManufacturer.Items.Count == 1)
+                if (filterManufacturer.Items.Count == 1)
                     ManufacturersLoad(filterManufacturer);
                 trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
-                
+
             }
         }
 
@@ -134,7 +134,7 @@ namespace SBBD
                 changeBtnTransparent(selected, addVehicle);
                 selected = 0;
                 HideOtherPanels(addVehiclePanel, this.Controls);
-                if(manufacturerComboBox.Items.Count == 0)
+                if (manufacturerComboBox.Items.Count == 0)
                     ManufacturersLoad(manufacturerComboBox);
             }
         }
@@ -249,51 +249,51 @@ namespace SBBD
                 vehFilter = context.Vehicles.Select(v => v).ToList();
             }
 
-                vehFilter = filterManufacturer.SelectedIndex == -1 || filterManufacturer.SelectedIndex == 0
-                    ? vehFilter.Select(v => v).ToList()
-                    : vehFilter.Where(v => v.manufacturer == filterManufacturer.Text).ToList();
+            vehFilter = filterManufacturer.SelectedIndex == -1 || filterManufacturer.SelectedIndex == 0
+                ? vehFilter.Select(v => v).ToList()
+                : vehFilter.Where(v => v.manufacturer == filterManufacturer.Text).ToList();
 
-                vehFilter = filterModel.SelectedIndex == -1 || filterModel.SelectedIndex == 0
-                    ? vehFilter.Select(v => v).ToList()
-                    : vehFilter.Where(v => v.model == filterModel.Text).ToList();
+            vehFilter = filterModel.SelectedIndex == -1 || filterModel.SelectedIndex == 0
+                ? vehFilter.Select(v => v).ToList()
+                : vehFilter.Where(v => v.model == filterModel.Text).ToList();
 
-                if (filterAvailable.SelectedIndex == -1 || filterAvailable.SelectedIndex == 2)
-                {
-                    vehFilter = vehFilter.Select(v => v).ToList();
-                }
-                else if (filterAvailable.SelectedIndex == 0)
-                {
-                    vehFilter = vehFilter.Where(v => v.available).ToList();
-                }
-                else
-                {
-                    vehFilter = vehFilter.Where(v => !v.available).ToList();
-                }
+            if (filterAvailable.SelectedIndex == -1 || filterAvailable.SelectedIndex == 2)
+            {
+                vehFilter = vehFilter.Select(v => v).ToList();
+            }
+            else if (filterAvailable.SelectedIndex == 0)
+            {
+                vehFilter = vehFilter.Where(v => v.available).ToList();
+            }
+            else
+            {
+                vehFilter = vehFilter.Where(v => !v.available).ToList();
+            }
 
-                switch (comboBox1.SelectedIndex)
-                {
-                    case 0:
-                        vehList = vehFilter.Select(v => v).ToList();
-                        break;
-                    case 1:
-                        vehList = vehFilter.Select(v => v).OrderByDescending(v => v.available).ToList();
-                        break;
-                    case 2:
-                        vehList = vehFilter.Select(v => v).OrderBy(v => v.available).ToList();
-                        break;
-                    case 3:
-                        vehList = vehFilter.Select(v => v).OrderBy(v => v.manufacturer).ToList();
-                        break;
-                    case 4:
-                        vehList = vehFilter.Select(v => v).OrderByDescending(v => v.manufacturer).ToList();
-                        break;
-                    default:
-                        vehList = vehFilter.Select(v => v).ToList();
-                        break;
-                }
+            switch (comboBox1.SelectedIndex)
+            {
+                case 0:
+                    vehList = vehFilter.Select(v => v).ToList();
+                    break;
+                case 1:
+                    vehList = vehFilter.Select(v => v).OrderByDescending(v => v.available).ToList();
+                    break;
+                case 2:
+                    vehList = vehFilter.Select(v => v).OrderBy(v => v.available).ToList();
+                    break;
+                case 3:
+                    vehList = vehFilter.Select(v => v).OrderBy(v => v.manufacturer).ToList();
+                    break;
+                case 4:
+                    vehList = vehFilter.Select(v => v).OrderByDescending(v => v.manufacturer).ToList();
+                    break;
+                default:
+                    vehList = vehFilter.Select(v => v).ToList();
+                    break;
+            }
 
-                
-            
+
+
 
             if (user.admin)
             {
@@ -487,11 +487,10 @@ namespace SBBD
             Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
             if (msg == DialogResult.Yes)
             {
-                /*HideOtherPanels(updateVehiclePanel, this.Controls);*/
-                //EditRoute.ShowEdit(true);
-                if (selectedVehicle.available) {
-                    var editRoute = EditRoute.ShowEdit();
-                    if (editRoute == DialogResult.OK)
+                if (selectedVehicle.available)
+                {
+                    var showAvaliablePanel = EditRoutePanel.ShowAvaliablePanel();
+                    if (showAvaliablePanel == DialogResult.OK)
                     {
                         selectedVehicle.available = false;
                         Vehicles_Routes vehicleRoute = new Vehicles_Routes()
@@ -500,29 +499,72 @@ namespace SBBD
                             driver_id = Route.driver.driver_id,
                             start_date = DateTime.Now
                         };
-                        context.Vehicles_Routes.Add(vehicleRoute);
                     }
                 }
                 else
                 {
                     var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
                     allRoutes.Reverse();
-                    Vehicles_Routes vehRoute = allRoutes[0];
-                    Drivers driver = context.Drivers.Where(d => d.driver_id == vehRoute.driver_id).FirstOrDefault();
-                    var editRoute = EditRoute.ShowEdit(driver);
-                    if(editRoute == DialogResult.OK)
+                    //Vehicles_Routes vehRoute = allRoutes[0];
+                    Drivers driver = context.Drivers.Where(d => d.driver_id == allRoutes[0].driver_id).FirstOrDefault();
+                    var editRoute = EditRoutePanel.ShowAvaliablePanel(driver);
+                    if (editRoute == DialogResult.OK)
                     {
                         selectedVehicle.available = true;
-                        vehRoute.distance = Route.distance;
-                        vehRoute.end_date = DateTime.Now;
+                        allRoutes[0].distance = Route.distance;
+                        allRoutes[0].end_date = DateTime.Now;
                     }
                 }
-                
+                context.SaveChanges();
+                populatePanel();
+                selectedVehicle = null;
             }
-            context.SaveChanges();
-            populatePanel();
-            selectedVehicle = null;
-        } 
+        }
+
+
+        //private void vehAvaliable()
+        //{
+        //    var msg = CustomMessageBox.CustomMsg("Zmienić dostępność?", 0, true);
+        //    string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
+        //    Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
+        //    if (msg == DialogResult.Yes)
+        //    {
+        //        /*HideOtherPanels(updateVehiclePanel, this.Controls);*/
+        //        //EditRoute.ShowEdit(true);
+        //        if (selectedVehicle.available) {
+        //            var editRoute = EditRoute.ShowEdit();
+        //            if (editRoute == DialogResult.OK)
+        //            {
+        //                selectedVehicle.available = false;
+        //                Vehicles_Routes vehicleRoute = new Vehicles_Routes()
+        //                {
+        //                    vehicle_id = selectedVehicle.vehicle_id,
+        //                    driver_id = Route.driver.driver_id,
+        //                    start_date = DateTime.Now
+        //                };
+        //                context.Vehicles_Routes.Add(vehicleRoute);
+        //            }
+        //        }
+        //        else
+        //        {
+        //            var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
+        //            allRoutes.Reverse();
+        //            Vehicles_Routes vehRoute = allRoutes[0];
+        //            Drivers driver = context.Drivers.Where(d => d.driver_id == vehRoute.driver_id).FirstOrDefault();
+        //            var editRoute = EditRoute.ShowEdit(driver);
+        //            if(editRoute == DialogResult.OK)
+        //            {
+        //                selectedVehicle.available = true;
+        //                vehRoute.distance = Route.distance;
+        //                vehRoute.end_date = DateTime.Now;
+        //            }
+        //        }
+                
+        //    }
+        //    context.SaveChanges();
+        //    populatePanel();
+        //    selectedVehicle = null;
+        //} 
 
         private void editVehicleFill()
         {

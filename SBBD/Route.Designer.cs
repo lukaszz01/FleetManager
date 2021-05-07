@@ -29,89 +29,19 @@ namespace SBBD
         /// </summary>
         private void InitializeComponent()
         {
-            this.routeDriver = new System.Windows.Forms.ComboBox();
-            this.routeDistance = new System.Windows.Forms.TextBox();
-            this.routePanel = new System.Windows.Forms.Panel();
-            this.addDriverButton = new SBBD.RoundedButton();
-            this.driverPanel = new System.Windows.Forms.Panel();
             this.driverLName = new System.Windows.Forms.TextBox();
             this.driverFName = new System.Windows.Forms.TextBox();
-            this.routeOK = new SBBD.RoundedButton();
+            this.addDriverButton = new SBBD.RoundedButton();
+            this.routeDeparturePanel = new System.Windows.Forms.Panel();
+            this.routeDriver = new System.Windows.Forms.ComboBox();
             this.routeCancel = new SBBD.RoundedButton();
-            this.routePanel.SuspendLayout();
-            this.driverPanel.SuspendLayout();
+            this.routeOK = new SBBD.RoundedButton();
+            this.routeReturnPanel = new System.Windows.Forms.Panel();
+            this.routeDistance = new System.Windows.Forms.TextBox();
+            this.confirmReturnRoute = new SBBD.RoundedButton();
+            this.routeDeparturePanel.SuspendLayout();
+            this.routeReturnPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // routeDriver
-            // 
-            this.routeDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
-            this.routeDriver.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.routeDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.routeDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.routeDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.routeDriver.ForeColor = System.Drawing.Color.White;
-            this.routeDriver.FormattingEnabled = true;
-            this.routeDriver.Location = new System.Drawing.Point(104, 27);
-            this.routeDriver.Name = "routeDriver";
-            this.routeDriver.Size = new System.Drawing.Size(121, 21);
-            this.routeDriver.TabIndex = 18;
-            this.routeDriver.SelectedIndexChanged += new System.EventHandler(this.routeDriver_SelectedIndexChanged);
-            // 
-            // routeDistance
-            // 
-            this.routeDistance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.routeDistance.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.routeDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.routeDistance.ForeColor = System.Drawing.Color.White;
-            this.routeDistance.Location = new System.Drawing.Point(104, 98);
-            this.routeDistance.Name = "routeDistance";
-            this.routeDistance.Size = new System.Drawing.Size(160, 15);
-            this.routeDistance.TabIndex = 0;
-            this.routeDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.routeDistance.Visible = false;
-            this.routeDistance.TextChanged += new System.EventHandler(this.routeDistance_TextChanged);
-            // 
-            // routePanel
-            // 
-            this.routePanel.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.routePanel.Controls.Add(this.addDriverButton);
-            this.routePanel.Controls.Add(this.routeDriver);
-            this.routePanel.Controls.Add(this.routeDistance);
-            this.routePanel.Location = new System.Drawing.Point(64, 12);
-            this.routePanel.Name = "routePanel";
-            this.routePanel.Size = new System.Drawing.Size(299, 306);
-            this.routePanel.TabIndex = 19;
-            // 
-            // addDriverButton
-            // 
-            this.addDriverButton.BackColor = System.Drawing.Color.Transparent;
-            this.addDriverButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addDriverButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addDriverButton.FlatAppearance.BorderSize = 0;
-            this.addDriverButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addDriverButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addDriverButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addDriverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.addDriverButton.ForeColor = System.Drawing.Color.White;
-            this.addDriverButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addDriverButton.Location = new System.Drawing.Point(233, 21);
-            this.addDriverButton.Name = "addDriverButton";
-            this.addDriverButton.RoundRadius = 30;
-            this.addDriverButton.Size = new System.Drawing.Size(31, 30);
-            this.addDriverButton.TabIndex = 19;
-            this.addDriverButton.Text = "+";
-            this.addDriverButton.UseVisualStyleBackColor = false;
-            this.addDriverButton.Click += new System.EventHandler(this.addDriverButton_Click);
-            // 
-            // driverPanel
-            // 
-            this.driverPanel.Controls.Add(this.driverLName);
-            this.driverPanel.Controls.Add(this.driverFName);
-            this.driverPanel.Location = new System.Drawing.Point(64, 12);
-            this.driverPanel.Name = "driverPanel";
-            this.driverPanel.Size = new System.Drawing.Size(299, 306);
-            this.driverPanel.TabIndex = 20;
-            this.driverPanel.Visible = false;
             // 
             // driverLName
             // 
@@ -139,27 +69,53 @@ namespace SBBD
             this.driverFName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.driverFName.TextChanged += new System.EventHandler(this.driverFName_TextChanged);
             // 
-            // routeOK
+            // addDriverButton
             // 
-            this.routeOK.BackColor = System.Drawing.Color.Transparent;
-            this.routeOK.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.routeOK.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.routeOK.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.routeOK.Enabled = false;
-            this.routeOK.FlatAppearance.BorderSize = 0;
-            this.routeOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.routeOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.routeOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.routeOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.routeOK.ForeColor = System.Drawing.Color.White;
-            this.routeOK.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.routeOK.Location = new System.Drawing.Point(223, 399);
-            this.routeOK.Name = "routeOK";
-            this.routeOK.RoundRadius = 30;
-            this.routeOK.Size = new System.Drawing.Size(140, 30);
-            this.routeOK.TabIndex = 1;
-            this.routeOK.Text = "OK";
-            this.routeOK.UseVisualStyleBackColor = false;
+            this.addDriverButton.BackColor = System.Drawing.Color.Transparent;
+            this.addDriverButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addDriverButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addDriverButton.FlatAppearance.BorderSize = 0;
+            this.addDriverButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addDriverButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addDriverButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addDriverButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.addDriverButton.ForeColor = System.Drawing.Color.White;
+            this.addDriverButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addDriverButton.Location = new System.Drawing.Point(0, 0);
+            this.addDriverButton.Name = "addDriverButton";
+            this.addDriverButton.RoundRadius = 30;
+            this.addDriverButton.Size = new System.Drawing.Size(31, 30);
+            this.addDriverButton.TabIndex = 19;
+            this.addDriverButton.Text = "+";
+            this.addDriverButton.UseVisualStyleBackColor = false;
+            this.addDriverButton.Click += new System.EventHandler(this.addDriverButton_Click);
+            // 
+            // routeDeparturePanel
+            // 
+            this.routeDeparturePanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.routeDeparturePanel.BackgroundImage = global::SBBD.Properties.Resources.AvaliableBG12;
+            this.routeDeparturePanel.Controls.Add(this.routeDriver);
+            this.routeDeparturePanel.Controls.Add(this.routeCancel);
+            this.routeDeparturePanel.Controls.Add(this.routeOK);
+            this.routeDeparturePanel.Location = new System.Drawing.Point(0, 0);
+            this.routeDeparturePanel.Name = "routeDeparturePanel";
+            this.routeDeparturePanel.Size = new System.Drawing.Size(400, 180);
+            this.routeDeparturePanel.TabIndex = 19;
+            // 
+            // routeDriver
+            // 
+            this.routeDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
+            this.routeDriver.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.routeDriver.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.routeDriver.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.routeDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.routeDriver.ForeColor = System.Drawing.Color.White;
+            this.routeDriver.FormattingEnabled = true;
+            this.routeDriver.Location = new System.Drawing.Point(223, 70);
+            this.routeDriver.Name = "routeDriver";
+            this.routeDriver.Size = new System.Drawing.Size(121, 21);
+            this.routeDriver.TabIndex = 18;
+            this.routeDriver.SelectedIndexChanged += new System.EventHandler(this.routeDriver_SelectedIndexChanged);
             // 
             // routeCancel
             // 
@@ -174,32 +130,101 @@ namespace SBBD
             this.routeCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.routeCancel.ForeColor = System.Drawing.Color.White;
             this.routeCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.routeCancel.Location = new System.Drawing.Point(22, 399);
+            this.routeCancel.Location = new System.Drawing.Point(46, 125);
             this.routeCancel.Name = "routeCancel";
             this.routeCancel.RoundRadius = 30;
-            this.routeCancel.Size = new System.Drawing.Size(140, 30);
+            this.routeCancel.Size = new System.Drawing.Size(130, 27);
             this.routeCancel.TabIndex = 0;
             this.routeCancel.Text = "Anuluj";
             this.routeCancel.UseVisualStyleBackColor = false;
+            // 
+            // routeOK
+            // 
+            this.routeOK.BackColor = System.Drawing.Color.Transparent;
+            this.routeOK.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.routeOK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.routeOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.routeOK.Enabled = false;
+            this.routeOK.FlatAppearance.BorderSize = 0;
+            this.routeOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.routeOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.routeOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.routeOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.routeOK.ForeColor = System.Drawing.Color.White;
+            this.routeOK.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.routeOK.Location = new System.Drawing.Point(222, 125);
+            this.routeOK.Name = "routeOK";
+            this.routeOK.RoundRadius = 30;
+            this.routeOK.Size = new System.Drawing.Size(130, 27);
+            this.routeOK.TabIndex = 1;
+            this.routeOK.Text = "Potwierdź";
+            this.routeOK.UseVisualStyleBackColor = false;
+            // 
+            // routeReturnPanel
+            // 
+            this.routeReturnPanel.BackgroundImage = global::SBBD.Properties.Resources.AvaliableBG21;
+            this.routeReturnPanel.Controls.Add(this.routeDistance);
+            this.routeReturnPanel.Controls.Add(this.confirmReturnRoute);
+            this.routeReturnPanel.Location = new System.Drawing.Point(0, 0);
+            this.routeReturnPanel.Name = "routeReturnPanel";
+            this.routeReturnPanel.Size = new System.Drawing.Size(400, 180);
+            this.routeReturnPanel.TabIndex = 20;
+            this.routeReturnPanel.Visible = false;
+            // 
+            // routeDistance
+            // 
+            this.routeDistance.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.routeDistance.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.routeDistance.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.routeDistance.ForeColor = System.Drawing.Color.White;
+            this.routeDistance.Location = new System.Drawing.Point(228, 75);
+            this.routeDistance.Name = "routeDistance";
+            this.routeDistance.Size = new System.Drawing.Size(110, 15);
+            this.routeDistance.TabIndex = 20;
+            this.routeDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.routeDistance.Visible = false;
+            // 
+            // confirmReturnRoute
+            // 
+            this.confirmReturnRoute.BackColor = System.Drawing.Color.Transparent;
+            this.confirmReturnRoute.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.confirmReturnRoute.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.confirmReturnRoute.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.confirmReturnRoute.Enabled = false;
+            this.confirmReturnRoute.FlatAppearance.BorderSize = 0;
+            this.confirmReturnRoute.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.confirmReturnRoute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.confirmReturnRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.confirmReturnRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.confirmReturnRoute.ForeColor = System.Drawing.Color.White;
+            this.confirmReturnRoute.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.confirmReturnRoute.Location = new System.Drawing.Point(135, 165);
+            this.confirmReturnRoute.Name = "confirmReturnRoute";
+            this.confirmReturnRoute.RoundRadius = 30;
+            this.confirmReturnRoute.Size = new System.Drawing.Size(130, 27);
+            this.confirmReturnRoute.TabIndex = 19;
+            this.confirmReturnRoute.Text = "Potwierdź";
+            this.confirmReturnRoute.UseVisualStyleBackColor = false;
             // 
             // Route
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
-            this.ClientSize = new System.Drawing.Size(391, 450);
-            this.Controls.Add(this.routePanel);
-            this.Controls.Add(this.driverPanel);
-            this.Controls.Add(this.routeOK);
-            this.Controls.Add(this.routeCancel);
+            this.ClientSize = new System.Drawing.Size(400, 180);
+            this.Controls.Add(this.routeDeparturePanel);
+            this.Controls.Add(this.routeReturnPanel);
+            this.Controls.Add(this.driverLName);
+            this.Controls.Add(this.addDriverButton);
+            this.Controls.Add(this.driverFName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Route";
             this.Text = "Route";
-            this.routePanel.ResumeLayout(false);
-            this.routePanel.PerformLayout();
-            this.driverPanel.ResumeLayout(false);
-            this.driverPanel.PerformLayout();
+            this.routeDeparturePanel.ResumeLayout(false);
+            this.routeReturnPanel.ResumeLayout(false);
+            this.routeReturnPanel.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -208,11 +233,12 @@ namespace SBBD
         private RoundedButton routeCancel;
         private RoundedButton routeOK;
         private System.Windows.Forms.ComboBox routeDriver;
-        private System.Windows.Forms.TextBox routeDistance;
-        private System.Windows.Forms.Panel routePanel;
+        private System.Windows.Forms.Panel routeDeparturePanel;
         private RoundedButton addDriverButton;
-        private System.Windows.Forms.Panel driverPanel;
+        private System.Windows.Forms.Panel routeReturnPanel;
         private System.Windows.Forms.TextBox driverLName;
         private System.Windows.Forms.TextBox driverFName;
+        private System.Windows.Forms.TextBox routeDistance;
+        private RoundedButton confirmReturnRoute;
     }
 }

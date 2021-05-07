@@ -209,5 +209,39 @@ namespace SBBD
             pswordTextbox.PasswordChar = '\0';
             button.BackgroundImage = Properties.Resources.showPassword;
         }
+
+        public static class EditRoutePanel
+        {
+            public static DialogResult ShowAvaliablePanel()
+            {
+                DialogResult dialogResult = DialogResult.No;
+                using (Route route = new Route())
+                {
+                    dialogResult = route.ShowDialog();
+                }
+                return dialogResult;
+
+            }
+            public static DialogResult ShowAvaliablePanel(Drivers driver)
+            {
+                DialogResult dialogResult = DialogResult.No;
+                using (Route route = new Route(driver))
+                {
+                    dialogResult = route.ShowDialog();
+                }
+                return dialogResult;
+
+            }
+
+            //public static DialogResult ShowEdit(bool addDriver)
+            //{
+            //    DialogResult dialogResult = DialogResult.No;
+            //    using (Route route = new Route(addDriver))
+            //    {
+            //        dialogResult = route.ShowDialog();
+            //    }
+            //    return dialogResult;
+            //}
+        }
     }
 }
