@@ -86,6 +86,9 @@ namespace SBBD
             //context.Vehicles_Routes.Load();
             context.Drivers.Load();
             user = context.Users.Where(u => u.email == Login.logged_user_value.email).FirstOrDefault();
+            //this.categoryBindingSource.DataSource =
+            //_context.Categories.Local.ToBindingList();
+            this.driversBindingSource.DataSource = context.Drivers.Local.ToList();
             //user = Login.logged_user_value;
             if (user != null)
             {
