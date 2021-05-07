@@ -212,17 +212,17 @@ namespace SBBD
 
         public static class EditRoutePanel
         {
-            public static DialogResult ShowAvaliablePanel()
+            public static DialogResult ShowAvaliablePanel(bool available)
             {
                 DialogResult dialogResult = DialogResult.No;
-                using (Route route = new Route())
+                using (Route route = new Route(available))
                 {
                     dialogResult = route.ShowDialog();
                 }
                 return dialogResult;
 
             }
-            public static DialogResult ShowAvaliablePanel(Drivers driver)
+            /*public static DialogResult ShowAvaliablePanel(Drivers driver)
             {
                 DialogResult dialogResult = DialogResult.No;
                 using (Route route = new Route(driver))
@@ -231,7 +231,7 @@ namespace SBBD
                 }
                 return dialogResult;
 
-            }
+            }*/
 
             //public static DialogResult ShowEdit(bool addDriver)
             //{

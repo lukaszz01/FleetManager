@@ -38,7 +38,6 @@ namespace SBBD
             this.routeOK = new SBBD.RoundedButton();
             this.routeReturnPanel = new System.Windows.Forms.Panel();
             this.routeDistance = new System.Windows.Forms.TextBox();
-            this.confirmReturnRoute = new SBBD.RoundedButton();
             this.routeDeparturePanel.SuspendLayout();
             this.routeReturnPanel.SuspendLayout();
             this.SuspendLayout();
@@ -54,7 +53,7 @@ namespace SBBD
             this.driverLName.Size = new System.Drawing.Size(160, 15);
             this.driverLName.TabIndex = 2;
             this.driverLName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.driverLName.TextChanged += new System.EventHandler(this.driverFName_TextChanged);
+            this.driverLName.Visible = false;
             // 
             // driverFName
             // 
@@ -67,7 +66,7 @@ namespace SBBD
             this.driverFName.Size = new System.Drawing.Size(160, 15);
             this.driverFName.TabIndex = 1;
             this.driverFName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.driverFName.TextChanged += new System.EventHandler(this.driverFName_TextChanged);
+            this.driverFName.Visible = false;
             // 
             // addDriverButton
             // 
@@ -88,18 +87,16 @@ namespace SBBD
             this.addDriverButton.TabIndex = 19;
             this.addDriverButton.Text = "+";
             this.addDriverButton.UseVisualStyleBackColor = false;
-            this.addDriverButton.Click += new System.EventHandler(this.addDriverButton_Click);
+            this.addDriverButton.Visible = false;
             // 
             // routeDeparturePanel
             // 
-            this.routeDeparturePanel.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.routeDeparturePanel.BackColor = System.Drawing.Color.Transparent;
             this.routeDeparturePanel.BackgroundImage = global::SBBD.Properties.Resources.AvaliableBG12;
             this.routeDeparturePanel.Controls.Add(this.routeDriver);
-            this.routeDeparturePanel.Controls.Add(this.routeCancel);
-            this.routeDeparturePanel.Controls.Add(this.routeOK);
             this.routeDeparturePanel.Location = new System.Drawing.Point(0, 0);
             this.routeDeparturePanel.Name = "routeDeparturePanel";
-            this.routeDeparturePanel.Size = new System.Drawing.Size(400, 180);
+            this.routeDeparturePanel.Size = new System.Drawing.Size(400, 110);
             this.routeDeparturePanel.TabIndex = 19;
             // 
             // routeDriver
@@ -162,14 +159,13 @@ namespace SBBD
             // 
             // routeReturnPanel
             // 
+            this.routeReturnPanel.BackColor = System.Drawing.Color.Transparent;
             this.routeReturnPanel.BackgroundImage = global::SBBD.Properties.Resources.AvaliableBG21;
             this.routeReturnPanel.Controls.Add(this.routeDistance);
-            this.routeReturnPanel.Controls.Add(this.confirmReturnRoute);
             this.routeReturnPanel.Location = new System.Drawing.Point(0, 0);
             this.routeReturnPanel.Name = "routeReturnPanel";
-            this.routeReturnPanel.Size = new System.Drawing.Size(400, 180);
+            this.routeReturnPanel.Size = new System.Drawing.Size(400, 110);
             this.routeReturnPanel.TabIndex = 20;
-            this.routeReturnPanel.Visible = false;
             // 
             // routeDistance
             // 
@@ -183,28 +179,7 @@ namespace SBBD
             this.routeDistance.TabIndex = 20;
             this.routeDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.routeDistance.Visible = false;
-            // 
-            // confirmReturnRoute
-            // 
-            this.confirmReturnRoute.BackColor = System.Drawing.Color.Transparent;
-            this.confirmReturnRoute.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.confirmReturnRoute.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.confirmReturnRoute.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.confirmReturnRoute.Enabled = false;
-            this.confirmReturnRoute.FlatAppearance.BorderSize = 0;
-            this.confirmReturnRoute.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.confirmReturnRoute.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.confirmReturnRoute.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.confirmReturnRoute.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.confirmReturnRoute.ForeColor = System.Drawing.Color.White;
-            this.confirmReturnRoute.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.confirmReturnRoute.Location = new System.Drawing.Point(135, 165);
-            this.confirmReturnRoute.Name = "confirmReturnRoute";
-            this.confirmReturnRoute.RoundRadius = 30;
-            this.confirmReturnRoute.Size = new System.Drawing.Size(130, 27);
-            this.confirmReturnRoute.TabIndex = 19;
-            this.confirmReturnRoute.Text = "Potwierdź";
-            this.confirmReturnRoute.UseVisualStyleBackColor = false;
+            this.routeDistance.TextChanged += new System.EventHandler(this.routeDistance_TextChanged);
             // 
             // Route
             // 
@@ -212,6 +187,8 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(400, 180);
+            this.Controls.Add(this.routeCancel);
+            this.Controls.Add(this.routeOK);
             this.Controls.Add(this.routeDeparturePanel);
             this.Controls.Add(this.routeReturnPanel);
             this.Controls.Add(this.driverLName);
@@ -239,6 +216,5 @@ namespace SBBD
         private System.Windows.Forms.TextBox driverLName;
         private System.Windows.Forms.TextBox driverFName;
         private System.Windows.Forms.TextBox routeDistance;
-        private RoundedButton confirmReturnRoute;
     }
 }

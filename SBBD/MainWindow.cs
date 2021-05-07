@@ -83,7 +83,7 @@ namespace SBBD
             context = new VFEntities();
             context.Vehicles.Load();
             context.Manufacturers.Load();
-            context.Vehicles_Routes.Load();
+            //context.Vehicles_Routes.Load();
             context.Drivers.Load();
             user = context.Users.Where(u => u.email == Login.logged_user_value.email).FirstOrDefault();
             //user = Login.logged_user_value;
@@ -476,11 +476,11 @@ namespace SBBD
                 if (mouseCoordinates.X >= 275 && mouseCoordinates.X <= 295 && mouseCoordinates.Y >= 139 && mouseCoordinates.Y <= 159)
                     deleteVehicle();
                 if (mouseCoordinates.X >= 10 && mouseCoordinates.X <= 30 && mouseCoordinates.Y >= 10 && mouseCoordinates.Y <= 30)
-                    vehAvaliable();
+                    vehAvailable();
             }
         }
 
-        private void vehAvaliable()
+        private void vehAvailable()
         {
             var msg = CustomMessageBox.CustomMsg("Zmienić dostępność?", 0, true);
             string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
@@ -489,8 +489,8 @@ namespace SBBD
             {
                 if (selectedVehicle.available)
                 {
-                    var showAvaliablePanel = EditRoutePanel.ShowAvaliablePanel();
-                    if (showAvaliablePanel == DialogResult.OK)
+                    var showAvailablePanel = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
+                    if (showAvailablePanel == DialogResult.OK)
                     {
                         selectedVehicle.available = false;
                         Vehicles_Routes vehicleRoute = new Vehicles_Routes()
@@ -504,10 +504,11 @@ namespace SBBD
                 else
                 {
                     var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
+                    //var lastRoute = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id && r.distance == null).FirstOrDefault();
                     allRoutes.Reverse();
                     //Vehicles_Routes vehRoute = allRoutes[0];
-                    Drivers driver = context.Drivers.Where(d => d.driver_id == allRoutes[0].driver_id).FirstOrDefault();
-                    var editRoute = EditRoutePanel.ShowAvaliablePanel(driver);
+                    //Drivers driver = context.Drivers.Where(d => d.driver_id == allRoutes[0].driver_id).FirstOrDefault();
+                    var editRoute = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
                     if (editRoute == DialogResult.OK)
                     {
                         selectedVehicle.available = true;

@@ -17,13 +17,11 @@ namespace SBBD
     {
         public static Drivers driver { get; set; }
         public static int distance { get; set; }
-      //  public static string firstName { get; set; }
-      //  public static string lastName { get; set; }
 
         PrivateFontCollection pfc;
         VFEntities context;
         List<Drivers> allDrivers;
-        bool addingDriver = false;
+        bool returning;
         
         protected override CreateParams CreateParams
         {
@@ -51,66 +49,39 @@ namespace SBBD
             }
         }
 
-        public Route()
+        public Route(bool available)
         {
             InitializeComponent();
-            
-            context = new VFEntities();
-            context.Drivers.Load();
-            context.Vehicles_Routes.Load();
-            //dateDeparture.Visible = false;
-            
-            DriversLoad();
-        }
-
-        //public Route(bool addDriver)
-        //{
-        //    InitializeComponent();
-        //    //addingDriver = true;
-        //  //  context = new VFEntities();
-        //  //  context.Drivers.Load();
-        //  //  addingDriver = addDriver;
-        // //   routeDeparturePanel.Visible = false;
-        //   // routeReturnPanel.Visible = true;
-        //    DriversLoad();
-        //}
-        public Route(Drivers driver)
-        {
-            InitializeComponent();
+            if(available)
+            {
+                routeReturnPanel.Visible = false;
+                returning = false;
+                DriversLoad();
+            }
+            else
+            {
+                routeDeparturePanel.Visible = false;
+                returning = true;
+            }
             context = new VFEntities();
             context.Vehicles_Routes.Load();
             context.Drivers.Load();
-            routeDistance.Visible = true;
-            addDriverButton.Visible = false;
-            routeDriver.Items.Clear();
-            routeDriver.Items.Add(driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name);
-            routeDriver.SelectedIndex = 0;
-            
         }
 
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
-            if (!addingDriver)
+            if (this.DialogResult == DialogResult.OK)
             {
-                if (this.DialogResult == DialogResult.OK)
+                if (returning)
                 {
-                    if (routeDistance.Text != "")
-                        distance = Int32.Parse(routeDistance.Text);
-
-                    int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
-                  //  driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
-                //    driver.available = dateDeparture.Visible;
-                    context.SaveChanges();
+                    distance = Int32.Parse(routeDistance.Text);
                 }
-            }
-            else
-            {
-
-                if (this.DialogResult == DialogResult.OK)
+                else
                 {
-                 //   firstName = driverFName.Text;
-                 //   lastName = driverLName.Text;
+                    int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
+                    driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
+                    driver.available = routeReturnPanel.Visible;
                 }
             }
             context.Dispose();
@@ -129,27 +100,6 @@ namespace SBBD
             }
         }
 
-        private void addDriverButton_Click(object sender, EventArgs e)
-        {
-            
-            //var editRoute = EditRoutePanel.ShowAvaliablePanel()
-            //if (editRoute == DialogResult.OK)
-            //{
-            //    //Drivers driver = new Drivers()
-            //    //{
-            //    ////    first_name = firstName,
-            //    // //   last_name = lastName,
-            //    //    available = true
-            //    //};
-            //  //  context.Drivers.Add(driver);
-            //    context.SaveChanges();
-            //}
-        }
-
-        private void driverFName_TextChanged(object sender, EventArgs e)
-        {
-            routeOK.Enabled = driverFName.Text != "" && driverLName.Text != "";
-        }
 
         private void routeDriver_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -169,3 +119,21 @@ namespace SBBD
         }
     }
 }
+
+//var editRoute = EditRoutePanel.ShowAvaliablePanel()
+//if (editRoute == DialogResult.OK)
+//{
+//    //Drivers driver = new Drivers()
+//    //{
+//    ////    first_name = firstName,
+//    // //   last_name = lastName,
+//    //    available = true
+//    //};
+//  //  context.Drivers.Add(driver);
+//    context.SaveChanges();
+//}
+
+/*private void driverFName_TextChanged(object sender, EventArgs e)
+{
+    routeOK.Enabled = driverFName.Text != "" && driverLName.Text != "";
+}*/
