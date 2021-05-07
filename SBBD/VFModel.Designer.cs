@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\osqar\source\repos\FleetManager\SBBD\VFModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Lukasz\source\repos\FleetManager2\SBBD\VFModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.
