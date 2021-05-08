@@ -525,51 +525,6 @@ namespace SBBD
             }
         }
 
-
-        //private void vehAvaliable()
-        //{
-        //    var msg = CustomMessageBox.CustomMsg("Zmienić dostępność?", 0, true);
-        //    string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
-        //    Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-        //    if (msg == DialogResult.Yes)
-        //    {
-        //        /*HideOtherPanels(updateVehiclePanel, this.Controls);*/
-        //        //EditRoute.ShowEdit(true);
-        //        if (selectedVehicle.available) {
-        //            var editRoute = EditRoute.ShowEdit();
-        //            if (editRoute == DialogResult.OK)
-        //            {
-        //                selectedVehicle.available = false;
-        //                Vehicles_Routes vehicleRoute = new Vehicles_Routes()
-        //                {
-        //                    vehicle_id = selectedVehicle.vehicle_id,
-        //                    driver_id = Route.driver.driver_id,
-        //                    start_date = DateTime.Now
-        //                };
-        //                context.Vehicles_Routes.Add(vehicleRoute);
-        //            }
-        //        }
-        //        else
-        //        {
-        //            var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
-        //            allRoutes.Reverse();
-        //            Vehicles_Routes vehRoute = allRoutes[0];
-        //            Drivers driver = context.Drivers.Where(d => d.driver_id == vehRoute.driver_id).FirstOrDefault();
-        //            var editRoute = EditRoute.ShowEdit(driver);
-        //            if(editRoute == DialogResult.OK)
-        //            {
-        //                selectedVehicle.available = true;
-        //                vehRoute.distance = Route.distance;
-        //                vehRoute.end_date = DateTime.Now;
-        //            }
-        //        }
-                
-        //    }
-        //    context.SaveChanges();
-        //    populatePanel();
-        //    selectedVehicle = null;
-        //} 
-
         private void editVehicleFill()
         {
             var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane?", 1500, true);
@@ -790,5 +745,121 @@ namespace SBBD
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) => populatePanel();
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            HideOtherPanels(addEditDriversPanel, this.Controls);
+        }
+
+        private void roundedButton1_Click(object sender, EventArgs e)
+        {
+            if (IsEmpty(firstNameDriver, "") ||
+                IsEmpty(lastNameDriver, "") ||
+                IsEmpty(licenceNum, "") ||
+                IsEmpty(licenceExpDate, "") ||
+                IsEmpty(medExamDate, ""))
+            {
+                warningTimer.Start();
+                driverWarnLabel1.Visible = true;
+            }
+            else if (
+                !RegexD(@"^[a-zA-Z]+$", firstNameDriver) ||
+                !RegexD(@"^[a-zA-Z]+$", lastNameDriver) ||
+                !RegexD(@"^[a-zA-Z0-9]+$", licenceNum) ||
+                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate) ||
+                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)
+            )
+            {
+                if (!RegexD(@"^[a-zA-Z]+$", firstNameDriver)) ShowErrorMsg(driverWarnLabel2, warningTimer);
+                if (!RegexD(@"^[a-zA-Z]+$", lastNameDriver)) ShowErrorMsg(driverWarnLabel3, warningTimer);
+                if (!RegexD(@"^[a-zA-Z0-9]+$", licenceNum)) ShowErrorMsg(driverWarnLabel4, warningTimer);
+                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate)) ShowErrorMsg(driverWarnLabel5, warningTimer);
+                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)) ShowErrorMsg(driverWarnLabel6, warningTimer);
+            }
+            else
+            {
+                Drivers drivers = new Drivers()
+                {
+                    first_name = firstNameDriver.Text,
+                    last_name = lastNameDriver.Text,
+                    drivers_licence_num = licenceNum.Text,
+                    drivers_licence_exp_date = Convert.ToDateTime(licenceExpDate.Text),
+                    med_examination_date = Convert.ToDateTime(medExamDate.Text),
+                    available = true
+                };
+                CustomMessageBox.CustomMsg("Pomyślnie dodano \n kierowcę do bazy!", 1500, false);
+                context.Drivers.Add(drivers);
+                context.SaveChanges();
+                button1_Click_1(null, null);
+                drivers = null;
+            }
+        }
+
+        private void editDriversFill()
+        {
+            var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane kierowcy?", 1500, true);
+            if (question == DialogResult.Yes)
+            {
+                HideOtherPanels(addEditDriversPanel, this.Controls);
+
+              //  Drivers drivers = context.Drivers.Where(x => x.driver_id == drivers).FirstOrDefault<Drivers>();
+                firstNameDriver.Text = drivers.first_name;
+                lastNameDriver.Text = drivers.last_name;
+                licenceNum.Text = drivers.drivers_licence_num;
+                licenceExpDate.Text = Convert.ToString(drivers.drivers_licence_exp_date);
+                medExamDate.Text = Convert.ToString(drivers.med_examination_date);
+
+                //Tu jeszcze będzie można dodać coś czy jest dostępny w chwili edycji
+
+                drivers = null;
+            }
+            else { }
+        }
+
+        // edit drivers confirm, wrzucić do buttona zatwierdzenie edycji kierowcy
+        private void toNieJestMetodaxD()
+        {
+            if (IsEmpty(firstNameDriver, "") ||
+                IsEmpty(lastNameDriver, "") ||
+                IsEmpty(licenceNum, "") ||
+                IsEmpty(licenceExpDate, "") ||
+                IsEmpty(medExamDate, ""))
+            {
+                warningTimer.Start();
+                driverWarnLabel1.Visible = true;
+            }
+            else if (
+                !RegexD(@"^[a-zA-Z]+$", firstNameDriver) ||
+                !RegexD(@"^[a-zA-Z]+$", lastNameDriver) ||
+                !RegexD(@"^[a-zA-Z0-9]+$", licenceNum) ||
+                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate) ||
+                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)
+            )
+            {
+                if (!RegexD(@"^[a-zA-Z]+$", firstNameDriver)) ShowErrorMsg(driverWarnLabel2, warningTimer);
+                if (!RegexD(@"^[a-zA-Z]+$", lastNameDriver)) ShowErrorMsg(driverWarnLabel3, warningTimer);
+                if (!RegexD(@"^[a-zA-Z0-9]+$", licenceNum)) ShowErrorMsg(driverWarnLabel4, warningTimer);
+                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate)) ShowErrorMsg(driverWarnLabel5, warningTimer);
+                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)) ShowErrorMsg(driverWarnLabel6, warningTimer);
+            }
+            else
+            {
+              //  Drivers drivers = context.Drivers.Where(x => x.driver_id = drivers).FirstOrDefault<Drivers>();
+                drivers.first_name = firstNameDriver.Text;
+                drivers.last_name = lastNameDriver.Text;
+                drivers.drivers_licence_num = licenceNum.Text;
+                drivers.drivers_licence_exp_date = Convert.ToDateTime(licenceExpDate.Text);
+                drivers.med_examination_date = Convert.ToDateTime(medExamDate.Text);
+                context.SaveChanges();
+                drivers = null;
+            }
+
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+
+
+        }
     }
 }

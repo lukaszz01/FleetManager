@@ -186,11 +186,12 @@ namespace SBBD
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackgroundImage = global::SBBD.Properties.Resources.AvaliableBG12;
             this.ClientSize = new System.Drawing.Size(400, 180);
             this.Controls.Add(this.routeCancel);
             this.Controls.Add(this.routeOK);
-            this.Controls.Add(this.routeDeparturePanel);
             this.Controls.Add(this.routeReturnPanel);
+            this.Controls.Add(this.routeDeparturePanel);
             this.Controls.Add(this.driverLName);
             this.Controls.Add(this.addDriverButton);
             this.Controls.Add(this.driverFName);
