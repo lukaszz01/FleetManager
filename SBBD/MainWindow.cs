@@ -801,8 +801,9 @@ namespace SBBD
             if (question == DialogResult.Yes)
             {
                 HideOtherPanels(addEditDriversPanel, this.Controls);
+                var id = context.Drivers.Select(x => x.driver_id).FirstOrDefault();
 
-              //  Drivers drivers = context.Drivers.Where(x => x.driver_id == drivers).FirstOrDefault<Drivers>();
+                Drivers drivers = context.Drivers.Where(x => x.driver_id == id).FirstOrDefault();
                 firstNameDriver.Text = drivers.first_name;
                 lastNameDriver.Text = drivers.last_name;
                 licenceNum.Text = drivers.drivers_licence_num;
@@ -844,7 +845,10 @@ namespace SBBD
             }
             else
             {
-              //  Drivers drivers = context.Drivers.Where(x => x.driver_id = drivers).FirstOrDefault<Drivers>();
+                var id = context.Drivers.Select(x => x.driver_id).FirstOrDefault();
+
+                Drivers drivers = context.Drivers.Where(x => x.driver_id == id).FirstOrDefault();
+                //  Drivers drivers = context.Drivers.Where(x => x.driver_id = drivers).FirstOrDefault<Drivers>();
                 drivers.first_name = firstNameDriver.Text;
                 drivers.last_name = lastNameDriver.Text;
                 drivers.drivers_licence_num = licenceNum.Text;
@@ -858,7 +862,7 @@ namespace SBBD
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-
+            editDriversFill();
 
         }
     }

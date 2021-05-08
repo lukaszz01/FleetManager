@@ -126,7 +126,6 @@ namespace SBBD
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.editPos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.deletePos = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.gridBagLayout1 = new Syncfusion.Windows.Forms.Tools.GridBagLayout(this.components);
             this.addEditDriversPanel = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.driverWarnLabel1 = new System.Windows.Forms.Label();
@@ -211,7 +210,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).BeginInit();
             this.driversPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBagLayout1)).BeginInit();
             this.addEditDriversPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
@@ -2221,7 +2219,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).EndInit();
             this.driversPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gridBagLayout1)).EndInit();
             this.addEditDriversPanel.ResumeLayout(false);
             this.addEditDriversPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).EndInit();
@@ -2362,7 +2359,6 @@ namespace SBBD
         private System.Windows.Forms.DataGridViewTextBoxColumn availableDataGridViewCheckBoxColumn;
         private System.Windows.Forms.DataGridViewButtonColumn editPos;
         private System.Windows.Forms.DataGridViewButtonColumn deletePos;
-        private Syncfusion.Windows.Forms.Tools.GridBagLayout gridBagLayout1;
         private System.Windows.Forms.Panel addEditDriversPanel;
         private System.Windows.Forms.Button button1;
         private CustomTextBox lastNameDriver;

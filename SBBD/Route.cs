@@ -89,7 +89,8 @@ namespace SBBD
         private void DriversLoad()
         {
             string driver_text;
-            allDrivers = context.Drivers.Select(d=>d).ToList();
+            allDrivers = context.Drivers.Select(x => x).ToList();
+           // allDrivers = context.Drivers.Select(d=>d).ToList();
             foreach (Drivers driver in allDrivers)
             {
                 if (driver.available)
