@@ -222,26 +222,19 @@ namespace SBBD
                 return dialogResult;
 
             }
-            /*public static DialogResult ShowAvaliablePanel(Drivers driver)
+        }
+
+        public static class EditDriverForm
+        {
+            public static DialogResult ShowEditPanel(int driverId)
             {
                 DialogResult dialogResult = DialogResult.No;
-                using (Route route = new Route(driver))
+                using (EditDriver editDriver = new EditDriver(driverId))
                 {
-                    dialogResult = route.ShowDialog();
+                    dialogResult = editDriver.ShowDialog();
                 }
                 return dialogResult;
-
-            }*/
-
-            //public static DialogResult ShowEdit(bool addDriver)
-            //{
-            //    DialogResult dialogResult = DialogResult.No;
-            //    using (Route route = new Route(addDriver))
-            //    {
-            //        dialogResult = route.ShowDialog();
-            //    }
-            //    return dialogResult;
-            //}
+            }
         }
     }
 }

@@ -62,6 +62,12 @@
     <Compile Include="Drivers.cs">
       <DependentUpon>VFModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="EditDriver.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EditDriver.Designer.cs">
+      <DependentUpon>EditDriver.cs</DependentUpon>
+    </Compile>
     <Compile Include="ExtendedClass.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -148,6 +154,9 @@
     </Compile>
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditDriver.resx">
+      <DependentUpon>EditDriver.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

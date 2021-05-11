@@ -85,13 +85,15 @@ namespace SBBD
             context.Manufacturers.Load();
             //context.Vehicles_Routes.Load();
             context.Drivers.Load();
-            user = context.Users.Where(u => u.email == Login.logged_user_value.email).FirstOrDefault();
+            Users tempUser = Login.logged_user_value;
+            
             //this.categoryBindingSource.DataSource =
             //_context.Categories.Local.ToBindingList();
-            this.driversBindingSource.DataSource = context.Drivers.Local.ToList();
+            this.driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
             //user = Login.logged_user_value;
-            if (user != null)
+            if (tempUser != null)
             {
+                user = context.Users.Where(u => u.email == Login.logged_user_value.email).FirstOrDefault();
                 pfc = new PrivateFontCollection();
                 pfc.AddFontFile(@"Resources\fontBold.ttf");
                 foreach (Control c in this.Controls)
@@ -126,7 +128,6 @@ namespace SBBD
                 trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
-
             }
         }
 
@@ -864,6 +865,39 @@ namespace SBBD
         {
             editDriversFill();
 
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Drivers drvr = (Drivers)dataGridView1.CurrentRow.DataBoundItem;
+            Drivers driver = context.Drivers.Where(d => d.driver_id == drvr.driver_id).FirstOrDefault();
+            if (dataGridView1.Columns[e.ColumnIndex].Name == "deletePos")
+            {
+                var msg = CustomMessageBox.CustomMsg("Czy na pewno usunąć kierowcę?", 0, true);
+                if (msg == DialogResult.Yes)
+                {
+                    context.Drivers.Remove(driver);
+                    context.SaveChanges();
+                    //driversBindingSource.ResetBindings(false);
+                    dataGridView1.DataSource = null;
+
+                    driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
+                    dataGridView1.DataSource = driversBindingSource;
+                    //dataGridView1.data
+                    //dataGridView1.
+                    dataGridView1.Update();
+                    dataGridView1.Refresh();
+                }
+            }
+            if(dataGridView1.Columns[e.ColumnIndex].Name == "editPos")
+            {
+                EditDriverForm.ShowEditPanel(driver.driver_id);
+            }
+        }
+
+        private void addDriverBtn_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

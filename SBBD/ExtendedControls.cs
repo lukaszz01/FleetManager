@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.IO;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms.VisualStyles;
 
 namespace SBBD
 {
@@ -357,6 +358,126 @@ namespace SBBD
                 }
             }
             return dialogResult;
+        }
+    }
+
+    public class CustomDTPicker : DateTimePicker
+    {
+
+        private Color _backDisabledColor;
+        //private Color _foreColor;
+        /*private Color _backColor;
+
+        const int WM_ERASEBKGND = 0x14;
+        protected override void WndProc(ref Message m)
+        {
+            if (m.Msg == WM_ERASEBKGND)
+            {
+                using (var g = Graphics.FromHdc(m.WParam))
+                {
+                    using (var b = new SolidBrush(_backColor))
+                    {
+                        g.FillRectangle(b, ClientRectangle);
+                    }
+                }
+                return;
+            }
+
+            base.WndProc(ref m);
+        }
+
+        public Color BakcColor
+        {
+            get => _backColor;
+            set
+            {
+                _backColor = value;
+                Invalidate();
+            }
+        }*/
+        public CustomDTPicker()
+        {
+            this.SetStyle(ControlStyles.UserPaint, true);
+        }
+        protected override void OnPaint(System.Windows.Forms.PaintEventArgs e)
+        {
+            Graphics g = this.CreateGraphics();
+
+            //The dropDownRectangle defines position and size of dropdownbutton block, 
+            //the width is fixed to 17 and height to 16. 
+            //The dropdownbutton is aligned to right
+            Rectangle dropDownRectangle =
+               new Rectangle(ClientRectangle.Width - 17, 0, 17, 20);
+            Brush bkgBrush;
+            ComboBoxState visualState;
+
+            //When the control is enabled the brush is set to Backcolor, 
+            //otherwise to color stored in _backDisabledColor
+            if (this.Enabled)
+            {
+                bkgBrush = new SolidBrush(this.BackColor);
+                visualState = ComboBoxState.Normal;
+                
+            }
+            else
+            {
+                bkgBrush = new SolidBrush(this._backDisabledColor);
+                visualState = ComboBoxState.Disabled;
+            }
+
+            /*VisualStyleRenderer vsr = new VisualStyleRenderer("EDIT", 1, 1);
+            vsr.DrawBackground(e.Graphics, controlRectangle);
+            vsr.SetParameters("COMBOBOX", 7, 1);
+            vsr.DrawBackground(e.Graphics, arrowRectangle);*/
+            
+
+            // Painting...in action
+
+            //Filling the background
+            g.FillRectangle(bkgBrush, 0, 0, ClientRectangle.Width, ClientRectangle.Height);
+            Brush foreColorBrush = new SolidBrush(this.ForeColor);
+            //Drawing the datetime text
+            g.DrawString(this.Text, this.Font, foreColorBrush, 0, 2);
+
+            //Drawing the dropdownbutton using ComboBoxRenderer
+            ComboBoxRenderer.DrawDropDownButton(g, dropDownRectangle, visualState);
+
+            g.Dispose();
+            bkgBrush.Dispose();
+        }
+        [Browsable(true)]
+        public override Color BackColor
+        {
+            get => base.BackColor;
+            set 
+            { 
+                base.BackColor = value;
+                Invalidate();
+            }
+        }
+
+        [Category("Appearance"),
+        Description("The background color of the component when disabled")]
+        [Browsable(true)]
+        public Color BackDisabledColor
+        {
+            get => _backDisabledColor;
+            set 
+            { 
+                _backDisabledColor = value;
+                Invalidate();
+            }
+        }
+
+        [Browsable(true)]
+        public override Color ForeColor
+        {
+            get => base.ForeColor;
+            set 
+            { 
+                base.ForeColor = value;
+                Invalidate();
+            }
         }
     }
 }

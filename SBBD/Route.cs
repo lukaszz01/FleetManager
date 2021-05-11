@@ -52,7 +52,10 @@ namespace SBBD
         public Route(bool available)
         {
             InitializeComponent();
-            if(available)
+            context = new VFEntities();
+            context.Vehicles_Routes.Load();
+            context.Drivers.Load();
+            if (available)
             {
                 routeReturnPanel.Visible = false;
                 returning = false;
@@ -63,9 +66,8 @@ namespace SBBD
                 routeDeparturePanel.Visible = false;
                 returning = true;
             }
-            context = new VFEntities();
-            context.Vehicles_Routes.Load();
-            context.Drivers.Load();
+            
+            
         }
 
         protected override void OnClosing(CancelEventArgs e)
