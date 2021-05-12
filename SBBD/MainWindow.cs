@@ -131,7 +131,21 @@ namespace SBBD
                 filterManufacturer.SelectedIndex = 0;
                 this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 60);
 
+                DataGridViewButtonColumn editColumn = (DataGridViewButtonColumn)dataGridView1.Columns[6];
+                DataGridViewButtonColumn deleteColumn = (DataGridViewButtonColumn)dataGridView1.Columns[7];
+                editColumn.FlatStyle = FlatStyle.Popup;
+                /*editColumn.DefaultCellStyle.ForeColor = Color.White;
+                editColumn.DefaultCellStyle.BackColor = Color.FromArgb(0, 110, 255);*/
 
+                deleteColumn.FlatStyle = FlatStyle.Popup;
+                /*deleteColumn.DefaultCellStyle.ForeColor = Color.White;
+                deleteColumn.DefaultCellStyle.BackColor = Color.FromArgb(209, 49, 38);*/
+                
+                
+
+                /*DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)dataGridMappings.Rows[0].Cells[0];
+buttonCell.FlatStyle = FlatStyle.Popup;
+buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 dataGridView1.ClearSelection();
 
             }
@@ -916,13 +930,17 @@ namespace SBBD
                     {
                         //e.CellStyle.BackColor = Color.Red;
                         e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(142, 101, 116);
                         e.CellStyle.ForeColor = Color.Black;
+                        e.CellStyle.SelectionForeColor = Color.Black;
                     }
                     else if (days <= 30)
                     {
                         //e.CellStyle.BackColor = Color.Yellow;
                         e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(142, 152, 116);
                         e.CellStyle.ForeColor = Color.Black;
+                        e.CellStyle.SelectionForeColor = Color.Black;
                     }
                 }
             }
@@ -937,13 +955,17 @@ namespace SBBD
                     {
                         //e.CellStyle.BackColor = Color.Red;
                         e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(142, 101, 116);
                         e.CellStyle.ForeColor = Color.Black;
+                        e.CellStyle.SelectionForeColor = Color.Black;
                     }
                     else if (days <= 30)
                     {
                         //e.CellStyle.BackColor = Color.Yellow;
                         e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
+                        e.CellStyle.SelectionBackColor = Color.FromArgb(142, 152, 116);
                         e.CellStyle.ForeColor = Color.Black;
+                        e.CellStyle.SelectionForeColor = Color.Black;
                     }
 
                 }
@@ -965,6 +987,17 @@ namespace SBBD
                     }
                 }
             }
+            if (dgv.Columns[e.ColumnIndex].Name.Equals("editPos"))
+            {
+                e.CellStyle.BackColor = Color.FromArgb(0, 110, 255);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(0, 110, 255);
+            }
+            if (dgv.Columns[e.ColumnIndex].Name.Equals("deletePos"))
+            {
+                e.CellStyle.BackColor = Color.FromArgb(209, 49, 38);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(209, 49, 38);
+            }
+
         }
     }
 }
