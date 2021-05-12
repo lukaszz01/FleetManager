@@ -74,6 +74,7 @@ namespace SBBD
                 vLabel21,
                 vLabel22
             };
+            //dataGridView1.Columns[5].ReadOnly = false;
         }
 
         protected override void OnLoad(EventArgs e)
@@ -128,6 +129,11 @@ namespace SBBD
                 trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
+                this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 60);
+
+
+                dataGridView1.ClearSelection();
+
             }
         }
 
@@ -878,13 +884,9 @@ namespace SBBD
                 {
                     context.Drivers.Remove(driver);
                     context.SaveChanges();
-                    //driversBindingSource.ResetBindings(false);
                     dataGridView1.DataSource = null;
-
                     driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
                     dataGridView1.DataSource = driversBindingSource;
-                    //dataGridView1.data
-                    //dataGridView1.
                     dataGridView1.Update();
                     dataGridView1.Refresh();
                 }
@@ -898,6 +900,71 @@ namespace SBBD
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
             
+        }
+
+        private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            DataGridView dgv = sender as DataGridView;
+
+            if (dgv.Columns[e.ColumnIndex].Name.Equals("licenceDateColumn"))
+            {
+                double days;
+                if (e.Value != null)
+                {
+                    days = ((DateTime)e.Value - DateTime.Now).TotalDays;
+                    if (days <= 7)
+                    {
+                        //e.CellStyle.BackColor = Color.Red;
+                        e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
+                        e.CellStyle.ForeColor = Color.Black;
+                    }
+                    else if (days <= 30)
+                    {
+                        //e.CellStyle.BackColor = Color.Yellow;
+                        e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
+                        e.CellStyle.ForeColor = Color.Black;
+                    }
+                }
+            }
+
+            if (dgv.Columns[e.ColumnIndex].Name.Equals("medicalDateColumn"))
+            {
+                double days;
+                if (e.Value != null)
+                {
+                    days = ((DateTime)e.Value - DateTime.Now).TotalDays;
+                    if (days <= 7)
+                    {
+                        //e.CellStyle.BackColor = Color.Red;
+                        e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
+                        e.CellStyle.ForeColor = Color.Black;
+                    }
+                    else if (days <= 30)
+                    {
+                        //e.CellStyle.BackColor = Color.Yellow;
+                        e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
+                        e.CellStyle.ForeColor = Color.Black;
+                    }
+
+                }
+            }
+            if (dgv.Columns[e.ColumnIndex].Name.Equals("availableColumn"))
+            {
+                if (e.Value != null)
+                {
+                    //bool cellValue = e.Value is bool ? (bool)e.Value : (e.Value.ToString() == "Tak" ? true : false);
+
+                    //if (cellValue)
+                    if ((bool)e.Value)
+                    {
+                        e.Value = "Tak";
+                    }
+                    else
+                    {
+                        e.Value = "Nie";
+                    }
+                }
+            }
         }
     }
 }
