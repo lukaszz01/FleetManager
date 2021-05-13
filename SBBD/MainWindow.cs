@@ -77,6 +77,7 @@ namespace SBBD
             //dataGridView1.Columns[5].ReadOnly = false;
         }
 
+        #region OnLoad
         protected override void OnLoad(EventArgs e)
         {
             base.OnLoad(e);
@@ -150,7 +151,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
 
             }
         }
+        #endregion
 
+        #region Przyciski Menu
         private void addVehicle_Click(object sender, EventArgs e)
         {
             if (selected != 0)
@@ -246,11 +249,13 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             }
             button.BackColor = Color.FromArgb(30, 35, 40);
         }
-
+        
         private void mainExit_Click(object sender, EventArgs e) => AppExit("Czy na pewno chcesz \n zamknąć aplikację?");
 
         private void mainMinimize_Click(object sender, EventArgs e) => this.WindowState = FormWindowState.Minimized;
+        #endregion
 
+        #region Panel auta
         private void populatePanel()
         {
             foreach (Label l in vLabelList)
@@ -385,7 +390,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 }
             }
         }
+        #endregion
 
+        #region Dodawanie auta
         private void addVehicleBtn_Click(object sender, EventArgs e)
         {
             if (IsEmpty(manufacturerComboBox) ||
@@ -462,7 +469,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 vehicleImage = null;
             }
         }
+        #endregion
 
+        #region Przyciski - strony panelu aut, ikony na zdjęciach aut
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
@@ -503,7 +512,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     vehAvailable();
             }
         }
+        #endregion
 
+        #region Dostępność auta
         private void vehAvailable()
         {
             var msg = CustomMessageBox.CustomMsg("Zmienić dostępność?", 0, true);
@@ -545,7 +556,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 selectedVehicle = null;
             }
         }
+        #endregion
 
+        #region Edycja auta
         private void editVehicleFill()
         {
             var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane?", 1500, true);
@@ -583,7 +596,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             }
             else { }
         }
+        #endregion
 
+        #region Informacje o aucie
         private void infoVehicleFill()
         {
             HideOtherPanels(infoVehiclePanel, this.Controls);
@@ -613,7 +628,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             selectedVehicle = null;
             selectedVehicleImage = null;
         }
+        #endregion
 
+        #region Usuwanie auta
         private void deleteVehicle()
         {
             var warn = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć ten pojazd?", 1500, true);
@@ -668,110 +685,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 selectedVehicle = null;
             }
         }
+        #endregion
 
-        private void warningTimer_Tick(object sender, EventArgs e)
-        {
-            warningTimer.Stop();
-            warnLabel1.Visible = false;
-            warnLabel2.Visible = false;
-            warnLabel3.Visible = false;
-            warnLabel4.Visible = false;
-            warnLabel5.Visible = false;
-            warnLabel6.Visible = false;
-            warnLabel7.Visible = false;
-            warnLabel8.Visible = false;
-            warnLabel9.Visible = false;
-        }
-
-        private void clearVehicleBtn_Click(object sender, EventArgs e)
-        {
-            var quest = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć wprowadzone dane?", 1500, true);
-            if (quest == DialogResult.Yes)
-            {
-                bodyTypeComboBox.SelectedIndex = -1;
-                fuelTypeComboBox.SelectedIndex = -1;
-                enginePower.ClearText();
-                engineCapacity.ClearText();
-                regNumber.ClearText();
-                vinNumber.ClearText();
-                vehicleColor.ClearText();
-                prodYear.ClearText();
-                vehMilage.ClearText();
-               // distance.ClearText();
-                modelComboBox.SelectedIndex = -1;
-                manufacturerComboBox.SelectedIndex = -1;
-                modelComboBox.Enabled = false;
-                selectedImage.Image = null;
-            }
-            else { }
-        }
-
-        private void addPhotoBtn_Click(object sender, EventArgs e)
-        {
-            using (OpenFileDialog openFileDialog = new OpenFileDialog())
-            {
-                openFileDialog.Title = "Wybierz zdjęcie";
-                openFileDialog.Filter = "Plik JPEG (*.jpg)|*.jpg|Plik PNG (*.png)|*.png";
-
-                if (openFileDialog.ShowDialog() == DialogResult.OK)
-                {
-                    selectedImage.Image = new Bitmap(openFileDialog.FileName);
-                    image = ImageToByte(openFileDialog.FileName);
-                }
-            }
-        }
-
-
-
-        private void trackBar1_MouseUp(object sender, MouseEventArgs e) 
-        {
-            populatePanel();
-            //var seluser = context.Users.Where(d => d.email == user.email).FirstOrDefault();
-            user.darken = trackBar1.Value;
-            context.SaveChanges();
-        }
-
-        private void infoReturnBtn_Click(object sender, EventArgs e) => HideOtherPanels(vehiclesPanel, this.Controls);
-
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) => populatePanel();
-
-        private void filterManufacturer_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            ModelsLoad(filterManufacturer, filterModel);
-            if (filterManufacturer.SelectedIndex == 0)
-                filterModel.Enabled = false;
-        }
-
-        private void filterButton_Click(object sender, EventArgs e) => filterPanel.Visible = !filterPanel.Visible;
-
-        private void filterAccept_Click(object sender, EventArgs e)
-        {
-            vehiclePages = 0;
-            populatePanel();
-            filterPanel.Visible = false;
-            
-        }
-
-        private void filterPanel_MouseLeave(object sender, EventArgs e)
-        {
-            
-            if (filterPanel.Visible)
-            {
-                var mea = this.PointToClient(MousePosition);
-                if (mea.X < 590 || mea.X > 1030 || mea.Y < 120 || mea.Y > 320)
-                {
-                    filterPanel.Visible = false;
-                }
-            }
-        }
-
-        private void checkBox1_CheckedChanged(object sender, EventArgs e) => populatePanel();
-
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            HideOtherPanels(addEditDriversPanel, this.Controls);
-        }
-
+        #region Dodawanie kierowcy i edytowanie
         private void roundedButton1_Click(object sender, EventArgs e)
         {
             if (IsEmpty(firstNameDriver, "") ||
@@ -880,6 +796,112 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             }
 
         }
+        #endregion
+
+        private void warningTimer_Tick(object sender, EventArgs e)
+        {
+            warningTimer.Stop();
+            warnLabel1.Visible = false;
+            warnLabel2.Visible = false;
+            warnLabel3.Visible = false;
+            warnLabel4.Visible = false;
+            warnLabel5.Visible = false;
+            warnLabel6.Visible = false;
+            warnLabel7.Visible = false;
+            warnLabel8.Visible = false;
+            warnLabel9.Visible = false;
+        }
+
+        private void clearVehicleBtn_Click(object sender, EventArgs e)
+        {
+            var quest = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n usunąć wprowadzone dane?", 1500, true);
+            if (quest == DialogResult.Yes)
+            {
+                bodyTypeComboBox.SelectedIndex = -1;
+                fuelTypeComboBox.SelectedIndex = -1;
+                enginePower.ClearText();
+                engineCapacity.ClearText();
+                regNumber.ClearText();
+                vinNumber.ClearText();
+                vehicleColor.ClearText();
+                prodYear.ClearText();
+                vehMilage.ClearText();
+               // distance.ClearText();
+                modelComboBox.SelectedIndex = -1;
+                manufacturerComboBox.SelectedIndex = -1;
+                modelComboBox.Enabled = false;
+                selectedImage.Image = null;
+            }
+            else { }
+        }
+
+        private void addPhotoBtn_Click(object sender, EventArgs e)
+        {
+            using (OpenFileDialog openFileDialog = new OpenFileDialog())
+            {
+                openFileDialog.Title = "Wybierz zdjęcie";
+                openFileDialog.Filter = "Plik JPEG (*.jpg)|*.jpg|Plik PNG (*.png)|*.png";
+
+                if (openFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    selectedImage.Image = new Bitmap(openFileDialog.FileName);
+                    image = ImageToByte(openFileDialog.FileName);
+                }
+            }
+        }
+
+
+
+        private void trackBar1_MouseUp(object sender, MouseEventArgs e) 
+        {
+            populatePanel();
+            //var seluser = context.Users.Where(d => d.email == user.email).FirstOrDefault();
+            user.darken = trackBar1.Value;
+            context.SaveChanges();
+        }
+
+        private void infoReturnBtn_Click(object sender, EventArgs e) => HideOtherPanels(vehiclesPanel, this.Controls);
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e) => populatePanel();
+
+        private void filterManufacturer_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ModelsLoad(filterManufacturer, filterModel);
+            if (filterManufacturer.SelectedIndex == 0)
+                filterModel.Enabled = false;
+        }
+
+        private void filterButton_Click(object sender, EventArgs e) => filterPanel.Visible = !filterPanel.Visible;
+
+        private void filterAccept_Click(object sender, EventArgs e)
+        {
+            vehiclePages = 0;
+            populatePanel();
+            filterPanel.Visible = false;
+            
+        }
+
+        private void filterPanel_MouseLeave(object sender, EventArgs e)
+        {
+            
+            if (filterPanel.Visible)
+            {
+                var mea = this.PointToClient(MousePosition);
+                if (mea.X < 590 || mea.X > 1030 || mea.Y < 120 || mea.Y > 320)
+                {
+                    filterPanel.Visible = false;
+                }
+            }
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e) => populatePanel();
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            HideOtherPanels(addEditDriversPanel, this.Controls);
+        }
+
+       
 
         private void button2_Click_1(object sender, EventArgs e)
         {
