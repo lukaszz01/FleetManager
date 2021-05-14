@@ -30,17 +30,16 @@ namespace SBBD
         private void InitializeComponent()
         {
             this.addEditDriversPanel = new System.Windows.Forms.Panel();
-            this.customDTPicker1 = new SBBD.CustomDTPicker();
-            this.roundedButton2 = new SBBD.RoundedButton();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.driverAvailable = new System.Windows.Forms.ComboBox();
+            this.medicalExaminationDate = new SBBD.CustomDTPicker();
+            this.driversLicenceDate = new SBBD.CustomDTPicker();
+            this.driverCancel = new SBBD.RoundedButton();
             this.driverWarnLabel6 = new System.Windows.Forms.Label();
             this.driverWarnLabel5 = new System.Windows.Forms.Label();
             this.driverWarnLabel4 = new System.Windows.Forms.Label();
             this.driverWarnLabel3 = new System.Windows.Forms.Label();
             this.driverWarnLabel2 = new System.Windows.Forms.Label();
-            this.roundedButton1 = new SBBD.RoundedButton();
-            this.medExamDate = new SBBD.CustomTextBox();
-            this.licenceExpDate = new SBBD.CustomTextBox();
+            this.driverOK = new SBBD.RoundedButton();
             this.driverWarnLabel1 = new System.Windows.Forms.Label();
             this.licenceNum = new SBBD.CustomTextBox();
             this.lastNameDriver = new SBBD.CustomTextBox();
@@ -52,17 +51,16 @@ namespace SBBD
             // 
             this.addEditDriversPanel.BackColor = System.Drawing.Color.Transparent;
             this.addEditDriversPanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
-            this.addEditDriversPanel.Controls.Add(this.customDTPicker1);
-            this.addEditDriversPanel.Controls.Add(this.roundedButton2);
-            this.addEditDriversPanel.Controls.Add(this.dateTimePicker1);
+            this.addEditDriversPanel.Controls.Add(this.driverAvailable);
+            this.addEditDriversPanel.Controls.Add(this.medicalExaminationDate);
+            this.addEditDriversPanel.Controls.Add(this.driversLicenceDate);
+            this.addEditDriversPanel.Controls.Add(this.driverCancel);
             this.addEditDriversPanel.Controls.Add(this.driverWarnLabel6);
             this.addEditDriversPanel.Controls.Add(this.driverWarnLabel5);
             this.addEditDriversPanel.Controls.Add(this.driverWarnLabel4);
             this.addEditDriversPanel.Controls.Add(this.driverWarnLabel3);
             this.addEditDriversPanel.Controls.Add(this.driverWarnLabel2);
-            this.addEditDriversPanel.Controls.Add(this.roundedButton1);
-            this.addEditDriversPanel.Controls.Add(this.medExamDate);
-            this.addEditDriversPanel.Controls.Add(this.licenceExpDate);
+            this.addEditDriversPanel.Controls.Add(this.driverOK);
             this.addEditDriversPanel.Controls.Add(this.driverWarnLabel1);
             this.addEditDriversPanel.Controls.Add(this.licenceNum);
             this.addEditDriversPanel.Controls.Add(this.lastNameDriver);
@@ -72,51 +70,72 @@ namespace SBBD
             this.addEditDriversPanel.Size = new System.Drawing.Size(489, 570);
             this.addEditDriversPanel.TabIndex = 20;
             // 
-            // customDTPicker1
+            // driverAvailable
             // 
-            this.customDTPicker1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.customDTPicker1.BackDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.customDTPicker1.CalendarForeColor = System.Drawing.Color.White;
-            this.customDTPicker1.CalendarTitleForeColor = System.Drawing.Color.White;
-            this.customDTPicker1.CalendarTrailingForeColor = System.Drawing.Color.White;
-            this.customDTPicker1.ForeColor = System.Drawing.Color.White;
-            this.customDTPicker1.Location = new System.Drawing.Point(127, 449);
-            this.customDTPicker1.Name = "customDTPicker1";
-            this.customDTPicker1.Size = new System.Drawing.Size(200, 20);
-            this.customDTPicker1.TabIndex = 44;
+            this.driverAvailable.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(41)))), ((int)(((byte)(47)))));
+            this.driverAvailable.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.driverAvailable.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.driverAvailable.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.driverAvailable.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverAvailable.ForeColor = System.Drawing.Color.White;
+            this.driverAvailable.FormattingEnabled = true;
+            this.driverAvailable.Items.AddRange(new object[] {
+            "Tak",
+            "Nie"});
+            this.driverAvailable.Location = new System.Drawing.Point(127, 381);
+            this.driverAvailable.Name = "driverAvailable";
+            this.driverAvailable.Size = new System.Drawing.Size(158, 21);
+            this.driverAvailable.TabIndex = 46;
+            this.driverAvailable.Visible = false;
             // 
-            // roundedButton2
+            // medicalExaminationDate
             // 
-            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton2.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.roundedButton2.FlatAppearance.BorderSize = 0;
-            this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.roundedButton2.ForeColor = System.Drawing.Color.White;
-            this.roundedButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.roundedButton2.Location = new System.Drawing.Point(114, 511);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.RoundRadius = 30;
-            this.roundedButton2.Size = new System.Drawing.Size(140, 30);
-            this.roundedButton2.TabIndex = 43;
-            this.roundedButton2.Text = "Anuluj";
-            this.roundedButton2.UseVisualStyleBackColor = false;
+            this.medicalExaminationDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.medicalExaminationDate.BackDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.medicalExaminationDate.CalendarForeColor = System.Drawing.Color.White;
+            this.medicalExaminationDate.CalendarTitleForeColor = System.Drawing.Color.White;
+            this.medicalExaminationDate.CalendarTrailingForeColor = System.Drawing.Color.White;
+            this.medicalExaminationDate.CustomFormat = "dd MMMM yyyy";
+            this.medicalExaminationDate.ForeColor = System.Drawing.Color.White;
+            this.medicalExaminationDate.Location = new System.Drawing.Point(127, 284);
+            this.medicalExaminationDate.Name = "medicalExaminationDate";
+            this.medicalExaminationDate.Size = new System.Drawing.Size(158, 20);
+            this.medicalExaminationDate.TabIndex = 45;
             // 
-            // dateTimePicker1
+            // driversLicenceDate
             // 
-            this.dateTimePicker1.CalendarForeColor = System.Drawing.Color.White;
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.dateTimePicker1.CalendarTitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(10)))), ((int)(((byte)(255)))));
-            this.dateTimePicker1.CalendarTitleForeColor = System.Drawing.Color.White;
-            this.dateTimePicker1.Location = new System.Drawing.Point(127, 409);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
-            this.dateTimePicker1.TabIndex = 42;
-            this.dateTimePicker1.Value = new System.DateTime(2021, 5, 11, 10, 7, 12, 0);
+            this.driversLicenceDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.driversLicenceDate.BackDisabledColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.driversLicenceDate.CalendarForeColor = System.Drawing.Color.White;
+            this.driversLicenceDate.CalendarTitleForeColor = System.Drawing.Color.White;
+            this.driversLicenceDate.CalendarTrailingForeColor = System.Drawing.Color.White;
+            this.driversLicenceDate.CustomFormat = "dd MMMM yyyy";
+            this.driversLicenceDate.ForeColor = System.Drawing.Color.White;
+            this.driversLicenceDate.Location = new System.Drawing.Point(127, 336);
+            this.driversLicenceDate.Name = "driversLicenceDate";
+            this.driversLicenceDate.Size = new System.Drawing.Size(160, 20);
+            this.driversLicenceDate.TabIndex = 44;
+            // 
+            // driverCancel
+            // 
+            this.driverCancel.BackColor = System.Drawing.Color.Transparent;
+            this.driverCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.driverCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.driverCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.driverCancel.FlatAppearance.BorderSize = 0;
+            this.driverCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.driverCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.driverCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.driverCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.driverCancel.ForeColor = System.Drawing.Color.White;
+            this.driverCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.driverCancel.Location = new System.Drawing.Point(114, 511);
+            this.driverCancel.Name = "driverCancel";
+            this.driverCancel.RoundRadius = 30;
+            this.driverCancel.Size = new System.Drawing.Size(140, 30);
+            this.driverCancel.TabIndex = 43;
+            this.driverCancel.Text = "Anuluj";
+            this.driverCancel.UseVisualStyleBackColor = false;
             // 
             // driverWarnLabel6
             // 
@@ -183,56 +202,27 @@ namespace SBBD
             this.driverWarnLabel2.Text = "Uzupełnij wszystkie pola";
             this.driverWarnLabel2.Visible = false;
             // 
-            // roundedButton1
+            // driverOK
             // 
-            this.roundedButton1.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.roundedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton1.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.roundedButton1.FlatAppearance.BorderSize = 0;
-            this.roundedButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.roundedButton1.ForeColor = System.Drawing.Color.White;
-            this.roundedButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.roundedButton1.Location = new System.Drawing.Point(313, 512);
-            this.roundedButton1.Name = "roundedButton1";
-            this.roundedButton1.RoundRadius = 30;
-            this.roundedButton1.Size = new System.Drawing.Size(140, 30);
-            this.roundedButton1.TabIndex = 14;
-            this.roundedButton1.Text = "Zatwierdź";
-            this.roundedButton1.UseVisualStyleBackColor = false;
-            // 
-            // medExamDate
-            // 
-            this.medExamDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.medExamDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.medExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.medExamDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.medExamDate.IsPassword = false;
-            this.medExamDate.Location = new System.Drawing.Point(127, 330);
-            this.medExamDate.Name = "medExamDate";
-            this.medExamDate.PlaceHolder = "";
-            this.medExamDate.Size = new System.Drawing.Size(160, 15);
-            this.medExamDate.TabIndex = 13;
-            this.medExamDate.Text = "Data waż. badania";
-            this.medExamDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // licenceExpDate
-            // 
-            this.licenceExpDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.licenceExpDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.licenceExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.licenceExpDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.licenceExpDate.IsPassword = false;
-            this.licenceExpDate.Location = new System.Drawing.Point(148, 277);
-            this.licenceExpDate.Name = "licenceExpDate";
-            this.licenceExpDate.PlaceHolder = "";
-            this.licenceExpDate.Size = new System.Drawing.Size(160, 15);
-            this.licenceExpDate.TabIndex = 12;
-            this.licenceExpDate.Text = "Data ważności PJ";
-            this.licenceExpDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.driverOK.BackColor = System.Drawing.Color.Transparent;
+            this.driverOK.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.driverOK.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.driverOK.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.driverOK.Enabled = false;
+            this.driverOK.FlatAppearance.BorderSize = 0;
+            this.driverOK.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.driverOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.driverOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.driverOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.driverOK.ForeColor = System.Drawing.Color.White;
+            this.driverOK.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.driverOK.Location = new System.Drawing.Point(313, 512);
+            this.driverOK.Name = "driverOK";
+            this.driverOK.RoundRadius = 30;
+            this.driverOK.Size = new System.Drawing.Size(140, 30);
+            this.driverOK.TabIndex = 14;
+            this.driverOK.Text = "Zatwierdź";
+            this.driverOK.UseVisualStyleBackColor = false;
             // 
             // driverWarnLabel1
             // 
@@ -251,46 +241,52 @@ namespace SBBD
             // 
             this.licenceNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.licenceNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.licenceNum.Enabled = false;
             this.licenceNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.licenceNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.licenceNum.IsPassword = false;
             this.licenceNum.Location = new System.Drawing.Point(125, 230);
             this.licenceNum.Name = "licenceNum";
-            this.licenceNum.PlaceHolder = "";
+            this.licenceNum.PlaceHolder = "Numer PJ";
             this.licenceNum.Size = new System.Drawing.Size(160, 15);
             this.licenceNum.TabIndex = 11;
             this.licenceNum.Text = "Numer PJ";
             this.licenceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.licenceNum.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // lastNameDriver
             // 
             this.lastNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.lastNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameDriver.Enabled = false;
             this.lastNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lastNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.lastNameDriver.IsPassword = false;
             this.lastNameDriver.Location = new System.Drawing.Point(127, 177);
             this.lastNameDriver.Name = "lastNameDriver";
-            this.lastNameDriver.PlaceHolder = "";
+            this.lastNameDriver.PlaceHolder = "Nazwisko";
             this.lastNameDriver.Size = new System.Drawing.Size(160, 15);
             this.lastNameDriver.TabIndex = 10;
             this.lastNameDriver.Text = "Nazwisko";
             this.lastNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.lastNameDriver.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // firstNameDriver
             // 
             this.firstNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
             this.firstNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstNameDriver.Enabled = false;
             this.firstNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.firstNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.firstNameDriver.IsPassword = false;
             this.firstNameDriver.Location = new System.Drawing.Point(127, 131);
             this.firstNameDriver.Name = "firstNameDriver";
-            this.firstNameDriver.PlaceHolder = "";
+            this.firstNameDriver.PlaceHolder = "Imie";
             this.firstNameDriver.Size = new System.Drawing.Size(160, 15);
             this.firstNameDriver.TabIndex = 9;
             this.firstNameDriver.Text = "Imie";
             this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.firstNameDriver.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // EditDriver
             // 
@@ -300,6 +296,7 @@ namespace SBBD
             this.Controls.Add(this.addEditDriversPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditDriver";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "EditDriver";
             this.addEditDriversPanel.ResumeLayout(false);
             this.addEditDriversPanel.PerformLayout();
@@ -315,15 +312,14 @@ namespace SBBD
         private System.Windows.Forms.Label driverWarnLabel4;
         private System.Windows.Forms.Label driverWarnLabel3;
         private System.Windows.Forms.Label driverWarnLabel2;
-        private RoundedButton roundedButton1;
-        private CustomTextBox medExamDate;
-        private CustomTextBox licenceExpDate;
+        private RoundedButton driverOK;
         private System.Windows.Forms.Label driverWarnLabel1;
         private CustomTextBox licenceNum;
         private CustomTextBox lastNameDriver;
         private CustomTextBox firstNameDriver;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private RoundedButton roundedButton2;
-        private CustomDTPicker customDTPicker1;
+        private RoundedButton driverCancel;
+        private CustomDTPicker driversLicenceDate;
+        private CustomDTPicker medicalExaminationDate;
+        private System.Windows.Forms.ComboBox driverAvailable;
     }
 }

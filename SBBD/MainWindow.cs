@@ -43,6 +43,7 @@ namespace SBBD
         List<Manufacturers> allManufacturers;
 
         int selected;
+        #region Konstruktor
         public MainWindow()
         {
             InitializeComponent();
@@ -76,6 +77,7 @@ namespace SBBD
             };
             //dataGridView1.Columns[5].ReadOnly = false;
         }
+        #endregion
 
         #region OnLoad
         protected override void OnLoad(EventArgs e)
@@ -687,7 +689,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
         }
         #endregion
 
-        #region Dodawanie kierowcy i edytowanie
+        #region Dodawanie kierowcy i edytowanie (tego nie będzie tutaj)
         private void roundedButton1_Click(object sender, EventArgs e)
         {
             if (IsEmpty(firstNameDriver, "") ||
@@ -908,7 +910,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             editDriversFill();
 
         }
-
+        #region DataGridView kierowcy
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             Drivers drvr = (Drivers)dataGridView1.CurrentRow.DataBoundItem;
@@ -920,22 +922,42 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 {
                     context.Drivers.Remove(driver);
                     context.SaveChanges();
-                    dataGridView1.DataSource = null;
-                    driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
-                    dataGridView1.DataSource = driversBindingSource;
-                    dataGridView1.Update();
-                    dataGridView1.Refresh();
+                    GridRefresh();
                 }
             }
             if(dataGridView1.Columns[e.ColumnIndex].Name == "editPos")
             {
-                EditDriverForm.ShowEditPanel(driver.driver_id);
+                var editDriverDialog = DriverForm.ShowEditPanel(driver.driver_id);
+                if(editDriverDialog == DialogResult.OK)
+                {
+                    driver.available = EditDriver.outputDriver.available;
+                    driver.med_examination_date = EditDriver.outputDriver.med_examination_date;
+                    driver.drivers_licence_exp_date = EditDriver.outputDriver.drivers_licence_exp_date;
+                    context.SaveChanges();
+                    GridRefresh();
+                }
             }
         }
 
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
-            
+            var addDriverDialog = DriverForm.ShowAddPanel();
+            if(addDriverDialog == DialogResult.OK)
+            {
+                Drivers newDriver = EditDriver.outputDriver;
+                context.Drivers.Add(newDriver);
+                context.SaveChanges();
+                GridRefresh();
+            }
+        }
+
+        private void GridRefresh()
+        {
+            dataGridView1.DataSource = null;
+            driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
+            dataGridView1.DataSource = driversBindingSource;
+            dataGridView1.Update();
+            dataGridView1.Refresh();
         }
 
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -1021,5 +1043,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             }
 
         }
+        #endregion
     }
 }

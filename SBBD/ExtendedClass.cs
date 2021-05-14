@@ -224,12 +224,22 @@ namespace SBBD
             }
         }
 
-        public static class EditDriverForm
+        public static class DriverForm
         {
             public static DialogResult ShowEditPanel(int driverId)
             {
                 DialogResult dialogResult = DialogResult.No;
                 using (EditDriver editDriver = new EditDriver(driverId))
+                {
+                    dialogResult = editDriver.ShowDialog();
+                }
+                return dialogResult;
+            }
+
+            public static DialogResult ShowAddPanel()
+            {
+                DialogResult dialogResult = DialogResult.No;
+                using (EditDriver editDriver = new EditDriver())
                 {
                     dialogResult = editDriver.ShowDialog();
                 }
