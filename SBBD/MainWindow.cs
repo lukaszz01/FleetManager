@@ -13,6 +13,7 @@ using System.IO;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using static SBBD.ExtendedClass;
+using static SBBD.EditDriver;
 
 namespace SBBD
 {
@@ -178,33 +179,43 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             }
         }
 
+        private void drivers_click(object sender, EventArgs e)
+        {
+            if(selected !=2)
+            {
+                changeBtnTransparent(selected, driversButton);
+                selected = 2;
+                HideOtherPanels(driversPanel, this.Controls);
+            }
+        }
+
         private void userInfo_Click(object sender, EventArgs e)
         {
-            if (selected != 2)
+            if (selected != 3)
             {
                 changeBtnTransparent(selected, userInfo);
-                selected = 2;
+                selected = 3;
                 HideOtherPanels(userInfoPanel, this.Controls);
             }
         }
 
         private void appInfo_Click(object sender, EventArgs e)
         {
-            if (selected != 3)
+            if (selected != 4)
             {
                 changeBtnTransparent(selected, appInfo);
-                selected = 3;
+                selected = 4;
                 HideOtherPanels(appInfoPanel, this.Controls);
             }
         }
 
         private void logout_Click(object sender, EventArgs e)
         {
-            if (selected != 4)
+            if (selected != 5)
             {
                 HideOtherPanels(vehiclesPanel, this.Controls);
                 changeBtnTransparent(selected, logout);
-                selected = 4;
+                selected = 5;
                 switch (CustomMessageBox.CustomMsg("Czy na pewno chcesz\n się wylogować?", 1500, true))
                 {
                     case DialogResult.Yes:
@@ -240,12 +251,15 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     allVehicles.BackColor = Color.Transparent;
                     break;
                 case 2:
-                    userInfo.BackColor = Color.Transparent;
+                    driversButton.BackColor = Color.Transparent;
                     break;
                 case 3:
-                    appInfo.BackColor = Color.Transparent;
+                    userInfo.BackColor = Color.Transparent;
                     break;
                 case 4:
+                    appInfo.BackColor = Color.Transparent;
+                    break;
+                case 5:
                     logout.BackColor = Color.Transparent;
                     break;
             }
@@ -729,32 +743,31 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 CustomMessageBox.CustomMsg("Pomyślnie dodano \n kierowcę do bazy!", 1500, false);
                 context.Drivers.Add(drivers);
                 context.SaveChanges();
-                button1_Click_1(null, null);
                 drivers = null;
             }
         }
 
-        private void editDriversFill()
-        {
-            var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane kierowcy?", 1500, true);
-            if (question == DialogResult.Yes)
-            {
-                HideOtherPanels(addEditDriversPanel, this.Controls);
-                var id = context.Drivers.Select(x => x.driver_id).FirstOrDefault();
+        //private void editDriversFill()
+        //{
+           // var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane kierowcy?", 1500, true);
+        //    if (question == DialogResult.Yes)
+        //    {
+        //        HideOtherPanels(addEditDriversPaneldupa, this.Controls);
+        //        var id = context.Drivers.Select(x => x.driver_id).FirstOrDefault();
 
-                Drivers drivers = context.Drivers.Where(x => x.driver_id == id).FirstOrDefault();
-                firstNameDriver.Text = drivers.first_name;
-                lastNameDriver.Text = drivers.last_name;
-                licenceNum.Text = drivers.drivers_licence_num;
-                licenceExpDate.Text = Convert.ToString(drivers.drivers_licence_exp_date);
-                medExamDate.Text = Convert.ToString(drivers.med_examination_date);
+        //        Drivers drivers = context.Drivers.Where(x => x.driver_id == id).FirstOrDefault();
+        //        firstNameDriver.Text = drivers.first_name;
+        //        lastNameDriver.Text = drivers.last_name;
+        //        licenceNum.Text = drivers.drivers_licence_num;
+        //        licenceExpDate.Text = Convert.ToString(drivers.drivers_licence_exp_date);
+        //        medExamDate.Text = Convert.ToString(drivers.med_examination_date);
 
-                //Tu jeszcze będzie można dodać coś czy jest dostępny w chwili edycji
+        //        //Tu jeszcze będzie można dodać coś czy jest dostępny w chwili edycji
 
-                drivers = null;
-            }
-            else { }
-        }
+        //        drivers = null;
+        //    }
+        //    else { }
+        //}
 
         // edit drivers confirm, wrzucić do buttona zatwierdzenie edycji kierowcy
         private void toNieJestMetodaxD()
@@ -898,18 +911,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) => populatePanel();
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            HideOtherPanels(addEditDriversPanel, this.Controls);
-        }
-
-       
-
-        private void button2_Click_1(object sender, EventArgs e)
-        {
-            editDriversFill();
-
-        }
         #region DataGridView kierowcy
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -928,7 +929,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             if(dataGridView1.Columns[e.ColumnIndex].Name == "editPos")
             {
                 var editDriverDialog = DriverForm.ShowEditPanel(driver.driver_id);
-                if(editDriverDialog == DialogResult.OK)
+                if (editDriverDialog == DialogResult.OK)
                 {
                     driver.available = EditDriver.outputDriver.available;
                     driver.med_examination_date = EditDriver.outputDriver.med_examination_date;
@@ -1044,5 +1045,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
 
         }
         #endregion
+
+
     }
 }

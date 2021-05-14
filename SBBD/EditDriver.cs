@@ -60,6 +60,7 @@ namespace SBBD
             driverAvailable.Visible = true;
             editing = true;
             driverOK.Enabled = true;
+            addEditDriversPanel.BackgroundImage = Resources.editDriverBG;
             fillEditDriver();
         }
 

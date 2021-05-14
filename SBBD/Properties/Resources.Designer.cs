@@ -83,6 +83,16 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addDriverBG {
+            get {
+                object obj = ResourceManager.GetObject("addDriverBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap AvaliableBG1 {
             get {
                 object obj = ResourceManager.GetObject("AvaliableBG1", resourceCulture);
@@ -306,6 +316,16 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap edit {
             get {
                 object obj = ResourceManager.GetObject("edit", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editDriverBG {
+            get {
+                object obj = ResourceManager.GetObject("editDriverBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

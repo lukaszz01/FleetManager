@@ -50,7 +50,7 @@ namespace SBBD
             // addEditDriversPanel
             // 
             this.addEditDriversPanel.BackColor = System.Drawing.Color.Transparent;
-            this.addEditDriversPanel.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
+            this.addEditDriversPanel.BackgroundImage = global::SBBD.Properties.Resources.addDriverBG;
             this.addEditDriversPanel.Controls.Add(this.driverAvailable);
             this.addEditDriversPanel.Controls.Add(this.medicalExaminationDate);
             this.addEditDriversPanel.Controls.Add(this.driversLicenceDate);
@@ -67,7 +67,7 @@ namespace SBBD
             this.addEditDriversPanel.Controls.Add(this.firstNameDriver);
             this.addEditDriversPanel.Location = new System.Drawing.Point(0, 0);
             this.addEditDriversPanel.Name = "addEditDriversPanel";
-            this.addEditDriversPanel.Size = new System.Drawing.Size(489, 570);
+            this.addEditDriversPanel.Size = new System.Drawing.Size(400, 450);
             this.addEditDriversPanel.TabIndex = 20;
             // 
             // driverAvailable
@@ -82,7 +82,7 @@ namespace SBBD
             this.driverAvailable.Items.AddRange(new object[] {
             "Tak",
             "Nie"});
-            this.driverAvailable.Location = new System.Drawing.Point(127, 381);
+            this.driverAvailable.Location = new System.Drawing.Point(192, 332);
             this.driverAvailable.Name = "driverAvailable";
             this.driverAvailable.Size = new System.Drawing.Size(158, 21);
             this.driverAvailable.TabIndex = 46;
@@ -97,7 +97,7 @@ namespace SBBD
             this.medicalExaminationDate.CalendarTrailingForeColor = System.Drawing.Color.White;
             this.medicalExaminationDate.CustomFormat = "dd MMMM yyyy";
             this.medicalExaminationDate.ForeColor = System.Drawing.Color.White;
-            this.medicalExaminationDate.Location = new System.Drawing.Point(127, 284);
+            this.medicalExaminationDate.Location = new System.Drawing.Point(192, 232);
             this.medicalExaminationDate.Name = "medicalExaminationDate";
             this.medicalExaminationDate.Size = new System.Drawing.Size(158, 20);
             this.medicalExaminationDate.TabIndex = 45;
@@ -111,7 +111,7 @@ namespace SBBD
             this.driversLicenceDate.CalendarTrailingForeColor = System.Drawing.Color.White;
             this.driversLicenceDate.CustomFormat = "dd MMMM yyyy";
             this.driversLicenceDate.ForeColor = System.Drawing.Color.White;
-            this.driversLicenceDate.Location = new System.Drawing.Point(127, 336);
+            this.driversLicenceDate.Location = new System.Drawing.Point(192, 282);
             this.driversLicenceDate.Name = "driversLicenceDate";
             this.driversLicenceDate.Size = new System.Drawing.Size(160, 20);
             this.driversLicenceDate.TabIndex = 44;
@@ -129,7 +129,7 @@ namespace SBBD
             this.driverCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.driverCancel.ForeColor = System.Drawing.Color.White;
             this.driverCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.driverCancel.Location = new System.Drawing.Point(114, 511);
+            this.driverCancel.Location = new System.Drawing.Point(51, 390);
             this.driverCancel.Name = "driverCancel";
             this.driverCancel.RoundRadius = 30;
             this.driverCancel.Size = new System.Drawing.Size(140, 30);
@@ -143,7 +143,7 @@ namespace SBBD
             this.driverWarnLabel6.BackColor = System.Drawing.Color.Transparent;
             this.driverWarnLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.driverWarnLabel6.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel6.Location = new System.Drawing.Point(266, 359);
+            this.driverWarnLabel6.Location = new System.Drawing.Point(215, 310);
             this.driverWarnLabel6.Name = "driverWarnLabel6";
             this.driverWarnLabel6.Size = new System.Drawing.Size(113, 9);
             this.driverWarnLabel6.TabIndex = 41;
@@ -156,7 +156,7 @@ namespace SBBD
             this.driverWarnLabel5.BackColor = System.Drawing.Color.Transparent;
             this.driverWarnLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.driverWarnLabel5.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel5.Location = new System.Drawing.Point(268, 307);
+            this.driverWarnLabel5.Location = new System.Drawing.Point(215, 260);
             this.driverWarnLabel5.Name = "driverWarnLabel5";
             this.driverWarnLabel5.Size = new System.Drawing.Size(113, 9);
             this.driverWarnLabel5.TabIndex = 40;
@@ -169,7 +169,7 @@ namespace SBBD
             this.driverWarnLabel4.BackColor = System.Drawing.Color.Transparent;
             this.driverWarnLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.driverWarnLabel4.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel4.Location = new System.Drawing.Point(268, 257);
+            this.driverWarnLabel4.Location = new System.Drawing.Point(215, 210);
             this.driverWarnLabel4.Name = "driverWarnLabel4";
             this.driverWarnLabel4.Size = new System.Drawing.Size(113, 9);
             this.driverWarnLabel4.TabIndex = 39;
@@ -182,7 +182,7 @@ namespace SBBD
             this.driverWarnLabel3.BackColor = System.Drawing.Color.Transparent;
             this.driverWarnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.driverWarnLabel3.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel3.Location = new System.Drawing.Point(260, 207);
+            this.driverWarnLabel3.Location = new System.Drawing.Point(215, 160);
             this.driverWarnLabel3.Name = "driverWarnLabel3";
             this.driverWarnLabel3.Size = new System.Drawing.Size(113, 9);
             this.driverWarnLabel3.TabIndex = 38;
@@ -195,7 +195,7 @@ namespace SBBD
             this.driverWarnLabel2.BackColor = System.Drawing.Color.Transparent;
             this.driverWarnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.driverWarnLabel2.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel2.Location = new System.Drawing.Point(212, 158);
+            this.driverWarnLabel2.Location = new System.Drawing.Point(215, 110);
             this.driverWarnLabel2.Name = "driverWarnLabel2";
             this.driverWarnLabel2.Size = new System.Drawing.Size(113, 9);
             this.driverWarnLabel2.TabIndex = 37;
@@ -216,7 +216,7 @@ namespace SBBD
             this.driverOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.driverOK.ForeColor = System.Drawing.Color.White;
             this.driverOK.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.driverOK.Location = new System.Drawing.Point(313, 512);
+            this.driverOK.Location = new System.Drawing.Point(205, 390);
             this.driverOK.Name = "driverOK";
             this.driverOK.RoundRadius = 30;
             this.driverOK.Size = new System.Drawing.Size(140, 30);
@@ -230,7 +230,7 @@ namespace SBBD
             this.driverWarnLabel1.BackColor = System.Drawing.Color.Transparent;
             this.driverWarnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.driverWarnLabel1.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel1.Location = new System.Drawing.Point(97, 494);
+            this.driverWarnLabel1.Location = new System.Drawing.Point(144, 57);
             this.driverWarnLabel1.Name = "driverWarnLabel1";
             this.driverWarnLabel1.Size = new System.Drawing.Size(113, 9);
             this.driverWarnLabel1.TabIndex = 36;
@@ -245,7 +245,7 @@ namespace SBBD
             this.licenceNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.licenceNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.licenceNum.IsPassword = false;
-            this.licenceNum.Location = new System.Drawing.Point(125, 230);
+            this.licenceNum.Location = new System.Drawing.Point(192, 182);
             this.licenceNum.Name = "licenceNum";
             this.licenceNum.PlaceHolder = "Numer PJ";
             this.licenceNum.Size = new System.Drawing.Size(160, 15);
@@ -262,7 +262,7 @@ namespace SBBD
             this.lastNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.lastNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.lastNameDriver.IsPassword = false;
-            this.lastNameDriver.Location = new System.Drawing.Point(127, 177);
+            this.lastNameDriver.Location = new System.Drawing.Point(192, 132);
             this.lastNameDriver.Name = "lastNameDriver";
             this.lastNameDriver.PlaceHolder = "Nazwisko";
             this.lastNameDriver.Size = new System.Drawing.Size(160, 15);
@@ -279,7 +279,7 @@ namespace SBBD
             this.firstNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.firstNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
             this.firstNameDriver.IsPassword = false;
-            this.firstNameDriver.Location = new System.Drawing.Point(127, 131);
+            this.firstNameDriver.Location = new System.Drawing.Point(192, 82);
             this.firstNameDriver.Name = "firstNameDriver";
             this.firstNameDriver.PlaceHolder = "Imie";
             this.firstNameDriver.Size = new System.Drawing.Size(160, 15);
@@ -292,7 +292,7 @@ namespace SBBD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(483, 563);
+            this.ClientSize = new System.Drawing.Size(400, 450);
             this.Controls.Add(this.addEditDriversPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditDriver";

@@ -113,6 +113,11 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
+    <Compile Include="Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Route.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -171,6 +176,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Route.resx">
       <DependentUpon>Route.cs</DependentUpon>
@@ -352,6 +361,7 @@
     <None Include="Resources\AvaliableBG11.png" />
     <None Include="Resources\AvaliableBG21.png" />
     <None Include="Resources\AvaliableBG12.png" />
+    <None Include="Resources\addDriverBG.png" />
     <Content Include="Resources\CMSBX_question.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -359,6 +369,7 @@
     <None Include="Resources\filterBG.png" />
     <None Include="Resources\filterBG1.png" />
     <None Include="Resources\hidePassword.png" />
+    <None Include="Resources\editDriverBG.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
