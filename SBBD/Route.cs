@@ -66,8 +66,6 @@ namespace SBBD
                 routeDeparturePanel.Visible = false;
                 returning = true;
             }
-            
-            
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -92,7 +90,6 @@ namespace SBBD
         {
             string driver_text;
             allDrivers = context.Drivers.Select(x => x).ToList();
-           // allDrivers = context.Drivers.Select(d=>d).ToList();
             foreach (Drivers driver in allDrivers)
             {
                 if (driver.available)
@@ -102,7 +99,6 @@ namespace SBBD
                 }
             }
         }
-
 
         private void routeDriver_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -116,10 +112,7 @@ namespace SBBD
             }
         }
 
-        private void routeDistance_TextChanged(object sender, EventArgs e)
-        {
-            routeOK.Enabled = routeDriver.SelectedIndex != -1 && routeDistance.Text != "";
-        }
+        private void routeDistance_TextChanged(object sender, EventArgs e) => routeOK.Enabled = routeDriver.SelectedIndex != -1 && routeDistance.Text != "";
     }
 }
 

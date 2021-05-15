@@ -13,7 +13,7 @@ using System.IO;
 using System.Drawing.Text;
 using System.Drawing.Drawing2D;
 using static SBBD.ExtendedClass;
-using static SBBD.EditDriver;
+using static SBBD.DriversForm;
 
 namespace SBBD
 {
@@ -42,8 +42,8 @@ namespace SBBD
         Users user;
         PrivateFontCollection pfc;
         List<Manufacturers> allManufacturers;
-
         int selected;
+
         #region Konstruktor
         public MainWindow()
         {
@@ -76,6 +76,7 @@ namespace SBBD
                 vLabel21,
                 vLabel22
             };
+            this.dataGridView1.DefaultCellStyle.SelectionBackColor = Color.Red;
             //dataGridView1.Columns[5].ReadOnly = false;
         }
         #endregion
@@ -88,14 +89,9 @@ namespace SBBD
             context = new VFEntities();
             context.Vehicles.Load();
             context.Manufacturers.Load();
-            //context.Vehicles_Routes.Load();
             context.Drivers.Load();
             Users tempUser = Login.logged_user_value;
-            
-            //this.categoryBindingSource.DataSource =
-            //_context.Categories.Local.ToBindingList();
             this.driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
-            //user = Login.logged_user_value;
             if (tempUser != null)
             {
                 user = context.Users.Where(u => u.email == Login.logged_user_value.email).FirstOrDefault();
@@ -112,7 +108,6 @@ namespace SBBD
                         }
                     }
                 }
-
                 vehiclePages = 0;
                 filterAvailable.SelectedIndex = 0;
                 populatePanel();
@@ -133,25 +128,13 @@ namespace SBBD
                 trackBar1.Value = user.darken;
                 comboBox1.SelectedIndex = 0;
                 filterManufacturer.SelectedIndex = 0;
-                this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 60);
 
+                this.dataGridView1.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(50, 55, 60);
                 DataGridViewButtonColumn editColumn = (DataGridViewButtonColumn)dataGridView1.Columns[6];
                 DataGridViewButtonColumn deleteColumn = (DataGridViewButtonColumn)dataGridView1.Columns[7];
                 editColumn.FlatStyle = FlatStyle.Popup;
-                /*editColumn.DefaultCellStyle.ForeColor = Color.White;
-                editColumn.DefaultCellStyle.BackColor = Color.FromArgb(0, 110, 255);*/
-
                 deleteColumn.FlatStyle = FlatStyle.Popup;
-                /*deleteColumn.DefaultCellStyle.ForeColor = Color.White;
-                deleteColumn.DefaultCellStyle.BackColor = Color.FromArgb(209, 49, 38);*/
-                
-                
-
-                /*DataGridViewButtonCell buttonCell = (DataGridViewButtonCell)dataGridMappings.Rows[0].Cells[0];
-buttonCell.FlatStyle = FlatStyle.Popup;
-buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 dataGridView1.ClearSelection();
-
             }
         }
         #endregion
@@ -337,12 +320,8 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     break;
             }
 
-
-
-
             if (user.admin)
             {
-                //var allVehicles = context.Vehicles.Select(x => x).ToList();     
                 vehicleCount = vehList.Count;
 
                 if (vehiclePages == 0)
@@ -357,12 +336,10 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 {
                     ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)], trackBar1, context, checkBox1);
                 }
-                //vehList = null;
             }
 
             else
             {
-                //var userVehicles = context.Vehicles.Where(x => x.user_email == user.email).ToList();
                 vehicleCount = vehList.Count;
                 if (vehiclePages == 0)
                     vehiclePages = (vehicleCount / 9) + 1;
@@ -376,7 +353,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 {
                     ShowVehicleTile(tileList[i], vLabelList[i], vehList[i + ((currentPage - 1) * 9)], trackBar1, context, checkBox1);
                 }
-                //vehList = null;
             }
             vehFilter = null;
             vehList = null;
@@ -439,7 +415,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 !RegexD(@"^[a-zA-Z0-9]+$", regNumber) ||
                 !RegexD(@"^[0-9]{3,5}$", engineCapacity) ||
                 !RegexD(@"^[0-9]{2,4}$", enginePower) ||
-                !RegexD(@"^[0-9]{7}$", vehMilage)
+                !RegexD(@"^[0-9]{1,7}$", vehMilage)
                 )
             {
                 if (!RegexD(@"^[0-9]{4}$", prodYear)) ShowErrorMsg(warnLabel3, warningTimer);
@@ -555,10 +531,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 else
                 {
                     var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
-                    //var lastRoute = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id && r.distance == null).FirstOrDefault();
                     allRoutes.Reverse();
-                    //Vehicles_Routes vehRoute = allRoutes[0];
-                    //Drivers driver = context.Drivers.Where(d => d.driver_id == allRoutes[0].driver_id).FirstOrDefault();
                     var editRoute = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
                     if (editRoute == DialogResult.OK)
                     {
@@ -620,7 +593,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             HideOtherPanels(infoVehiclePanel, this.Controls);
             string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
             Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-            //CustomMessageBox.CustomMsg(selectedVehicle.registration_num, 0, true);
             Vehicles_Images selectedVehicleImage = context.Vehicles_Images.Where(x => x.vehicle_id == selectedVehicle.vehicle_id).FirstOrDefault<Vehicles_Images>();
             infoManufacturer.Text = selectedVehicle.manufacturer;
             infoVehicleImage.Image = ByteToImage(selectedVehicleImage.vehicle_image);
@@ -633,7 +605,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             infoVinNum.Text = selectedVehicle.VIN;
             infoEngineCapacity.Text = Convert.ToString(selectedVehicle.engine_capacity);
             infoEnginePower.Text = Convert.ToString(selectedVehicle.engine_power);
-            //infoDistance.Text = Convert.ToString(selectedVehicle.distances);
             infoMilage.Text = selectedVehicle.mileage;
 
             if (selectedVehicle.available == false)
@@ -704,52 +675,52 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
         #endregion
 
         #region Dodawanie kierowcy i edytowanie (tego nie będzie tutaj)
-        private void roundedButton1_Click(object sender, EventArgs e)
-        {
-            if (IsEmpty(firstNameDriver, "") ||
-                IsEmpty(lastNameDriver, "") ||
-                IsEmpty(licenceNum, "") ||
-                IsEmpty(licenceExpDate, "") ||
-                IsEmpty(medExamDate, ""))
-            {
-                warningTimer.Start();
-                driverWarnLabel1.Visible = true;
-            }
-            else if (
-                !RegexD(@"^[a-zA-Z]+$", firstNameDriver) ||
-                !RegexD(@"^[a-zA-Z]+$", lastNameDriver) ||
-                !RegexD(@"^[a-zA-Z0-9]+$", licenceNum) ||
-                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate) ||
-                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)
-            )
-            {
-                if (!RegexD(@"^[a-zA-Z]+$", firstNameDriver)) ShowErrorMsg(driverWarnLabel2, warningTimer);
-                if (!RegexD(@"^[a-zA-Z]+$", lastNameDriver)) ShowErrorMsg(driverWarnLabel3, warningTimer);
-                if (!RegexD(@"^[a-zA-Z0-9]+$", licenceNum)) ShowErrorMsg(driverWarnLabel4, warningTimer);
-                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate)) ShowErrorMsg(driverWarnLabel5, warningTimer);
-                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)) ShowErrorMsg(driverWarnLabel6, warningTimer);
-            }
-            else
-            {
-                Drivers drivers = new Drivers()
-                {
-                    first_name = firstNameDriver.Text,
-                    last_name = lastNameDriver.Text,
-                    drivers_licence_num = licenceNum.Text,
-                    drivers_licence_exp_date = Convert.ToDateTime(licenceExpDate.Text),
-                    med_examination_date = Convert.ToDateTime(medExamDate.Text),
-                    available = true
-                };
-                CustomMessageBox.CustomMsg("Pomyślnie dodano \n kierowcę do bazy!", 1500, false);
-                context.Drivers.Add(drivers);
-                context.SaveChanges();
-                drivers = null;
-            }
-        }
+        //private void roundedButton1_Click(object sender, EventArgs e)
+        //{
+        //    if (IsEmpty(firstNameDriver, "") ||
+        //        IsEmpty(lastNameDriver, "") ||
+        //        IsEmpty(licenceNum, "") ||
+        //        IsEmpty(licenceExpDate, "") ||
+        //        IsEmpty(medExamDate, ""))
+        //    {
+        //        warningTimer.Start();
+        //        driverWarnLabel1.Visible = true;
+        //    }
+        //    else if (
+        //        !RegexD(@"^[a-zA-Z]+$", firstNameDriver) ||
+        //        !RegexD(@"^[a-zA-Z]+$", lastNameDriver) ||
+        //        !RegexD(@"^[a-zA-Z0-9]+$", licenceNum) ||
+        //        !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate) ||
+        //        !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)
+        //    )
+        //    {
+        //        if (!RegexD(@"^[a-zA-Z]+$", firstNameDriver)) ShowErrorMsg(driverWarnLabel2, warningTimer);
+        //        if (!RegexD(@"^[a-zA-Z]+$", lastNameDriver)) ShowErrorMsg(driverWarnLabel3, warningTimer);
+        //        if (!RegexD(@"^[a-zA-Z0-9]+$", licenceNum)) ShowErrorMsg(driverWarnLabel4, warningTimer);
+        //        if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate)) ShowErrorMsg(driverWarnLabel5, warningTimer);
+        //        if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)) ShowErrorMsg(driverWarnLabel6, warningTimer);
+        //    }
+        //    else
+        //    {
+        //        Drivers drivers = new Drivers()
+        //        {
+        //            first_name = firstNameDriver.Text,
+        //            last_name = lastNameDriver.Text,
+        //            drivers_licence_num = licenceNum.Text,
+        //            drivers_licence_exp_date = Convert.ToDateTime(licenceExpDate.Text),
+        //            med_examination_date = Convert.ToDateTime(medExamDate.Text),
+        //            available = true
+        //        };
+        //        CustomMessageBox.CustomMsg("Pomyślnie dodano \n kierowcę do bazy!", 1500, false);
+        //        context.Drivers.Add(drivers);
+        //        context.SaveChanges();
+        //        drivers = null;
+        //    }
+        //}
 
         //private void editDriversFill()
         //{
-           // var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane kierowcy?", 1500, true);
+        // var question = CustomMessageBox.CustomMsg("Czy na pewno chcesz \n edytować dane kierowcy?", 1500, true);
         //    if (question == DialogResult.Yes)
         //    {
         //        HideOtherPanels(addEditDriversPaneldupa, this.Controls);
@@ -770,49 +741,50 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
         //}
 
         // edit drivers confirm, wrzucić do buttona zatwierdzenie edycji kierowcy
-        private void toNieJestMetodaxD()
-        {
-            if (IsEmpty(firstNameDriver, "") ||
-                IsEmpty(lastNameDriver, "") ||
-                IsEmpty(licenceNum, "") ||
-                IsEmpty(licenceExpDate, "") ||
-                IsEmpty(medExamDate, ""))
-            {
-                warningTimer.Start();
-                driverWarnLabel1.Visible = true;
-            }
-            else if (
-                !RegexD(@"^[a-zA-Z]+$", firstNameDriver) ||
-                !RegexD(@"^[a-zA-Z]+$", lastNameDriver) ||
-                !RegexD(@"^[a-zA-Z0-9]+$", licenceNum) ||
-                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate) ||
-                !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)
-            )
-            {
-                if (!RegexD(@"^[a-zA-Z]+$", firstNameDriver)) ShowErrorMsg(driverWarnLabel2, warningTimer);
-                if (!RegexD(@"^[a-zA-Z]+$", lastNameDriver)) ShowErrorMsg(driverWarnLabel3, warningTimer);
-                if (!RegexD(@"^[a-zA-Z0-9]+$", licenceNum)) ShowErrorMsg(driverWarnLabel4, warningTimer);
-                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate)) ShowErrorMsg(driverWarnLabel5, warningTimer);
-                if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)) ShowErrorMsg(driverWarnLabel6, warningTimer);
-            }
-            else
-            {
-                var id = context.Drivers.Select(x => x.driver_id).FirstOrDefault();
+        //private void toNieJestMetodaxD()
+        //{
+        //    if (IsEmpty(firstNameDriver, "") ||
+        //        IsEmpty(lastNameDriver, "") ||
+        //        IsEmpty(licenceNum, "") ||
+        //        IsEmpty(licenceExpDate, "") ||
+        //        IsEmpty(medExamDate, ""))
+        //    {
+        //        warningTimer.Start();
+        //        driverWarnLabel1.Visible = true;
+        //    }
+        //    else if (
+        //        !RegexD(@"^[a-zA-Z]+$", firstNameDriver) ||
+        //        !RegexD(@"^[a-zA-Z]+$", lastNameDriver) ||
+        //        !RegexD(@"^[a-zA-Z0-9]+$", licenceNum) ||
+        //        !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate) ||
+        //        !RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)
+        //    )
+        //    {
+        //        if (!RegexD(@"^[a-zA-Z]+$", firstNameDriver)) ShowErrorMsg(driverWarnLabel2, warningTimer);
+        //        if (!RegexD(@"^[a-zA-Z]+$", lastNameDriver)) ShowErrorMsg(driverWarnLabel3, warningTimer);
+        //        if (!RegexD(@"^[a-zA-Z0-9]+$", licenceNum)) ShowErrorMsg(driverWarnLabel4, warningTimer);
+        //        if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", licenceExpDate)) ShowErrorMsg(driverWarnLabel5, warningTimer);
+        //        if (!RegexD(@"^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$", medExamDate)) ShowErrorMsg(driverWarnLabel6, warningTimer);
+        //    }
+        //    else
+        //    {
+        //        var id = context.Drivers.Select(x => x.driver_id).FirstOrDefault();
 
-                Drivers drivers = context.Drivers.Where(x => x.driver_id == id).FirstOrDefault();
-                //  Drivers drivers = context.Drivers.Where(x => x.driver_id = drivers).FirstOrDefault<Drivers>();
-                drivers.first_name = firstNameDriver.Text;
-                drivers.last_name = lastNameDriver.Text;
-                drivers.drivers_licence_num = licenceNum.Text;
-                drivers.drivers_licence_exp_date = Convert.ToDateTime(licenceExpDate.Text);
-                drivers.med_examination_date = Convert.ToDateTime(medExamDate.Text);
-                context.SaveChanges();
-                drivers = null;
-            }
+        //        Drivers drivers = context.Drivers.Where(x => x.driver_id == id).FirstOrDefault();
+        //        //  Drivers drivers = context.Drivers.Where(x => x.driver_id = drivers).FirstOrDefault<Drivers>();
+        //        drivers.first_name = firstNameDriver.Text;
+        //        drivers.last_name = lastNameDriver.Text;
+        //        drivers.drivers_licence_num = licenceNum.Text;
+        //        drivers.drivers_licence_exp_date = Convert.ToDateTime(licenceExpDate.Text);
+        //        drivers.med_examination_date = Convert.ToDateTime(medExamDate.Text);
+        //        context.SaveChanges();
+        //        drivers = null;
+        //    }
 
-        }
+        //}
         #endregion
 
+        #region Pozostałe
         private void warningTimer_Tick(object sender, EventArgs e)
         {
             warningTimer.Stop();
@@ -841,7 +813,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 vehicleColor.ClearText();
                 prodYear.ClearText();
                 vehMilage.ClearText();
-               // distance.ClearText();
                 modelComboBox.SelectedIndex = -1;
                 manufacturerComboBox.SelectedIndex = -1;
                 modelComboBox.Enabled = false;
@@ -864,13 +835,9 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 }
             }
         }
-
-
-
         private void trackBar1_MouseUp(object sender, MouseEventArgs e) 
         {
             populatePanel();
-            //var seluser = context.Users.Where(d => d.email == user.email).FirstOrDefault();
             user.darken = trackBar1.Value;
             context.SaveChanges();
         }
@@ -893,12 +860,10 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             vehiclePages = 0;
             populatePanel();
             filterPanel.Visible = false;
-            
         }
 
         private void filterPanel_MouseLeave(object sender, EventArgs e)
         {
-            
             if (filterPanel.Visible)
             {
                 var mea = this.PointToClient(MousePosition);
@@ -910,6 +875,7 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e) => populatePanel();
+        #endregion
 
         #region DataGridView kierowcy
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -931,27 +897,25 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                 var editDriverDialog = DriverForm.ShowEditPanel(driver.driver_id);
                 if (editDriverDialog == DialogResult.OK)
                 {
-                    driver.available = EditDriver.outputDriver.available;
-                    driver.med_examination_date = EditDriver.outputDriver.med_examination_date;
-                    driver.drivers_licence_exp_date = EditDriver.outputDriver.drivers_licence_exp_date;
+                    driver.available = DriversForm.outputDriver.available;
+                    driver.med_examination_date = DriversForm.outputDriver.med_examination_date;
+                    driver.drivers_licence_exp_date = DriversForm.outputDriver.drivers_licence_exp_date;
                     context.SaveChanges();
                     GridRefresh();
                 }
             }
         }
-
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
             var addDriverDialog = DriverForm.ShowAddPanel();
             if(addDriverDialog == DialogResult.OK)
             {
-                Drivers newDriver = EditDriver.outputDriver;
+                Drivers newDriver = DriversForm.outputDriver;
                 context.Drivers.Add(newDriver);
                 context.SaveChanges();
                 GridRefresh();
             }
         }
-
         private void GridRefresh()
         {
             dataGridView1.DataSource = null;
@@ -973,7 +937,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     days = ((DateTime)e.Value - DateTime.Now).TotalDays;
                     if (days <= 7)
                     {
-                        //e.CellStyle.BackColor = Color.Red;
                         e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 101, 116);
                         e.CellStyle.ForeColor = Color.Black;
@@ -981,7 +944,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     }
                     else if (days <= 30)
                     {
-                        //e.CellStyle.BackColor = Color.Yellow;
                         e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 152, 116);
                         e.CellStyle.ForeColor = Color.Black;
@@ -998,7 +960,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     days = ((DateTime)e.Value - DateTime.Now).TotalDays;
                     if (days <= 7)
                     {
-                        //e.CellStyle.BackColor = Color.Red;
                         e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 101, 116);
                         e.CellStyle.ForeColor = Color.Black;
@@ -1006,7 +967,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
                     }
                     else if (days <= 30)
                     {
-                        //e.CellStyle.BackColor = Color.Yellow;
                         e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 152, 116);
                         e.CellStyle.ForeColor = Color.Black;
@@ -1019,9 +979,6 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             {
                 if (e.Value != null)
                 {
-                    //bool cellValue = e.Value is bool ? (bool)e.Value : (e.Value.ToString() == "Tak" ? true : false);
-
-                    //if (cellValue)
                     if ((bool)e.Value)
                     {
                         e.Value = "Tak";
@@ -1034,8 +991,8 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
             }
             if (dgv.Columns[e.ColumnIndex].Name.Equals("editPos"))
             {
-                e.CellStyle.BackColor = Color.FromArgb(0, 110, 255);
-                e.CellStyle.SelectionBackColor = Color.FromArgb(0, 110, 255);
+                e.CellStyle.BackColor = Color.FromArgb(90, 95, 99);
+                e.CellStyle.SelectionBackColor = Color.FromArgb(90, 95, 99);
             }
             if (dgv.Columns[e.ColumnIndex].Name.Equals("deletePos"))
             {
@@ -1045,7 +1002,5 @@ buttonCell.Style.BackColor = System.Drawing.Color.Red;*/
 
         }
         #endregion
-
-
     }
 }

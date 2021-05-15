@@ -73,9 +73,39 @@ namespace SBBD {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap addDriverBG1 {
+            get {
+                object obj = ResourceManager.GetObject("addDriverBG1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap driversBG {
+            get {
+                object obj = ResourceManager.GetObject("driversBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap editDriverBG {
             get {
                 object obj = ResourceManager.GetObject("editDriverBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap editDriverBG1 {
+            get {
+                object obj = ResourceManager.GetObject("editDriverBG1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

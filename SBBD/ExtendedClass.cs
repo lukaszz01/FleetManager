@@ -131,7 +131,6 @@ namespace SBBD
             {
                 g.DrawImage(bm2, 0, 0, 310, 174);
             }
-            //var trackbar = context.Users.Select(x => x.darken).FirstOrDefault();
             Rectangle r = new Rectangle(0, 0, bm.Width, bm.Height);
             int alpha = trackbar.Value;
             using (Graphics g = Graphics.FromImage(bm))
@@ -229,7 +228,7 @@ namespace SBBD
             public static DialogResult ShowEditPanel(int driverId)
             {
                 DialogResult dialogResult = DialogResult.No;
-                using (EditDriver editDriver = new EditDriver(driverId))
+                using (DriversForm editDriver = new DriversForm(driverId))
                 {
                     dialogResult = editDriver.ShowDialog();
                 }
@@ -239,7 +238,7 @@ namespace SBBD
             public static DialogResult ShowAddPanel()
             {
                 DialogResult dialogResult = DialogResult.No;
-                using (EditDriver editDriver = new EditDriver())
+                using (DriversForm editDriver = new DriversForm())
                 {
                     dialogResult = editDriver.ShowDialog();
                 }
@@ -248,3 +247,5 @@ namespace SBBD
         }
     }
 }
+
+

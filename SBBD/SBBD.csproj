@@ -62,11 +62,11 @@
     <Compile Include="Drivers.cs">
       <DependentUpon>VFModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="EditDriver.cs">
+    <Compile Include="DriversForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="EditDriver.Designer.cs">
-      <DependentUpon>EditDriver.cs</DependentUpon>
+    <Compile Include="DriversForm.Designer.cs">
+      <DependentUpon>DriversForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ExtendedClass.cs">
       <SubType>Form</SubType>
@@ -160,8 +160,8 @@
     <EmbeddedResource Include="CustomMessageBox.resx">
       <DependentUpon>CustomMessageBox.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditDriver.resx">
-      <DependentUpon>EditDriver.cs</DependentUpon>
+    <EmbeddedResource Include="DriversForm.resx">
+      <DependentUpon>DriversForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
@@ -362,6 +362,7 @@
     <None Include="Resources\AvaliableBG21.png" />
     <None Include="Resources\AvaliableBG12.png" />
     <None Include="Resources\addDriverBG.png" />
+    <None Include="Resources\addDriverBG1.png" />
     <Content Include="Resources\CMSBX_question.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -370,6 +371,10 @@
     <None Include="Resources\filterBG1.png" />
     <None Include="Resources\hidePassword.png" />
     <None Include="Resources\editDriverBG.png" />
+    <None Include="Resources\driversBG.png" />
+    <None Include="Resources\driversBTN_active.png" />
+    <None Include="Resources\driversBTN_inactive.png" />
+    <None Include="Resources\editDriverBG1.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>

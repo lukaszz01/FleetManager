@@ -9,10 +9,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.Entity;
+using static SBBD.ExtendedClass;
 
 namespace SBBD
 {
-    public partial class EditDriver : Form
+    public partial class DriversForm : Form
     {
 
         PrivateFontCollection pfc;
@@ -49,9 +50,7 @@ namespace SBBD
             medicalExaminationDate.Format = DateTimePickerFormat.Custom;
         }
 
-
-
-        public EditDriver(int driverId)
+        public DriversForm(int driverId)
         {
             InitializeComponent();
             context = new VFEntities();
@@ -60,11 +59,11 @@ namespace SBBD
             driverAvailable.Visible = true;
             editing = true;
             driverOK.Enabled = true;
-            addEditDriversPanel.BackgroundImage = Resources.editDriverBG;
+            addEditDriversPanel.BackgroundImage = Resources.editDriverBG1;
             fillEditDriver();
         }
 
-        public EditDriver()
+        public DriversForm()
         {
             InitializeComponent();
             firstNameDriver.Enabled = true;
@@ -114,7 +113,6 @@ namespace SBBD
                 }
             }
         }
-
         private void textBox_TextChanged(object sender, EventArgs e)
         {
             if(!editing)
