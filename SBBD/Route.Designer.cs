@@ -178,7 +178,6 @@ namespace SBBD
             this.routeDistance.Size = new System.Drawing.Size(110, 15);
             this.routeDistance.TabIndex = 20;
             this.routeDistance.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.routeDistance.Visible = false;
             this.routeDistance.TextChanged += new System.EventHandler(this.routeDistance_TextChanged);
             // 
             // Route

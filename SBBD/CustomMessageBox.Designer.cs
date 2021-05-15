@@ -119,11 +119,11 @@ namespace SBBD
             this.messageInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.messageInfo.ForeColor = System.Drawing.Color.White;
             this.messageInfo.IsPassword = false;
-            this.messageInfo.Location = new System.Drawing.Point(25, 100);
+            this.messageInfo.Location = new System.Drawing.Point(20, 100);
             this.messageInfo.Multiline = true;
             this.messageInfo.Name = "messageInfo";
             this.messageInfo.PlaceHolder = null;
-            this.messageInfo.Size = new System.Drawing.Size(250, 30);
+            this.messageInfo.Size = new System.Drawing.Size(260, 30);
             this.messageInfo.TabIndex = 0;
             this.messageInfo.TabStop = false;
             this.messageInfo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

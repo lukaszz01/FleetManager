@@ -102,17 +102,18 @@ namespace SBBD
 
         private void routeDriver_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (routeDistance.Visible)
+            /*if (routeDistance.Visible)
             {
                 routeOK.Enabled = routeDriver.SelectedIndex != -1 && routeDistance.Text != "";
             }
             else
             {
                 routeOK.Enabled = routeDriver.SelectedIndex != -1;
-            }
+            }*/
+            routeOK.Enabled = routeDriver.SelectedIndex != -1;
         }
 
-        private void routeDistance_TextChanged(object sender, EventArgs e) => routeOK.Enabled = routeDriver.SelectedIndex != -1 && routeDistance.Text != "";
+        private void routeDistance_TextChanged(object sender, EventArgs e) => routeOK.Enabled = routeDistance.Text != "";
     }
 }
 

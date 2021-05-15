@@ -38,7 +38,7 @@ namespace SBBD
                     c2.Font = new Font(pfc.Families[0], c2.Font.Size, FontStyle.Bold);
                 }
             }
-            messageInfo.Text = "Automatyczne zamykanie...";
+            messageInfo.Text = "Automatyczne zamykanie komunikatu...";
         }
 
         public CustomMessageBoxForm()

@@ -73,6 +73,7 @@ namespace SBBD
             this.pictureBox00 = new System.Windows.Forms.PictureBox();
             this.vLabel00 = new System.Windows.Forms.Label();
             this.addVehiclePanel = new System.Windows.Forms.Panel();
+            this.label1 = new System.Windows.Forms.Label();
             this.warnLabel9 = new System.Windows.Forms.Label();
             this.vehMilage = new SBBD.CustomTextBox();
             this.enginePower = new SBBD.CustomTextBox();
@@ -184,7 +185,6 @@ namespace SBBD
             this.driverWarnLabel5 = new System.Windows.Forms.Label();
             this.driverWarnLabel6 = new System.Windows.Forms.Label();
             this.addEditDriversPaneldupa = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
             this.vehiclesPanel.SuspendLayout();
             this.filterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
@@ -660,6 +660,17 @@ namespace SBBD
             this.addVehiclePanel.Size = new System.Drawing.Size(1080, 704);
             this.addVehiclePanel.TabIndex = 9;
             this.addVehiclePanel.Visible = false;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(548, 367);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(105, 23);
+            this.label1.TabIndex = 53;
+            this.label1.Text = "Przebieg (km)";
             // 
             // warnLabel9
             // 
@@ -1687,11 +1698,11 @@ namespace SBBD
             this.checkBox1.CheckState = System.Windows.Forms.CheckState.Checked;
             this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.checkBox1.ForeColor = System.Drawing.Color.White;
-            this.checkBox1.Location = new System.Drawing.Point(22, 600);
+            this.checkBox1.Location = new System.Drawing.Point(35, 576);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(157, 17);
+            this.checkBox1.Size = new System.Drawing.Size(130, 30);
             this.checkBox1.TabIndex = 58;
-            this.checkBox1.Text = "Ukryj niedostępne auta";
+            this.checkBox1.Text = "Niedostępne auta \r\nna czerwono";
             this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBox1.UseVisualStyleBackColor = false;
             this.checkBox1.CheckedChanged += new System.EventHandler(this.checkBox1_CheckedChanged);
@@ -1707,6 +1718,7 @@ namespace SBBD
             this.driversPanel.Name = "driversPanel";
             this.driversPanel.Size = new System.Drawing.Size(1080, 694);
             this.driversPanel.TabIndex = 18;
+            this.driversPanel.Visible = false;
             // 
             // textBox1
             // 
@@ -2285,17 +2297,6 @@ namespace SBBD
             this.addEditDriversPaneldupa.TabIndex = 19;
             this.addEditDriversPaneldupa.Visible = false;
             // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(548, 367);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 23);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Przebieg (km)";
-            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2303,6 +2304,7 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 730);
             this.Controls.Add(this.driversButton);
+            this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.driversPanel);
             this.Controls.Add(this.vehiclesPanel);
@@ -2312,7 +2314,6 @@ namespace SBBD
             this.Controls.Add(this.appInfo);
             this.Controls.Add(this.userInfo);
             this.Controls.Add(this.allVehicles);
-            this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehicle);
             this.Controls.Add(this.appInfoPanel);

@@ -509,40 +509,57 @@ namespace SBBD
         #region Dostępność auta
         private void vehAvailable()
         {
-            var msg = CustomMessageBox.CustomMsg("Zmienić dostępność?", 0, true);
+            var availableDrivers = context.Drivers.Where(d => d.available).ToList();
             string regNumStr = (vLabelList[editSelecetedId].Text.Split('\n'))[1].Trim();
             Vehicles selectedVehicle = context.Vehicles.Where(v => v.registration_num == regNumStr).FirstOrDefault<Vehicles>();
-            if (msg == DialogResult.Yes)
-            {
-                if (selectedVehicle.available)
+            if(availableDrivers.Count != 0 || (availableDrivers.Count == 0 && !selectedVehicle.available)) 
+            { 
+                var msg = CustomMessageBox.CustomMsg("Zmienić dostępność?", 0, true);
+                if (msg == DialogResult.Yes)
                 {
-                    var showAvailablePanel = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
-                    if (showAvailablePanel == DialogResult.OK)
+                    if (selectedVehicle.available)
                     {
-                        selectedVehicle.available = false;
-                        Vehicles_Routes vehicleRoute = new Vehicles_Routes()
+                        var showAvailablePanel = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
+                        if (showAvailablePanel == DialogResult.OK)
                         {
-                            vehicle_id = selectedVehicle.vehicle_id,
-                            driver_id = Route.driver.driver_id,
-                            start_date = DateTime.Now
-                        };
+                            selectedVehicle.available = false;
+                            Vehicles_Routes vehicleRoute = new Vehicles_Routes()
+                            {
+                                vehicle_id = selectedVehicle.vehicle_id,
+                                driver_id = Route.driver.driver_id,
+                                start_date = DateTime.Now
+                            };
+                            context.Vehicles_Routes.Add(vehicleRoute);
+                            Drivers driver = context.Drivers.Where(d => d.driver_id == Route.driver.driver_id).FirstOrDefault();
+                            driver.available = false;
+                        }
                     }
-                }
-                else
-                {
-                    var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
-                    allRoutes.Reverse();
-                    var editRoute = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
-                    if (editRoute == DialogResult.OK)
+                    else
                     {
-                        selectedVehicle.available = true;
-                        allRoutes[0].distance = Route.distance;
-                        allRoutes[0].end_date = DateTime.Now;
+                        var allRoutes = context.Vehicles_Routes.Where(r => r.vehicle_id == selectedVehicle.vehicle_id).ToList();
+                        allRoutes.Reverse();
+                        var editRoute = EditRoutePanel.ShowAvaliablePanel(selectedVehicle.available);
+                        int driverId = allRoutes[0].driver_id;
+                        Drivers driver = context.Drivers.Where(d => d.driver_id == driverId).FirstOrDefault();
+                        if (editRoute == DialogResult.OK)
+                        {
+                            selectedVehicle.available = true;
+                            allRoutes[0].distance = Route.distance;
+                            allRoutes[0].end_date = DateTime.Now;
+                            driver.available = true;
+                        }
                     }
+                    context.SaveChanges();
+                    populatePanel();
+                    selectedVehicle = null;
                 }
-                context.SaveChanges();
-                populatePanel();
-                selectedVehicle = null;
+                
+                    
+                
+            }
+            else
+            {
+                CustomMessageBox.CustomMsg("Nie ma dostępnych kierowców", 2000, false);
             }
         }
         #endregion
@@ -979,14 +996,7 @@ namespace SBBD
             {
                 if (e.Value != null)
                 {
-                    if ((bool)e.Value)
-                    {
-                        e.Value = "Tak";
-                    }
-                    else
-                    {
-                        e.Value = "Nie";
-                    }
+                    e.Value = (bool)e.Value ? "Tak" : "Nie";
                 }
             }
             if (dgv.Columns[e.ColumnIndex].Name.Equals("editPos"))
