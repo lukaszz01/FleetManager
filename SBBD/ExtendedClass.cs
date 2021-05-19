@@ -51,7 +51,6 @@ namespace SBBD
         //Main Window - hide panels
         public static void HideOtherPanels(Panel panel, Control.ControlCollection Controls)
         {
-            
             foreach (Control control in Controls)
             {
                 if (control is Panel)

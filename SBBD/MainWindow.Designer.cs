@@ -147,8 +147,10 @@ namespace SBBD
             this.driverWarnLabel6 = new System.Windows.Forms.Label();
             this.addEditDriversPaneldupa = new System.Windows.Forms.Panel();
             this.driversButton = new SBBD.CustomButton();
-            this.roundedButton2 = new SBBD.RoundedButton();
+            this.generateReportVeh = new SBBD.RoundedButton();
             this.infoReturnBtn = new SBBD.CustomButton();
+            this.filterButton = new SBBD.RoundedButton();
+            this.filterAccept = new SBBD.RoundedButton();
             this.vehMilage = new SBBD.CustomTextBox();
             this.enginePower = new SBBD.CustomTextBox();
             this.engineCapacity = new SBBD.CustomTextBox();
@@ -167,8 +169,6 @@ namespace SBBD
             this.medicalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.availableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.filterButton = new SBBD.RoundedButton();
-            this.filterAccept = new SBBD.RoundedButton();
             this.mainTitleBar = new SBBD.MoveBar();
             this.logout = new SBBD.CustomButton();
             this.appInfo = new SBBD.CustomButton();
@@ -383,7 +383,7 @@ namespace SBBD
             // 
             // pictureBox22
             // 
-            this.pictureBox22.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox22.Controls.Add(this.vLabel22);
             this.pictureBox22.Location = new System.Drawing.Point(715, 480);
             this.pictureBox22.Name = "pictureBox22";
@@ -395,6 +395,7 @@ namespace SBBD
             // 
             // vLabel22
             // 
+            this.vLabel22.BackColor = System.Drawing.Color.Transparent;
             this.vLabel22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel22.ForeColor = System.Drawing.Color.White;
             this.vLabel22.Location = new System.Drawing.Point(0, 60);
@@ -405,7 +406,7 @@ namespace SBBD
             // 
             // pictureBox21
             // 
-            this.pictureBox21.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox21.Controls.Add(this.vLabel21);
             this.pictureBox21.Location = new System.Drawing.Point(385, 480);
             this.pictureBox21.Name = "pictureBox21";
@@ -417,6 +418,7 @@ namespace SBBD
             // 
             // vLabel21
             // 
+            this.vLabel21.BackColor = System.Drawing.Color.Transparent;
             this.vLabel21.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel21.ForeColor = System.Drawing.Color.White;
             this.vLabel21.Location = new System.Drawing.Point(0, 60);
@@ -427,7 +429,7 @@ namespace SBBD
             // 
             // pictureBox20
             // 
-            this.pictureBox20.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox20.Controls.Add(this.vLabel20);
             this.pictureBox20.Location = new System.Drawing.Point(55, 480);
             this.pictureBox20.Name = "pictureBox20";
@@ -439,6 +441,7 @@ namespace SBBD
             // 
             // vLabel20
             // 
+            this.vLabel20.BackColor = System.Drawing.Color.Transparent;
             this.vLabel20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel20.ForeColor = System.Drawing.Color.White;
             this.vLabel20.Location = new System.Drawing.Point(0, 60);
@@ -449,7 +452,7 @@ namespace SBBD
             // 
             // pictureBox12
             // 
-            this.pictureBox12.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox12.Controls.Add(this.vLabel12);
             this.pictureBox12.Location = new System.Drawing.Point(715, 286);
             this.pictureBox12.Name = "pictureBox12";
@@ -461,6 +464,7 @@ namespace SBBD
             // 
             // vLabel12
             // 
+            this.vLabel12.BackColor = System.Drawing.Color.Transparent;
             this.vLabel12.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel12.ForeColor = System.Drawing.Color.White;
             this.vLabel12.Location = new System.Drawing.Point(0, 60);
@@ -471,7 +475,7 @@ namespace SBBD
             // 
             // pictureBox11
             // 
-            this.pictureBox11.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox11.Controls.Add(this.vLabel11);
             this.pictureBox11.Location = new System.Drawing.Point(385, 286);
             this.pictureBox11.Name = "pictureBox11";
@@ -483,6 +487,7 @@ namespace SBBD
             // 
             // vLabel11
             // 
+            this.vLabel11.BackColor = System.Drawing.Color.Transparent;
             this.vLabel11.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel11.ForeColor = System.Drawing.Color.White;
             this.vLabel11.Location = new System.Drawing.Point(0, 60);
@@ -493,7 +498,7 @@ namespace SBBD
             // 
             // pictureBox10
             // 
-            this.pictureBox10.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox10.Controls.Add(this.vLabel10);
             this.pictureBox10.Location = new System.Drawing.Point(55, 286);
             this.pictureBox10.Name = "pictureBox10";
@@ -505,6 +510,7 @@ namespace SBBD
             // 
             // vLabel10
             // 
+            this.vLabel10.BackColor = System.Drawing.Color.Transparent;
             this.vLabel10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel10.ForeColor = System.Drawing.Color.White;
             this.vLabel10.Location = new System.Drawing.Point(0, 60);
@@ -515,7 +521,7 @@ namespace SBBD
             // 
             // pictureBox02
             // 
-            this.pictureBox02.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox02.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox02.Controls.Add(this.vLabel02);
             this.pictureBox02.Location = new System.Drawing.Point(715, 92);
             this.pictureBox02.Name = "pictureBox02";
@@ -527,6 +533,7 @@ namespace SBBD
             // 
             // vLabel02
             // 
+            this.vLabel02.BackColor = System.Drawing.Color.Transparent;
             this.vLabel02.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel02.ForeColor = System.Drawing.Color.White;
             this.vLabel02.Location = new System.Drawing.Point(0, 60);
@@ -537,7 +544,7 @@ namespace SBBD
             // 
             // pictureBox01
             // 
-            this.pictureBox01.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox01.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox01.Controls.Add(this.vLabel01);
             this.pictureBox01.Location = new System.Drawing.Point(385, 92);
             this.pictureBox01.Name = "pictureBox01";
@@ -549,6 +556,7 @@ namespace SBBD
             // 
             // vLabel01
             // 
+            this.vLabel01.BackColor = System.Drawing.Color.Transparent;
             this.vLabel01.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel01.ForeColor = System.Drawing.Color.White;
             this.vLabel01.Location = new System.Drawing.Point(0, 60);
@@ -559,7 +567,7 @@ namespace SBBD
             // 
             // pictureBox00
             // 
-            this.pictureBox00.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox00.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.pictureBox00.Controls.Add(this.vLabel00);
             this.pictureBox00.Location = new System.Drawing.Point(55, 92);
             this.pictureBox00.Name = "pictureBox00";
@@ -571,6 +579,7 @@ namespace SBBD
             // 
             // vLabel00
             // 
+            this.vLabel00.BackColor = System.Drawing.Color.Transparent;
             this.vLabel00.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.vLabel00.ForeColor = System.Drawing.Color.White;
             this.vLabel00.Location = new System.Drawing.Point(0, 60);
@@ -659,6 +668,7 @@ namespace SBBD
             // 
             // infoBox6
             // 
+            this.infoBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.infoBox6.BackgroundImage = global::SBBD.Properties.Resources.question;
             this.infoBox6.Location = new System.Drawing.Point(900, 314);
             this.infoBox6.Name = "infoBox6";
@@ -668,6 +678,7 @@ namespace SBBD
             // 
             // infoBox5
             // 
+            this.infoBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.infoBox5.BackgroundImage = global::SBBD.Properties.Resources.question;
             this.infoBox5.Location = new System.Drawing.Point(900, 256);
             this.infoBox5.Name = "infoBox5";
@@ -677,6 +688,7 @@ namespace SBBD
             // 
             // infoBox4
             // 
+            this.infoBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.infoBox4.BackgroundImage = global::SBBD.Properties.Resources.question;
             this.infoBox4.Location = new System.Drawing.Point(460, 434);
             this.infoBox4.Name = "infoBox4";
@@ -686,6 +698,7 @@ namespace SBBD
             // 
             // infoBox3
             // 
+            this.infoBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.infoBox3.BackgroundImage = global::SBBD.Properties.Resources.question;
             this.infoBox3.Location = new System.Drawing.Point(460, 376);
             this.infoBox3.Name = "infoBox3";
@@ -695,6 +708,7 @@ namespace SBBD
             // 
             // infoBox2
             // 
+            this.infoBox2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.infoBox2.BackgroundImage = global::SBBD.Properties.Resources.question;
             this.infoBox2.Location = new System.Drawing.Point(460, 314);
             this.infoBox2.Name = "infoBox2";
@@ -704,6 +718,7 @@ namespace SBBD
             // 
             // infoBox1
             // 
+            this.infoBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
             this.infoBox1.BackgroundImage = global::SBBD.Properties.Resources.question;
             this.infoBox1.Location = new System.Drawing.Point(460, 256);
             this.infoBox1.Name = "infoBox1";
@@ -1171,7 +1186,7 @@ namespace SBBD
             // 
             this.infoVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.infoVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.VehInfoBG;
-            this.infoVehiclePanel.Controls.Add(this.roundedButton2);
+            this.infoVehiclePanel.Controls.Add(this.generateReportVeh);
             this.infoVehiclePanel.Controls.Add(this.infoMilage);
             this.infoVehiclePanel.Controls.Add(this.infoReturnBtn);
             this.infoVehiclePanel.Controls.Add(this.infoManufacturer);
@@ -1654,26 +1669,26 @@ namespace SBBD
             this.driversButton.UseVisualStyleBackColor = false;
             this.driversButton.Click += new System.EventHandler(this.drivers_click);
             // 
-            // roundedButton2
+            // generateReportVeh
             // 
-            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton2.FlatAppearance.BorderSize = 0;
-            this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.roundedButton2.ForeColor = System.Drawing.Color.White;
-            this.roundedButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.roundedButton2.Location = new System.Drawing.Point(562, 579);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.RoundRadius = 30;
-            this.roundedButton2.Size = new System.Drawing.Size(140, 30);
-            this.roundedButton2.TabIndex = 51;
-            this.roundedButton2.Text = "Raport tras";
-            this.roundedButton2.UseVisualStyleBackColor = false;
-            this.roundedButton2.Click += new System.EventHandler(this.roundedButton2_Click);
+            this.generateReportVeh.BackColor = System.Drawing.Color.Transparent;
+            this.generateReportVeh.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.generateReportVeh.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.generateReportVeh.FlatAppearance.BorderSize = 0;
+            this.generateReportVeh.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.generateReportVeh.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.generateReportVeh.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.generateReportVeh.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.generateReportVeh.ForeColor = System.Drawing.Color.White;
+            this.generateReportVeh.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.generateReportVeh.Location = new System.Drawing.Point(562, 579);
+            this.generateReportVeh.Name = "generateReportVeh";
+            this.generateReportVeh.RoundRadius = 30;
+            this.generateReportVeh.Size = new System.Drawing.Size(140, 30);
+            this.generateReportVeh.TabIndex = 51;
+            this.generateReportVeh.Text = "Raport tras";
+            this.generateReportVeh.UseVisualStyleBackColor = false;
+            this.generateReportVeh.Click += new System.EventHandler(this.generateReportVeh_Click);
             // 
             // infoReturnBtn
             // 
@@ -1695,6 +1710,48 @@ namespace SBBD
             this.infoReturnBtn.TabStop = false;
             this.infoReturnBtn.UseVisualStyleBackColor = true;
             this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
+            // 
+            // filterButton
+            // 
+            this.filterButton.BackColor = System.Drawing.Color.Transparent;
+            this.filterButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.filterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.filterButton.FlatAppearance.BorderSize = 0;
+            this.filterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.filterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.filterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.filterButton.ForeColor = System.Drawing.Color.White;
+            this.filterButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.filterButton.Location = new System.Drawing.Point(720, 44);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.RoundRadius = 30;
+            this.filterButton.Size = new System.Drawing.Size(120, 25);
+            this.filterButton.TabIndex = 17;
+            this.filterButton.Text = "Filtry";
+            this.filterButton.UseVisualStyleBackColor = false;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // filterAccept
+            // 
+            this.filterAccept.BackColor = System.Drawing.Color.Transparent;
+            this.filterAccept.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.filterAccept.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.filterAccept.FlatAppearance.BorderSize = 0;
+            this.filterAccept.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.filterAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.filterAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.filterAccept.ForeColor = System.Drawing.Color.White;
+            this.filterAccept.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.filterAccept.Location = new System.Drawing.Point(305, 175);
+            this.filterAccept.Name = "filterAccept";
+            this.filterAccept.RoundRadius = 30;
+            this.filterAccept.Size = new System.Drawing.Size(120, 25);
+            this.filterAccept.TabIndex = 0;
+            this.filterAccept.Text = "Filtruj";
+            this.filterAccept.UseVisualStyleBackColor = false;
+            this.filterAccept.Click += new System.EventHandler(this.filterAccept_Click);
             // 
             // vehMilage
             // 
@@ -1981,48 +2038,6 @@ namespace SBBD
             // driversBindingSource
             // 
             this.driversBindingSource.DataSource = typeof(SBBD.Drivers);
-            // 
-            // filterButton
-            // 
-            this.filterButton.BackColor = System.Drawing.Color.Transparent;
-            this.filterButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.filterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.filterButton.FlatAppearance.BorderSize = 0;
-            this.filterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.filterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.filterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.filterButton.ForeColor = System.Drawing.Color.White;
-            this.filterButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.filterButton.Location = new System.Drawing.Point(720, 44);
-            this.filterButton.Name = "filterButton";
-            this.filterButton.RoundRadius = 30;
-            this.filterButton.Size = new System.Drawing.Size(120, 25);
-            this.filterButton.TabIndex = 17;
-            this.filterButton.Text = "Filtry";
-            this.filterButton.UseVisualStyleBackColor = false;
-            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
-            // 
-            // filterAccept
-            // 
-            this.filterAccept.BackColor = System.Drawing.Color.Transparent;
-            this.filterAccept.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.filterAccept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.filterAccept.FlatAppearance.BorderSize = 0;
-            this.filterAccept.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.filterAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.filterAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.filterAccept.ForeColor = System.Drawing.Color.White;
-            this.filterAccept.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.filterAccept.Location = new System.Drawing.Point(305, 175);
-            this.filterAccept.Name = "filterAccept";
-            this.filterAccept.RoundRadius = 30;
-            this.filterAccept.Size = new System.Drawing.Size(120, 25);
-            this.filterAccept.TabIndex = 0;
-            this.filterAccept.Text = "Filtruj";
-            this.filterAccept.UseVisualStyleBackColor = false;
-            this.filterAccept.Click += new System.EventHandler(this.filterAccept_Click);
             // 
             // mainTitleBar
             // 
@@ -2327,9 +2342,10 @@ namespace SBBD
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 730);
             this.Controls.Add(this.driversButton);
+            this.Controls.Add(this.addVehiclePanel);
+            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.infoVehiclePanel);
             this.Controls.Add(this.vehiclesPanel);
-            this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.driversPanel);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.mainTitleBar);
@@ -2337,7 +2353,6 @@ namespace SBBD
             this.Controls.Add(this.appInfo);
             this.Controls.Add(this.userInfo);
             this.Controls.Add(this.allVehicles);
-            this.Controls.Add(this.editVehiclePanel);
             this.Controls.Add(this.addVehicle);
             this.Controls.Add(this.appInfoPanel);
             this.Controls.Add(this.userInfoPanel);
@@ -2552,6 +2567,6 @@ namespace SBBD
         private System.Windows.Forms.DataGridViewButtonColumn deletePos;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
-        private RoundedButton roundedButton2;
+        private RoundedButton generateReportVeh;
     }
 }

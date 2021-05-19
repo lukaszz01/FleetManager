@@ -196,6 +196,7 @@ namespace SBBD
             this.Controls.Add(this.driverFName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "Route";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Route";
             this.routeDeparturePanel.ResumeLayout(false);
             this.routeReturnPanel.ResumeLayout(false);

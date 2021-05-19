@@ -92,7 +92,7 @@ namespace SBBD
             allDrivers = context.Drivers.Select(x => x).ToList();
             foreach (Drivers driver in allDrivers)
             {
-                if (driver.available)
+                if (driver.available && (driver.drivers_licence_exp_date - DateTime.Now).TotalDays > 0 && (driver.med_examination_date - DateTime.Now).TotalDays > 0)
                 {
                     driver_text = driver.driver_id.ToString() + " " + driver.first_name + " " + driver.last_name;
                     routeDriver.Items.Add(driver_text);
