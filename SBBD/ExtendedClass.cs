@@ -245,6 +245,29 @@ namespace SBBD
                 return dialogResult;
             }
         }
+
+        public static class RouteReportForm
+        {
+            public static DialogResult ShowDialog(int vehicleId)
+            {
+                DialogResult dialogResult = DialogResult.No;
+                using (RouteReport routeReport = new RouteReport(vehicleId))
+                {
+                    dialogResult = routeReport.ShowDialog();
+                }
+                return dialogResult;
+            }
+
+            public static DialogResult ShowDialog()
+            {
+                DialogResult dialogResult = DialogResult.No;
+                using (RouteReport routeReport = new RouteReport())
+                {
+                    dialogResult = routeReport.ShowDialog();
+                }
+                return dialogResult;
+            }
+        }
     }
 }
 

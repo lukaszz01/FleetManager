@@ -1012,5 +1012,11 @@ namespace SBBD
 
         }
         #endregion
+
+        private void roundedButton2_Click(object sender, EventArgs e)
+        {
+            var veh = context.Vehicles.Where(v => v.registration_num == infoRegNum.Text).FirstOrDefault();
+            RouteReportForm.ShowDialog(veh.vehicle_id);
+        }
     }
 }

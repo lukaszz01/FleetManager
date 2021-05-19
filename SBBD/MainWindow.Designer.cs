@@ -33,23 +33,21 @@ namespace SBBD
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.vehiclesPanel = new System.Windows.Forms.Panel();
-            this.filterButton = new SBBD.RoundedButton();
             this.filterPanel = new System.Windows.Forms.Panel();
             this.filterAvailable = new System.Windows.Forms.ComboBox();
             this.filterModel = new System.Windows.Forms.ComboBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.filterManufacturer = new System.Windows.Forms.ComboBox();
-            this.filterAccept = new SBBD.RoundedButton();
             this.siteNavCenter = new System.Windows.Forms.PictureBox();
             this.siteCounter = new System.Windows.Forms.Label();
             this.siteNavLeft = new System.Windows.Forms.PictureBox();
@@ -75,16 +73,6 @@ namespace SBBD
             this.addVehiclePanel = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.warnLabel9 = new System.Windows.Forms.Label();
-            this.vehMilage = new SBBD.CustomTextBox();
-            this.enginePower = new SBBD.CustomTextBox();
-            this.engineCapacity = new SBBD.CustomTextBox();
-            this.vinNumber = new SBBD.CustomTextBox();
-            this.prodYear = new SBBD.CustomTextBox();
-            this.vehicleColor = new SBBD.CustomTextBox();
-            this.regNumber = new SBBD.CustomTextBox();
-            this.addVehicleBtn = new SBBD.RoundedButton();
-            this.addPhotoBtn = new SBBD.RoundedButton();
-            this.clearVehicleBtn = new SBBD.RoundedButton();
             this.warnLabel8 = new System.Windows.Forms.Label();
             this.infoBox6 = new System.Windows.Forms.PictureBox();
             this.infoBox5 = new System.Windows.Forms.PictureBox();
@@ -108,8 +96,6 @@ namespace SBBD
             this.editWarnLabel3 = new System.Windows.Forms.Label();
             this.editWarnLabel2 = new System.Windows.Forms.Label();
             this.editWarnLabel1 = new System.Windows.Forms.Label();
-            this.editConfirm = new SBBD.RoundedButton();
-            this.editCancel = new SBBD.RoundedButton();
             this.editVehicleImage = new System.Windows.Forms.PictureBox();
             this.userLabel = new System.Windows.Forms.Label();
             this.editEnginePower = new System.Windows.Forms.TextBox();
@@ -130,7 +116,6 @@ namespace SBBD
             this.label2 = new System.Windows.Forms.Label();
             this.infoVehiclePanel = new System.Windows.Forms.Panel();
             this.infoMilage = new System.Windows.Forms.TextBox();
-            this.infoReturnBtn = new SBBD.CustomButton();
             this.infoManufacturer = new System.Windows.Forms.TextBox();
             this.infoModel = new System.Windows.Forms.TextBox();
             this.infoFuelType = new System.Windows.Forms.TextBox();
@@ -151,40 +136,56 @@ namespace SBBD
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.driversPanel = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.addDriverBtn = new SBBD.RoundedButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.availableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.editPos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.deletePos = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.driversButton = new SBBD.CustomButton();
-            this.mainTitleBar = new SBBD.MoveBar();
-            this.logout = new SBBD.CustomButton();
-            this.appInfo = new SBBD.CustomButton();
-            this.userInfo = new SBBD.CustomButton();
-            this.allVehicles = new SBBD.CustomButton();
-            this.addVehicle = new SBBD.CustomButton();
-            this.trackBar1 = new SBBD.NoFocusTrackBar();
-            this.mainExit = new SBBD.CustomButton();
-            this.mainMinimize = new SBBD.CustomButton();
-            this.firstNameDriver = new SBBD.CustomTextBox();
-            this.lastNameDriver = new SBBD.CustomTextBox();
-            this.licenceNum = new SBBD.CustomTextBox();
             this.driverWarnLabel1 = new System.Windows.Forms.Label();
-            this.licenceExpDate = new SBBD.CustomTextBox();
-            this.medExamDate = new SBBD.CustomTextBox();
-            this.roundedButton1 = new SBBD.RoundedButton();
             this.driverWarnLabel2 = new System.Windows.Forms.Label();
             this.driverWarnLabel3 = new System.Windows.Forms.Label();
             this.driverWarnLabel4 = new System.Windows.Forms.Label();
             this.driverWarnLabel5 = new System.Windows.Forms.Label();
             this.driverWarnLabel6 = new System.Windows.Forms.Label();
             this.addEditDriversPaneldupa = new System.Windows.Forms.Panel();
+            this.driversButton = new SBBD.CustomButton();
+            this.roundedButton2 = new SBBD.RoundedButton();
+            this.infoReturnBtn = new SBBD.CustomButton();
+            this.vehMilage = new SBBD.CustomTextBox();
+            this.enginePower = new SBBD.CustomTextBox();
+            this.engineCapacity = new SBBD.CustomTextBox();
+            this.vinNumber = new SBBD.CustomTextBox();
+            this.prodYear = new SBBD.CustomTextBox();
+            this.vehicleColor = new SBBD.CustomTextBox();
+            this.regNumber = new SBBD.CustomTextBox();
+            this.addVehicleBtn = new SBBD.RoundedButton();
+            this.addPhotoBtn = new SBBD.RoundedButton();
+            this.clearVehicleBtn = new SBBD.RoundedButton();
+            this.addDriverBtn = new SBBD.RoundedButton();
+            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.filterButton = new SBBD.RoundedButton();
+            this.filterAccept = new SBBD.RoundedButton();
+            this.mainTitleBar = new SBBD.MoveBar();
+            this.logout = new SBBD.CustomButton();
+            this.appInfo = new SBBD.CustomButton();
+            this.userInfo = new SBBD.CustomButton();
+            this.allVehicles = new SBBD.CustomButton();
+            this.editConfirm = new SBBD.RoundedButton();
+            this.editCancel = new SBBD.RoundedButton();
+            this.addVehicle = new SBBD.CustomButton();
+            this.trackBar1 = new SBBD.NoFocusTrackBar();
+            this.mainExit = new SBBD.CustomButton();
+            this.mainMinimize = new SBBD.CustomButton();
+            this.roundedButton1 = new SBBD.RoundedButton();
+            this.medExamDate = new SBBD.CustomTextBox();
+            this.licenceExpDate = new SBBD.CustomTextBox();
+            this.licenceNum = new SBBD.CustomTextBox();
+            this.lastNameDriver = new SBBD.CustomTextBox();
+            this.firstNameDriver = new SBBD.CustomTextBox();
             this.vehiclesPanel.SuspendLayout();
             this.filterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
@@ -223,10 +224,10 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.infoVehicleImage)).BeginInit();
             this.driversPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.addEditDriversPaneldupa.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            this.addEditDriversPaneldupa.SuspendLayout();
             this.SuspendLayout();
             // 
             // vehiclesPanel
@@ -251,27 +252,6 @@ namespace SBBD
             this.vehiclesPanel.Name = "vehiclesPanel";
             this.vehiclesPanel.Size = new System.Drawing.Size(1080, 694);
             this.vehiclesPanel.TabIndex = 8;
-            // 
-            // filterButton
-            // 
-            this.filterButton.BackColor = System.Drawing.Color.Transparent;
-            this.filterButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.filterButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.filterButton.FlatAppearance.BorderSize = 0;
-            this.filterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.filterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.filterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.filterButton.ForeColor = System.Drawing.Color.White;
-            this.filterButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.filterButton.Location = new System.Drawing.Point(720, 44);
-            this.filterButton.Name = "filterButton";
-            this.filterButton.RoundRadius = 30;
-            this.filterButton.Size = new System.Drawing.Size(120, 25);
-            this.filterButton.TabIndex = 17;
-            this.filterButton.Text = "Filtry";
-            this.filterButton.UseVisualStyleBackColor = false;
-            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
             // 
             // filterPanel
             // 
@@ -356,27 +336,6 @@ namespace SBBD
             this.filterManufacturer.Size = new System.Drawing.Size(121, 21);
             this.filterManufacturer.TabIndex = 16;
             this.filterManufacturer.SelectedIndexChanged += new System.EventHandler(this.filterManufacturer_SelectedIndexChanged);
-            // 
-            // filterAccept
-            // 
-            this.filterAccept.BackColor = System.Drawing.Color.Transparent;
-            this.filterAccept.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.filterAccept.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.filterAccept.FlatAppearance.BorderSize = 0;
-            this.filterAccept.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.filterAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.filterAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.filterAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.filterAccept.ForeColor = System.Drawing.Color.White;
-            this.filterAccept.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.filterAccept.Location = new System.Drawing.Point(305, 175);
-            this.filterAccept.Name = "filterAccept";
-            this.filterAccept.RoundRadius = 30;
-            this.filterAccept.Size = new System.Drawing.Size(120, 25);
-            this.filterAccept.TabIndex = 0;
-            this.filterAccept.Text = "Filtruj";
-            this.filterAccept.UseVisualStyleBackColor = false;
-            this.filterAccept.Click += new System.EventHandler(this.filterAccept_Click);
             // 
             // siteNavCenter
             // 
@@ -684,177 +643,6 @@ namespace SBBD
             this.warnLabel9.TabIndex = 52;
             this.warnLabel9.Text = "Przebieg niepoprawny";
             this.warnLabel9.Visible = false;
-            // 
-            // vehMilage
-            // 
-            this.vehMilage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.vehMilage.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vehMilage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vehMilage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.vehMilage.IsPassword = false;
-            this.vehMilage.Location = new System.Drawing.Point(710, 371);
-            this.vehMilage.Name = "vehMilage";
-            this.vehMilage.PlaceHolder = "np. 50 000";
-            this.vehMilage.Size = new System.Drawing.Size(160, 15);
-            this.vehMilage.TabIndex = 51;
-            this.vehMilage.Text = "np. 50 000";
-            this.vehMilage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // enginePower
-            // 
-            this.enginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.enginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.enginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.enginePower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.enginePower.IsPassword = false;
-            this.enginePower.Location = new System.Drawing.Point(710, 311);
-            this.enginePower.Name = "enginePower";
-            this.enginePower.PlaceHolder = "np. 240";
-            this.enginePower.Size = new System.Drawing.Size(160, 15);
-            this.enginePower.TabIndex = 10;
-            this.enginePower.Text = "np. 240";
-            this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // engineCapacity
-            // 
-            this.engineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.engineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.engineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.engineCapacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.engineCapacity.IsPassword = false;
-            this.engineCapacity.Location = new System.Drawing.Point(710, 251);
-            this.engineCapacity.Name = "engineCapacity";
-            this.engineCapacity.PlaceHolder = "np. 3000";
-            this.engineCapacity.Size = new System.Drawing.Size(160, 15);
-            this.engineCapacity.TabIndex = 9;
-            this.engineCapacity.Text = "np. 3000";
-            this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // vinNumber
-            // 
-            this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vinNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.vinNumber.IsPassword = false;
-            this.vinNumber.Location = new System.Drawing.Point(270, 429);
-            this.vinNumber.Name = "vinNumber";
-            this.vinNumber.PlaceHolder = "17 - znakowy VIN";
-            this.vinNumber.Size = new System.Drawing.Size(160, 15);
-            this.vinNumber.TabIndex = 8;
-            this.vinNumber.Text = "17 - znakowy VIN";
-            this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // prodYear
-            // 
-            this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.prodYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.prodYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.prodYear.IsPassword = false;
-            this.prodYear.Location = new System.Drawing.Point(270, 371);
-            this.prodYear.Name = "prodYear";
-            this.prodYear.PlaceHolder = "np. 2021";
-            this.prodYear.Size = new System.Drawing.Size(160, 15);
-            this.prodYear.TabIndex = 7;
-            this.prodYear.Text = "np. 2021";
-            this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // vehicleColor
-            // 
-            this.vehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.vehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.vehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.vehicleColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.vehicleColor.IsPassword = false;
-            this.vehicleColor.Location = new System.Drawing.Point(270, 309);
-            this.vehicleColor.Name = "vehicleColor";
-            this.vehicleColor.PlaceHolder = "np. Czarny";
-            this.vehicleColor.Size = new System.Drawing.Size(160, 15);
-            this.vehicleColor.TabIndex = 6;
-            this.vehicleColor.Text = "np. Czarny";
-            this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // regNumber
-            // 
-            this.regNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.regNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.regNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.regNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.regNumber.IsPassword = false;
-            this.regNumber.Location = new System.Drawing.Point(270, 251);
-            this.regNumber.Name = "regNumber";
-            this.regNumber.PlaceHolder = "np. LHR12345";
-            this.regNumber.Size = new System.Drawing.Size(160, 15);
-            this.regNumber.TabIndex = 5;
-            this.regNumber.Text = "np. LHR12345";
-            this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // addVehicleBtn
-            // 
-            this.addVehicleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addVehicleBtn.FlatAppearance.BorderSize = 0;
-            this.addVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.addVehicleBtn.ForeColor = System.Drawing.Color.White;
-            this.addVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addVehicleBtn.Location = new System.Drawing.Point(860, 550);
-            this.addVehicleBtn.Name = "addVehicleBtn";
-            this.addVehicleBtn.RoundRadius = 30;
-            this.addVehicleBtn.Size = new System.Drawing.Size(140, 30);
-            this.addVehicleBtn.TabIndex = 50;
-            this.addVehicleBtn.TabStop = false;
-            this.addVehicleBtn.Text = "+ Dodaj auto!";
-            this.addVehicleBtn.UseVisualStyleBackColor = true;
-            this.addVehicleBtn.Click += new System.EventHandler(this.addVehicleBtn_Click);
-            // 
-            // addPhotoBtn
-            // 
-            this.addPhotoBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addPhotoBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addPhotoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addPhotoBtn.FlatAppearance.BorderSize = 0;
-            this.addPhotoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addPhotoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addPhotoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addPhotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.addPhotoBtn.ForeColor = System.Drawing.Color.White;
-            this.addPhotoBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addPhotoBtn.Location = new System.Drawing.Point(680, 550);
-            this.addPhotoBtn.Name = "addPhotoBtn";
-            this.addPhotoBtn.RoundRadius = 30;
-            this.addPhotoBtn.Size = new System.Drawing.Size(140, 30);
-            this.addPhotoBtn.TabIndex = 49;
-            this.addPhotoBtn.TabStop = false;
-            this.addPhotoBtn.Text = "+ Zdjęcie";
-            this.addPhotoBtn.UseVisualStyleBackColor = true;
-            this.addPhotoBtn.Click += new System.EventHandler(this.addPhotoBtn_Click);
-            // 
-            // clearVehicleBtn
-            // 
-            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.clearVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.clearVehicleBtn.FlatAppearance.BorderSize = 0;
-            this.clearVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.clearVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.clearVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.clearVehicleBtn.ForeColor = System.Drawing.Color.White;
-            this.clearVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.clearVehicleBtn.Location = new System.Drawing.Point(60, 550);
-            this.clearVehicleBtn.Name = "clearVehicleBtn";
-            this.clearVehicleBtn.RoundRadius = 30;
-            this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
-            this.clearVehicleBtn.TabIndex = 48;
-            this.clearVehicleBtn.TabStop = false;
-            this.clearVehicleBtn.Text = "Wyczyść";
-            this.clearVehicleBtn.UseVisualStyleBackColor = true;
-            this.clearVehicleBtn.Click += new System.EventHandler(this.clearVehicleBtn_Click);
             // 
             // warnLabel8
             // 
@@ -1169,50 +957,6 @@ namespace SBBD
             this.editWarnLabel1.Text = "Nuer rejestracyjny niepoprawny!";
             this.editWarnLabel1.Visible = false;
             // 
-            // editConfirm
-            // 
-            this.editConfirm.BackColor = System.Drawing.Color.Transparent;
-            this.editConfirm.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.editConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editConfirm.FlatAppearance.BorderSize = 0;
-            this.editConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.editConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.editConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.editConfirm.ForeColor = System.Drawing.Color.White;
-            this.editConfirm.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.editConfirm.Location = new System.Drawing.Point(860, 540);
-            this.editConfirm.Name = "editConfirm";
-            this.editConfirm.RoundRadius = 30;
-            this.editConfirm.Size = new System.Drawing.Size(140, 30);
-            this.editConfirm.TabIndex = 47;
-            this.editConfirm.TabStop = false;
-            this.editConfirm.Text = "Zatwierdź!";
-            this.editConfirm.UseVisualStyleBackColor = true;
-            this.editConfirm.Click += new System.EventHandler(this.editConfirm_Click);
-            // 
-            // editCancel
-            // 
-            this.editCancel.BackColor = System.Drawing.Color.Transparent;
-            this.editCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.editCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.editCancel.FlatAppearance.BorderSize = 0;
-            this.editCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.editCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.editCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.editCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.editCancel.ForeColor = System.Drawing.Color.White;
-            this.editCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.editCancel.Location = new System.Drawing.Point(670, 540);
-            this.editCancel.Name = "editCancel";
-            this.editCancel.RoundRadius = 30;
-            this.editCancel.Size = new System.Drawing.Size(140, 30);
-            this.editCancel.TabIndex = 46;
-            this.editCancel.TabStop = false;
-            this.editCancel.Text = "Anuluj";
-            this.editCancel.UseVisualStyleBackColor = true;
-            this.editCancel.Click += new System.EventHandler(this.editCancel_Click);
-            // 
             // editVehicleImage
             // 
             this.editVehicleImage.Location = new System.Drawing.Point(628, 46);
@@ -1427,6 +1171,7 @@ namespace SBBD
             // 
             this.infoVehiclePanel.BackColor = System.Drawing.Color.Transparent;
             this.infoVehiclePanel.BackgroundImage = global::SBBD.Properties.Resources.VehInfoBG;
+            this.infoVehiclePanel.Controls.Add(this.roundedButton2);
             this.infoVehiclePanel.Controls.Add(this.infoMilage);
             this.infoVehiclePanel.Controls.Add(this.infoReturnBtn);
             this.infoVehiclePanel.Controls.Add(this.infoManufacturer);
@@ -1455,34 +1200,13 @@ namespace SBBD
             this.infoMilage.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.infoMilage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.infoMilage.ForeColor = System.Drawing.Color.White;
-            this.infoMilage.Location = new System.Drawing.Point(507, 587);
+            this.infoMilage.Location = new System.Drawing.Point(750, 278);
             this.infoMilage.Name = "infoMilage";
             this.infoMilage.ReadOnly = true;
             this.infoMilage.Size = new System.Drawing.Size(160, 15);
             this.infoMilage.TabIndex = 50;
             this.infoMilage.TabStop = false;
             this.infoMilage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // infoReturnBtn
-            // 
-            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
-            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
-            this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
-            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
-            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
-            this.infoReturnBtn.Name = "infoReturnBtn";
-            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
-            this.infoReturnBtn.SelectedMenuItem = false;
-            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
-            this.infoReturnBtn.TabIndex = 49;
-            this.infoReturnBtn.TabStop = false;
-            this.infoReturnBtn.UseVisualStyleBackColor = true;
-            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
             // 
             // infoManufacturer
             // 
@@ -1727,27 +1451,6 @@ namespace SBBD
             this.textBox1.Size = new System.Drawing.Size(0, 20);
             this.textBox1.TabIndex = 2;
             // 
-            // addDriverBtn
-            // 
-            this.addDriverBtn.BackColor = System.Drawing.Color.Transparent;
-            this.addDriverBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.addDriverBtn.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.addDriverBtn.FlatAppearance.BorderSize = 0;
-            this.addDriverBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.addDriverBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.addDriverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addDriverBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.addDriverBtn.ForeColor = System.Drawing.Color.White;
-            this.addDriverBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.addDriverBtn.Location = new System.Drawing.Point(910, 40);
-            this.addDriverBtn.Name = "addDriverBtn";
-            this.addDriverBtn.RoundRadius = 30;
-            this.addDriverBtn.Size = new System.Drawing.Size(130, 27);
-            this.addDriverBtn.TabIndex = 1;
-            this.addDriverBtn.Text = "Dodaj kierowcę";
-            this.addDriverBtn.UseVisualStyleBackColor = false;
-            this.addDriverBtn.Click += new System.EventHandler(this.addDriverBtn_Click);
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -1801,6 +1504,389 @@ namespace SBBD
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
+            // 
+            // editPos
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.editPos.DefaultCellStyle = dataGridViewCellStyle8;
+            this.editPos.HeaderText = "";
+            this.editPos.Name = "editPos";
+            this.editPos.ReadOnly = true;
+            this.editPos.Text = "Edytuj";
+            this.editPos.UseColumnTextForButtonValue = true;
+            this.editPos.Width = 60;
+            // 
+            // deletePos
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.deletePos.DefaultCellStyle = dataGridViewCellStyle9;
+            this.deletePos.HeaderText = "";
+            this.deletePos.Name = "deletePos";
+            this.deletePos.ReadOnly = true;
+            this.deletePos.Text = "Usuń";
+            this.deletePos.UseColumnTextForButtonValue = true;
+            this.deletePos.Width = 60;
+            // 
+            // driverWarnLabel1
+            // 
+            this.driverWarnLabel1.AutoSize = true;
+            this.driverWarnLabel1.BackColor = System.Drawing.Color.Transparent;
+            this.driverWarnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverWarnLabel1.ForeColor = System.Drawing.Color.Red;
+            this.driverWarnLabel1.Location = new System.Drawing.Point(97, 494);
+            this.driverWarnLabel1.Name = "driverWarnLabel1";
+            this.driverWarnLabel1.Size = new System.Drawing.Size(113, 9);
+            this.driverWarnLabel1.TabIndex = 36;
+            this.driverWarnLabel1.Text = "Uzupełnij wszystkie pola";
+            this.driverWarnLabel1.Visible = false;
+            // 
+            // driverWarnLabel2
+            // 
+            this.driverWarnLabel2.AutoSize = true;
+            this.driverWarnLabel2.BackColor = System.Drawing.Color.Transparent;
+            this.driverWarnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverWarnLabel2.ForeColor = System.Drawing.Color.Red;
+            this.driverWarnLabel2.Location = new System.Drawing.Point(212, 158);
+            this.driverWarnLabel2.Name = "driverWarnLabel2";
+            this.driverWarnLabel2.Size = new System.Drawing.Size(113, 9);
+            this.driverWarnLabel2.TabIndex = 37;
+            this.driverWarnLabel2.Text = "Uzupełnij wszystkie pola";
+            this.driverWarnLabel2.Visible = false;
+            // 
+            // driverWarnLabel3
+            // 
+            this.driverWarnLabel3.AutoSize = true;
+            this.driverWarnLabel3.BackColor = System.Drawing.Color.Transparent;
+            this.driverWarnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverWarnLabel3.ForeColor = System.Drawing.Color.Red;
+            this.driverWarnLabel3.Location = new System.Drawing.Point(260, 207);
+            this.driverWarnLabel3.Name = "driverWarnLabel3";
+            this.driverWarnLabel3.Size = new System.Drawing.Size(113, 9);
+            this.driverWarnLabel3.TabIndex = 38;
+            this.driverWarnLabel3.Text = "Uzupełnij wszystkie pola";
+            this.driverWarnLabel3.Visible = false;
+            // 
+            // driverWarnLabel4
+            // 
+            this.driverWarnLabel4.AutoSize = true;
+            this.driverWarnLabel4.BackColor = System.Drawing.Color.Transparent;
+            this.driverWarnLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverWarnLabel4.ForeColor = System.Drawing.Color.Red;
+            this.driverWarnLabel4.Location = new System.Drawing.Point(268, 257);
+            this.driverWarnLabel4.Name = "driverWarnLabel4";
+            this.driverWarnLabel4.Size = new System.Drawing.Size(113, 9);
+            this.driverWarnLabel4.TabIndex = 39;
+            this.driverWarnLabel4.Text = "Uzupełnij wszystkie pola";
+            this.driverWarnLabel4.Visible = false;
+            // 
+            // driverWarnLabel5
+            // 
+            this.driverWarnLabel5.AutoSize = true;
+            this.driverWarnLabel5.BackColor = System.Drawing.Color.Transparent;
+            this.driverWarnLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverWarnLabel5.ForeColor = System.Drawing.Color.Red;
+            this.driverWarnLabel5.Location = new System.Drawing.Point(268, 307);
+            this.driverWarnLabel5.Name = "driverWarnLabel5";
+            this.driverWarnLabel5.Size = new System.Drawing.Size(113, 9);
+            this.driverWarnLabel5.TabIndex = 40;
+            this.driverWarnLabel5.Text = "Uzupełnij wszystkie pola";
+            this.driverWarnLabel5.Visible = false;
+            // 
+            // driverWarnLabel6
+            // 
+            this.driverWarnLabel6.AutoSize = true;
+            this.driverWarnLabel6.BackColor = System.Drawing.Color.Transparent;
+            this.driverWarnLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.driverWarnLabel6.ForeColor = System.Drawing.Color.Red;
+            this.driverWarnLabel6.Location = new System.Drawing.Point(266, 359);
+            this.driverWarnLabel6.Name = "driverWarnLabel6";
+            this.driverWarnLabel6.Size = new System.Drawing.Size(113, 9);
+            this.driverWarnLabel6.TabIndex = 41;
+            this.driverWarnLabel6.Text = "Uzupełnij wszystkie pola";
+            this.driverWarnLabel6.Visible = false;
+            // 
+            // addEditDriversPaneldupa
+            // 
+            this.addEditDriversPaneldupa.BackColor = System.Drawing.Color.Transparent;
+            this.addEditDriversPaneldupa.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
+            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel6);
+            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel5);
+            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel4);
+            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel3);
+            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel2);
+            this.addEditDriversPaneldupa.Controls.Add(this.roundedButton1);
+            this.addEditDriversPaneldupa.Controls.Add(this.medExamDate);
+            this.addEditDriversPaneldupa.Controls.Add(this.licenceExpDate);
+            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel1);
+            this.addEditDriversPaneldupa.Controls.Add(this.licenceNum);
+            this.addEditDriversPaneldupa.Controls.Add(this.lastNameDriver);
+            this.addEditDriversPaneldupa.Controls.Add(this.firstNameDriver);
+            this.addEditDriversPaneldupa.Location = new System.Drawing.Point(200, 26);
+            this.addEditDriversPaneldupa.Name = "addEditDriversPaneldupa";
+            this.addEditDriversPaneldupa.Size = new System.Drawing.Size(1080, 694);
+            this.addEditDriversPaneldupa.TabIndex = 19;
+            this.addEditDriversPaneldupa.Visible = false;
+            // 
+            // driversButton
+            // 
+            this.driversButton.BackColor = System.Drawing.Color.Transparent;
+            this.driversButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.driversButton.FlatAppearance.BorderSize = 0;
+            this.driversButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.driversButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.driversButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.driversButton.ImageActive = global::SBBD.Properties.Resources.driversBTN_active;
+            this.driversButton.ImageInactive = global::SBBD.Properties.Resources.driversBTN_inactive;
+            this.driversButton.Location = new System.Drawing.Point(0, 210);
+            this.driversButton.Name = "driversButton";
+            this.driversButton.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.driversButton.SelectedMenuItem = false;
+            this.driversButton.Size = new System.Drawing.Size(200, 50);
+            this.driversButton.TabIndex = 61;
+            this.driversButton.UseVisualStyleBackColor = false;
+            this.driversButton.Click += new System.EventHandler(this.drivers_click);
+            // 
+            // roundedButton2
+            // 
+            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButton2.FlatAppearance.BorderSize = 0;
+            this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.roundedButton2.ForeColor = System.Drawing.Color.White;
+            this.roundedButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.roundedButton2.Location = new System.Drawing.Point(562, 579);
+            this.roundedButton2.Name = "roundedButton2";
+            this.roundedButton2.RoundRadius = 30;
+            this.roundedButton2.Size = new System.Drawing.Size(140, 30);
+            this.roundedButton2.TabIndex = 51;
+            this.roundedButton2.Text = "Raport tras";
+            this.roundedButton2.UseVisualStyleBackColor = false;
+            this.roundedButton2.Click += new System.EventHandler(this.roundedButton2_Click);
+            // 
+            // infoReturnBtn
+            // 
+            this.infoReturnBtn.BackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.infoReturnBtn.FlatAppearance.BorderSize = 0;
+            this.infoReturnBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.infoReturnBtn.ForeColor = System.Drawing.Color.Transparent;
+            this.infoReturnBtn.ImageActive = global::SBBD.Properties.Resources.ReturnBTN_active;
+            this.infoReturnBtn.ImageInactive = global::SBBD.Properties.Resources.ReturnBTN_inactive;
+            this.infoReturnBtn.Location = new System.Drawing.Point(790, 580);
+            this.infoReturnBtn.Name = "infoReturnBtn";
+            this.infoReturnBtn.SelectedColor = System.Drawing.Color.Empty;
+            this.infoReturnBtn.SelectedMenuItem = false;
+            this.infoReturnBtn.Size = new System.Drawing.Size(140, 30);
+            this.infoReturnBtn.TabIndex = 49;
+            this.infoReturnBtn.TabStop = false;
+            this.infoReturnBtn.UseVisualStyleBackColor = true;
+            this.infoReturnBtn.Click += new System.EventHandler(this.infoReturnBtn_Click);
+            // 
+            // vehMilage
+            // 
+            this.vehMilage.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vehMilage.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vehMilage.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vehMilage.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.vehMilage.IsPassword = false;
+            this.vehMilage.Location = new System.Drawing.Point(710, 371);
+            this.vehMilage.Name = "vehMilage";
+            this.vehMilage.PlaceHolder = "np. 50 000";
+            this.vehMilage.Size = new System.Drawing.Size(160, 15);
+            this.vehMilage.TabIndex = 51;
+            this.vehMilage.Text = "np. 50 000";
+            this.vehMilage.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // enginePower
+            // 
+            this.enginePower.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.enginePower.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.enginePower.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.enginePower.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.enginePower.IsPassword = false;
+            this.enginePower.Location = new System.Drawing.Point(710, 311);
+            this.enginePower.Name = "enginePower";
+            this.enginePower.PlaceHolder = "np. 240";
+            this.enginePower.Size = new System.Drawing.Size(160, 15);
+            this.enginePower.TabIndex = 10;
+            this.enginePower.Text = "np. 240";
+            this.enginePower.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // engineCapacity
+            // 
+            this.engineCapacity.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.engineCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.engineCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.engineCapacity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.engineCapacity.IsPassword = false;
+            this.engineCapacity.Location = new System.Drawing.Point(710, 251);
+            this.engineCapacity.Name = "engineCapacity";
+            this.engineCapacity.PlaceHolder = "np. 3000";
+            this.engineCapacity.Size = new System.Drawing.Size(160, 15);
+            this.engineCapacity.TabIndex = 9;
+            this.engineCapacity.Text = "np. 3000";
+            this.engineCapacity.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // vinNumber
+            // 
+            this.vinNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vinNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vinNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vinNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.vinNumber.IsPassword = false;
+            this.vinNumber.Location = new System.Drawing.Point(270, 429);
+            this.vinNumber.Name = "vinNumber";
+            this.vinNumber.PlaceHolder = "17 - znakowy VIN";
+            this.vinNumber.Size = new System.Drawing.Size(160, 15);
+            this.vinNumber.TabIndex = 8;
+            this.vinNumber.Text = "17 - znakowy VIN";
+            this.vinNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // prodYear
+            // 
+            this.prodYear.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.prodYear.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.prodYear.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.prodYear.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.prodYear.IsPassword = false;
+            this.prodYear.Location = new System.Drawing.Point(270, 371);
+            this.prodYear.Name = "prodYear";
+            this.prodYear.PlaceHolder = "np. 2021";
+            this.prodYear.Size = new System.Drawing.Size(160, 15);
+            this.prodYear.TabIndex = 7;
+            this.prodYear.Text = "np. 2021";
+            this.prodYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // vehicleColor
+            // 
+            this.vehicleColor.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.vehicleColor.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.vehicleColor.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.vehicleColor.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.vehicleColor.IsPassword = false;
+            this.vehicleColor.Location = new System.Drawing.Point(270, 309);
+            this.vehicleColor.Name = "vehicleColor";
+            this.vehicleColor.PlaceHolder = "np. Czarny";
+            this.vehicleColor.Size = new System.Drawing.Size(160, 15);
+            this.vehicleColor.TabIndex = 6;
+            this.vehicleColor.Text = "np. Czarny";
+            this.vehicleColor.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // regNumber
+            // 
+            this.regNumber.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.regNumber.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.regNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.regNumber.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.regNumber.IsPassword = false;
+            this.regNumber.Location = new System.Drawing.Point(270, 251);
+            this.regNumber.Name = "regNumber";
+            this.regNumber.PlaceHolder = "np. LHR12345";
+            this.regNumber.Size = new System.Drawing.Size(160, 15);
+            this.regNumber.TabIndex = 5;
+            this.regNumber.Text = "np. LHR12345";
+            this.regNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // addVehicleBtn
+            // 
+            this.addVehicleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addVehicleBtn.FlatAppearance.BorderSize = 0;
+            this.addVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.addVehicleBtn.ForeColor = System.Drawing.Color.White;
+            this.addVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addVehicleBtn.Location = new System.Drawing.Point(860, 550);
+            this.addVehicleBtn.Name = "addVehicleBtn";
+            this.addVehicleBtn.RoundRadius = 30;
+            this.addVehicleBtn.Size = new System.Drawing.Size(140, 30);
+            this.addVehicleBtn.TabIndex = 50;
+            this.addVehicleBtn.TabStop = false;
+            this.addVehicleBtn.Text = "+ Dodaj auto!";
+            this.addVehicleBtn.UseVisualStyleBackColor = true;
+            this.addVehicleBtn.Click += new System.EventHandler(this.addVehicleBtn_Click);
+            // 
+            // addPhotoBtn
+            // 
+            this.addPhotoBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addPhotoBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addPhotoBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addPhotoBtn.FlatAppearance.BorderSize = 0;
+            this.addPhotoBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addPhotoBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addPhotoBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addPhotoBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.addPhotoBtn.ForeColor = System.Drawing.Color.White;
+            this.addPhotoBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addPhotoBtn.Location = new System.Drawing.Point(680, 550);
+            this.addPhotoBtn.Name = "addPhotoBtn";
+            this.addPhotoBtn.RoundRadius = 30;
+            this.addPhotoBtn.Size = new System.Drawing.Size(140, 30);
+            this.addPhotoBtn.TabIndex = 49;
+            this.addPhotoBtn.TabStop = false;
+            this.addPhotoBtn.Text = "+ Zdjęcie";
+            this.addPhotoBtn.UseVisualStyleBackColor = true;
+            this.addPhotoBtn.Click += new System.EventHandler(this.addPhotoBtn_Click);
+            // 
+            // clearVehicleBtn
+            // 
+            this.clearVehicleBtn.BackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.clearVehicleBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.clearVehicleBtn.FlatAppearance.BorderSize = 0;
+            this.clearVehicleBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.clearVehicleBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.clearVehicleBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.clearVehicleBtn.ForeColor = System.Drawing.Color.White;
+            this.clearVehicleBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.clearVehicleBtn.Location = new System.Drawing.Point(60, 550);
+            this.clearVehicleBtn.Name = "clearVehicleBtn";
+            this.clearVehicleBtn.RoundRadius = 30;
+            this.clearVehicleBtn.Size = new System.Drawing.Size(140, 30);
+            this.clearVehicleBtn.TabIndex = 48;
+            this.clearVehicleBtn.TabStop = false;
+            this.clearVehicleBtn.Text = "Wyczyść";
+            this.clearVehicleBtn.UseVisualStyleBackColor = true;
+            this.clearVehicleBtn.Click += new System.EventHandler(this.clearVehicleBtn_Click);
+            // 
+            // addDriverBtn
+            // 
+            this.addDriverBtn.BackColor = System.Drawing.Color.Transparent;
+            this.addDriverBtn.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.addDriverBtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.addDriverBtn.FlatAppearance.BorderSize = 0;
+            this.addDriverBtn.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.addDriverBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.addDriverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addDriverBtn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.addDriverBtn.ForeColor = System.Drawing.Color.White;
+            this.addDriverBtn.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.addDriverBtn.Location = new System.Drawing.Point(910, 40);
+            this.addDriverBtn.Name = "addDriverBtn";
+            this.addDriverBtn.RoundRadius = 30;
+            this.addDriverBtn.Size = new System.Drawing.Size(130, 27);
+            this.addDriverBtn.TabIndex = 1;
+            this.addDriverBtn.Text = "Dodaj kierowcę";
+            this.addDriverBtn.UseVisualStyleBackColor = false;
+            this.addDriverBtn.Click += new System.EventHandler(this.addDriverBtn_Click);
             // 
             // firstnameDataGridViewTextBoxColumn
             // 
@@ -1892,58 +1978,51 @@ namespace SBBD
             this.availableColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.availableColumn.Width = 80;
             // 
-            // editPos
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.editPos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.editPos.HeaderText = "";
-            this.editPos.Name = "editPos";
-            this.editPos.ReadOnly = true;
-            this.editPos.Text = "Edytuj";
-            this.editPos.UseColumnTextForButtonValue = true;
-            this.editPos.Width = 60;
-            // 
-            // deletePos
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.deletePos.DefaultCellStyle = dataGridViewCellStyle9;
-            this.deletePos.HeaderText = "";
-            this.deletePos.Name = "deletePos";
-            this.deletePos.ReadOnly = true;
-            this.deletePos.Text = "Usuń";
-            this.deletePos.UseColumnTextForButtonValue = true;
-            this.deletePos.Width = 60;
-            // 
             // driversBindingSource
             // 
             this.driversBindingSource.DataSource = typeof(SBBD.Drivers);
             // 
-            // driversButton
+            // filterButton
             // 
-            this.driversButton.BackColor = System.Drawing.Color.Transparent;
-            this.driversButton.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.driversButton.FlatAppearance.BorderSize = 0;
-            this.driversButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.driversButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.driversButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.driversButton.ImageActive = global::SBBD.Properties.Resources.driversBTN_active;
-            this.driversButton.ImageInactive = global::SBBD.Properties.Resources.driversBTN_inactive;
-            this.driversButton.Location = new System.Drawing.Point(0, 210);
-            this.driversButton.Name = "driversButton";
-            this.driversButton.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.driversButton.SelectedMenuItem = false;
-            this.driversButton.Size = new System.Drawing.Size(200, 50);
-            this.driversButton.TabIndex = 61;
-            this.driversButton.UseVisualStyleBackColor = false;
-            this.driversButton.Click += new System.EventHandler(this.drivers_click);
+            this.filterButton.BackColor = System.Drawing.Color.Transparent;
+            this.filterButton.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.filterButton.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.filterButton.FlatAppearance.BorderSize = 0;
+            this.filterButton.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.filterButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.filterButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.filterButton.ForeColor = System.Drawing.Color.White;
+            this.filterButton.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.filterButton.Location = new System.Drawing.Point(720, 44);
+            this.filterButton.Name = "filterButton";
+            this.filterButton.RoundRadius = 30;
+            this.filterButton.Size = new System.Drawing.Size(120, 25);
+            this.filterButton.TabIndex = 17;
+            this.filterButton.Text = "Filtry";
+            this.filterButton.UseVisualStyleBackColor = false;
+            this.filterButton.Click += new System.EventHandler(this.filterButton_Click);
+            // 
+            // filterAccept
+            // 
+            this.filterAccept.BackColor = System.Drawing.Color.Transparent;
+            this.filterAccept.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.filterAccept.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.filterAccept.FlatAppearance.BorderSize = 0;
+            this.filterAccept.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.filterAccept.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.filterAccept.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.filterAccept.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.filterAccept.ForeColor = System.Drawing.Color.White;
+            this.filterAccept.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.filterAccept.Location = new System.Drawing.Point(305, 175);
+            this.filterAccept.Name = "filterAccept";
+            this.filterAccept.RoundRadius = 30;
+            this.filterAccept.Size = new System.Drawing.Size(120, 25);
+            this.filterAccept.TabIndex = 0;
+            this.filterAccept.Text = "Filtruj";
+            this.filterAccept.UseVisualStyleBackColor = false;
+            this.filterAccept.Click += new System.EventHandler(this.filterAccept_Click);
             // 
             // mainTitleBar
             // 
@@ -2032,6 +2111,50 @@ namespace SBBD
             this.allVehicles.UseVisualStyleBackColor = false;
             this.allVehicles.Click += new System.EventHandler(this.allVehicles_Click);
             // 
+            // editConfirm
+            // 
+            this.editConfirm.BackColor = System.Drawing.Color.Transparent;
+            this.editConfirm.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.editConfirm.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editConfirm.FlatAppearance.BorderSize = 0;
+            this.editConfirm.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.editConfirm.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.editConfirm.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editConfirm.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.editConfirm.ForeColor = System.Drawing.Color.White;
+            this.editConfirm.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.editConfirm.Location = new System.Drawing.Point(860, 540);
+            this.editConfirm.Name = "editConfirm";
+            this.editConfirm.RoundRadius = 30;
+            this.editConfirm.Size = new System.Drawing.Size(140, 30);
+            this.editConfirm.TabIndex = 47;
+            this.editConfirm.TabStop = false;
+            this.editConfirm.Text = "Zatwierdź!";
+            this.editConfirm.UseVisualStyleBackColor = true;
+            this.editConfirm.Click += new System.EventHandler(this.editConfirm_Click);
+            // 
+            // editCancel
+            // 
+            this.editCancel.BackColor = System.Drawing.Color.Transparent;
+            this.editCancel.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.editCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.editCancel.FlatAppearance.BorderSize = 0;
+            this.editCancel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.editCancel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.editCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.editCancel.ForeColor = System.Drawing.Color.White;
+            this.editCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.editCancel.Location = new System.Drawing.Point(670, 540);
+            this.editCancel.Name = "editCancel";
+            this.editCancel.RoundRadius = 30;
+            this.editCancel.Size = new System.Drawing.Size(140, 30);
+            this.editCancel.TabIndex = 46;
+            this.editCancel.TabStop = false;
+            this.editCancel.Text = "Anuluj";
+            this.editCancel.UseVisualStyleBackColor = true;
+            this.editCancel.Click += new System.EventHandler(this.editCancel_Click);
+            // 
             // addVehicle
             // 
             this.addVehicle.BackColor = System.Drawing.Color.Transparent;
@@ -2102,94 +2225,6 @@ namespace SBBD
             this.mainMinimize.UseVisualStyleBackColor = false;
             this.mainMinimize.Click += new System.EventHandler(this.mainMinimize_Click);
             // 
-            // firstNameDriver
-            // 
-            this.firstNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.firstNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.firstNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.firstNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.firstNameDriver.IsPassword = false;
-            this.firstNameDriver.Location = new System.Drawing.Point(127, 131);
-            this.firstNameDriver.Name = "firstNameDriver";
-            this.firstNameDriver.PlaceHolder = "";
-            this.firstNameDriver.Size = new System.Drawing.Size(160, 15);
-            this.firstNameDriver.TabIndex = 9;
-            this.firstNameDriver.Text = "Imie";
-            this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // lastNameDriver
-            // 
-            this.lastNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.lastNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.lastNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.lastNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.lastNameDriver.IsPassword = false;
-            this.lastNameDriver.Location = new System.Drawing.Point(127, 177);
-            this.lastNameDriver.Name = "lastNameDriver";
-            this.lastNameDriver.PlaceHolder = "";
-            this.lastNameDriver.Size = new System.Drawing.Size(160, 15);
-            this.lastNameDriver.TabIndex = 10;
-            this.lastNameDriver.Text = "Nazwisko";
-            this.lastNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // licenceNum
-            // 
-            this.licenceNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.licenceNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.licenceNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.licenceNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.licenceNum.IsPassword = false;
-            this.licenceNum.Location = new System.Drawing.Point(125, 230);
-            this.licenceNum.Name = "licenceNum";
-            this.licenceNum.PlaceHolder = "";
-            this.licenceNum.Size = new System.Drawing.Size(160, 15);
-            this.licenceNum.TabIndex = 11;
-            this.licenceNum.Text = "Numer PJ";
-            this.licenceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // driverWarnLabel1
-            // 
-            this.driverWarnLabel1.AutoSize = true;
-            this.driverWarnLabel1.BackColor = System.Drawing.Color.Transparent;
-            this.driverWarnLabel1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.driverWarnLabel1.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel1.Location = new System.Drawing.Point(97, 494);
-            this.driverWarnLabel1.Name = "driverWarnLabel1";
-            this.driverWarnLabel1.Size = new System.Drawing.Size(113, 9);
-            this.driverWarnLabel1.TabIndex = 36;
-            this.driverWarnLabel1.Text = "Uzupełnij wszystkie pola";
-            this.driverWarnLabel1.Visible = false;
-            // 
-            // licenceExpDate
-            // 
-            this.licenceExpDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.licenceExpDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.licenceExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.licenceExpDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.licenceExpDate.IsPassword = false;
-            this.licenceExpDate.Location = new System.Drawing.Point(148, 277);
-            this.licenceExpDate.Name = "licenceExpDate";
-            this.licenceExpDate.PlaceHolder = "";
-            this.licenceExpDate.Size = new System.Drawing.Size(160, 15);
-            this.licenceExpDate.TabIndex = 12;
-            this.licenceExpDate.Text = "Data ważności PJ";
-            this.licenceExpDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // medExamDate
-            // 
-            this.medExamDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.medExamDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.medExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.medExamDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.medExamDate.IsPassword = false;
-            this.medExamDate.Location = new System.Drawing.Point(127, 330);
-            this.medExamDate.Name = "medExamDate";
-            this.medExamDate.PlaceHolder = "";
-            this.medExamDate.Size = new System.Drawing.Size(160, 15);
-            this.medExamDate.TabIndex = 13;
-            this.medExamDate.Text = "Data waż. badania";
-            this.medExamDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // roundedButton1
             // 
             this.roundedButton1.BackColor = System.Drawing.Color.Transparent;
@@ -2210,92 +2245,80 @@ namespace SBBD
             this.roundedButton1.Text = "Dodaj do bazy";
             this.roundedButton1.UseVisualStyleBackColor = false;
             // 
-            // driverWarnLabel2
+            // medExamDate
             // 
-            this.driverWarnLabel2.AutoSize = true;
-            this.driverWarnLabel2.BackColor = System.Drawing.Color.Transparent;
-            this.driverWarnLabel2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.driverWarnLabel2.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel2.Location = new System.Drawing.Point(212, 158);
-            this.driverWarnLabel2.Name = "driverWarnLabel2";
-            this.driverWarnLabel2.Size = new System.Drawing.Size(113, 9);
-            this.driverWarnLabel2.TabIndex = 37;
-            this.driverWarnLabel2.Text = "Uzupełnij wszystkie pola";
-            this.driverWarnLabel2.Visible = false;
+            this.medExamDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.medExamDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.medExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.medExamDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.medExamDate.IsPassword = false;
+            this.medExamDate.Location = new System.Drawing.Point(127, 330);
+            this.medExamDate.Name = "medExamDate";
+            this.medExamDate.PlaceHolder = "";
+            this.medExamDate.Size = new System.Drawing.Size(160, 15);
+            this.medExamDate.TabIndex = 13;
+            this.medExamDate.Text = "Data waż. badania";
+            this.medExamDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // driverWarnLabel3
+            // licenceExpDate
             // 
-            this.driverWarnLabel3.AutoSize = true;
-            this.driverWarnLabel3.BackColor = System.Drawing.Color.Transparent;
-            this.driverWarnLabel3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.driverWarnLabel3.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel3.Location = new System.Drawing.Point(260, 207);
-            this.driverWarnLabel3.Name = "driverWarnLabel3";
-            this.driverWarnLabel3.Size = new System.Drawing.Size(113, 9);
-            this.driverWarnLabel3.TabIndex = 38;
-            this.driverWarnLabel3.Text = "Uzupełnij wszystkie pola";
-            this.driverWarnLabel3.Visible = false;
+            this.licenceExpDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.licenceExpDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.licenceExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.licenceExpDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.licenceExpDate.IsPassword = false;
+            this.licenceExpDate.Location = new System.Drawing.Point(148, 277);
+            this.licenceExpDate.Name = "licenceExpDate";
+            this.licenceExpDate.PlaceHolder = "";
+            this.licenceExpDate.Size = new System.Drawing.Size(160, 15);
+            this.licenceExpDate.TabIndex = 12;
+            this.licenceExpDate.Text = "Data ważności PJ";
+            this.licenceExpDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // driverWarnLabel4
+            // licenceNum
             // 
-            this.driverWarnLabel4.AutoSize = true;
-            this.driverWarnLabel4.BackColor = System.Drawing.Color.Transparent;
-            this.driverWarnLabel4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.driverWarnLabel4.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel4.Location = new System.Drawing.Point(268, 257);
-            this.driverWarnLabel4.Name = "driverWarnLabel4";
-            this.driverWarnLabel4.Size = new System.Drawing.Size(113, 9);
-            this.driverWarnLabel4.TabIndex = 39;
-            this.driverWarnLabel4.Text = "Uzupełnij wszystkie pola";
-            this.driverWarnLabel4.Visible = false;
+            this.licenceNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.licenceNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.licenceNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.licenceNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.licenceNum.IsPassword = false;
+            this.licenceNum.Location = new System.Drawing.Point(125, 230);
+            this.licenceNum.Name = "licenceNum";
+            this.licenceNum.PlaceHolder = "";
+            this.licenceNum.Size = new System.Drawing.Size(160, 15);
+            this.licenceNum.TabIndex = 11;
+            this.licenceNum.Text = "Numer PJ";
+            this.licenceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // driverWarnLabel5
+            // lastNameDriver
             // 
-            this.driverWarnLabel5.AutoSize = true;
-            this.driverWarnLabel5.BackColor = System.Drawing.Color.Transparent;
-            this.driverWarnLabel5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.driverWarnLabel5.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel5.Location = new System.Drawing.Point(268, 307);
-            this.driverWarnLabel5.Name = "driverWarnLabel5";
-            this.driverWarnLabel5.Size = new System.Drawing.Size(113, 9);
-            this.driverWarnLabel5.TabIndex = 40;
-            this.driverWarnLabel5.Text = "Uzupełnij wszystkie pola";
-            this.driverWarnLabel5.Visible = false;
+            this.lastNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.lastNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lastNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.lastNameDriver.IsPassword = false;
+            this.lastNameDriver.Location = new System.Drawing.Point(127, 177);
+            this.lastNameDriver.Name = "lastNameDriver";
+            this.lastNameDriver.PlaceHolder = "";
+            this.lastNameDriver.Size = new System.Drawing.Size(160, 15);
+            this.lastNameDriver.TabIndex = 10;
+            this.lastNameDriver.Text = "Nazwisko";
+            this.lastNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // driverWarnLabel6
+            // firstNameDriver
             // 
-            this.driverWarnLabel6.AutoSize = true;
-            this.driverWarnLabel6.BackColor = System.Drawing.Color.Transparent;
-            this.driverWarnLabel6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.driverWarnLabel6.ForeColor = System.Drawing.Color.Red;
-            this.driverWarnLabel6.Location = new System.Drawing.Point(266, 359);
-            this.driverWarnLabel6.Name = "driverWarnLabel6";
-            this.driverWarnLabel6.Size = new System.Drawing.Size(113, 9);
-            this.driverWarnLabel6.TabIndex = 41;
-            this.driverWarnLabel6.Text = "Uzupełnij wszystkie pola";
-            this.driverWarnLabel6.Visible = false;
-            // 
-            // addEditDriversPaneldupa
-            // 
-            this.addEditDriversPaneldupa.BackColor = System.Drawing.Color.Transparent;
-            this.addEditDriversPaneldupa.BackgroundImage = global::SBBD.Properties.Resources.tlo1153;
-            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel6);
-            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel5);
-            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel4);
-            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel3);
-            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel2);
-            this.addEditDriversPaneldupa.Controls.Add(this.roundedButton1);
-            this.addEditDriversPaneldupa.Controls.Add(this.medExamDate);
-            this.addEditDriversPaneldupa.Controls.Add(this.licenceExpDate);
-            this.addEditDriversPaneldupa.Controls.Add(this.driverWarnLabel1);
-            this.addEditDriversPaneldupa.Controls.Add(this.licenceNum);
-            this.addEditDriversPaneldupa.Controls.Add(this.lastNameDriver);
-            this.addEditDriversPaneldupa.Controls.Add(this.firstNameDriver);
-            this.addEditDriversPaneldupa.Location = new System.Drawing.Point(200, 26);
-            this.addEditDriversPaneldupa.Name = "addEditDriversPaneldupa";
-            this.addEditDriversPaneldupa.Size = new System.Drawing.Size(1080, 694);
-            this.addEditDriversPaneldupa.TabIndex = 19;
-            this.addEditDriversPaneldupa.Visible = false;
+            this.firstNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.firstNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.firstNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.firstNameDriver.IsPassword = false;
+            this.firstNameDriver.Location = new System.Drawing.Point(127, 131);
+            this.firstNameDriver.Name = "firstNameDriver";
+            this.firstNameDriver.PlaceHolder = "";
+            this.firstNameDriver.Size = new System.Drawing.Size(160, 15);
+            this.firstNameDriver.TabIndex = 9;
+            this.firstNameDriver.Text = "Imie";
+            this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainWindow
             // 
@@ -2305,9 +2328,9 @@ namespace SBBD
             this.ClientSize = new System.Drawing.Size(1280, 730);
             this.Controls.Add(this.driversButton);
             this.Controls.Add(this.infoVehiclePanel);
+            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.addVehiclePanel);
             this.Controls.Add(this.driversPanel);
-            this.Controls.Add(this.vehiclesPanel);
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.mainTitleBar);
             this.Controls.Add(this.logout);
@@ -2372,11 +2395,11 @@ namespace SBBD
             this.driversPanel.ResumeLayout(false);
             this.driversPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.addEditDriversPaneldupa.ResumeLayout(false);
+            this.addEditDriversPaneldupa.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            this.addEditDriversPaneldupa.ResumeLayout(false);
-            this.addEditDriversPaneldupa.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -2529,5 +2552,6 @@ namespace SBBD
         private System.Windows.Forms.DataGridViewButtonColumn deletePos;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
+        private RoundedButton roundedButton2;
     }
 }
