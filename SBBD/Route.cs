@@ -81,10 +81,62 @@ namespace SBBD
                 {
                     int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
                     driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
-                    driver.available = routeReturnPanel.Visible;
+                    int warningDays = 30; //tu tez z bazy ustawienie moze byc / ile dni zeby sie pokazywal komunikat
+                    if (CheckDateDays(driver.drivers_licence_exp_date) < warningDays || CheckDateDays(driver.med_examination_date) < warningDays)
+                    {
+                        if (CheckDateDays(driver.drivers_licence_exp_date) < warningDays && CheckDateDays(driver.med_examination_date) < warningDays)
+                        {
+                            var msg = CustomMessageBox.CustomMsg($"Wybranemu kierowcy ważność prawa jazdy kończy się za {CheckDateDays(driver.drivers_licence_exp_date)} dni i ważność badań kończy się za {CheckDateDays(driver.med_examination_date)} dni.{Environment.NewLine}Czy na pewno chcesz wysłać go w trasę?", 7.0f, true);
+                            if (msg == DialogResult.No)
+                            {
+                                e.Cancel = true;
+                            }
+                            else if(msg == DialogResult.Yes)
+                            {
+                                driver.available = routeReturnPanel.Visible;
+                                context.Dispose();
+                            }
+                        }
+                        else if (CheckDateDays(driver.drivers_licence_exp_date) < warningDays)
+                        {
+                            var msg = CustomMessageBox.CustomMsg($"Wybranemu kierowcy ważność prawa jazdy kończy się za {CheckDateDays(driver.drivers_licence_exp_date)} dni.{Environment.NewLine}Czy na pewno chcesz wysłać go w trasę?", 7.0f, true);
+                            if (msg == DialogResult.No)
+                            {
+                                e.Cancel = true;
+                            }
+                            else if (msg == DialogResult.Yes)
+                            {
+                                driver.available = routeReturnPanel.Visible;
+                                context.Dispose();
+                            }
+                        }
+                        else if (CheckDateDays(driver.med_examination_date) < warningDays)
+                        {
+                            var msg = CustomMessageBox.CustomMsg($"Wybranemu kierowcy ważność badań kończy się za {CheckDateDays(driver.med_examination_date)} dni.{Environment.NewLine}Czy na pewno chcesz wysłać go w trasę?", 7.0f, true);
+                            if (msg == DialogResult.No)
+                            {
+                                e.Cancel = true;
+                            }
+                            else if (msg == DialogResult.Yes)
+                            {
+                                driver.available = routeReturnPanel.Visible;
+                                context.Dispose();
+                            }
+                        }
+                    }
+                    else
+                    {
+                        driver.available = routeReturnPanel.Visible;
+                        context.Dispose();
+                    }
                 }
             }
-            context.Dispose();
+            
+        }
+
+        private int CheckDateDays(DateTime date)
+        {
+            return Convert.ToInt32((date - DateTime.Now).TotalDays);
         }
         private void DriversLoad()
         {

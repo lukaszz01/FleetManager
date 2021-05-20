@@ -100,6 +100,7 @@ namespace SBBD
                 PdfWriter wri = PdfWriter.GetInstance(doc, new FileStream(sfd.FileName, FileMode.Create));
                 doc.Open();
                 //tutaj kod na tabele
+                
                 doc.Close();
             }
         }

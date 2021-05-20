@@ -86,6 +86,19 @@ namespace SBBD
            //this.iconPic.Image = Properties.Resources.   // pytajnik
         }
 
+        public CustomMessageBoxForm(string text, float fontSize, bool YesNo)
+        {
+            InitializeComponent();
+            this.customMSbx_text.Text = text;
+            this.customMSbx_text.Font = new Font(this.customMSbx_text.Font.FontFamily, fontSize, FontStyle.Bold);
+            this.timer.Enabled = false;
+            this.buttonNo.Visible = true;
+            this.buttonYes.Visible = true;
+            this.messageInfo.Visible = false;
+            //this.buttonOK.Visible = false;
+            imageChange(2, iconPic);
+        }
+
         private void timer_Tick(object sender, EventArgs e)
         {
             this.Hide();

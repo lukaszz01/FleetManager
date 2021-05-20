@@ -359,6 +359,16 @@ namespace SBBD
             }
             return dialogResult;
         }
+
+        public static DialogResult CustomMsg(string text, float fontSize, bool YesNo)
+        {
+            DialogResult dialogResult = DialogResult.No;
+            using(CustomMessageBoxForm msg = new CustomMessageBoxForm(text, fontSize, YesNo))
+            {
+                dialogResult = msg.ShowDialog();
+            }
+            return dialogResult;
+        }
     }
 
     public class CustomDTPicker : DateTimePicker

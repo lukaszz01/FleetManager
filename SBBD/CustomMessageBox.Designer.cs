@@ -103,11 +103,11 @@ namespace SBBD
             this.customMSbx_text.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.customMSbx_text.ForeColor = System.Drawing.Color.White;
             this.customMSbx_text.IsPassword = false;
-            this.customMSbx_text.Location = new System.Drawing.Point(90, 25);
+            this.customMSbx_text.Location = new System.Drawing.Point(80, 25);
             this.customMSbx_text.Multiline = true;
             this.customMSbx_text.Name = "customMSbx_text";
             this.customMSbx_text.PlaceHolder = null;
-            this.customMSbx_text.Size = new System.Drawing.Size(180, 60);
+            this.customMSbx_text.Size = new System.Drawing.Size(200, 70);
             this.customMSbx_text.TabIndex = 1;
             this.customMSbx_text.TabStop = false;
             this.customMSbx_text.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
