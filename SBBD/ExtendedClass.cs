@@ -247,10 +247,10 @@ namespace SBBD
 
         public static class RouteReportForm
         {
-            public static DialogResult ShowDialog(int vehicleId)
+            public static DialogResult ShowDialog(int id, bool isDriver)
             {
                 DialogResult dialogResult = DialogResult.No;
-                using (RouteReport routeReport = new RouteReport(vehicleId))
+                using (RouteReport routeReport = new RouteReport(id, isDriver))
                 {
                     dialogResult = routeReport.ShowDialog();
                 }

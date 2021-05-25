@@ -922,6 +922,10 @@ namespace SBBD
                     GridRefresh();
                 }
             }
+            if(dataGridView1.Columns[e.ColumnIndex].Name == "reportPos")
+            {
+                RouteReportForm.ShowDialog(driver.driver_id, true);
+            }
         }
         private void addDriverBtn_Click(object sender, EventArgs e)
         {
@@ -1017,7 +1021,7 @@ namespace SBBD
         private void generateReportVeh_Click(object sender, EventArgs e)
         {
             var veh = context.Vehicles.Where(v => v.registration_num == infoRegNum.Text).FirstOrDefault();
-            RouteReportForm.ShowDialog(veh.vehicle_id);
+            RouteReportForm.ShowDialog(veh.vehicle_id, false);
         }
     }
 }
