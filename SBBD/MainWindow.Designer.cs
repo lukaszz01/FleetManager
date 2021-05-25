@@ -2939,9 +2939,9 @@ namespace SBBD
         private System.Windows.Forms.DataGridViewButtonColumn editPos;
         private System.Windows.Forms.DataGridViewButtonColumn deletePos;
         private System.Windows.Forms.DataGridViewButtonColumn reportPos;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label1;
-        private RoundedButton generateReportVeh;
+        private System.Windows.Forms.TextBox textBoxP;
+        private System.Windows.Forms.Label labelP;
+        private RoundedButton generateReportVehP;
         private CustomButton appSettings;
         private System.Windows.Forms.Panel appSettingsPanel;
         private System.Windows.Forms.Label label10;
