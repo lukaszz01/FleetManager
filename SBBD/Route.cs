@@ -55,6 +55,7 @@ namespace SBBD
             context = new VFEntities();
             context.Vehicles_Routes.Load();
             context.Drivers.Load();
+            context.Settings.Load();
             if (available)
             {
                 routeReturnPanel.Visible = false;
@@ -81,7 +82,9 @@ namespace SBBD
                 {
                     int driver_id = Int32.Parse(routeDriver.Text.Split(' ')[0]);
                     driver = context.Drivers.Where(d => d.driver_id == driver_id).FirstOrDefault();
-                    int warningDays = 30; //tu tez z bazy ustawienie moze byc / ile dni zeby sie pokazywal komunikat
+                    var warrningDriver = context.Settings.Where(s => s.options == "routeWarningDays").FirstOrDefault();
+
+                    int warningDays = warrningDriver.setting_value; 
                     if (CheckDateDays(driver.drivers_licence_exp_date) < warningDays || CheckDateDays(driver.med_examination_date) < warningDays)
                     {
                         if (CheckDateDays(driver.drivers_licence_exp_date) < warningDays && CheckDateDays(driver.med_examination_date) < warningDays)

@@ -153,7 +153,16 @@ namespace SBBD
             this.driversPanel = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.addDriverBtn = new SBBD.RoundedButton();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();           
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editPos = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.deletePos = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.reportPos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.driverWarnLabel1 = new System.Windows.Forms.Label();
             this.driverWarnLabel2 = new System.Windows.Forms.Label();
@@ -168,14 +177,12 @@ namespace SBBD
             this.licenceNum = new SBBD.CustomTextBox();
             this.lastNameDriver = new SBBD.CustomTextBox();
             this.firstNameDriver = new SBBD.CustomTextBox();
-            this.pictureBox6 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.zotyInfo = new System.Windows.Forms.Label();
+            this.czerwonyInfo = new System.Windows.Forms.Label();
             this.appSettingsPanel = new System.Windows.Forms.Panel();
-            this.customTextBox6 = new SBBD.CustomTextBox();
-            this.customTextBox7 = new SBBD.CustomTextBox();
-            this.roundedButton2 = new SBBD.RoundedButton();
+            this.czerwony = new SBBD.CustomTextBox();
+            this.zolty = new SBBD.CustomTextBox();
+            this.settingsSave = new SBBD.RoundedButton();
             this.appSettings = new SBBD.CustomButton();
             this.driversButton = new SBBD.CustomButton();
             this.mainTitleBar = new SBBD.MoveBar();
@@ -187,15 +194,8 @@ namespace SBBD
             this.trackBar1 = new SBBD.NoFocusTrackBar();
             this.mainExit = new SBBD.CustomButton();
             this.mainMinimize = new SBBD.CustomButton();
-            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.licenceDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.medicalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.availableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.editPos = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.deletePos = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.reportPos = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.warrningDriverTB = new SBBD.CustomTextBox();
             this.vehiclesPanel.SuspendLayout();
             this.filterPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.siteNavCenter)).BeginInit();
@@ -236,8 +236,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
             this.addEditDriversPaneldupa.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.appSettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
@@ -1852,9 +1850,138 @@ namespace SBBD
             this.dataGridView1.Size = new System.Drawing.Size(985, 562);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);            
+            this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
-            // driversBindingSource 
+            // firstnameDataGridViewTextBoxColumn
+            // 
+            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "first_name";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.firstnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.firstnameDataGridViewTextBoxColumn.HeaderText = "Imię";
+            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
+            this.firstnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstnameDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // lastnameDataGridViewTextBoxColumn
+            // 
+            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "last_name";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.lastnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.lastnameDataGridViewTextBoxColumn.HeaderText = "Nazwisko";
+            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
+            this.lastnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastnameDataGridViewTextBoxColumn.Width = 140;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "drivers_licence_num";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nr. prawa jazdy";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 165;
+            // 
+            // licenceDateColumn
+            // 
+            this.licenceDateColumn.DataPropertyName = "drivers_licence_exp_date";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.licenceDateColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.licenceDateColumn.HeaderText = "Prawo jazdy";
+            this.licenceDateColumn.Name = "licenceDateColumn";
+            this.licenceDateColumn.ReadOnly = true;
+            this.licenceDateColumn.Width = 140;
+            // 
+            // medicalDateColumn
+            // 
+            this.medicalDateColumn.DataPropertyName = "med_examination_date";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.medicalDateColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.medicalDateColumn.HeaderText = "Badanie lekarskie";
+            this.medicalDateColumn.Name = "medicalDateColumn";
+            this.medicalDateColumn.ReadOnly = true;
+            this.medicalDateColumn.Width = 140;
+            // 
+            // availableColumn
+            // 
+            this.availableColumn.DataPropertyName = "available";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Format = "{0:Tak;0;Nie}";
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.availableColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.availableColumn.HeaderText = "Dostępność";
+            this.availableColumn.Name = "availableColumn";
+            this.availableColumn.ReadOnly = true;
+            this.availableColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.availableColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.availableColumn.Width = 80;
+            // 
+            // editPos
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.editPos.DefaultCellStyle = dataGridViewCellStyle8;
+            this.editPos.HeaderText = "";
+            this.editPos.Name = "editPos";
+            this.editPos.ReadOnly = true;
+            this.editPos.Text = "Edytuj";
+            this.editPos.UseColumnTextForButtonValue = true;
+            this.editPos.Width = 60;
+            // 
+            // deletePos
+            // 
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
+            this.deletePos.DefaultCellStyle = dataGridViewCellStyle9;
+            this.deletePos.HeaderText = "";
+            this.deletePos.Name = "deletePos";
+            this.deletePos.ReadOnly = true;
+            this.deletePos.Text = "Usuń";
+            this.deletePos.UseColumnTextForButtonValue = true;
+            this.deletePos.Width = 60;
+            // 
+            // reportPos
+            // 
+            this.reportPos.HeaderText = "";
+            this.reportPos.Name = "reportPos";
+            this.reportPos.ReadOnly = true;
+            this.reportPos.Text = "Raport";
+            this.reportPos.UseColumnTextForButtonValue = true;
+            this.reportPos.Width = 60;
+            // 
+            // driversBindingSource
             // 
             this.driversBindingSource.DataSource = typeof(SBBD.Drivers);
             // 
@@ -2051,117 +2178,96 @@ namespace SBBD
             this.firstNameDriver.Size = new System.Drawing.Size(160, 15);
             this.firstNameDriver.TabIndex = 9;
             this.firstNameDriver.Text = "Imie";
-            this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;            
+            this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // pictureBox6
+            // zotyInfo
             // 
-            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.pictureBox6.BackgroundImage = global::SBBD.Properties.Resources.question;
-            this.pictureBox6.Location = new System.Drawing.Point(363, 25);
-            this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(10, 10);
-            this.pictureBox6.TabIndex = 41;
-            this.pictureBox6.TabStop = false;
+            this.zotyInfo.AutoSize = true;
+            this.zotyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zotyInfo.ForeColor = System.Drawing.Color.White;
+            this.zotyInfo.Location = new System.Drawing.Point(23, 19);
+            this.zotyInfo.Name = "zotyInfo";
+            this.zotyInfo.Size = new System.Drawing.Size(195, 16);
+            this.zotyInfo.TabIndex = 53;
+            this.zotyInfo.Text = "Wyświetlanie na żółto (dni)";
             // 
-            // pictureBox5
+            // czerwonyInfo
             // 
-            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.pictureBox5.BackgroundImage = global::SBBD.Properties.Resources.question;
-            this.pictureBox5.Location = new System.Drawing.Point(360, 71);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(10, 10);
-            this.pictureBox5.TabIndex = 42;
-            this.pictureBox5.TabStop = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(23, 19);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(119, 16);
-            this.label3.TabIndex = 53;
-            this.label3.Text = "Ważność badań";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label10.ForeColor = System.Drawing.Color.White;
-            this.label10.Location = new System.Drawing.Point(23, 65);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(158, 16);
-            this.label10.TabIndex = 54;
-            this.label10.Text = "Ważność prawa jazdy";
+            this.czerwonyInfo.AutoSize = true;
+            this.czerwonyInfo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.czerwonyInfo.ForeColor = System.Drawing.Color.White;
+            this.czerwonyInfo.Location = new System.Drawing.Point(23, 65);
+            this.czerwonyInfo.Name = "czerwonyInfo";
+            this.czerwonyInfo.Size = new System.Drawing.Size(224, 16);
+            this.czerwonyInfo.TabIndex = 54;
+            this.czerwonyInfo.Text = "Wyświetlanie na czerwono (dni)";
             // 
             // appSettingsPanel
             // 
             this.appSettingsPanel.BackColor = System.Drawing.Color.Transparent;
             this.appSettingsPanel.BackgroundImage = global::SBBD.Properties.Resources.ConfirmBG;
-            this.appSettingsPanel.Controls.Add(this.label10);
+            this.appSettingsPanel.Controls.Add(this.warrningDriverTB);
             this.appSettingsPanel.Controls.Add(this.label3);
-            this.appSettingsPanel.Controls.Add(this.customTextBox6);
-            this.appSettingsPanel.Controls.Add(this.customTextBox7);
-            this.appSettingsPanel.Controls.Add(this.roundedButton2);
-            this.appSettingsPanel.Controls.Add(this.pictureBox5);
-            this.appSettingsPanel.Controls.Add(this.pictureBox6);
+            this.appSettingsPanel.Controls.Add(this.czerwonyInfo);
+            this.appSettingsPanel.Controls.Add(this.zotyInfo);
+            this.appSettingsPanel.Controls.Add(this.czerwony);
+            this.appSettingsPanel.Controls.Add(this.zolty);
+            this.appSettingsPanel.Controls.Add(this.settingsSave);
             this.appSettingsPanel.Location = new System.Drawing.Point(200, 26);
             this.appSettingsPanel.Name = "appSettingsPanel";
             this.appSettingsPanel.Size = new System.Drawing.Size(1080, 704);
             this.appSettingsPanel.TabIndex = 54;
             this.appSettingsPanel.Visible = false;
             // 
-            // customTextBox6
+            // czerwony
             // 
-            this.customTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.customTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.customTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.customTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.customTextBox6.IsPassword = false;
-            this.customTextBox6.Location = new System.Drawing.Point(187, 66);
-            this.customTextBox6.Name = "customTextBox6";
-            this.customTextBox6.PlaceHolder = "np. Czarny";
-            this.customTextBox6.Size = new System.Drawing.Size(160, 15);
-            this.customTextBox6.TabIndex = 6;
-            this.customTextBox6.Text = "np. Czarny";
-            this.customTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.czerwony.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.czerwony.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.czerwony.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.czerwony.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.czerwony.IsPassword = false;
+            this.czerwony.Location = new System.Drawing.Point(262, 66);
+            this.czerwony.Name = "czerwony";
+            this.czerwony.PlaceHolder = "";
+            this.czerwony.Size = new System.Drawing.Size(160, 15);
+            this.czerwony.TabIndex = 6;
+            this.czerwony.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // customTextBox7
+            // zolty
             // 
-            this.customTextBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
-            this.customTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.customTextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.customTextBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
-            this.customTextBox7.IsPassword = false;
-            this.customTextBox7.Location = new System.Drawing.Point(187, 20);
-            this.customTextBox7.Name = "customTextBox7";
-            this.customTextBox7.PlaceHolder = "np. LHR12345";
-            this.customTextBox7.Size = new System.Drawing.Size(160, 15);
-            this.customTextBox7.TabIndex = 5;
-            this.customTextBox7.Text = "np. LHR12345";
-            this.customTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.zolty.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.zolty.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.zolty.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.zolty.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.zolty.IsPassword = false;
+            this.zolty.Location = new System.Drawing.Point(262, 19);
+            this.zolty.Name = "zolty";
+            this.zolty.PlaceHolder = "";
+            this.zolty.Size = new System.Drawing.Size(160, 15);
+            this.zolty.TabIndex = 5;
+            this.zolty.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // roundedButton2
+            // settingsSave
             // 
-            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.roundedButton2.FlatAppearance.BorderSize = 0;
-            this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
-            this.roundedButton2.ForeColor = System.Drawing.Color.White;
-            this.roundedButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.roundedButton2.Location = new System.Drawing.Point(900, 579);
-            this.roundedButton2.Name = "roundedButton2";
-            this.roundedButton2.RoundRadius = 30;
-            this.roundedButton2.Size = new System.Drawing.Size(140, 30);
-            this.roundedButton2.TabIndex = 50;
-            this.roundedButton2.TabStop = false;
-            this.roundedButton2.Text = "+ Dodaj auto!";
-            this.roundedButton2.UseVisualStyleBackColor = true;
+            this.settingsSave.BackColor = System.Drawing.Color.Transparent;
+            this.settingsSave.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.settingsSave.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.settingsSave.FlatAppearance.BorderSize = 0;
+            this.settingsSave.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.settingsSave.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.settingsSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.settingsSave.ForeColor = System.Drawing.Color.White;
+            this.settingsSave.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.settingsSave.Location = new System.Drawing.Point(900, 579);
+            this.settingsSave.Name = "settingsSave";
+            this.settingsSave.RoundRadius = 30;
+            this.settingsSave.Size = new System.Drawing.Size(140, 30);
+            this.settingsSave.TabIndex = 50;
+            this.settingsSave.TabStop = false;
+            this.settingsSave.Text = "Zapisz";
+            this.settingsSave.UseVisualStyleBackColor = true;
+            this.settingsSave.Click += new System.EventHandler(this.settingsSave_Click);
             // 
             // appSettings
             // 
@@ -2358,134 +2464,30 @@ namespace SBBD
             this.mainMinimize.UseVisualStyleBackColor = false;
             this.mainMinimize.Click += new System.EventHandler(this.mainMinimize_Click);
             // 
-            // firstnameDataGridViewTextBoxColumn
+            // label3
             // 
-            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "first_name";
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.firstnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
-            this.firstnameDataGridViewTextBoxColumn.HeaderText = "Imię";
-            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
-            this.firstnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.firstnameDataGridViewTextBoxColumn.Width = 140;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(23, 112);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(189, 16);
+            this.label3.TabIndex = 55;
+            this.label3.Text = "Ostrzeżenie kierowcy (dni)";
             // 
-            // lastnameDataGridViewTextBoxColumn
+            // warrningDriverTB
             // 
-            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "last_name";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
-            this.lastnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
-            this.lastnameDataGridViewTextBoxColumn.HeaderText = "Nazwisko";
-            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
-            this.lastnameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lastnameDataGridViewTextBoxColumn.Width = 140;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.DataPropertyName = "drivers_licence_num";
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nr. prawa jazdy";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 165;
-            // 
-            // licenceDateColumn
-            // 
-            this.licenceDateColumn.DataPropertyName = "drivers_licence_exp_date";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.NullValue = null;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            this.licenceDateColumn.DefaultCellStyle = dataGridViewCellStyle5;
-            this.licenceDateColumn.HeaderText = "Prawo jazdy";
-            this.licenceDateColumn.Name = "licenceDateColumn";
-            this.licenceDateColumn.ReadOnly = true;
-            this.licenceDateColumn.Width = 140;
-            // 
-            // medicalDateColumn
-            // 
-            this.medicalDateColumn.DataPropertyName = "med_examination_date";
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.Format = "d";
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.medicalDateColumn.DefaultCellStyle = dataGridViewCellStyle6;
-            this.medicalDateColumn.HeaderText = "Badanie lekarskie";
-            this.medicalDateColumn.Name = "medicalDateColumn";
-            this.medicalDateColumn.ReadOnly = true;
-            this.medicalDateColumn.Width = 140;
-            // 
-            // availableColumn
-            // 
-            this.availableColumn.DataPropertyName = "available";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle7.Format = "{0:Tak;0;Nie}";
-            dataGridViewCellStyle7.NullValue = null;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
-            this.availableColumn.DefaultCellStyle = dataGridViewCellStyle7;
-            this.availableColumn.HeaderText = "Dostępność";
-            this.availableColumn.Name = "availableColumn";
-            this.availableColumn.ReadOnly = true;
-            this.availableColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.availableColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.availableColumn.Width = 80;
-            // 
-            // editPos
-            // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.editPos.DefaultCellStyle = dataGridViewCellStyle8;
-            this.editPos.HeaderText = "";
-            this.editPos.Name = "editPos";
-            this.editPos.ReadOnly = true;
-            this.editPos.Text = "Edytuj";
-            this.editPos.UseColumnTextForButtonValue = true;
-            this.editPos.Width = 60;
-            // 
-            // deletePos
-            // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.White;
-            this.deletePos.DefaultCellStyle = dataGridViewCellStyle9;
-            this.deletePos.HeaderText = "";
-            this.deletePos.Name = "deletePos";
-            this.deletePos.ReadOnly = true;
-            this.deletePos.Text = "Usuń";
-            this.deletePos.UseColumnTextForButtonValue = true;
-            this.deletePos.Width = 60;
-            // 
-            // reportPos
-            // 
-            this.reportPos.HeaderText = "";
-            this.reportPos.Name = "reportPos";
-            this.reportPos.ReadOnly = true;
-            this.reportPos.Text = "Raport";
-            this.reportPos.UseColumnTextForButtonValue = true;
-            this.reportPos.Width = 60;
+            this.warrningDriverTB.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.warrningDriverTB.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.warrningDriverTB.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.warrningDriverTB.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.warrningDriverTB.IsPassword = false;
+            this.warrningDriverTB.Location = new System.Drawing.Point(262, 115);
+            this.warrningDriverTB.Name = "warrningDriverTB";
+            this.warrningDriverTB.PlaceHolder = "";
+            this.warrningDriverTB.Size = new System.Drawing.Size(160, 15);
+            this.warrningDriverTB.TabIndex = 56;
+            this.warrningDriverTB.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // MainWindow
             // 
@@ -2567,8 +2569,6 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).EndInit();
             this.addEditDriversPaneldupa.ResumeLayout(false);
             this.addEditDriversPaneldupa.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.appSettingsPanel.ResumeLayout(false);
             this.appSettingsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
@@ -2732,12 +2732,12 @@ namespace SBBD
         private RoundedButton generateReportVehP;
         private CustomButton appSettings;
         private System.Windows.Forms.Panel appSettingsPanel;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label czerwonyInfo;
+        private System.Windows.Forms.Label zotyInfo;
+        private CustomTextBox czerwony;
+        private CustomTextBox zolty;
+        private RoundedButton settingsSave;
+        private CustomTextBox warrningDriverTB;
         private System.Windows.Forms.Label label3;
-        private CustomTextBox customTextBox6;
-        private CustomTextBox customTextBox7;
-        private RoundedButton roundedButton2;
-        private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

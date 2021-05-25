@@ -15,6 +15,6 @@ namespace SBBD
     public partial class Settings
     {
         public string options { get; set; }
-        public Nullable<int> setting_value { get; set; }
+        public int setting_value { get; set; }
     }
 }

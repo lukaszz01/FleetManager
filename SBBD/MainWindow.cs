@@ -232,7 +232,7 @@ namespace SBBD
             {
                 changeBtnTransparent(selected, appSettings);
                 selected = 6;
-
+                appSettingsInfo();
                 HideOtherPanels(appSettingsPanel, this.Controls);
             }
         }
@@ -651,6 +651,18 @@ namespace SBBD
         }
         #endregion
 
+        private void appSettingsInfo()
+        {
+            var redDriver = context.Settings.Where(s => s.options == "driverDaysRed").FirstOrDefault();
+            var yellowDriver = context.Settings.Where(s => s.options == "driverDaysYellow").FirstOrDefault();
+            var warrningDriver = context.Settings.Where(s => s.options == "routeWarningDays").FirstOrDefault();
+            //var settingsList = context.Settings.Select(s => s).ToList();
+            warrningDriverTB.Text = warrningDriver.setting_value.ToString(); 
+            czerwony.Text = redDriver.setting_value.ToString();
+            zolty.Text = yellowDriver.setting_value.ToString();
+
+        }
+
         #region Usuwanie auta
         private void deleteVehicle()
         {
@@ -966,6 +978,12 @@ namespace SBBD
         private void dataGridView1_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
             DataGridView dgv = sender as DataGridView;
+            var redDriver = context.Settings.Where(s => s.options == "driverDaysRed").FirstOrDefault();
+            var yellowDriver = context.Settings.Where(s => s.options == "driverDaysYellow").FirstOrDefault();
+
+            int rD = redDriver.setting_value;
+            int yD = yellowDriver.setting_value;
+
 
             if (dgv.Columns[e.ColumnIndex].Name.Equals("licenceDateColumn"))
             {
@@ -973,14 +991,14 @@ namespace SBBD
                 if (e.Value != null)
                 {
                     days = ((DateTime)e.Value - DateTime.Now).TotalDays;
-                    if (days <= 7)
+                    if (days <= rD)
                     {
                         e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 101, 116);
                         e.CellStyle.ForeColor = Color.Black;
                         e.CellStyle.SelectionForeColor = Color.Black;
                     }
-                    else if (days <= 30)
+                    else if (days <= yD)
                     {
                         e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 152, 116);
@@ -996,14 +1014,14 @@ namespace SBBD
                 if (e.Value != null)
                 {
                     days = ((DateTime)e.Value - DateTime.Now).TotalDays;
-                    if (days <= 7)
+                    if (days <= rD)
                     {
                         e.CellStyle.BackColor = Color.FromArgb(158, 100, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 101, 116);
                         e.CellStyle.ForeColor = Color.Black;
                         e.CellStyle.SelectionForeColor = Color.Black;
                     }
-                    else if (days <= 30)
+                    else if (days <= yD)
                     {
                         e.CellStyle.BackColor = Color.FromArgb(158, 157, 100);
                         e.CellStyle.SelectionBackColor = Color.FromArgb(142, 152, 116);
@@ -1040,5 +1058,20 @@ namespace SBBD
             RouteReportForm.ShowDialog(veh.vehicle_id, false);
         }
 
+        private void settingsSave_Click(object sender, EventArgs e)
+        {
+            var redDriver = context.Settings.Where(s => s.options == "driverDaysRed").FirstOrDefault();
+            var yellowDriver = context.Settings.Where(s => s.options == "driverDaysYellow").FirstOrDefault();
+            var warrningDriver = context.Settings.Where(s => s.options == "routeWarningDays").FirstOrDefault();
+
+            redDriver.setting_value = Int32.Parse(czerwony.Text);
+            yellowDriver.setting_value = Int32.Parse(zolty.Text);
+            warrningDriver.setting_value = Int32.Parse(warrningDriverTB.Text);
+
+            context.SaveChanges();
+
+            allVehicles_Click(null, null);
+
+        }
     }
 }

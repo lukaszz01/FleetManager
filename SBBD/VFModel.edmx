@@ -36,7 +36,7 @@
             <PropertyRef Name="options" />
           </Key>
           <Property Name="options" Type="varchar" MaxLength="30" Nullable="false" />
-          <Property Name="setting_value" Type="int" />
+          <Property Name="setting_value" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="Users">
           <Key>
@@ -475,7 +475,7 @@
             <PropertyRef Name="options" />
           </Key>
           <Property Name="options" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="setting_value" Type="Int32" />
+          <Property Name="setting_value" Type="Int32" Nullable="false" />
         </EntityType>
         </Schema>
     </edmx:ConceptualModels>
