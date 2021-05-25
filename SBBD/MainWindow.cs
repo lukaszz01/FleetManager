@@ -90,6 +90,7 @@ namespace SBBD
             context.Vehicles.Load();
             context.Manufacturers.Load();
             context.Drivers.Load();
+            context.Settings.Load();
             Users tempUser = Login.logged_user_value;
             this.driversBindingSource.DataSource = context.Drivers.Local.ToBindingList();
             if (tempUser != null)
@@ -224,6 +225,18 @@ namespace SBBD
                 }
             }
         }
+        
+        private void appSettings_Click(object sender, EventArgs e)
+        {
+            if (selected != 6)
+            {
+                changeBtnTransparent(selected, appSettings);
+                selected = 6;
+
+                HideOtherPanels(appSettingsPanel, this.Controls);
+            }
+        }
+
         private void changeBtnTransparent(int num, CustomButton button)
         {
             switch (num)
@@ -245,6 +258,9 @@ namespace SBBD
                     break;
                 case 5:
                     logout.BackColor = Color.Transparent;
+                    break;
+                case 6:
+                    appSettings.BackColor = Color.Transparent;
                     break;
             }
             button.BackColor = Color.FromArgb(30, 35, 40);
@@ -1023,5 +1039,6 @@ namespace SBBD
             var veh = context.Vehicles.Where(v => v.registration_num == infoRegNum.Text).FirstOrDefault();
             RouteReportForm.ShowDialog(veh.vehicle_id, false);
         }
+
     }
 }

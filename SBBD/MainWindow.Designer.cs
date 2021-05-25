@@ -154,6 +154,14 @@ namespace SBBD
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.addDriverBtn = new SBBD.RoundedButton();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.firstnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lastnameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.licenceDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.medicalDateColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.availableColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.editPos = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.deletePos = new System.Windows.Forms.DataGridViewButtonColumn();
             this.driversBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.driverWarnLabel1 = new System.Windows.Forms.Label();
             this.driverWarnLabel2 = new System.Windows.Forms.Label();
@@ -168,6 +176,15 @@ namespace SBBD
             this.licenceNum = new SBBD.CustomTextBox();
             this.lastNameDriver = new SBBD.CustomTextBox();
             this.firstNameDriver = new SBBD.CustomTextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.appSettingsPanel = new System.Windows.Forms.Panel();
+            this.customTextBox6 = new SBBD.CustomTextBox();
+            this.customTextBox7 = new SBBD.CustomTextBox();
+            this.roundedButton2 = new SBBD.RoundedButton();
+            this.appSettings = new SBBD.CustomButton();
             this.driversButton = new SBBD.CustomButton();
             this.mainTitleBar = new SBBD.MoveBar();
             this.logout = new SBBD.CustomButton();
@@ -227,6 +244,9 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).BeginInit();
             this.addEditDriversPaneldupa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            this.appSettingsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
             this.SuspendLayout();
@@ -675,11 +695,11 @@ namespace SBBD
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Poppins", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
             this.label1.Location = new System.Drawing.Point(548, 367);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(105, 23);
+            this.label1.Size = new System.Drawing.Size(104, 16);
             this.label1.TabIndex = 53;
             this.label1.Text = "Przebieg (km)";
             // 
@@ -1842,6 +1862,115 @@ namespace SBBD
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             this.dataGridView1.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dataGridView1_CellFormatting);
             // 
+            // firstnameDataGridViewTextBoxColumn
+            // 
+            this.firstnameDataGridViewTextBoxColumn.DataPropertyName = "first_name";
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.firstnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
+            this.firstnameDataGridViewTextBoxColumn.HeaderText = "Imię";
+            this.firstnameDataGridViewTextBoxColumn.Name = "firstnameDataGridViewTextBoxColumn";
+            this.firstnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.firstnameDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // lastnameDataGridViewTextBoxColumn
+            // 
+            this.lastnameDataGridViewTextBoxColumn.DataPropertyName = "last_name";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
+            this.lastnameDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle3;
+            this.lastnameDataGridViewTextBoxColumn.HeaderText = "Nazwisko";
+            this.lastnameDataGridViewTextBoxColumn.Name = "lastnameDataGridViewTextBoxColumn";
+            this.lastnameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lastnameDataGridViewTextBoxColumn.Width = 170;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.DataPropertyName = "drivers_licence_num";
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dataGridViewTextBoxColumn1.HeaderText = "Nr. prawa jazdy";
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 165;
+            // 
+            // licenceDateColumn
+            // 
+            this.licenceDateColumn.DataPropertyName = "drivers_licence_exp_date";
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.NullValue = null;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
+            this.licenceDateColumn.DefaultCellStyle = dataGridViewCellStyle5;
+            this.licenceDateColumn.HeaderText = "Prawo jazdy";
+            this.licenceDateColumn.Name = "licenceDateColumn";
+            this.licenceDateColumn.ReadOnly = true;
+            this.licenceDateColumn.Width = 140;
+            // 
+            // medicalDateColumn
+            // 
+            this.medicalDateColumn.DataPropertyName = "med_examination_date";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.Format = "d";
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.medicalDateColumn.DefaultCellStyle = dataGridViewCellStyle6;
+            this.medicalDateColumn.HeaderText = "Badanie lekarskie";
+            this.medicalDateColumn.Name = "medicalDateColumn";
+            this.medicalDateColumn.ReadOnly = true;
+            this.medicalDateColumn.Width = 140;
+            // 
+            // availableColumn
+            // 
+            this.availableColumn.DataPropertyName = "available";
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(40)))), ((int)(((byte)(45)))));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle7.Format = "{0:Tak;0;Nie}";
+            dataGridViewCellStyle7.NullValue = null;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.White;
+            this.availableColumn.DefaultCellStyle = dataGridViewCellStyle7;
+            this.availableColumn.HeaderText = "Dostępność";
+            this.availableColumn.Name = "availableColumn";
+            this.availableColumn.ReadOnly = true;
+            this.availableColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.availableColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.availableColumn.Width = 80;
+            // 
+            // editPos
+            // 
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(75)))), ((int)(((byte)(80)))));
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.editPos.DefaultCellStyle = dataGridViewCellStyle8;
+            this.editPos.HeaderText = "";
+            this.editPos.Name = "editPos";
+            this.editPos.ReadOnly = true;
+            this.editPos.Text = "Edytuj";
+            this.editPos.UseColumnTextForButtonValue = true;
+            this.editPos.Width = 60;
+            // 
+            // deletePos
+            // 
+            this.driversBindingSource.DataSource = typeof(SBBD.Drivers);
+            // 
             // driversBindingSource
             // 
             this.driversBindingSource.DataSource = typeof(SBBD.Drivers);
@@ -2040,6 +2169,230 @@ namespace SBBD
             this.firstNameDriver.TabIndex = 9;
             this.firstNameDriver.Text = "Imie";
             this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // driversButton
+            // 
+            this.roundedButton1.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButton1.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.roundedButton1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButton1.FlatAppearance.BorderSize = 0;
+            this.roundedButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.roundedButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.roundedButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.roundedButton1.ForeColor = System.Drawing.Color.White;
+            this.roundedButton1.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.roundedButton1.Location = new System.Drawing.Point(602, 520);
+            this.roundedButton1.Name = "roundedButton1";
+            this.roundedButton1.RoundRadius = 30;
+            this.roundedButton1.Size = new System.Drawing.Size(140, 30);
+            this.roundedButton1.TabIndex = 14;
+            this.roundedButton1.Text = "Dodaj do bazy";
+            this.roundedButton1.UseVisualStyleBackColor = false;
+            // 
+            // medExamDate
+            // 
+            this.medExamDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.medExamDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.medExamDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.medExamDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.medExamDate.IsPassword = false;
+            this.medExamDate.Location = new System.Drawing.Point(127, 330);
+            this.medExamDate.Name = "medExamDate";
+            this.medExamDate.PlaceHolder = "";
+            this.medExamDate.Size = new System.Drawing.Size(160, 15);
+            this.medExamDate.TabIndex = 13;
+            this.medExamDate.Text = "Data waż. badania";
+            this.medExamDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // licenceExpDate
+            // 
+            this.licenceExpDate.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.licenceExpDate.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.licenceExpDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.licenceExpDate.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.licenceExpDate.IsPassword = false;
+            this.licenceExpDate.Location = new System.Drawing.Point(148, 277);
+            this.licenceExpDate.Name = "licenceExpDate";
+            this.licenceExpDate.PlaceHolder = "";
+            this.licenceExpDate.Size = new System.Drawing.Size(160, 15);
+            this.licenceExpDate.TabIndex = 12;
+            this.licenceExpDate.Text = "Data ważności PJ";
+            this.licenceExpDate.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // licenceNum
+            // 
+            this.licenceNum.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.licenceNum.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.licenceNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.licenceNum.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.licenceNum.IsPassword = false;
+            this.licenceNum.Location = new System.Drawing.Point(125, 230);
+            this.licenceNum.Name = "licenceNum";
+            this.licenceNum.PlaceHolder = "";
+            this.licenceNum.Size = new System.Drawing.Size(160, 15);
+            this.licenceNum.TabIndex = 11;
+            this.licenceNum.Text = "Numer PJ";
+            this.licenceNum.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // lastNameDriver
+            // 
+            this.lastNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.lastNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.lastNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.lastNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.lastNameDriver.IsPassword = false;
+            this.lastNameDriver.Location = new System.Drawing.Point(127, 177);
+            this.lastNameDriver.Name = "lastNameDriver";
+            this.lastNameDriver.PlaceHolder = "";
+            this.lastNameDriver.Size = new System.Drawing.Size(160, 15);
+            this.lastNameDriver.TabIndex = 10;
+            this.lastNameDriver.Text = "Nazwisko";
+            this.lastNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // firstNameDriver
+            // 
+            this.firstNameDriver.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.firstNameDriver.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.firstNameDriver.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.firstNameDriver.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.firstNameDriver.IsPassword = false;
+            this.firstNameDriver.Location = new System.Drawing.Point(127, 131);
+            this.firstNameDriver.Name = "firstNameDriver";
+            this.firstNameDriver.PlaceHolder = "";
+            this.firstNameDriver.Size = new System.Drawing.Size(160, 15);
+            this.firstNameDriver.TabIndex = 9;
+            this.firstNameDriver.Text = "Imie";
+            this.firstNameDriver.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.pictureBox6.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.pictureBox6.Location = new System.Drawing.Point(363, 25);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(10, 10);
+            this.pictureBox6.TabIndex = 41;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.pictureBox5.BackgroundImage = global::SBBD.Properties.Resources.question;
+            this.pictureBox5.Location = new System.Drawing.Point(360, 71);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(10, 10);
+            this.pictureBox5.TabIndex = 42;
+            this.pictureBox5.TabStop = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.White;
+            this.label3.Location = new System.Drawing.Point(23, 19);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(119, 16);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "Ważność badań";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label10.ForeColor = System.Drawing.Color.White;
+            this.label10.Location = new System.Drawing.Point(23, 65);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(158, 16);
+            this.label10.TabIndex = 54;
+            this.label10.Text = "Ważność prawa jazdy";
+            // 
+            // appSettingsPanel
+            // 
+            this.appSettingsPanel.BackColor = System.Drawing.Color.Transparent;
+            this.appSettingsPanel.BackgroundImage = global::SBBD.Properties.Resources.ConfirmBG;
+            this.appSettingsPanel.Controls.Add(this.label10);
+            this.appSettingsPanel.Controls.Add(this.label3);
+            this.appSettingsPanel.Controls.Add(this.customTextBox6);
+            this.appSettingsPanel.Controls.Add(this.customTextBox7);
+            this.appSettingsPanel.Controls.Add(this.roundedButton2);
+            this.appSettingsPanel.Controls.Add(this.pictureBox5);
+            this.appSettingsPanel.Controls.Add(this.pictureBox6);
+            this.appSettingsPanel.Location = new System.Drawing.Point(200, 26);
+            this.appSettingsPanel.Name = "appSettingsPanel";
+            this.appSettingsPanel.Size = new System.Drawing.Size(1080, 704);
+            this.appSettingsPanel.TabIndex = 54;
+            this.appSettingsPanel.Visible = false;
+            // 
+            // customTextBox6
+            // 
+            this.customTextBox6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.customTextBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.customTextBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.customTextBox6.IsPassword = false;
+            this.customTextBox6.Location = new System.Drawing.Point(187, 66);
+            this.customTextBox6.Name = "customTextBox6";
+            this.customTextBox6.PlaceHolder = "np. Czarny";
+            this.customTextBox6.Size = new System.Drawing.Size(160, 15);
+            this.customTextBox6.TabIndex = 6;
+            this.customTextBox6.Text = "np. Czarny";
+            this.customTextBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // customTextBox7
+            // 
+            this.customTextBox7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(52)))), ((int)(((byte)(60)))));
+            this.customTextBox7.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.customTextBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.customTextBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(77)))), ((int)(((byte)(77)))), ((int)(((byte)(77)))));
+            this.customTextBox7.IsPassword = false;
+            this.customTextBox7.Location = new System.Drawing.Point(187, 20);
+            this.customTextBox7.Name = "customTextBox7";
+            this.customTextBox7.PlaceHolder = "np. LHR12345";
+            this.customTextBox7.Size = new System.Drawing.Size(160, 15);
+            this.customTextBox7.TabIndex = 5;
+            this.customTextBox7.Text = "np. LHR12345";
+            this.customTextBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // roundedButton2
+            // 
+            this.roundedButton2.BackColor = System.Drawing.Color.Transparent;
+            this.roundedButton2.ButtonColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
+            this.roundedButton2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.roundedButton2.FlatAppearance.BorderSize = 0;
+            this.roundedButton2.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.roundedButton2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.roundedButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundedButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
+            this.roundedButton2.ForeColor = System.Drawing.Color.White;
+            this.roundedButton2.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
+            this.roundedButton2.Location = new System.Drawing.Point(900, 579);
+            this.roundedButton2.Name = "roundedButton2";
+            this.roundedButton2.RoundRadius = 30;
+            this.roundedButton2.Size = new System.Drawing.Size(140, 30);
+            this.roundedButton2.TabIndex = 50;
+            this.roundedButton2.TabStop = false;
+            this.roundedButton2.Text = "+ Dodaj auto!";
+            this.roundedButton2.UseVisualStyleBackColor = true;
+            // 
+            // appSettings
+            // 
+            this.appSettings.BackColor = System.Drawing.Color.Transparent;
+            this.appSettings.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.appSettings.FlatAppearance.BorderSize = 0;
+            this.appSettings.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.appSettings.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.appSettings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.appSettings.ImageActive = global::SBBD.Properties.Resources.MWB5on;
+            this.appSettings.ImageInactive = global::SBBD.Properties.Resources.MWB5off;
+            this.appSettings.Location = new System.Drawing.Point(0, 402);
+            this.appSettings.Name = "appSettings";
+            this.appSettings.SelectedColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
+            this.appSettings.SelectedMenuItem = false;
+            this.appSettings.Size = new System.Drawing.Size(200, 50);
+            this.appSettings.TabIndex = 62;
+            this.appSettings.UseVisualStyleBackColor = false;
+            this.appSettings.Click += new System.EventHandler(this.appSettings_Click);
             // 
             // driversButton
             // 
@@ -2352,6 +2705,8 @@ namespace SBBD
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::SBBD.Properties.Resources.MW4;
             this.ClientSize = new System.Drawing.Size(1280, 730);
+            this.Controls.Add(this.appSettingsPanel);
+            this.Controls.Add(this.appSettings);
             this.Controls.Add(this.driversButton);
             this.Controls.Add(this.driversPanel);
             this.Controls.Add(this.addVehiclePanel);
@@ -2424,6 +2779,10 @@ namespace SBBD
             ((System.ComponentModel.ISupportInitialize)(this.driversBindingSource)).EndInit();
             this.addEditDriversPaneldupa.ResumeLayout(false);
             this.addEditDriversPaneldupa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            this.appSettingsPanel.ResumeLayout(false);
+            this.appSettingsPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.mainTitleBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
             this.ResumeLayout(false);
@@ -2580,5 +2939,17 @@ namespace SBBD
         private System.Windows.Forms.DataGridViewButtonColumn editPos;
         private System.Windows.Forms.DataGridViewButtonColumn deletePos;
         private System.Windows.Forms.DataGridViewButtonColumn reportPos;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private RoundedButton generateReportVeh;
+        private CustomButton appSettings;
+        private System.Windows.Forms.Panel appSettingsPanel;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label3;
+        private CustomTextBox customTextBox6;
+        private CustomTextBox customTextBox7;
+        private RoundedButton roundedButton2;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.PictureBox pictureBox6;
     }
 }

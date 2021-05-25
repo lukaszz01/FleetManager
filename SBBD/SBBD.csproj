@@ -136,6 +136,9 @@
     <Compile Include="RouteReport.Designer.cs">
       <DependentUpon>RouteReport.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settings.cs">
+      <DependentUpon>VFModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Users.cs">
       <DependentUpon>VFModel.tt</DependentUpon>
     </Compile>
@@ -202,6 +205,7 @@
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Drivers.datasource" />
     <None Include="Properties\DataSources\Manufacturers.datasource" />
+    <None Include="Properties\DataSources\Settings.datasource" />
     <None Include="Properties\DataSources\Vehicles.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

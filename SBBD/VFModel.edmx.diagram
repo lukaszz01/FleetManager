@@ -21,6 +21,7 @@
         <EntityTypeShape EntityType="Vehicle_FleetModel.Vehicles_Routes" Width="1.5" PointX="8.25" PointY="3.875" />
         <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Roudes_Drivers" />
         <AssociationConnector Association="Vehicle_FleetModel.FK_Vehicles_Roudes_Vehicles" />
+        <EntityTypeShape EntityType="Vehicle_FleetModel.Settings" Width="1.5" PointX="7.375" PointY="7.75" />
         </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

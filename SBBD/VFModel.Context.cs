@@ -34,5 +34,6 @@ namespace SBBD
         public virtual DbSet<Models> Models { get; set; }
         public virtual DbSet<Drivers> Drivers { get; set; }
         public virtual DbSet<Vehicles_Routes> Vehicles_Routes { get; set; }
+        public virtual DbSet<Settings> Settings { get; set; }
     }
 }

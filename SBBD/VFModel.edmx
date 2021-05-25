@@ -31,6 +31,13 @@
           <Property Name="model_name" Type="varchar" MaxLength="20" Nullable="false" />
           <Property Name="manufacturer_name" Type="varchar" MaxLength="20" Nullable="false" />
         </EntityType>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="options" />
+          </Key>
+          <Property Name="options" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="setting_value" Type="int" />
+        </EntityType>
         <EntityType Name="Users">
           <Key>
             <PropertyRef Name="email" />
@@ -189,6 +196,7 @@
           <EntitySet Name="Drivers" EntityType="Self.Drivers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Manufacturers" EntityType="Self.Manufacturers" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Models" EntityType="Self.Models" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Settings" EntityType="Self.Settings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicle_Service" EntityType="Self.Vehicle_Service" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Vehicles" EntityType="Self.Vehicles" Schema="dbo" store:Type="Tables" />
@@ -382,6 +390,7 @@
             <End Role="Vehicles" EntitySet="Vehicles" />
             <End Role="Vehicles_Routes" EntitySet="Vehicles_Routes" />
           </AssociationSet>
+          <EntitySet Name="Settings" EntityType="Vehicle_FleetModel.Settings" />
           </EntityContainer>
         <EntityType Name="Manufacturers">
           <Key>
@@ -461,6 +470,13 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="Settings">
+          <Key>
+            <PropertyRef Name="options" />
+          </Key>
+          <Property Name="options" Type="String" Nullable="false" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="setting_value" Type="Int32" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -569,6 +585,14 @@
                 <ScalarProperty Name="vehicle_id" ColumnName="vehicle_id" />
                 <ScalarProperty Name="driver_id" ColumnName="driver_id" />
                 <ScalarProperty Name="route_id" ColumnName="route_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Settings">
+            <EntityTypeMapping TypeName="Vehicle_FleetModel.Settings">
+              <MappingFragment StoreEntitySet="Settings">
+                <ScalarProperty Name="setting_value" ColumnName="setting_value" />
+                <ScalarProperty Name="options" ColumnName="options" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
