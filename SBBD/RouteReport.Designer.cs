@@ -50,10 +50,10 @@ namespace SBBD
             this.reportCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.reportCancel.ForeColor = System.Drawing.Color.White;
             this.reportCancel.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.reportCancel.Location = new System.Drawing.Point(48, 183);
+            this.reportCancel.Location = new System.Drawing.Point(20, 100);
             this.reportCancel.Name = "reportCancel";
             this.reportCancel.RoundRadius = 30;
-            this.reportCancel.Size = new System.Drawing.Size(140, 30);
+            this.reportCancel.Size = new System.Drawing.Size(120, 27);
             this.reportCancel.TabIndex = 45;
             this.reportCancel.Text = "Anuluj";
             this.reportCancel.UseVisualStyleBackColor = false;
@@ -71,10 +71,10 @@ namespace SBBD
             this.reportOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold);
             this.reportOK.ForeColor = System.Drawing.Color.White;
             this.reportOK.HoverColor = System.Drawing.Color.FromArgb(((int)(((byte)(72)))), ((int)(((byte)(150)))), ((int)(((byte)(253)))));
-            this.reportOK.Location = new System.Drawing.Point(202, 183);
+            this.reportOK.Location = new System.Drawing.Point(158, 100);
             this.reportOK.Name = "reportOK";
             this.reportOK.RoundRadius = 30;
-            this.reportOK.Size = new System.Drawing.Size(140, 30);
+            this.reportOK.Size = new System.Drawing.Size(120, 27);
             this.reportOK.TabIndex = 44;
             this.reportOK.Text = "Zatwierdź";
             this.reportOK.UseVisualStyleBackColor = false;
@@ -88,7 +88,7 @@ namespace SBBD
             this.reportStartDate.CalendarTrailingForeColor = System.Drawing.Color.White;
             this.reportStartDate.CustomFormat = "dd MMMM yyyy";
             this.reportStartDate.ForeColor = System.Drawing.Color.White;
-            this.reportStartDate.Location = new System.Drawing.Point(173, 45);
+            this.reportStartDate.Location = new System.Drawing.Point(120, 25);
             this.reportStartDate.Name = "reportStartDate";
             this.reportStartDate.Size = new System.Drawing.Size(158, 20);
             this.reportStartDate.TabIndex = 46;
@@ -102,7 +102,7 @@ namespace SBBD
             this.reportEndDate.CalendarTrailingForeColor = System.Drawing.Color.White;
             this.reportEndDate.CustomFormat = "dd MMMM yyyy";
             this.reportEndDate.ForeColor = System.Drawing.Color.White;
-            this.reportEndDate.Location = new System.Drawing.Point(173, 110);
+            this.reportEndDate.Location = new System.Drawing.Point(120, 60);
             this.reportEndDate.Name = "reportEndDate";
             this.reportEndDate.Size = new System.Drawing.Size(158, 20);
             this.reportEndDate.TabIndex = 47;
@@ -110,9 +110,10 @@ namespace SBBD
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(45, 45);
+            this.label2.Location = new System.Drawing.Point(28, 28);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 16);
             this.label2.TabIndex = 48;
@@ -121,9 +122,10 @@ namespace SBBD
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(45, 110);
+            this.label1.Location = new System.Drawing.Point(28, 60);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 16);
             this.label1.TabIndex = 49;
@@ -134,7 +136,8 @@ namespace SBBD
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(35)))), ((int)(((byte)(40)))));
-            this.ClientSize = new System.Drawing.Size(400, 236);
+            this.BackgroundImage = global::SBBD.Properties.Resources.BGcustomMBX2;
+            this.ClientSize = new System.Drawing.Size(300, 150);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.reportEndDate);

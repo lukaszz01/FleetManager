@@ -423,6 +423,16 @@ namespace SBBD.Properties {
         /// <summary>
         ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap infoBG {
+            get {
+                object obj = ResourceManager.GetObject("infoBG", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Log1 {
             get {
                 object obj = ResourceManager.GetObject("Log1", resourceCulture);
@@ -856,6 +866,16 @@ namespace SBBD.Properties {
         internal static System.Drawing.Bitmap tlo1153 {
             get {
                 object obj = ResourceManager.GetObject("tlo1153", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap userInfoBG {
+            get {
+                object obj = ResourceManager.GetObject("userInfoBG", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

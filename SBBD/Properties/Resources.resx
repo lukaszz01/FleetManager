@@ -163,9 +163,6 @@
   <data name="editWindow1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editWindow1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="tlo1153" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\tlo1153.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="NumCircleLeft_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NumCircleLeft_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -178,8 +175,8 @@
   <data name="BL1on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BL1on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="PhotoBTN_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\PhotoBTN_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="tlo1153" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\tlo1153.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Reg1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Reg1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -211,6 +208,9 @@
   <data name="editWindow" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editWindow.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="NumCircleRight_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\NumCircleRight_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MW3" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MW3.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -219,6 +219,9 @@
   </data>
   <data name="NumCircleRight_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NumCircleRight_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="driversBTN_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\driversBTN_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="vehicleCheck1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\vehicleCheck1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -240,6 +243,9 @@
   </data>
   <data name="VehInfoBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\VehInfoBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MWB2on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MWB2on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="AvaliableBG21" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\AvaliableBG21.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -265,6 +271,9 @@
   <data name="BGcustomMBX2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BGcustomMBX2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="driversBTN_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\driversBTN_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="MWB3off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MWB3off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -283,8 +292,8 @@
   <data name="MWB5off" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MWB5off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="MWB2on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MWB2on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="hidePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\hidePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MWB1on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MWB1on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -292,11 +301,8 @@
   <data name="Logowanie2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Logowanie2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="NumCircleRight_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\NumCircleRight_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MWB3on" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MWB3on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="PhotoBTN_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\PhotoBTN_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="question" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\question.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -304,11 +310,8 @@
   <data name="filterBG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\filterBG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="hidePassword" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\hidePassword.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="MWB7off" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\MWB7off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="MWB3on" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MWB3on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="MWB5on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MWB5on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -337,6 +340,9 @@
   <data name="BR1on" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\BR1on.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="userInfoBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\userInfoBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="NumCircleLeft_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\NumCircleLeft_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -345,6 +351,9 @@
   </data>
   <data name="MW2" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\MW2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="MWB7off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\MWB7off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="edit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\edit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -361,10 +370,7 @@
   <data name="editDriverBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\editDriverBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="driversBTN_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\driversBTN_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="driversBTN_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\driversBTN_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="infoBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\infoBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

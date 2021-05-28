@@ -118,19 +118,28 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="driversBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\driversBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="settingsBTN_active" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\settingsBTN_active.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editDriverBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\editDriverBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="addDriverBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>Resources\addDriverBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="driversBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\driversBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settingsBTN_inactive" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\settingsBTN_inactive.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="addDriverBG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\addDriverBG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="editDriverBG1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>Resources\editDriverBG1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="addDriverBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\addDriverBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="settingsBG" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>Resources\settingsBG.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -394,6 +394,11 @@
     <None Include="Resources\driversBTN_active.png" />
     <None Include="Resources\driversBTN_inactive.png" />
     <None Include="Resources\editDriverBG1.png" />
+    <None Include="Resources\settingsBTN_active.png" />
+    <None Include="Resources\settingsBTN_inactive.png" />
+    <None Include="Resources\settingsBG.png" />
+    <None Include="Resources\userInfoBG.png" />
+    <None Include="Resources\infoBG.png" />
     <Content Include="VFModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VFModel.edmx</DependentUpon>
