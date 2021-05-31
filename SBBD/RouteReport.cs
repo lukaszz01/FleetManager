@@ -137,6 +137,12 @@ namespace SBBD
                         //int days = 0;
                         int totalDays = 0;
                         PdfPTable table = new PdfPTable(5);
+                        PdfPCell cell0 = new PdfPCell(new Phrase($"Raport tras samochodu od {reportStartDate.Text} do {reportEndDate.Text}"));
+                        cell0.Colspan = 5;
+                        cell0.HorizontalAlignment = 1;
+                        cell0.BorderWidth = 0;
+                        cell0.PaddingBottom = 20;
+                        table.AddCell(cell0);
                         PdfPCell cell1 = new PdfPCell(new Phrase($"{vehicle.manufacturer} {vehicle.model} {vehicle.registration_num}"));
                         cell1.Colspan = 5;
                         cell1.HorizontalAlignment = 1;
@@ -182,6 +188,12 @@ namespace SBBD
                     
 
                     PdfPTable table = new PdfPTable(4);
+                    PdfPCell cell0 = new PdfPCell(new Phrase($"Raport tras kierowcy od {reportStartDate.Text} do {reportEndDate.Text}"));
+                    cell0.Colspan = 5;
+                    cell0.HorizontalAlignment = 1;
+                    cell0.BorderWidth = 0;
+                    cell0.PaddingBottom = 20;
+                    table.AddCell(cell0);
                     PdfPCell cell1 = new PdfPCell(new Phrase($"{driver.first_name} {driver.last_name}"));
                     
                     cell1.Colspan = 4;
