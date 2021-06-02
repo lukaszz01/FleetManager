@@ -120,7 +120,7 @@ namespace SBBD
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Pdf File |*.pdf";
-            
+            sfd.FileName = $"raport_{startDate.ToString("dd-MM-yyyy")}_{endDate.ToString("dd-MM-yyyy")}";
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 Document doc = new Document();
