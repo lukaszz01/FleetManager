@@ -120,7 +120,20 @@ namespace SBBD
         {
             SaveFileDialog sfd = new SaveFileDialog();
             sfd.Filter = "Pdf File |*.pdf";
-            sfd.FileName = $"raport_{startDate.ToString("dd-MM-yyyy")}_{endDate.ToString("dd-MM-yyyy")}";
+            if(isVeh)
+            {
+                Vehicles vehcl = context.Vehicles.Where(v => v.vehicle_id == vehicleOrDiverId).FirstOrDefault();
+                sfd.FileName = $"raport_tras_pojazdu_{vehcl.registration_num}_{startDate.ToString("dd-MM-yyyy")}_{endDate.ToString("dd-MM-yyyy")}";
+                vehcl = null;
+            }
+            else
+            {
+                Drivers drvr = context.Drivers.Where(d => d.driver_id == vehicleOrDiverId).FirstOrDefault();
+                sfd.FileName = $"raport_tras_kierowcy_{drvr.first_name}_{drvr.last_name}_{startDate.ToString("dd-MM-yyyy")}_{endDate.ToString("dd-MM-yyyy")}";
+                drvr = null;
+            }
+            
+            
             if (sfd.ShowDialog() == DialogResult.OK)
             {
                 Document doc = new Document();
